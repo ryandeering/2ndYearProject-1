@@ -12,24 +12,23 @@ import play.data.validation.*;
 @Table(name = "USER")
 // map subclasses to a single table
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-// the discriminator column is used to define User type
-@DiscriminatorColumn(name = "role")
-// the User type of this class (the base class) is "User"
-@DiscriminatorValue("user")
+//the discriminator column is used to define User type
+@DiscriminatorColumn(name="role")
+@DiscriminatorValue("admin")
 
 public class User extends Model {
     @Id
     private String email;
 
-    @Constraints.Required
-    private String role;
 
-    @Constraints.Required
-    private String name;
-    
-    @Constraints.Required
+    private String fName;
+
+    private String lName;
+
     private String password;
 
+    @Column(insertable=false,updatable=false)
+    private String role;
 
 
 
@@ -55,12 +54,13 @@ public class User extends Model {
 
     }
 
-    public User(String email, String name, String password) {
+    public User(String email, String fName, String lName, String password) {
         this.email = email;
-        this.name = name;
+        this.fName = fName;
+        this.lName = lName;
         this.password = password;
-    }
 
+    }
 
     public String getEmail() {
         return email;
@@ -70,21 +70,6 @@ public class User extends Model {
         this.email = email;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getPassword() {
         return password;
@@ -92,5 +77,25 @@ public class User extends Model {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getfName() {
+        return fName;
+    }
+
+    public void setfName(String fName) {
+        this.fName = fName;
+    }
+
+    public String getlName() {
+        return lName;
+    }
+
+    public void setlName(String lName) {
+        this.lName = lName;
+    }
+
+    public static Finder<Long, User> getFind() {
+        return find;
     }
 }

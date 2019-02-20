@@ -1,208 +1,184 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/basket.scala.html:1:1: type Customer is not a member of package models.users[0m
-[0m[[0m[31merror[0m] [0m[0m@(customer: models.users.Customer)[0m
-[0m[[0m[31merror[0m] [0m[0m^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/basket.scala.html:1:26: type Customer is not a member of package models.users[0m
-[0m[[0m[31merror[0m] [0m[0m@(customer: models.users.Customer)[0m
-[0m[[0m[31merror[0m] [0m[0m                         ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/basket.scala.html:5:16: object shopping is not a member of package models[0m
-[0m[[0m[31merror[0m] [0m[0m@import models.shopping._[0m
-[0m[[0m[31merror[0m] [0m[0m               ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/basket.scala.html:6:16: object products is not a member of package models[0m
-[0m[[0m[31merror[0m] [0m[0m@import models.products._[0m
-[0m[[0m[31merror[0m] [0m[0m               ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/basket.scala.html:59:38: value ShoppingCtrl is not a member of object controllers.routes[0m
-[0m[[0m[31merror[0m] [0m[0m                    <a href="@routes.ShoppingCtrl.emptyBasket()" class="btn btn-danger btn-sm" onclick="return confirmDel();">[0m
-[0m[[0m[31merror[0m] [0m[0m                                     ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/basket.scala.html:65:38: value ShoppingCtrl is not a member of object controllers.routes[0m
-[0m[[0m[31merror[0m] [0m[0m                    <a href="@routes.ShoppingCtrl.placeOrder()" class="btn btn-success btn-sm">[0m
-[0m[[0m[31merror[0m] [0m[0m                                     ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/basket.scala.html:79:2: type Customer is not a member of package models.users[0m
-[0m[[0m[31merror[0m] [0m[0m}[0m
-[0m[[0m[31merror[0m] [0m[0m ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/listProducts.scala.html:1:16: object products is not a member of package models[0m
-[0m[[0m[31merror[0m] [0m[0m@import models.products.Category[0m
-[0m[[0m[31merror[0m] [0m[0m               ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/listProducts.scala.html:2:16: object products is not a member of package models[0m
-[0m[[0m[31merror[0m] [0m[0m@import models.products.Product[0m
-[0m[[0m[31merror[0m] [0m[0m               ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/listProducts.scala.html:16:7: not found: type Category[0m
-[0m[[0m[31merror[0m] [0m[0m	<div class="row">[0m
-[0m[[0m[31merror[0m] [0m[0m	     ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/listProducts.scala.html:4:47: not found: type Category[0m
-[0m[[0m[31merror[0m] [0m[0m@(env: play.api.Environment, categories: List[Category], products: List[Product], catId: Long, filter: String, user: User)[0m
-[0m[[0m[31merror[0m] [0m[0m                                              ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/listProducts.scala.html:21:21: value ProductCtrl is not a member of object controllers.routes[0m
-[0m[[0m[31merror[0m] [0m[0m			<a href="@routes.ProductCtrl.listProducts(0, filter)" class="list-group-item">All categories</a>[0m
-[0m[[0m[31merror[0m] [0m[0m			                 ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/listProducts.scala.html:22:9: missing parameter type[0m
-[0m[[0m[31merror[0m] [0m[0m			@for(c <- categories) {[0m
-[0m[[0m[31merror[0m] [0m[0m			     ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/listProducts.scala.html:23:20: value ProductCtrl is not a member of object controllers.routes[0m
-[0m[[0m[31merror[0m] [0m[0m		<a href="@routes.ProductCtrl.listProducts(c.getId, filter)" class="list-group-item">@c.getName</a>[0m
-[0m[[0m[31merror[0m] [0m[0m		                 ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/listProducts.scala.html:37:27: value ProductCtrl is not a member of object controllers.routes[0m
-[0m[[0m[31merror[0m] [0m[0m			 <form action="@routes.ProductCtrl.listProducts(catId)" method="GET">[0m
-[0m[[0m[31merror[0m] [0m[0m			                       ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/listProducts.scala.html:60:70: value getId is not a member of Product[0m
-[0m[[0m[31merror[0m] [0m[0m						@if(env.resource("public/images/productImages/thumbnails/" + p.getId + ".jpg").isDefined) {[0m
-[0m[[0m[31merror[0m] [0m[0m						                                                               ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/listProducts.scala.html:61:66: value getId is not a member of Product[0m
-[0m[[0m[31merror[0m] [0m[0m							<td><img src="/assets/images/productImages/thumbnails/@(p.getId).jpg"/></td>[0m
-[0m[[0m[31merror[0m] [0m[0m							                                                          ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/listProducts.scala.html:65:14: value getName is not a member of Product[0m
-[0m[[0m[31merror[0m] [0m[0m						<td>@p.getName</td>[0m
-[0m[[0m[31merror[0m] [0m[0m						       ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/listProducts.scala.html:66:14: value getDescription is not a member of Product[0m
-[0m[[0m[31merror[0m] [0m[0m						<td>@p.getDescription</td>[0m
-[0m[[0m[31merror[0m] [0m[0m						       ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/listProducts.scala.html:67:14: value getStock is not a member of Product[0m
-[0m[[0m[31merror[0m] [0m[0m						<td>@p.getStock</td>[0m
-[0m[[0m[31merror[0m] [0m[0m						       ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/listProducts.scala.html:68:36: value getPrice is not a member of Product[0m
-[0m[[0m[31merror[0m] [0m[0m						<td>&euro; @("%.2f".format(p.getPrice))</td>[0m
-[0m[[0m[31merror[0m] [0m[0m						                             ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/listProducts.scala.html:69:28: value ShoppingCtrl is not a member of object controllers.routes[0m
-[0m[[0m[31merror[0m] [0m[0m						<td><a href="@routes.ShoppingCtrl.addToBasket(p.getId)"  class="btn btn-default btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>[0m
-[0m[[0m[31merror[0m] [0m[0m						                     ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/listProducts.scala.html:69:55: value getId is not a member of Product[0m
-[0m[[0m[31merror[0m] [0m[0m						<td><a href="@routes.ShoppingCtrl.addToBasket(p.getId)"  class="btn btn-default btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>[0m
-[0m[[0m[31merror[0m] [0m[0m						                                                ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/listProducts.scala.html:77:2: not found: type Category[0m
-[0m[[0m[31merror[0m] [0m[0m}[0m
-[0m[[0m[31merror[0m] [0m[0m ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/orderConfirmed.scala.html:1:1: type Customer is not a member of package models.users[0m
-[0m[[0m[31merror[0m] [0m[0m@(customer: models.users.Customer, order: models.shopping.ShopOrder)[0m
-[0m[[0m[31merror[0m] [0m[0m^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/orderConfirmed.scala.html:1:26: type Customer is not a member of package models.users[0m
-[0m[[0m[31merror[0m] [0m[0m@(customer: models.users.Customer, order: models.shopping.ShopOrder)[0m
-[0m[[0m[31merror[0m] [0m[0m                         ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/orderConfirmed.scala.html:1:50: object shopping is not a member of package models[0m
-[0m[[0m[31merror[0m] [0m[0m@(customer: models.users.Customer, order: models.shopping.ShopOrder)[0m
-[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/orderConfirmed.scala.html:5:16: object shopping is not a member of package models[0m
-[0m[[0m[31merror[0m] [0m[0m@import models.shopping._[0m
-[0m[[0m[31merror[0m] [0m[0m               ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/orderConfirmed.scala.html:6:16: object products is not a member of package models[0m
-[0m[[0m[31merror[0m] [0m[0m@import models.products._[0m
-[0m[[0m[31merror[0m] [0m[0m               ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/orderConfirmed.scala.html:54:2: type Customer is not a member of package models.users[0m
-[0m[[0m[31merror[0m] [0m[0m}[0m
-[0m[[0m[31merror[0m] [0m[0m ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/addProduct.scala.html:1:1: object products is not a member of package models[0m
-[0m[[0m[31merror[0m] [0m[0m@(addProductForm: Form[models.products.Product], user: models.users.User)[0m
-[0m[[0m[31merror[0m] [0m[0m^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/addProduct.scala.html:1:31: object products is not a member of package models[0m
-[0m[[0m[31merror[0m] [0m[0m@(addProductForm: Form[models.products.Product], user: models.users.User)[0m
-[0m[[0m[31merror[0m] [0m[0m                              ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/addProduct.scala.html:4:16: object products is not a member of package models[0m
-[0m[[0m[31merror[0m] [0m[0m@import models.products._[0m
-[0m[[0m[31merror[0m] [0m[0m               ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/addProduct.scala.html:16:24: value AdminProductCtrl is not a member of object controllers.routes[0m
-[0m[[0m[31merror[0m] [0m[0m	@form(action = routes.AdminProductCtrl.addProductSubmit(), 'class -> "form-horizontal", 'role->"form", 'enctype -> "multipart/form-data") {[0m
-[0m[[0m[31merror[0m] [0m[0m	                      ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/addProduct.scala.html:25:31: not found: value Category[0m
-[0m[[0m[31merror[0m] [0m[0m        @for((value, name) <- Category.options) {[0m
-[0m[[0m[31merror[0m] [0m[0m                              ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/addProduct.scala.html:41:21: value AdminProductCtrl is not a member of object controllers.routes[0m
-[0m[[0m[31merror[0m] [0m[0m			<a href="@routes.AdminProductCtrl.listProducts(0)"[0m
-[0m[[0m[31merror[0m] [0m[0m			                 ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/addProduct.scala.html:47:31: object products is not a member of package models[0m
-[0m[[0m[31merror[0m] [0m[0m} <!-- End of page content -->[0m
-[0m[[0m[31merror[0m] [0m[0m                              ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/listProducts.scala.html:1:16: object products is not a member of package models[0m
-[0m[[0m[31merror[0m] [0m[0m@import models.products.Category[0m
-[0m[[0m[31merror[0m] [0m[0m               ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/listProducts.scala.html:2:16: object products is not a member of package models[0m
-[0m[[0m[31merror[0m] [0m[0m@import models.products.Product[0m
-[0m[[0m[31merror[0m] [0m[0m               ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/listProducts.scala.html:15:3: not found: type Category[0m
-[0m[[0m[31merror[0m] [0m[0m				<!-- Start of For loop - For each c in categories add a link -->[0m
-[0m[[0m[31merror[0m] [0m[0m		^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/listProducts.scala.html:4:47: not found: type Category[0m
-[0m[[0m[31merror[0m] [0m[0m@(env: play.api.Environment, categories: List[Category], products: List[Product], user: User)[0m
-[0m[[0m[31merror[0m] [0m[0m                                              ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/listProducts.scala.html:16:22: value AdminProductCtrl is not a member of object controllers.routes[0m
-[0m[[0m[31merror[0m] [0m[0m				<a href="@routes.AdminProductCtrl.listProducts(0)" class="list-group-item">All categories</a>[0m
-[0m[[0m[31merror[0m] [0m[0m				                 ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/listProducts.scala.html:17:10: missing parameter type[0m
-[0m[[0m[31merror[0m] [0m[0m				@for(c <- categories) {[0m
-[0m[[0m[31merror[0m] [0m[0m				     ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/listProducts.scala.html:18:28: value AdminProductCtrl is not a member of object controllers.routes[0m
-[0m[[0m[31merror[0m] [0m[0m          <a href="@routes.AdminProductCtrl.listProducts(c.getId)" class="list-group-item">@c.getName</a>[0m
-[0m[[0m[31merror[0m] [0m[0m                           ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/listProducts.scala.html:47:69: value getId is not a member of Product[0m
-[0m[[0m[31merror[0m] [0m[0m					@if(env.resource("public/images/productImages/thumbnails/" + p.getId + ".jpg").isDefined) {[0m
-[0m[[0m[31merror[0m] [0m[0m					                                                               ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/listProducts.scala.html:48:65: value getId is not a member of Product[0m
-[0m[[0m[31merror[0m] [0m[0m						<td><img src="/assets/images/productImages/thumbnails/@(p.getId).jpg"/></td>[0m
-[0m[[0m[31merror[0m] [0m[0m						                                                          ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/listProducts.scala.html:52:13: value getId is not a member of Product[0m
-[0m[[0m[31merror[0m] [0m[0m					<td>@p.getId</td>[0m
-[0m[[0m[31merror[0m] [0m[0m					       ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/listProducts.scala.html:53:13: value getName is not a member of Product[0m
-[0m[[0m[31merror[0m] [0m[0m					<td>@p.getName</td>[0m
-[0m[[0m[31merror[0m] [0m[0m					       ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/listProducts.scala.html:54:13: value getDescription is not a member of Product[0m
-[0m[[0m[31merror[0m] [0m[0m					<td>@p.getDescription</td>[0m
-[0m[[0m[31merror[0m] [0m[0m					       ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/listProducts.scala.html:55:13: value getStock is not a member of Product[0m
-[0m[[0m[31merror[0m] [0m[0m					<td>@p.getStock</td>[0m
-[0m[[0m[31merror[0m] [0m[0m					       ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/listProducts.scala.html:56:35: value getPrice is not a member of Product[0m
-[0m[[0m[31merror[0m] [0m[0m					<td>&euro; @("%.2f".format(p.getPrice))</td>[0m
-[0m[[0m[31merror[0m] [0m[0m					                             ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/listProducts.scala.html:60:24: value AdminProductCtrl is not a member of object controllers.routes[0m
-[0m[[0m[31merror[0m] [0m[0m						<a href="@routes.AdminProductCtrl.updateProduct(p.getId)" class="btn-xs btn-danger">[0m
-[0m[[0m[31merror[0m] [0m[0m						                 ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/listProducts.scala.html:60:57: value getId is not a member of Product[0m
-[0m[[0m[31merror[0m] [0m[0m						<a href="@routes.AdminProductCtrl.updateProduct(p.getId)" class="btn-xs btn-danger">[0m
-[0m[[0m[31merror[0m] [0m[0m						                                                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/listProducts.scala.html:65:24: value AdminProductCtrl is not a member of object controllers.routes[0m
-[0m[[0m[31merror[0m] [0m[0m						<a href="@routes.AdminProductCtrl.deleteProduct(p.getId)" class="btn-xs btn-danger"[0m
-[0m[[0m[31merror[0m] [0m[0m						                 ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/listProducts.scala.html:65:57: value getId is not a member of Product[0m
-[0m[[0m[31merror[0m] [0m[0m						<a href="@routes.AdminProductCtrl.deleteProduct(p.getId)" class="btn-xs btn-danger"[0m
-[0m[[0m[31merror[0m] [0m[0m						                                                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/listProducts.scala.html:76:21: value AdminProductCtrl is not a member of object controllers.routes[0m
-[0m[[0m[31merror[0m] [0m[0m			<a href="@routes.AdminProductCtrl.addProduct()">[0m
-[0m[[0m[31merror[0m] [0m[0m			                 ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/listProducts.scala.html:90:2: not found: type Category[0m
-[0m[[0m[31merror[0m] [0m[0m}[0m
-[0m[[0m[31merror[0m] [0m[0m ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/main.scala.html:44:55: value AdminProductCtrl is not a member of object controllers.routes[0m
-[0m[[0m[31merror[0m] [0m[0m                <a class="navbar-brand" href="@routes.AdminProductCtrl.listProducts(0)">Products Catalogue</a>[0m
-[0m[[0m[31merror[0m] [0m[0m                                                      ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/main.scala.html:52:31: object security is not a member of package controllers[0m
-[0m[[0m[31merror[0m] [0m[0m						  <a href="@controllers.security.routes.LoginCtrl.logout()">Logout @user.getName</a>[0m
-[0m[[0m[31merror[0m] [0m[0m						                        ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/main.scala.html:54:48: object security is not a member of package controllers[0m
-[0m[[0m[31merror[0m] [0m[0m                      	  <a href="@controllers.security.routes.LoginCtrl.login()">Login</a>[0m
-[0m[[0m[31merror[0m] [0m[0m                      	                        ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/updateProduct.scala.html:1:1: object products is not a member of package models[0m
-[0m[[0m[31merror[0m] [0m[0m@(id: Long, updateProductForm: Form[models.products.Product], user: models.users.User)[0m
-[0m[[0m[31merror[0m] [0m[0m^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/updateProduct.scala.html:1:44: object products is not a member of package models[0m
-[0m[[0m[31merror[0m] [0m[0m@(id: Long, updateProductForm: Form[models.products.Product], user: models.users.User)[0m
-[0m[[0m[31merror[0m] [0m[0m                                           ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/updateProduct.scala.html:4:17: object products is not a member of package models[0m
-[0m[[0m[31merror[0m] [0m[0m @import models.products._[0m
-[0m[[0m[31merror[0m] [0m[0m                ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/updateProduct.scala.html:16:24: value AdminProductCtrl is not a member of object controllers.routes[0m
-[0m[[0m[31merror[0m] [0m[0m	@form(action = routes.AdminProductCtrl.updateProductSubmit(id), 'class -> "form-horizontal", 'role->"form", 'enctype -> "multipart/form-data") {[0m
-[0m[[0m[31merror[0m] [0m[0m	                      ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/updateProduct.scala.html:28:31: not found: value Category[0m
-[0m[[0m[31merror[0m] [0m[0m        @for((value, name) <- Category.options) {[0m
-[0m[[0m[31merror[0m] [0m[0m                              ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/updateProduct.scala.html:30:17: not found: value Category[0m
-[0m[[0m[31merror[0m] [0m[0m            @if(Category.inCategory(value.toLong, id)) {[0m
-[0m[[0m[31merror[0m] [0m[0m                ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/updateProduct.scala.html:30:43: value toLong is not a member of Any[0m
-[0m[[0m[31merror[0m] [0m[0m            @if(Category.inCategory(value.toLong, id)) {[0m
-[0m[[0m[31merror[0m] [0m[0m                                          ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/updateProduct.scala.html:48:21: value AdminProductCtrl is not a member of object controllers.routes[0m
-[0m[[0m[31merror[0m] [0m[0m			<a href="@routes.AdminProductCtrl.listProducts(0)"[0m
-[0m[[0m[31merror[0m] [0m[0m			                 ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/wdd1labs/2ndYearProject/GameShop_Project/app/views/productAdmin/updateProduct.scala.html:54:31: object products is not a member of package models[0m
-[0m[[0m[31merror[0m] [0m[0m} <!-- End of page content -->[0m
-[0m[[0m[31merror[0m] [0m[0m                              ^[0m
-[0m[[0m[31merror[0m] [0m[0m69 errors found[0m
+[error] /home/ryan/Documents/2ndYearProject/app/controllers/ProductCtrl.java:15:8: object products is not a member of package models
+[error] import models.products.*;
+[error]        ^
+[error] /home/ryan/Documents/2ndYearProject/app/controllers/ShoppingCtrl.java:12:8: object products is not a member of package models
+[error] import models.products.*;
+[error]        ^
+[error] /home/ryan/Documents/2ndYearProject/app/controllers/ShoppingCtrl.java:13:8: object shopping is not a member of package models
+[error] import models.shopping.*;
+[error]        ^
+[error] /home/ryan/Documents/2ndYearProject/app/controllers/ShoppingCtrl.java:15:8: object security is not a member of package controllers
+[error] import controllers.security.*;
+[error]        ^
+[error] /home/ryan/Documents/2ndYearProject/app/controllers/AdminProductCtrl.java:3:8: object security is not a member of package controllers
+[error] import controllers.security.*;
+[error]        ^
+[error] /home/ryan/Documents/2ndYearProject/app/controllers/AdminProductCtrl.java:24:8: object products is not a member of package models
+[error] import models.products.*;
+[error]        ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/addUser.scala.html:11:40: value addUserSubmit is not a member of controllers.ReverseHomeController
+[error]     @form(action=routes.HomeController.addUserSubmit(), 'class -> "form-horizontal", 'role -> "form") {
+[error]                                        ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/addUser.scala.html:30:41: value addUser is not a member of controllers.ReverseHomeController
+[error]         <a href="@routes.HomeController.addUser()">
+[error]                                         ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/basket.scala.html:5:16: object shopping is not a member of package models
+[error] @import models.shopping._
+[error]                ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/basket.scala.html:6:16: object products is not a member of package models
+[error] @import models.products._
+[error]                ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/basket.scala.html:35:30: value getBasket is not a member of models.users.Customer
+[error]                 @if(customer.getBasket() != null) {
+[error]                              ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/basket.scala.html:37:40: value getBasket is not a member of models.users.Customer
+[error]                     @for(i <- customer.getBasket().getBasketItems()) {
+[error]                                        ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/basket.scala.html:53:93: value getBasket is not a member of models.users.Customer
+[error]                 <p class="text-right"><strong>Basket Total: &euro; @("%.2f".format(customer.getBasket.getBasketTotal))</strong></p>
+[error]                                                                                             ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/listProducts.scala.html:1:16: object products is not a member of package models
+[error] @import models.products.Category
+[error]                ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/listProducts.scala.html:2:16: object products is not a member of package models
+[error] @import models.products.Product
+[error]                ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/listProducts.scala.html:16:7: not found: type Category
+[error] 	<div class="row">
+[error] 	     ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/listProducts.scala.html:4:47: not found: type Category
+[error] @(env: play.api.Environment, categories: List[Category], products: List[Product], catId: Long, filter: String, user: User)
+[error]                                               ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/listProducts.scala.html:22:9: missing parameter type
+[error] 			@for(c <- categories) {
+[error] 			     ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/listProducts.scala.html:60:70: value getId is not a member of Product
+[error] 						@if(env.resource("public/images/productImages/thumbnails/" + p.getId + ".jpg").isDefined) {
+[error] 						                                                               ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/listProducts.scala.html:61:66: value getId is not a member of Product
+[error] 							<td><img src="/assets/images/productImages/thumbnails/@(p.getId).jpg"/></td>
+[error] 							                                                          ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/listProducts.scala.html:65:14: value getName is not a member of Product
+[error] 						<td>@p.getName</td>
+[error] 						       ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/listProducts.scala.html:66:14: value getDescription is not a member of Product
+[error] 						<td>@p.getDescription</td>
+[error] 						       ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/listProducts.scala.html:67:14: value getStock is not a member of Product
+[error] 						<td>@p.getStock</td>
+[error] 						       ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/listProducts.scala.html:68:36: value getPrice is not a member of Product
+[error] 						<td>&euro; @("%.2f".format(p.getPrice))</td>
+[error] 						                             ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/listProducts.scala.html:69:55: value getId is not a member of Product
+[error] 						<td><a href="@routes.ShoppingCtrl.addToBasket(p.getId)"  class="btn btn-default btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
+[error] 						                                                ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/listProducts.scala.html:77:2: not found: type Category
+[error] }
+[error]  ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/orderConfirmed.scala.html:1:1: object shopping is not a member of package models
+[error] @(customer: models.users.Customer, order: models.shopping.ShopOrder)
+[error] ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/orderConfirmed.scala.html:1:50: object shopping is not a member of package models
+[error] @(customer: models.users.Customer, order: models.shopping.ShopOrder)
+[error]                                                  ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/orderConfirmed.scala.html:5:16: object shopping is not a member of package models
+[error] @import models.shopping._
+[error]                ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/orderConfirmed.scala.html:6:16: object products is not a member of package models
+[error] @import models.products._
+[error]                ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/orderConfirmed.scala.html:54:2: object shopping is not a member of package models
+[error] }
+[error]  ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/addProduct.scala.html:1:1: object products is not a member of package models
+[error] @(addProductForm: Form[models.products.Product], user: models.users.User)
+[error] ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/addProduct.scala.html:1:31: object products is not a member of package models
+[error] @(addProductForm: Form[models.products.Product], user: models.users.User)
+[error]                               ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/addProduct.scala.html:4:16: object products is not a member of package models
+[error] @import models.products._
+[error]                ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/addProduct.scala.html:25:31: not found: value Category
+[error]         @for((value, name) <- Category.options) {
+[error]                               ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/addProduct.scala.html:47:31: object products is not a member of package models
+[error] } <!-- End of page content -->
+[error]                               ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/listProducts.scala.html:1:16: object products is not a member of package models
+[error] @import models.products.Category
+[error]                ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/listProducts.scala.html:2:16: object products is not a member of package models
+[error] @import models.products.Product
+[error]                ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/listProducts.scala.html:14:48: not found: type Category
+[error] 				<!-- Start of For loop - For each c in categories add a link -->
+[error] 				                                           ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/listProducts.scala.html:4:47: not found: type Category
+[error] @(env: play.api.Environment, categories: List[Category], products: List[Product], user: User)
+[error]                                               ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/listProducts.scala.html:16:10: missing parameter type
+[error] 				@for(c <- categories) {
+[error] 				     ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/listProducts.scala.html:43:69: value getId is not a member of Product
+[error] 					@if(env.resource("public/images/productImages/thumbnails/" + p.getId + ".jpg").isDefined) {
+[error] 					                                                               ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/listProducts.scala.html:44:65: value getId is not a member of Product
+[error] 						<td><img src="/assets/images/productImages/thumbnails/@(p.getId).jpg"/></td>
+[error] 						                                                          ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/listProducts.scala.html:48:13: value getId is not a member of Product
+[error] 					<td>@p.getId</td>
+[error] 					       ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/listProducts.scala.html:49:13: value getName is not a member of Product
+[error] 					<td>@p.getName</td>
+[error] 					       ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/listProducts.scala.html:50:13: value getDescription is not a member of Product
+[error] 					<td>@p.getDescription</td>
+[error] 					       ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/listProducts.scala.html:51:13: value getStock is not a member of Product
+[error] 					<td>@p.getStock</td>
+[error] 					       ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/listProducts.scala.html:52:35: value getPrice is not a member of Product
+[error] 					<td>&euro; @("%.2f".format(p.getPrice))</td>
+[error] 					                             ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/listProducts.scala.html:56:57: value getId is not a member of Product
+[error] 						<a href="@routes.AdminProductCtrl.updateProduct(p.getId)" class="btn-xs btn-danger">
+[error] 						                                                  ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/listProducts.scala.html:61:57: value getId is not a member of Product
+[error] 						<a href="@routes.AdminProductCtrl.deleteProduct(p.getId)" class="btn-xs btn-danger"
+[error] 						                                                  ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/listProducts.scala.html:86:2: not found: type Category
+[error] }
+[error]  ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/main.scala.html:52:31: object security is not a member of package controllers
+[error] 						  <a href="@controllers.security.routes.LoginCtrl.logout()">Logout @user.getName</a>
+[error] 						                        ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/main.scala.html:52:80: value getName is not a member of models.users.User
+[error] 						  <a href="@controllers.security.routes.LoginCtrl.logout()">Logout @user.getName</a>
+[error] 						                                                                         ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/main.scala.html:54:48: object security is not a member of package controllers
+[error]                       	  <a href="@controllers.security.routes.LoginCtrl.login()">Login</a>
+[error]                       	                        ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/updateProduct.scala.html:1:1: object products is not a member of package models
+[error] @(id: Long, updateProductForm: Form[models.products.Product], user: models.users.User)
+[error] ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/updateProduct.scala.html:1:44: object products is not a member of package models
+[error] @(id: Long, updateProductForm: Form[models.products.Product], user: models.users.User)
+[error]                                            ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/updateProduct.scala.html:4:17: object products is not a member of package models
+[error]  @import models.products._
+[error]                 ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/updateProduct.scala.html:28:31: not found: value Category
+[error]         @for((value, name) <- Category.options) {
+[error]                               ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/updateProduct.scala.html:30:17: not found: value Category
+[error]             @if(Category.inCategory(value.toLong, id)) {
+[error]                 ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/updateProduct.scala.html:30:43: value toLong is not a member of Any
+[error]             @if(Category.inCategory(value.toLong, id)) {
+[error]                                           ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/productAdmin/updateProduct.scala.html:54:31: object products is not a member of package models
+[error] } <!-- End of page content -->
+[error]                               ^
+[error] 61 errors found

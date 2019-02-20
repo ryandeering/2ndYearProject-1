@@ -5,40 +5,40 @@
 @main("Login", user){
     <h3>Sign in</h3>
 
-@if(loginForm.hasGlobalErrors) {
-    <p class ="alert alert-warning">
+    @if(loginForm.hasGlobalErrors) {
+        <p class ="alert alert-warning">
 
-    @for(e <- loginForm.globalErrors) {
-        @e.message<br/>
+        @for(e <- loginForm.globalErrors) {
+            @e.message<br/>
+        }
+        </p>
     }
-</p>
-}
 
-@if(flash.containsKey("error")){
-    <div class="alert alert-success">
+    @if(flash.containsKey("error")){
+        <div class="alert alert-success">
         @flash.get("error")
-    </div>
-}
+        </div>
+    }
 
 
 
 
 
-@helper.form(action = controllers.routes.LoginController.loginSubmit()) {
-@CSRF.formField
-<div class="form-group">
-    @inputText(loginForm("email"), '_label -> "",
-    'class -> "form-control input-xs", 'placeholder -> "Email")
-</div>
-<div class="form-group">
-    @inputText(loginForm("password"), '_label -> "",
-    'class -> "form-control input-xs", 'placeholder -> "Password")
-</div>
-<div class="form-group">
-    <input type="submit" value="Sign In" class="btn btn-primary">
-</div>
+    @helper.form(action = controllers.routes.LoginController.loginSubmit()) {
+        @CSRF.formField
+        <div class="form-group">
+        @inputText(loginForm("email"), '_label -> "",
+            'class -> "form-control input-xs", 'placeholder -> "Email")
+        </div>
+        <div class="form-group">
+        @inputText(loginForm("password"), '_label -> "",
+            'class -> "form-control input-xs", 'placeholder -> "Password")
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Sign In" class="btn btn-primary">
+        </div>
 
-}
+    }
 }
 
 
