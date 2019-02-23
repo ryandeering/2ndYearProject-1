@@ -51,11 +51,11 @@ create table shop_order (
 create table user (
   role                          varchar(255),
   email                         varchar(255) not null,
-  name                          varchar(255),
+  f_name                        varchar(255),
+  l_name                        varchar(255),
   password                      varchar(255),
   constraint pk_user primary key (email)
 );
-
 
 alter table basket add constraint fk_basket_customer_email foreign key (customer_email) references user (email) on delete restrict on update restrict;
 
@@ -77,7 +77,9 @@ create index ix_order_item_product_id on order_item (product_id);
 alter table shop_order add constraint fk_shop_order_customer_email foreign key (customer_email) references user (email) on delete restrict on update restrict;
 create index ix_shop_order_customer_email on shop_order (customer_email);
 
+
 # --- !Downs
+
 alter table basket drop constraint if exists fk_basket_customer_email;
 
 alter table category_product drop constraint if exists fk_category_product_category;

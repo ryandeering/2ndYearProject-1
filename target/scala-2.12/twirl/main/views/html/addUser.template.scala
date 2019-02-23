@@ -46,8 +46,8 @@ Seq[Any](format.raw/*2.1*/("""
 
 
     """),_display_(/*17.6*/inputText(userForm("email"), '_label -> "Email", 'class -> "form-control")),format.raw/*17.80*/("""
-         """),_display_(/*18.11*/inputText(userForm("fName"), '_label -> "Name", 'class -> "form-control")),format.raw/*18.84*/("""
-        """),_display_(/*19.10*/inputText(userForm("lName"), '_label -> "Name", 'class -> "form-control")),format.raw/*19.83*/("""
+         """),_display_(/*18.11*/inputText(userForm("fName"), '_label -> "First Name", 'class -> "form-control")),format.raw/*18.90*/("""
+        """),_display_(/*19.10*/inputText(userForm("lName"), '_label -> "Last Name", 'class -> "form-control")),format.raw/*19.88*/("""
     """),_display_(/*20.6*/inputText(userForm("password"), '_label -> "Password", 'class -> "form-control")),format.raw/*20.86*/("""
 
     """),_display_(/*22.6*/inputText(userForm("role"), '_label -> "Role", 'class -> "form-control")),format.raw/*22.78*/("""
@@ -79,10 +79,10 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 20 15:21:11 GMT 2019
-                  SOURCE: /home/ryan/Documents/2ndYearProject/app/views/addUser.scala.html
-                  HASH: fc5299429f4b61b7bc442d8a036d2d559e19c233
-                  MATRIX: 985->1|1117->63|1161->61|1188->79|1215->81|1249->107|1287->108|1318->113|1645->414|1751->510|1792->512|1829->549|1866->648|1903->658|1916->662|1947->672|1981->680|2076->754|2114->765|2208->838|2245->848|2339->921|2371->927|2472->1007|2505->1014|2598->1086|2635->1096|3001->1435|3016->1441|3062->1466|3194->1568|3223->1586|3255->1588
+                  DATE: Thu Feb 21 21:44:03 GMT 2019
+                  SOURCE: /home/wdd/GameShop_Project_hack/app/views/addUser.scala.html
+                  HASH: da7ba6eccb84f23ed477c37dc7d20b84c8e54c02
+                  MATRIX: 985->1|1117->63|1161->61|1188->79|1215->81|1249->107|1287->108|1318->113|1645->414|1751->510|1792->512|1829->549|1866->648|1903->658|1916->662|1947->672|1981->680|2076->754|2114->765|2214->844|2251->854|2350->932|2382->938|2483->1018|2516->1025|2609->1097|2646->1107|3012->1446|3027->1452|3073->1477|3205->1579|3234->1597|3266->1599
                   LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|42->11|42->11|42->11|43->12|44->13|45->14|45->14|45->14|48->17|48->17|49->18|49->18|50->19|50->19|51->20|51->20|53->22|53->22|55->24|61->30|61->30|61->30|65->34|65->34|66->35
                   -- GENERATED --
               */

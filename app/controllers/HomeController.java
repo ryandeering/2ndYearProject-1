@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import views.html.*;
 import models.users.*;
 import java.util.*;
-
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  * This controller contains an action to handle HTTP requests
@@ -70,12 +70,35 @@ public class HomeController extends Controller {
             User newUser = newUserForm.get();
 
 
+            newUser.setPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
+
             newUser.save();
             flash("You're successfully registered. Thanks.");
+            return redirect(controllers.routes.HomeController.index());
+        }}
+
+
+    public Result registerUser(){
+        Form<Customer> userForm = formFactory.form(Customer.class);
+        return ok(registerUser.render(userForm,  User.getUserById(session().get("email"))));
+    }
+
+
+    public Result registerUserSubmit(){
+        Form<Customer> customerForm = formFactory.form(Customer.class).bindFromRequest();
+
+        if(customerForm.hasErrors()){
+            return badRequest(registerUser.render(customerForm, User.getUserById(session().get("email"))));
+        }else{
+            Customer newCustomer = customerForm.get();
+            newCustomer.setPassword(BCrypt.hashpw(newCustomer.getPassword(), BCrypt.gensalt()));
+            newCustomer.save();
+            flash("You have Successfully registered!");
             return redirect(controllers.routes.HomeController.index());
         }
 
     }
+
 }
 
 

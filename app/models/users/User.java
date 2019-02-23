@@ -3,6 +3,7 @@ package models.users;
 import java.util.*;
 import javax.persistence.*;
 import io.ebean.*;
+import org.mindrot.jbcrypt.BCrypt;
 import play.data.validation.*;
 
 
@@ -39,7 +40,12 @@ public class User extends Model {
     }
 
     public static User authenticate(String email, String password) {
-        return find.query().where().eq("email", email).eq("password", password).findUnique();
+        User user = User.find.query().where().eq("email", email).findUnique();
+        if (user != null && BCrypt.checkpw(password, user.getPassword())) {
+            return user;
+        } else {
+            return user;
+        }
     }
 
     public static User getUserById(String id) {
@@ -49,6 +55,16 @@ public class User extends Model {
             return find.query().where().eq("email", id).findUnique();
         }
     }
+
+// Check if a user is logged in (by id - email address)
+    public static User getLoggedIn(String id) {
+        if (id == null)
+                return null;
+        else
+            // Find user by id and return object
+            return find.query().where().eq("email", id).findUnique();
+    }
+
 
     public User() {
 
@@ -97,5 +113,14 @@ public class User extends Model {
 
     public static Finder<Long, User> getFind() {
         return find;
+    }
+
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

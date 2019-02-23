@@ -36,40 +36,40 @@ Seq[Any](format.raw/*4.1*/("""
 """),_display_(/*5.2*/main("Login", user)/*5.21*/{_display_(Seq[Any](format.raw/*5.22*/("""
     """),format.raw/*6.5*/("""<h3>Sign in</h3>
 
-    """),_display_(/*8.6*/if(loginForm.hasGlobalErrors)/*8.35*/ {_display_(Seq[Any](format.raw/*8.37*/("""
-        """),format.raw/*9.9*/("""<p class ="alert alert-warning">
+"""),_display_(/*8.2*/if(loginForm.hasGlobalErrors)/*8.31*/ {_display_(Seq[Any](format.raw/*8.33*/("""
+    """),format.raw/*9.5*/("""<p class ="alert alert-warning">
 
-        """),_display_(/*11.10*/for(e <- loginForm.globalErrors) yield /*11.42*/ {_display_(Seq[Any](format.raw/*11.44*/("""
-            """),_display_(/*12.14*/e/*12.15*/.message),format.raw/*12.23*/("""<br/>
-        """)))}),format.raw/*13.10*/("""
-        """),format.raw/*14.9*/("""</p>
-    """)))}),format.raw/*15.6*/("""
+    """),_display_(/*11.6*/for(e <- loginForm.globalErrors) yield /*11.38*/ {_display_(Seq[Any](format.raw/*11.40*/("""
+        """),_display_(/*12.10*/e/*12.11*/.message),format.raw/*12.19*/("""<br/>
+    """)))}),format.raw/*13.6*/("""
+"""),format.raw/*14.1*/("""</p>
+""")))}),format.raw/*15.2*/("""
 
-    """),_display_(/*17.6*/if(flash.containsKey("error"))/*17.36*/{_display_(Seq[Any](format.raw/*17.37*/("""
-        """),format.raw/*18.9*/("""<div class="alert alert-success">
+"""),_display_(/*17.2*/if(flash.containsKey("error"))/*17.32*/{_display_(Seq[Any](format.raw/*17.33*/("""
+    """),format.raw/*18.5*/("""<div class="alert alert-success">
         """),_display_(/*19.10*/flash/*19.15*/.get("error")),format.raw/*19.28*/("""
-        """),format.raw/*20.9*/("""</div>
-    """)))}),format.raw/*21.6*/("""
+    """),format.raw/*20.5*/("""</div>
+""")))}),format.raw/*21.2*/("""
 
 
 
 
 
-    """),_display_(/*27.6*/helper/*27.12*/.form(action = controllers.routes.LoginController.loginSubmit())/*27.76*/ {_display_(Seq[Any](format.raw/*27.78*/("""
-        """),_display_(/*28.10*/CSRF/*28.14*/.formField),format.raw/*28.24*/("""
-        """),format.raw/*29.9*/("""<div class="form-group">
-        """),_display_(/*30.10*/inputText(loginForm("email"), '_label -> "",
-            'class -> "form-control input-xs", 'placeholder -> "Email")),format.raw/*31.72*/("""
-        """),format.raw/*32.9*/("""</div>
-        <div class="form-group">
-        """),_display_(/*34.10*/inputText(loginForm("password"), '_label -> "",
-            'class -> "form-control input-xs", 'placeholder -> "Password")),format.raw/*35.75*/("""
-        """),format.raw/*36.9*/("""</div>
-        <div class="form-group">
-            <input type="submit" value="Sign In" class="btn btn-primary">
-        </div>
+"""),_display_(/*27.2*/helper/*27.8*/.form(action = controllers.routes.LoginController.loginSubmit())/*27.72*/ {_display_(Seq[Any](format.raw/*27.74*/("""
+"""),_display_(/*28.2*/CSRF/*28.6*/.formField),format.raw/*28.16*/("""
+"""),format.raw/*29.1*/("""<div class="form-group">
+    """),_display_(/*30.6*/inputText(loginForm("email"), '_label -> "",
+    'class -> "form-control input-xs", 'placeholder -> "Email")),format.raw/*31.64*/("""
+"""),format.raw/*32.1*/("""</div>
+<div class="form-group">
+    """),_display_(/*34.6*/inputText(loginForm("password"), '_label -> "",
+    'class -> "form-control input-xs", 'placeholder -> "Password")),format.raw/*35.67*/("""
+"""),format.raw/*36.1*/("""</div>
+<div class="form-group">
+    <input type="submit" value="Sign In" class="btn btn-primary">
+</div>
 
-    """)))}),format.raw/*41.6*/("""
+""")))}),format.raw/*41.2*/("""
 """)))}),format.raw/*42.2*/("""
 
 
@@ -90,10 +90,10 @@ Seq[Any](format.raw/*4.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 20 15:21:11 GMT 2019
-                  SOURCE: /home/ryan/Documents/2ndYearProject/app/views/login.scala.html
-                  HASH: 59a89c4d695bf4449f3f369535875935d38e4999
-                  MATRIX: 651->1|1003->27|1124->77|1168->93|1195->95|1222->114|1260->115|1291->120|1339->143|1376->172|1415->174|1450->183|1520->226|1568->258|1608->260|1649->274|1659->275|1688->283|1734->298|1770->307|1810->317|1843->324|1882->354|1921->355|1957->364|2027->407|2041->412|2075->425|2111->434|2153->446|2190->457|2205->463|2278->527|2318->529|2355->539|2368->543|2399->553|2435->562|2496->596|2633->712|2669->721|2745->770|2888->892|2924->901|3089->1036|3121->1038
+                  DATE: Thu Feb 21 21:44:02 GMT 2019
+                  SOURCE: /home/wdd/GameShop_Project_hack/app/views/login.scala.html
+                  HASH: b1b233c2705773076fdbde5cf3c23a1ce2031207
+                  MATRIX: 651->1|1003->27|1124->77|1168->93|1195->95|1222->114|1260->115|1291->120|1335->139|1372->168|1411->170|1442->175|1507->214|1555->246|1595->248|1632->258|1642->259|1671->267|1712->278|1740->279|1776->285|1805->288|1844->318|1883->319|1915->324|1985->367|1999->372|2033->385|2065->390|2103->398|2136->405|2150->411|2223->475|2263->477|2291->479|2303->483|2334->493|2362->494|2418->524|2547->632|2575->633|2638->670|2773->784|2801->785|2938->892|2970->894
                   LINES: 24->1|29->2|32->3|35->4|36->5|36->5|36->5|37->6|39->8|39->8|39->8|40->9|42->11|42->11|42->11|43->12|43->12|43->12|44->13|45->14|46->15|48->17|48->17|48->17|49->18|50->19|50->19|50->19|51->20|52->21|58->27|58->27|58->27|58->27|59->28|59->28|59->28|60->29|61->30|62->31|63->32|65->34|66->35|67->36|72->41|73->42
                   -- GENERATED --
               */

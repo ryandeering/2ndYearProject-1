@@ -11,7 +11,7 @@ public class AuthCustomer extends Action.Simple{
         String id = ctx.session().get("email");
         if (id != null) {
             User u = User.getUserById(id);
-            if (u instanceof Customer) {
+            if ("customer".equals(u.getRole())) {
                 return delegate.call(ctx);
             }
         }
