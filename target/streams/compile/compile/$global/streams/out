@@ -1,17 +1,8 @@
-[0m[[0m[33mwarn[0m] [0m[0m/home/wdd/GameShop_Project_hack/app/controllers/AdminProductCtrl.java:140:1: unchecked method invocation: method saveFile in class controllers.AdminProductCtrl is applied to given types[0m
-[0m[[0m[33mwarn[0m] [0m[0m  required: java.lang.Long,play.mvc.Http.MultipartFormData.FilePart<java.io.File>[0m
-[0m[[0m[33mwarn[0m] [0m[0m  found: java.lang.Long,play.mvc.Http.MultipartFormData.FilePart[0m
-[0m[[0m[33mwarn[0m] [0m[0m        saveImageMsg = saveFile(newProduct.getId(), image);[0m
-[0m[[0m[33mwarn[0m] [0m[0m/home/wdd/GameShop_Project_hack/app/controllers/AdminProductCtrl.java:140:1: unchecked conversion[0m
-[0m[[0m[33mwarn[0m] [0m[0m  required: play.mvc.Http.MultipartFormData.FilePart<java.io.File>[0m
-[0m[[0m[33mwarn[0m] [0m[0m  found:    play.mvc.Http.MultipartFormData.FilePart[0m
-[0m[[0m[33mwarn[0m] [0m[0m        saveImageMsg = saveFile(newProduct.getId(), image);[0m
-[0m[[0m[33mwarn[0m] [0m[0m/home/wdd/GameShop_Project_hack/app/controllers/AdminProductCtrl.java:198:1: unchecked method invocation: method saveFile in class controllers.AdminProductCtrl is applied to given types[0m
-[0m[[0m[33mwarn[0m] [0m[0m  required: java.lang.Long,play.mvc.Http.MultipartFormData.FilePart<java.io.File>[0m
-[0m[[0m[33mwarn[0m] [0m[0m  found: java.lang.Long,play.mvc.Http.MultipartFormData.FilePart[0m
-[0m[[0m[33mwarn[0m] [0m[0m        saveImageMsg = saveFile(p.getId(), file);   //////////////////////FIX LATER[0m
-[0m[[0m[33mwarn[0m] [0m[0m/home/wdd/GameShop_Project_hack/app/controllers/AdminProductCtrl.java:198:1: unchecked conversion[0m
-[0m[[0m[33mwarn[0m] [0m[0m  required: play.mvc.Http.MultipartFormData.FilePart<java.io.File>[0m
-[0m[[0m[33mwarn[0m] [0m[0m  found:    play.mvc.Http.MultipartFormData.FilePart[0m
-[0m[[0m[33mwarn[0m] [0m[0m        saveImageMsg = saveFile(p.getId(), file);   //////////////////////FIX LATER[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/GameShop_Project_hack/app/controllers/AdminProductCtrl.java: warnings found and -Werror specified[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/CDR_Games/app/controllers/HomeController.java:77:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   method index()[0m
+[0m[[0m[31merror[0m] [0m[0m  location: variable HomeController of type controllers.ReverseHomeController[0m
+[0m[[0m[31merror[0m] [0m[0m            return redirect(controllers.routes.HomeController.index());[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/CDR_Games/app/controllers/HomeController.java:97:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   method index()[0m
+[0m[[0m[31merror[0m] [0m[0m  location: variable HomeController of type controllers.ReverseHomeController[0m
+[0m[[0m[31merror[0m] [0m[0m            return redirect(controllers.routes.HomeController.index());[0m

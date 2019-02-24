@@ -1,9 +1,9 @@
 [0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/GameShop_Project_hack/conf/evolutions,/home/wdd/GameShop_Project_hack/target/scala-2.12/classes/evolutions)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/GameShop_Project_hack/conf/evolutions/default,/home/wdd/GameShop_Project_hack/target/scala-2.12/classes/evolutions/default)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/GameShop_Project_hack/conf/evolutions/default/sample inserts.txt,/home/wdd/GameShop_Project_hack/target/scala-2.12/classes/evolutions/default/sample inserts.txt)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/GameShop_Project_hack/conf/evolutions/default/1.sql,/home/wdd/GameShop_Project_hack/target/scala-2.12/classes/evolutions/default/1.sql)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/GameShop_Project_hack/conf/application.conf,/home/wdd/GameShop_Project_hack/target/scala-2.12/classes/application.conf)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/GameShop_Project_hack/conf/logback.xml,/home/wdd/GameShop_Project_hack/target/scala-2.12/classes/logback.xml)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/GameShop_Project_hack/conf/a.conf,/home/wdd/GameShop_Project_hack/target/scala-2.12/classes/a.conf)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/GameShop_Project_hack/conf/routes,/home/wdd/GameShop_Project_hack/target/scala-2.12/classes/routes)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/CDRGames/2ndYearProject/conf/evolutions,/home/wdd/CDRGames/2ndYearProject/target/scala-2.12/classes/evolutions)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/CDRGames/2ndYearProject/conf/evolutions/default,/home/wdd/CDRGames/2ndYearProject/target/scala-2.12/classes/evolutions/default)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/CDRGames/2ndYearProject/conf/evolutions/default/sample inserts.txt,/home/wdd/CDRGames/2ndYearProject/target/scala-2.12/classes/evolutions/default/sample inserts.txt)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/CDRGames/2ndYearProject/conf/evolutions/default/1.sql,/home/wdd/CDRGames/2ndYearProject/target/scala-2.12/classes/evolutions/default/1.sql)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/CDRGames/2ndYearProject/conf/application.conf,/home/wdd/CDRGames/2ndYearProject/target/scala-2.12/classes/application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/CDRGames/2ndYearProject/conf/logback.xml,/home/wdd/CDRGames/2ndYearProject/target/scala-2.12/classes/logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/CDRGames/2ndYearProject/conf/a.conf,/home/wdd/CDRGames/2ndYearProject/target/scala-2.12/classes/a.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/CDRGames/2ndYearProject/conf/routes,/home/wdd/CDRGames/2ndYearProject/target/scala-2.12/classes/routes)[0m
