@@ -44,7 +44,7 @@ though a static HTML form would also work -->
 	"""),format.raw/*13.2*/("""<h3>Add a new Product</h3>
 	
 	<!-- Use the views.html.helpers package to create the form -->
-	"""),_display_(/*16.3*/form(action = routes.AdminProductCtrl.addProductSubmit(), 'class -> "form-horizontal", 'role->"form", 'enctype -> "multipart/form-data")/*16.139*/ {_display_(Seq[Any](format.raw/*16.141*/("""
+	"""),_display_(/*16.3*/form(action = routes.AdminProductCtrl.addProductSubmit(), 'class -> "form-horizontal", 'role->"form", 'method -> "POST", 'enctype -> "multipart/form-data")/*16.158*/ {_display_(Seq[Any](format.raw/*16.160*/("""
 		"""),_display_(/*17.4*/CSRF/*17.8*/.formField),format.raw/*17.18*/("""
 		"""),format.raw/*18.3*/("""<!-- Build the form, adding an input for each field -->
 		<!-- Note the label parameter -->
@@ -94,10 +94,10 @@ though a static HTML form would also work -->
 
               /*
                   -- GENERATED --
-                  DATE: Sun Feb 24 00:02:53 GMT 2019
-                  SOURCE: /home/wdd/CDR_Games/app/views/productAdmin/addProduct.scala.html
-                  HASH: 642d9a8dd70222a7f2188f40e6ae784b57a15bce
-                  MATRIX: 1007->1|1152->169|1184->304|1228->74|1348->194|1375->195|1509->320|1537->321|1617->375|1638->387|1673->413|1713->415|1743->418|1864->513|2010->649|2051->651|2081->655|2093->659|2124->669|2154->672|2275->767|2373->844|2403->848|2515->939|2552->949|2747->1117|2801->1155|2841->1157|2882->1170|2959->1220|2985->1225|3017->1230|3042->1234|3095->1256|3126->1261|3226->1340|3256->1344|3356->1423|3387->1427|3683->1696|3698->1702|3752->1735|3855->1808|3883->1809|3944->1840|3972->1841
+                  DATE: Mon Feb 25 23:53:12 GMT 2019
+                  SOURCE: C:/Users/Ryan3/Downloads/2ndYearProject (1)/2ndYearProject/app/views/productAdmin/addProduct.scala.html
+                  HASH: d3bd2a932f5a53c757a1d46c4b1d62f8363e364e
+                  MATRIX: 1007->1|1152->169|1184->304|1228->74|1348->194|1375->195|1509->320|1537->321|1617->375|1638->387|1673->413|1713->415|1743->418|1864->513|2029->668|2070->670|2100->674|2112->678|2143->688|2173->691|2294->786|2392->863|2422->867|2534->958|2571->968|2766->1136|2820->1174|2860->1176|2901->1189|2978->1239|3004->1244|3036->1249|3061->1253|3114->1275|3145->1280|3245->1359|3275->1363|3375->1442|3406->1446|3702->1715|3717->1721|3771->1754|3874->1827|3902->1828|3963->1859|3991->1860
                   LINES: 28->1|31->4|32->8|35->2|37->5|38->6|40->9|41->10|42->11|42->11|42->11|42->11|44->13|47->16|47->16|47->16|48->17|48->17|48->17|49->18|51->20|51->20|52->21|52->21|54->23|56->25|56->25|56->25|57->26|57->26|57->26|57->26|57->26|58->27|60->29|60->29|61->30|61->30|63->32|72->41|72->41|72->41|76->45|76->45|78->47|78->47
                   -- GENERATED --
               */

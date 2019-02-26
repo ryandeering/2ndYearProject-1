@@ -1,8 +1,11 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/CDR_Games/app/controllers/HomeController.java:77:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   method index()[0m
-[0m[[0m[31merror[0m] [0m[0m  location: variable HomeController of type controllers.ReverseHomeController[0m
-[0m[[0m[31merror[0m] [0m[0m            return redirect(controllers.routes.HomeController.index());[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/CDR_Games/app/controllers/HomeController.java:97:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   method index()[0m
-[0m[[0m[31merror[0m] [0m[0m  location: variable HomeController of type controllers.ReverseHomeController[0m
-[0m[[0m[31merror[0m] [0m[0m            return redirect(controllers.routes.HomeController.index());[0m
+[warn] C:\Users\Ryan3\Downloads\2ndYearProject (1)\2ndYearProject\app\controllers\AdminProductCtrl.java:202:1:  [unchecked] unchecked method invocation: method saveFile in class AdminProductCtrl is applied to given types
+[warn]         saveImageMsg = saveFile(p.getId(), file);   //////////////////////NEEDS FIX LATER
+[warn]                                ^  required: Long,FilePart<File>
+[warn]   found: Long,FilePart
+[warn] C:\Users\Ryan3\Downloads\2ndYearProject (1)\2ndYearProject\app\controllers\AdminProductCtrl.java:202:1:  [unchecked] unchecked conversion
+[warn]         saveImageMsg = saveFile(p.getId(), file);   //////////////////////NEEDS FIX LATER
+[warn]                                            ^  required: FilePart<File>
+[warn]   found:    FilePart
+[warn] error: warnings found and -Werror specified
+[warn] 1 error
+[warn] 2 warnings

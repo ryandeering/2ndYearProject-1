@@ -48,21 +48,21 @@ public class User extends Model {
         }
     }
 
-    public static User getUserById(String id) {
-        if (id == null) {
+    public static User getUserById(String email) {
+        if (email == null) {
             return null;
         } else {
-            return find.query().where().eq("email", id).findUnique();
+            return find.query().where().eq("email", email).findUnique();
         }
     }
 
 // Check if a user is logged in (by id - email address)
-    public static User getLoggedIn(String id) {
-        if (id == null)
+    public static User getLoggedIn(String email) {
+        if (email == null)
                 return null;
         else
             // Find user by id and return object
-            return find.query().where().eq("email", id).findUnique();
+            return find.query().where().eq("email", email).findUnique();
     }
 
 

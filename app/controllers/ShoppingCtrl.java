@@ -19,7 +19,7 @@ import controllers.*;
 // Authenticate user
 @Security.Authenticated(Secured.class)
 // Authorise user (check if user is a customer)
-@With(CheckIfCustomer.class)
+@With(AuthCustomer.class)
 
 public class ShoppingCtrl extends Controller {
 
