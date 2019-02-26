@@ -255,7 +255,7 @@ public class AdminProductCtrl extends Controller {
                         BufferedImage img = ImageIO.read(newFile);
                         BufferedImage scaledImg = Scalr.resize(img, 90);
 
-                        if (ImageIO.write(scaledImg, extension, new File("public/images/productImages/thumbnails", id + "thumb.jpg"))) {
+                        if (ImageIO.write(scaledImg, extension, new File("public/images/productImages/thumbnails", id + ".jpg"))) {
                             return "/ file uploaded and thumbnail created.";
                         } else {
                             return "/ file uploaded but thumbnail creation failed.";
