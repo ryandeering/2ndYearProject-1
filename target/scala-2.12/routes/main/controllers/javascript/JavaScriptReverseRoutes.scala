@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/2ndYearProject/2ndYearProject/conf/routes
-// @DATE:Tue Feb 26 14:13:12 GMT 2019
+// @SOURCE:F:/2ndYearProject/conf/routes
+// @DATE:Tue Feb 26 21:00:33 GMT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -162,7 +162,7 @@ package controllers.javascript {
       "controllers.HomeController.addUser",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addUser"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/addUser"})
         }
       """
     )
@@ -182,7 +182,7 @@ package controllers.javascript {
       "controllers.HomeController.addUserSubmit",
       """
         function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addUserSubmit"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/addUserSubmit"})
         }
       """
     )

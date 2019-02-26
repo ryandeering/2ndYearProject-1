@@ -59,7 +59,7 @@ public class ShoppingCtrl extends Controller {
         Product p = Product.find.byId(id);
         
         // Get basket for logged in customer
-        Customer customer = (Customer)User.getLoggedIn(session().get("email"));
+        Customer customer = (Customer) User.getLoggedIn(session().get("email"));
         
         // Check if item in basket
         if (customer.getBasket() == null) {

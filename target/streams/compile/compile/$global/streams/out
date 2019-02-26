@@ -1,7 +1,2 @@
-[error] /home/wdd/2ndYearProject/2ndYearProject/app/views/welcome.scala.html:81:34: value AsyncController is not a member of object controllers.routes
-[error]                 <a href="@routes.AsyncController.message">Click here for the AsyncController action!</a>
-[error]                                  ^
-[error] /home/wdd/2ndYearProject/2ndYearProject/app/views/welcome.scala.html:95:34: value CountController is not a member of object controllers.routes
-[error]                 <a href="@routes.CountController.count">Click here for the CountController action!</a>
-[error]                                  ^
-[error] two errors found
+[error] /home/wdd/2ndYearProject/2ndYearProject/app/controllers/ShoppingCtrl.java:62:1: incompatible types: models.users.User cannot be converted to models.users.Customer
+[error]         Customer customer = User.getLoggedIn(session().get("email"));

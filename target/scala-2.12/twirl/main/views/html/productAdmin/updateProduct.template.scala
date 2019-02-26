@@ -28,61 +28,54 @@ object updateProduct extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.
   def apply/*1.2*/(id: Long, updateProductForm: Form[models.products.Product], user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
-/*4.3*/import models.products._
-/*8.2*/import helper._
+/*3.3*/import models.products._
+/*6.2*/import helper._
 
 
-Seq[Any](format.raw/*2.1*/("""<!-- Product id and editProductForm parameters defined above
- passed to this view by the controller -->
- """),format.raw/*5.1*/("""
-"""),format.raw/*6.1*/("""<!-- a 'helper' will be used to create the form dynamically, 
-though a static HTML form would also work -->
-"""),format.raw/*9.1*/("""
-"""),format.raw/*10.1*/("""<!-- The page will be based on the main template -->
-"""),_display_(/*11.2*/productAdmin/*11.14*/.main("Update Product", user)/*11.43*/ {_display_(Seq[Any](format.raw/*11.45*/("""
+Seq[Any](format.raw/*2.1*/("""
+ """),format.raw/*4.1*/("""
 
-	"""),format.raw/*13.2*/("""<h3>Update Product</h3>
+"""),format.raw/*7.1*/("""
+
+"""),_display_(/*9.2*/productAdmin/*9.14*/.main("Update Product", user)/*9.43*/ {_display_(Seq[Any](format.raw/*9.45*/("""
+
+	"""),format.raw/*11.2*/("""<h3>Update Product</h3>
 	
-	<!-- Use the views.html.helpers package to create the form -->
-	"""),_display_(/*16.3*/form(action = routes.AdminProductCtrl.updateProductSubmit(id), 'class -> "form-horizontal", 'role->"form", 'enctype -> "multipart/form-data")/*16.144*/ {_display_(Seq[Any](format.raw/*16.146*/("""
+
+	"""),_display_(/*14.3*/form(action = routes.AdminProductCtrl.updateProductSubmit(id), 'class -> "form-horizontal", 'role->"form", 'enctype -> "multipart/form-data")/*14.144*/ {_display_(Seq[Any](format.raw/*14.146*/("""
 		
-		"""),_display_(/*18.4*/CSRF/*18.8*/.formField),format.raw/*18.18*/("""
-		"""),format.raw/*19.3*/("""<!-- Build the form, adding an input for each field -->
-		<!-- Note the label parameter -->
-		"""),_display_(/*21.4*/inputText(updateProductForm("name"), '_label -> "Name",'class -> "form-control")),format.raw/*21.84*/("""
-		"""),_display_(/*22.4*/inputText(updateProductForm("description"), '_label -> "Description",'class -> "form-control")),format.raw/*22.98*/("""
+		"""),_display_(/*16.4*/CSRF/*16.8*/.formField),format.raw/*16.18*/("""
 
-        """),format.raw/*24.9*/("""<!-- Checkboxes for categories - current categories for this product are checked -->
-        <!-- Category.options provides a hashmap of value, name pairs -->
-        <!-- If product (id) is in catagory - mark it as checked -->
-        <!-- Checkbox name is catSelect[],  selected values will be stored in form object using catSelect defined in Product  -->
-        """),_display_(/*28.10*/for((value, name) <- Category.options) yield /*28.48*/ {_display_(Seq[Any](format.raw/*28.50*/("""
-            """),format.raw/*29.13*/("""<input type="checkbox" name="catSelect[]" value=""""),_display_(/*29.63*/value),format.raw/*29.68*/(""""
-            """),_display_(/*30.14*/if(Category.inCategory(value.toLong, id))/*30.55*/ {_display_(Seq[Any](format.raw/*30.57*/("""
-                """),format.raw/*31.17*/("""checked
-            """)))}),format.raw/*32.14*/("""
-            """),format.raw/*33.13*/("""/>"""),_display_(/*33.16*/name),format.raw/*33.20*/("""<br>        
-        """)))}),format.raw/*34.10*/("""
+		"""),_display_(/*18.4*/inputText(updateProductForm("name"), '_label -> "Name",'class -> "form-control")),format.raw/*18.84*/("""
+		"""),_display_(/*19.4*/inputText(updateProductForm("description"), '_label -> "Description",'class -> "form-control")),format.raw/*19.98*/("""
 
-		"""),_display_(/*36.4*/inputText(updateProductForm("stock"), '_label -> "Stock",'class -> "form-control")),format.raw/*36.86*/("""
-		"""),_display_(/*37.4*/inputText(updateProductForm("price"), '_label -> "Price",'class -> "form-control")),format.raw/*37.86*/("""
 
-		"""),format.raw/*39.3*/("""<!-- Image upload input -->
-		<label>Image</label>
+        """),_display_(/*22.10*/for((value, name) <- Category.options) yield /*22.48*/ {_display_(Seq[Any](format.raw/*22.50*/("""
+            """),format.raw/*23.13*/("""<input type="checkbox" name="catSelect[]" value=""""),_display_(/*23.63*/value),format.raw/*23.68*/(""""
+            """),_display_(/*24.14*/if(Category.inCategory(value.toLong, id))/*24.55*/ {_display_(Seq[Any](format.raw/*24.57*/("""
+                """),format.raw/*25.17*/("""checked
+            """)))}),format.raw/*26.14*/("""
+            """),format.raw/*27.13*/("""/>"""),_display_(/*27.16*/name),format.raw/*27.20*/("""<br>        
+        """)))}),format.raw/*28.10*/("""
+
+		"""),_display_(/*30.4*/inputText(updateProductForm("stock"), '_label -> "Stock",'class -> "form-control")),format.raw/*30.86*/("""
+		"""),_display_(/*31.4*/inputText(updateProductForm("price"), '_label -> "Price",'class -> "form-control")),format.raw/*31.86*/("""
+
+
+		"""),format.raw/*34.3*/("""<label>Image</label>
     <input class="btn-sm btn-default" type="file" name="upload">
 	
 		<br><br>
 
-	<!-- Add a submit button -->
   <div class="actions">
       <input type="submit" value="Save" class="btn btn-primary">
-			<a href=""""),_display_(/*48.14*/routes/*48.20*/.AdminProductCtrl.listProducts(0)),format.raw/*48.53*/(""""
+			<a href=""""),_display_(/*41.14*/routes/*41.20*/.AdminProductCtrl.listProducts(0)),format.raw/*41.53*/(""""
 				<button class="btn btn-warning" role="button">Cancel</button>
 			</a>
   </div>
-	""")))}),format.raw/*52.3*/(""" """),format.raw/*52.4*/("""<!-- End Form definition -->
+	""")))}),format.raw/*45.3*/("""
 
-""")))}),format.raw/*54.2*/(""" """),format.raw/*54.3*/("""<!-- End of page content -->
+""")))}),format.raw/*47.2*/("""
 
 
 """))
@@ -101,11 +94,11 @@ though a static HTML form would also work -->
 
               /*
                   -- GENERATED --
-                  DATE: Tue Feb 26 14:06:11 GMT 2019
-                  SOURCE: /home/wdd/2ndYearProject/2ndYearProject/app/views/productAdmin/updateProduct.scala.html
-                  HASH: 3beeedd6935eefc6760e4d647bf7217e1b647093
-                  MATRIX: 1015->1|1173->193|1205->328|1249->87|1380->218|1407->219|1541->344|1569->345|1649->399|1670->411|1708->440|1748->442|1778->445|1896->537|2047->678|2088->680|2121->687|2133->691|2164->701|2194->704|2315->799|2416->879|2446->883|2561->977|2598->987|2992->1354|3046->1392|3086->1394|3127->1407|3204->1457|3230->1462|3272->1477|3322->1518|3362->1520|3407->1537|3459->1558|3500->1571|3530->1574|3555->1578|3608->1600|3639->1605|3742->1687|3772->1691|3875->1773|3906->1777|4195->2039|4210->2045|4264->2078|4381->2165|4409->2166|4470->2197|4498->2198
-                  LINES: 28->1|31->4|32->8|35->2|37->5|38->6|40->9|41->10|42->11|42->11|42->11|42->11|44->13|47->16|47->16|47->16|49->18|49->18|49->18|50->19|52->21|52->21|53->22|53->22|55->24|59->28|59->28|59->28|60->29|60->29|60->29|61->30|61->30|61->30|62->31|63->32|64->33|64->33|64->33|65->34|67->36|67->36|68->37|68->37|70->39|79->48|79->48|79->48|83->52|83->52|85->54|85->54
+                  DATE: Tue Feb 26 21:00:36 GMT 2019
+                  SOURCE: F:/2ndYearProject/app/views/productAdmin/updateProduct.scala.html
+                  HASH: 944a729b2f857669f0af170966018e51cb003eca
+                  MATRIX: 1015->1|1173->90|1205->118|1249->87|1277->115|1305->134|1333->137|1353->149|1390->178|1429->180|1459->183|1514->212|1665->353|1706->355|1739->362|1751->366|1782->376|1813->381|1914->461|1944->465|2059->559|2098->571|2152->609|2192->611|2233->624|2310->674|2336->679|2378->694|2428->735|2468->737|2513->754|2565->775|2606->788|2636->791|2661->795|2714->817|2745->822|2848->904|2878->908|2981->990|3013->995|3242->1197|3257->1203|3311->1236|3428->1323|3461->1326
+                  LINES: 28->1|31->3|32->6|35->2|36->4|38->7|40->9|40->9|40->9|40->9|42->11|45->14|45->14|45->14|47->16|47->16|47->16|49->18|49->18|50->19|50->19|53->22|53->22|53->22|54->23|54->23|54->23|55->24|55->24|55->24|56->25|57->26|58->27|58->27|58->27|59->28|61->30|61->30|62->31|62->31|65->34|72->41|72->41|72->41|76->45|78->47
                   -- GENERATED --
               */
           

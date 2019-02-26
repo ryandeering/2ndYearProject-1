@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/2ndYearProject/2ndYearProject/conf/routes
-// @DATE:Tue Feb 26 14:13:12 GMT 2019
+// @SOURCE:F:/2ndYearProject/conf/routes
+// @DATE:Tue Feb 26 21:00:33 GMT 2019
 
 package router
 
@@ -77,8 +77,8 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.LoginController.login"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """loginSubmit""", """controllers.LoginController.loginSubmit"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """logout""", """controllers.LoginController.logout"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addUser""", """controllers.HomeController.addUser"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addUserSubmit""", """controllers.HomeController.addUserSubmit"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin/addUser""", """controllers.HomeController.addUser"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin/addUserSubmit""", """controllers.HomeController.addUserSubmit"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """registerUser""", """controllers.HomeController.registerUser"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """registerUserSubmit""", """controllers.HomeController.registerUserSubmit"""),
     Nil
@@ -486,7 +486,7 @@ class Routes(
 
   // @LINE:43
   private[this] lazy val controllers_HomeController_addUser22_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addUser")))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("Admin/addUser")))
   )
   private[this] lazy val controllers_HomeController_addUser22_invoker = createInvoker(
     HomeController_0.addUser,
@@ -496,7 +496,7 @@ class Routes(
       "addUser",
       Nil,
       "GET",
-      this.prefix + """addUser""",
+      this.prefix + """Admin/addUser""",
       """""",
       Seq()
     )
@@ -504,7 +504,7 @@ class Routes(
 
   // @LINE:44
   private[this] lazy val controllers_HomeController_addUserSubmit23_route = Route("POST",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addUserSubmit")))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("Admin/addUserSubmit")))
   )
   private[this] lazy val controllers_HomeController_addUserSubmit23_invoker = createInvoker(
     HomeController_0.addUserSubmit,
@@ -514,7 +514,7 @@ class Routes(
       "addUserSubmit",
       Nil,
       "POST",
-      this.prefix + """addUserSubmit""",
+      this.prefix + """Admin/addUserSubmit""",
       """""",
       Seq()
     )

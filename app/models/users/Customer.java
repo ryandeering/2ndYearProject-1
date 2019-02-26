@@ -12,8 +12,10 @@ import play.data.validation.*;
 import models.*;
 import models.shopping.*;
 
-@Entity
+@Table(name="USER")
+
 @DiscriminatorValue("customer")
+@Entity
 public class Customer extends User {
 
 
@@ -22,9 +24,9 @@ public class Customer extends User {
     @OneToMany(mappedBy="customer", cascade = CascadeType.ALL)
     private List<ShopOrder> orders;
 	
-    public Customer(String email, String password, String fName, String lName) {
+    public Customer(String email, String password, String fName, String lName, String role) {
 
-        super(email, password, fName, lName);
+        super(email, password, fName, lName, role);
     }
     public Basket getBasket() {
         return basket;

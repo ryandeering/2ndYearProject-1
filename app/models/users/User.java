@@ -14,30 +14,30 @@ import play.data.validation.*;
 // map subclasses to a single table
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 //the discriminator column is used to define User type
-@DiscriminatorColumn(name="role")
-@DiscriminatorValue("admin")
+@DiscriminatorColumn(name="type")
+@DiscriminatorValue("user")
 
 public class User extends Model {
     @Id
     private String email;
 
-
+    @Constraints.Required
     private String fName;
 
+    @Constraints.Required
     private String lName;
 
+    @Constraints.Required
     private String password;
 
-    @Column(insertable=false,updatable=false)
+
     private String role;
 
 
 
     public static final Finder<Long, User> find = new Finder<>(User.class);
 
-    public static final List<User> findAll() {
-        return User.find.all();
-    }
+
 
     public static User authenticate(String email, String password) {
         User user = User.find.query().where().eq("email", email).findUnique();
@@ -70,12 +70,12 @@ public class User extends Model {
 
     }
 
-    public User(String email, String fName, String lName, String password) {
+    public User(String email, String fName, String lName, String password, String role) {
         this.email = email;
         this.fName = fName;
         this.lName = lName;
         this.password = password;
-
+        this.role = role;
     }
 
     public String getEmail() {

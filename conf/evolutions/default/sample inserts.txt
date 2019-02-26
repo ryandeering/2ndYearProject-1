@@ -4,7 +4,7 @@ INSERT INTO EMPLOYEE VALUES (1, 'hulkamaniac@gmail.com', 'Hulk Hogan', 'password
 
 jdbc:h2:file:./data/DB
 
-INSERT INTO USER VALUES ('admin', 'admin@gmail.com', 'Hulk', 'Hogan', '$2a$10$CxclgqyMzrYng..2r9XzLuzgcExg1H8xi4d6mgLf/NzJbeNj8uRbG');
+INSERT INTO USER VALUES('admin', 'admin@gmail.com', 'Hulk', 'Hogan', '$2a$10$CxclgqyMzrYng..2r9XzLuzgcExg1H8xi4d6mgLf/NzJbeNj8uRbG', 'admin');
 
 
 insert into category (id,name) values ( 1,'Audio' );

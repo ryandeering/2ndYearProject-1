@@ -49,11 +49,12 @@ create table shop_order (
 );
 
 create table user (
-  role                          varchar(255),
+  type                          varchar(31) not null,
   email                         varchar(255) not null,
   f_name                        varchar(255),
   l_name                        varchar(255),
   password                      varchar(255),
+  role                          varchar(255),
   constraint pk_user primary key (email)
 );
 

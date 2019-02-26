@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/2ndYearProject/2ndYearProject/conf/routes
-// @DATE:Tue Feb 26 14:13:12 GMT 2019
+// @SOURCE:F:/2ndYearProject/conf/routes
+// @DATE:Tue Feb 26 21:00:33 GMT 2019
 
 import play.api.mvc.Call
 
@@ -121,7 +121,7 @@ package controllers {
     // @LINE:43
     def addUser(): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "addUser")
+      Call("GET", _prefix + { _defaultPrefix } + "Admin/addUser")
     }
   
     // @LINE:45
@@ -133,7 +133,7 @@ package controllers {
     // @LINE:44
     def addUserSubmit(): Call = {
       
-      Call("POST", _prefix + { _defaultPrefix } + "addUserSubmit")
+      Call("POST", _prefix + { _defaultPrefix } + "Admin/addUserSubmit")
     }
   
     // @LINE:46
