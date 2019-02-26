@@ -1,11 +1,7 @@
-[warn] C:\Users\Ryan3\Downloads\2ndYearProject (1)\2ndYearProject\app\controllers\AdminProductCtrl.java:202:1:  [unchecked] unchecked method invocation: method saveFile in class AdminProductCtrl is applied to given types
-[warn]         saveImageMsg = saveFile(p.getId(), file);   //////////////////////NEEDS FIX LATER
-[warn]                                ^  required: Long,FilePart<File>
-[warn]   found: Long,FilePart
-[warn] C:\Users\Ryan3\Downloads\2ndYearProject (1)\2ndYearProject\app\controllers\AdminProductCtrl.java:202:1:  [unchecked] unchecked conversion
-[warn]         saveImageMsg = saveFile(p.getId(), file);   //////////////////////NEEDS FIX LATER
-[warn]                                            ^  required: FilePart<File>
-[warn]   found:    FilePart
-[warn] error: warnings found and -Werror specified
-[warn] 1 error
-[warn] 2 warnings
+[error] /home/wdd/2ndYearProject/2ndYearProject/app/views/welcome.scala.html:81:34: value AsyncController is not a member of object controllers.routes
+[error]                 <a href="@routes.AsyncController.message">Click here for the AsyncController action!</a>
+[error]                                  ^
+[error] /home/wdd/2ndYearProject/2ndYearProject/app/views/welcome.scala.html:95:34: value CountController is not a member of object controllers.routes
+[error]                 <a href="@routes.CountController.count">Click here for the CountController action!</a>
+[error]                                  ^
+[error] two errors found

@@ -4,7 +4,7 @@
 @(env: play.api.Environment, categories: List[Category], products: List[Product], catId: Long, filter: String, user: User)
 
 
-<!-- Pass page title and user on to main -->
+
 @main("Products Page", user) {
 
 	<style>
@@ -17,7 +17,7 @@
 
 	  <div class="col-md-3">
 	<div class="list-group">
-			<!-- Start of For loop - For each c in categories add a link -->
+
 			<a href="@routes.ProductCtrl.listProducts(0, filter)" class="list-group-item">All categories</a>
 			@for(c <- categories) {
 		<a href="@routes.ProductCtrl.listProducts(c.getId, filter)" class="list-group-item">@c.getName</a>
@@ -42,7 +42,7 @@
 
 			<table class="table table-bordered table-hover table-condensed">
 				<thead>
-				<!-- The header row-->
+
 				<tr>
 					<th></th>
 					<th>Name</th>
@@ -53,10 +53,10 @@
 				</tr>
 				</thead>
 				<tbody>
-					<!-- Start of For loop - For each p in products add a row -->
+
 					@for(p <- products) {
 					<tr>
-						<!-- Display each product field value in a column -->
+
 						@if(env.resource("public/images/productImages/thumbnails/" + p.getId + ".jpg").isDefined) {
 							<td><img src="/assets/images/productImages/thumbnails/@(p.getId).jpg"/></td>
 						} else {
@@ -68,8 +68,7 @@
 						<td>&euro; @("%.2f".format(p.getPrice))</td>
 						<td><a href="@routes.ShoppingCtrl.addToBasket(p.getId)"  class="btn btn-default btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
 					</tr>
-					} <!-- End of For loop -->
-
+					}
 				</tbody>
 			</table>
 		</div>

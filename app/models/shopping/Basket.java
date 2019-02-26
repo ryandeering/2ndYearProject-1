@@ -93,7 +93,7 @@ public class Basket extends Model {
         }
         return total;
     }
-	
+
 	//Generic query helper
     public static Finder<Long,Basket> find = new Finder<Long,Basket>(Basket.class);
 

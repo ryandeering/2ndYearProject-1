@@ -5,7 +5,7 @@
 @import models.shopping._
 @import models.products._
 
-<!-- Pass page title and user on to main -->
+
 @main("Order Confirmation", customer) {
 
 
@@ -20,7 +20,7 @@
 
 		<table class="table table-bordered table-hover table-condensed">
 			<thead>
-			<!-- The header row-->
+
 			<tr>
 				<th>Name</th>
 				<th>Description</th>
@@ -31,7 +31,7 @@
 			</thead>
 			<tbody>
                 @if(order != null) {
-                    <!-- Start of For loop - For each p in products add a row -->
+
                     @for(i <- order.getItems) {
                     <tr>
                         <td>@i.getProduct.getName</td>
@@ -40,7 +40,7 @@
                         <td>@i.getQuantity()</td>
                         <td>&euro; @("%.2f".format(i.getItemTotal))</td>
                     </tr>
-                    }<!-- End of For loop -->
+                    }
               }
 			</tbody>
 		</table>

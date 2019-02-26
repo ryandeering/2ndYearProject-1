@@ -5,7 +5,7 @@
 @import models.shopping._
 @import models.products._
 
-<!-- Pass page title and user on to main -->
+
 @main("Shopping Basket", customer) {
 
 
@@ -20,7 +20,7 @@
 
 		<table class="table table-bordered table-hover table-condensed">
 			<thead>
-			<!-- The header row-->
+
 			<tr>
 				<th>Name</th>
 				<th>Description</th>
@@ -33,7 +33,7 @@
 			</thead>
 			<tbody>
                 @if(customer.getBasket() != null) {
-                    <!-- Start of For loop - For each p in products add a row -->
+
                     @for(i <- customer.getBasket().getBasketItems()) {
                     <tr>
                         <td>@i.getProduct.getName</td>
@@ -44,7 +44,7 @@
                         <td><a href="@routes.ShoppingCtrl.removeOne(i.getId)"><span class="glyphicon glyphicon-minus-sign"></span></a></td>
                         <td><a href="@routes.ShoppingCtrl.addOne(i.getId)"><span class="glyphicon glyphicon-plus-sign"></span></a></td>
                     </tr>
-                    }<!-- End of For loop -->
+                    }
               }
 			</tbody>
 		</table>
@@ -71,7 +71,7 @@
 </div>
 
 <script>
-	// JavaScript function returns true if user clicks yes, otherwise, false
+
 	function confirmDel() {
 		return confirm('Are you sure?');
 	}
