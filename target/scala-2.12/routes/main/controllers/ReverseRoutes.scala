@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/ryan/Documents/2ndYearProject/conf/routes
-// @DATE:Wed Feb 27 19:39:40 GMT 2019
+// @DATE:Wed Feb 27 22:47:33 GMT 2019
 
 import play.api.mvc.Call
 
@@ -118,73 +118,61 @@ package controllers {
     }
 
   
-    // @LINE:49
+    // @LINE:47
     def addCustomer(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/addCustomer")
     }
   
-    // @LINE:54
+    // @LINE:52
     def deleteCustomer(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/deleteCustomer/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:43
-    def addUser(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "Admin/addUser")
-    }
-  
-    // @LINE:50
+    // @LINE:48
     def addCustomerSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "admin/addCustomerSubmit")
     }
   
-    // @LINE:51
+    // @LINE:49
     def usersAdmin(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/admin")
     }
   
-    // @LINE:45
+    // @LINE:43
     def registerUser(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "registerUser")
     }
   
-    // @LINE:47
+    // @LINE:45
     def addAdmin(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/addAdmin")
     }
   
-    // @LINE:44
-    def addUserSubmit(): Call = {
-      
-      Call("POST", _prefix + { _defaultPrefix } + "Admin/addUserSubmit")
-    }
-  
-    // @LINE:55
+    // @LINE:53
     def updateAdmin(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/updateAdmin/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:56
+    // @LINE:54
     def deleteAdmin(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/deleteAdmin/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:46
+    // @LINE:44
     def registerUserSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "registerUserSubmit")
     }
   
-    // @LINE:52
+    // @LINE:50
     def usersCustomer(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/customers")
@@ -196,13 +184,13 @@ package controllers {
       Call("GET", _prefix)
     }
   
-    // @LINE:53
+    // @LINE:51
     def updateCustomer(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/updateCustomer/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:48
+    // @LINE:46
     def addAdminSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "admin/addAdminSubmit")

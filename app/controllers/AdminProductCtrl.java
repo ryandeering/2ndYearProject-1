@@ -26,7 +26,7 @@ import org.imgscalr.*;
 import models.users.*;
 import models.products.*;
 
-import views.html.productAdmin.*;
+import views.html.AdminPanel.*;
 
 
 

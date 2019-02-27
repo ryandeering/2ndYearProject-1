@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/ryan/Documents/2ndYearProject/conf/routes
-// @DATE:Wed Feb 27 19:39:40 GMT 2019
+// @DATE:Wed Feb 27 22:47:33 GMT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -157,7 +157,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:49
+    // @LINE:47
     def addCustomer: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addCustomer",
       """
@@ -167,7 +167,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:54
+    // @LINE:52
     def deleteCustomer: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.deleteCustomer",
       """
@@ -177,17 +177,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:43
-    def addUser: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.addUser",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/addUser"})
-        }
-      """
-    )
-  
-    // @LINE:50
+    // @LINE:48
     def addCustomerSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addCustomerSubmit",
       """
@@ -197,7 +187,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:51
+    // @LINE:49
     def usersAdmin: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.usersAdmin",
       """
@@ -207,7 +197,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:45
+    // @LINE:43
     def registerUser: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.registerUser",
       """
@@ -217,7 +207,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:47
+    // @LINE:45
     def addAdmin: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addAdmin",
       """
@@ -227,17 +217,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:44
-    def addUserSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.addUserSubmit",
-      """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/addUserSubmit"})
-        }
-      """
-    )
-  
-    // @LINE:55
+    // @LINE:53
     def updateAdmin: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.updateAdmin",
       """
@@ -247,7 +227,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:56
+    // @LINE:54
     def deleteAdmin: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.deleteAdmin",
       """
@@ -257,7 +237,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:46
+    // @LINE:44
     def registerUserSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.registerUserSubmit",
       """
@@ -267,7 +247,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:52
+    // @LINE:50
     def usersCustomer: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.usersCustomer",
       """
@@ -287,7 +267,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:53
+    // @LINE:51
     def updateCustomer: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.updateCustomer",
       """
@@ -297,7 +277,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:48
+    // @LINE:46
     def addAdminSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addAdminSubmit",
       """

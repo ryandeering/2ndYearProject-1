@@ -1,7 +1,12 @@
-[error] /home/ryan/Documents/2ndYearProject/app/views/customers.scala.html:44:61: value updateCustomer is not a member of controllers.ReverseHomeController
-[error]                             <a href="@routes.HomeController.updateCustomer(c.getEmail)" class="button-xs btn-danger">
-[error]                                                             ^
-[error] /home/ryan/Documents/2ndYearProject/app/views/customers.scala.html:50:61: value deleteCustomer is not a member of controllers.ReverseHomeController
-[error]                             <a href="@routes.HomeController.deleteCustomer(c.getEmail)" class="button-xs btn-danger" onclick="return confirmDel();">
-[error]                                                             ^
-[error] two errors found
+[0m[[0m[31merror[0m] [0m[0m/home/ryan/Documents/2ndYearProject/app/controllers/HomeController.java:76:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable addAdmin[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
+[0m[[0m[31merror[0m] [0m[0m        return ok(addAdmin.render(userForm,User.getUserById(session().get("email"))));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ryan/Documents/2ndYearProject/app/controllers/HomeController.java:85:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable addAdmin[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
+[0m[[0m[31merror[0m] [0m[0m        return ok(addAdmin.render(userForm,User.getUserById(session().get("email"))));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ryan/Documents/2ndYearProject/app/controllers/HomeController.java:95:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable addAdmin[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
+[0m[[0m[31merror[0m] [0m[0m            return badRequest(addAdmin.render(newUserForm,User.getUserById(session().get("email"))));[0m

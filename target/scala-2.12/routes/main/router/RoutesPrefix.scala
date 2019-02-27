@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/ryan/Documents/2ndYearProject/conf/routes
-// @DATE:Wed Feb 27 19:39:40 GMT 2019
+// @DATE:Wed Feb 27 22:47:33 GMT 2019
 
 
 package router {

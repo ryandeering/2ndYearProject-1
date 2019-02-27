@@ -5,6 +5,7 @@ import play.data.*;
 import play.db.ebean.Transactional;
 import javax.inject.Inject;
 import views.html.*;
+import views.html.AdminPanel.*;
 import models.users.*;
 import java.util.*;
 import org.mindrot.jbcrypt.BCrypt;
@@ -25,6 +26,26 @@ public class HomeController extends Controller {
         return ok(index.render(User.getUserById(session().get("email"))));
     }
 
+
+    public Result registerUser() {
+        Form<Customer> userForm = formFactory.form(Customer.class);
+        return ok(registerUser.render(userForm, User.getUserById(session().get("email"))));
+    }
+
+
+
+    public Result registerUserSubmit(){
+        Form<Customer> customerForm = formFactory.form(Customer.class).bindFromRequest();
+
+        if(customerForm.hasErrors()){
+            return badRequest(registerUser.render(customerForm, User.getUserById(session().get("email"))));
+        }else{
+            Customer newCustomer = customerForm.get();
+            newCustomer.setPassword(BCrypt.hashpw(newCustomer.getPassword(), BCrypt.gensalt()));
+            newCustomer.save();
+            flash("You have Successfully registered!");
+            return redirect(controllers.routes.HomeController.index());}
+        }
 
 
     @Security.Authenticated(Secured.class)
