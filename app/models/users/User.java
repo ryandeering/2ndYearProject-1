@@ -30,10 +30,7 @@ public class User extends Model {
     @Constraints.Required
     private String password;
 
-
     private String role;
-
-
 
     public static final Finder<Long, User> find = new Finder<>(User.class);
 
@@ -41,7 +38,7 @@ public class User extends Model {
 
     public static User authenticate(String email, String password) {
         User user = User.find.query().where().eq("email", email).findUnique();
-        if (user != null && BCrypt.checkpw(password, user.getPassword())) {
+        if (user != null && BCrypt.checkpw(password, user.getPassword())) { // bcrypt method
             return user;
         } else {
             return user;

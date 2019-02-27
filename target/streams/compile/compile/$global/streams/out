@@ -1,2 +1,7 @@
-[error] /home/wdd/2ndYearProject/2ndYearProject/app/controllers/ShoppingCtrl.java:62:1: incompatible types: models.users.User cannot be converted to models.users.Customer
-[error]         Customer customer = User.getLoggedIn(session().get("email"));
+[error] /home/ryan/Documents/2ndYearProject/app/views/customers.scala.html:44:61: value updateCustomer is not a member of controllers.ReverseHomeController
+[error]                             <a href="@routes.HomeController.updateCustomer(c.getEmail)" class="button-xs btn-danger">
+[error]                                                             ^
+[error] /home/ryan/Documents/2ndYearProject/app/views/customers.scala.html:50:61: value deleteCustomer is not a member of controllers.ReverseHomeController
+[error]                             <a href="@routes.HomeController.deleteCustomer(c.getEmail)" class="button-xs btn-danger" onclick="return confirmDel();">
+[error]                                                             ^
+[error] two errors found

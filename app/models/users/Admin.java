@@ -28,4 +28,9 @@ public class Admin extends User {
     public static final List<Admin> findAll() {
         return Admin.find.all();
     }
+
+
+
+
+
 }

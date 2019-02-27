@@ -43,4 +43,14 @@ public class Customer extends User {
     public void setOrders(List<ShopOrder> orders) {
         this.orders = orders;
     }
+
+
+    public static final Finder<Long, Customer> find = new Finder<>(Customer.class);
+
+    public static final List<Customer> findAll() {
+        return Customer.find.all();
+    }
+
+
+
 }
