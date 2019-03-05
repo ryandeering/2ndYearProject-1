@@ -135,5 +135,18 @@ public class Product extends Model {
     public void setPrice(double price) {
         this.price = price;
     }
+
+
+    public String stockShortage(){
+        if (getStock() >= 15){
+            return "In Stock!";
+        }   else if (getStock() <= 10){
+            return "Low In Stock!";
+        }   else {
+            return "Out of stock.";
+        }
+    }
+
+
 }
 

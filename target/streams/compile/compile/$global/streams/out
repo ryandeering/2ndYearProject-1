@@ -1,12 +1,16 @@
-[0m[[0m[31merror[0m] [0m[0m/home/ryan/Documents/2ndYearProject/app/controllers/HomeController.java:76:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   variable addAdmin[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
-[0m[[0m[31merror[0m] [0m[0m        return ok(addAdmin.render(userForm,User.getUserById(session().get("email"))));[0m
-[0m[[0m[31merror[0m] [0m[0m/home/ryan/Documents/2ndYearProject/app/controllers/HomeController.java:85:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   variable addAdmin[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
-[0m[[0m[31merror[0m] [0m[0m        return ok(addAdmin.render(userForm,User.getUserById(session().get("email"))));[0m
-[0m[[0m[31merror[0m] [0m[0m/home/ryan/Documents/2ndYearProject/app/controllers/HomeController.java:95:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   variable addAdmin[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
-[0m[[0m[31merror[0m] [0m[0m            return badRequest(addAdmin.render(newUserForm,User.getUserById(session().get("email"))));[0m
+[error] /home/ryan/rawr/2ndYearProject/app/models/products/Product.java:143:1: illegal start of type
+[error]         }   else if (getStock() =< 10){
+[error] /home/ryan/rawr/2ndYearProject/app/models/products/Product.java:143:1: illegal start of expression
+[error]         }   else if (getStock() =< 10){
+[error] /home/ryan/rawr/2ndYearProject/app/models/products/Product.java:143:1: ')' expected
+[error]         }   else if (getStock() =< 10){
+[error] /home/ryan/rawr/2ndYearProject/app/models/products/Product.java:145:1: illegal start of type
+[error]         }   else {
+[error] /home/ryan/rawr/2ndYearProject/app/models/products/Product.java:145:1: ';' expected
+[error]         }   else {
+[error] /home/ryan/rawr/2ndYearProject/app/models/products/Product.java:146:1: illegal start of type
+[error]             return "Out of stock.";
+[error] /home/ryan/rawr/2ndYearProject/app/models/products/Product.java:146:1: <identifier> expected
+[error]             return "Out of stock.";
+[error] /home/ryan/rawr/2ndYearProject/app/models/products/Product.java:148:1: class, interface, or enum expected
+[error]     }

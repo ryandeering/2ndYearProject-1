@@ -19,7 +19,11 @@ import play.Logger;
 import java.io.IOException;
 import java.awt.image.*;
 import javax.imageio.*;
-import org.imgscalr.*;
+
+
+
+import org.im4java.core.ConvertCmd;
+import org.im4java.core.IMOperation;
 
 
 // Import models and views
@@ -140,7 +144,7 @@ public class AdminProductCtrl extends Controller {
         p.update();
 
         Http.MultipartFormData body = request().body().asMultipartFormData();
-       Http.MultipartFormData.FilePart file = body.getFile("file");
+       Http.MultipartFormData.FilePart file = body.getFile("upload");
 
         return redirect(controllers.routes.AdminProductCtrl.index());
     }
@@ -152,43 +156,42 @@ public class AdminProductCtrl extends Controller {
         return redirect(routes.AdminProductCtrl.index());
     }
 
-    public String saveFile(Long id, FilePart<File> uploaded) {
-        if (uploaded != null) {
-            String mimeType = uploaded.getContentType();
+    public String saveFile(Long id, FilePart<File> image) {
+        if (image != null) {
+            // Get mimetype from image
+            String mimeType = image.getContentType();
+            // Check if uploaded file is an image
             if (mimeType.startsWith("image/")) {
-                String fileName = uploaded.getFilename();
-                String extension = "";
-                int i = fileName.lastIndexOf('.');
-                if (i >= 0) {
-                    extension = fileName.substring(i + 1);
+                // Create file from uploaded image
+                File file = image.getFile();
+                // create ImageMagick command instance
+                ConvertCmd cmd = new ConvertCmd();
+                // create the operation, add images and operators/options
+                IMOperation op = new IMOperation();
+                // Get the uploaded image file
+                op.addImage(file.getAbsolutePath());
+                // Resize using height and width constraints
+                op.resize(300,200);
+                // Save the  image
+                op.addImage("public/images/productImages/" + id + ".jpg");
+                // thumbnail
+                IMOperation thumb = new IMOperation();
+                // Get the uploaded image file
+                thumb.addImage(file.getAbsolutePath());
+                thumb.thumbnail(60);
+                // Save the  image
+                thumb.addImage("public/images/productImages/thumbnails/" + id + ".jpg");
+                // execute the operation
+                try{
+                    cmd.run(op);
+                    cmd.run(thumb);
                 }
-
-                File file = uploaded.getFile();
-
-                File dir = new File("public/images/productImages");
-                if (!dir.exists()) {
-                    dir.mkdirs();
+                catch(Exception e){
+                    e.printStackTrace();
                 }
-                File newFile = new File("public/images/productImages/", id + "." + extension);
-                if (file.renameTo(newFile)) {
-                    try {
-                        BufferedImage img = ImageIO.read(newFile);
-                        BufferedImage scaledImg = Scalr.resize(img, 90);
-
-                        if (ImageIO.write(scaledImg, extension, new File("public/images/productImages/thumbnails", id + ".jpg"))) {
-                            return "/ file uploaded and thumbnail created.";
-                        } else {
-                            return "/ file uploaded but thumbnail creation failed.";
-                        }
-                    } catch (IOException e) {
-                        return "/ file uploaded but thumbnail creation failed.";
-                    }
-                } else {
-                    return "/ file upload failed.";
-                }
-
+                return " and image saved";
             }
         }
-        return "/ no image file.";
+        return "image file missing";
     }
 }
