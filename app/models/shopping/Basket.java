@@ -17,21 +17,21 @@ public class Basket extends Model {
 
     @Id
     private Long id;
-    
+
     @OneToMany(mappedBy = "basket", cascade = CascadeType.PERSIST)
     private List<OrderItem> basketItems;
-    
+
     @OneToOne
     private Customer customer;
 
     // Default constructor
     public  Basket() {
     }
-    
+
     // Add product to basket
     // Either update existing order item or ad a new one.
     public void addProduct(Product p) {
-        
+
         boolean itemFound = false;
         // Check if product already in this basket
         // Check if item in basket
@@ -51,8 +51,8 @@ public class Basket extends Model {
             basketItems.add(newItem);
         }
     }
-    
-    public void removeItem(OrderItem item) {
+
+    public void removeItem(OrderItem item, Product ios) {
 
         // Using an iterator ensures 'safe' removal of list objects
         // Removal of list items is unreliable as index can change if an item is added or removed elsewhere
@@ -64,37 +64,49 @@ public class Basket extends Model {
                 // If more than one of these items in the basket then decrement
                 if (i.getQuantity() > 1 ) {
                     i.decreaseQty();
+                    ios.incrementStock();
+                    ios.update();
                 }
                 // If only one left, remove this item from the basket (via the iterator)
                 else {
                     // delete object from db
                     i.delete();
+                    ios.incrementStock();
+                    ios.update();
                     // remove object from list
                     iter.remove();
                     break;
-                }             
+                }
             }
-		}
+        }
     }
-    
+
     public void removeAllItems() {
         for(OrderItem i: this.basketItems) {
+
+            Product ios = Product.find.byId(i.getProduct().getId());
+            if(ios.getId() == i.getProduct().getId())
+            {
+                int quantity = i.getQuantity();
+                ios.incrementStock(quantity);
+                ios.update();
+            }
             i.delete();
         }
         this.basketItems = null;
     }
 
     public double getBasketTotal() {
-        
+
         double total = 0;
-        
+
         for (OrderItem i: basketItems) {
             total += i.getItemTotal();
         }
         return total;
     }
 
-	//Generic query helper
+    //Generic query helper
     public static Finder<Long,Basket> find = new Finder<Long,Basket>(Basket.class);
 
     //Find all Products in the database

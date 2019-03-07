@@ -138,14 +138,28 @@ public class Product extends Model {
 
 
     public String stockShortage(){
-        if (getStock() >= 15){
-            return "In Stock!";
-        }   else if (getStock() <= 10){
-            return "Low In Stock!";
-        }   else {
-            return "Out of stock.";
-        }
+       if (getStock() > 5){
+           return "In stock!";
+        } else if (getStock() > 0){
+           return "Short in stock.";
+       }  else {
+           return "Out of stock.";
+       }
+
     }
+
+    public int decrementStock() {
+        return stock--;
+    }
+    public int incrementStock() {
+        return stock++;
+    }
+
+
+    public void incrementStock(int qty){
+        stock +=qty;
+    }
+
 
 
 }

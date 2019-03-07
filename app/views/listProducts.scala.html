@@ -66,9 +66,15 @@
 						<td>@p.getDescription</td>
 						<td>@p.stockShortage</td>
 						<td>&euro; @("%.2f".format(p.getPrice))</td>
-						<td><a href="@routes.ShoppingCtrl.addToBasket(p.getId)"  class="btn btn-default btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
-					</tr>
-					}
+						@if(p.getStock() > 0){
+							<td><a href="@routes.ShoppingCtrl.addToBasket(p.getId)"  class="btn btn-default btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
+						}else{
+							<td></td>
+						}
+						</tr>
+					 }
+
+
 				</tbody>
 			</table>
 		</div>

@@ -56,9 +56,11 @@
                                         <a href="@routes.ShoppingCtrl.showBasket()"><span class="glyphicon glyphicon-shopping-cart"></span></a>
                         		</li>
 					<li><a href="@routes.LoginController.logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+						<li><a href="@routes.ShoppingCtrl.viewOrders()"><span class="glyphicon glyphicon-log-in"></span> View Orders</a></li>
 					} else {
 					<li><a href="@routes.HomeController.registerUser()"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 					<li><a href="@routes.LoginController.login()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
 					}
 				</ul>
 

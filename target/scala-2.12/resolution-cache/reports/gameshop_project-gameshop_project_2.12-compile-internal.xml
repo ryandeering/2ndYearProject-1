@@ -7,8 +7,20 @@
 		revision="1.0-SNAPSHOT"
 		conf="compile-internal"
 		confs="compile, runtime, test, provided, optional, universal, universal-docs, universal-src, windows, docker, linux, rpm, debian, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool, docs"
-		date="20190305210721"/>
+		date="20190307120943"/>
 	<dependencies>
+		<module organisation="net.tanesha.recaptcha4j" name="recaptcha4j">
+			<revision name="0.0.7" status="release" pubdate="20100219211956" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://tanesha.net/projects/recaptcha4j/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="89">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2852" time="0" location="/home/ryan/.ivy2/cache/net.tanesha.recaptcha4j/recaptcha4j/ivy-0.0.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/net/tanesha/recaptcha4j/recaptcha4j/0.0.7/recaptcha4j-0.0.7.pom"/>
+				<caller organisation="gameshop_project" name="gameshop_project_2.12" conf="compile-internal, compile, provided, optional" rev="0.0.7" rev-constraint-default="0.0.7" rev-constraint-dynamic="0.0.7" callerrev="1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="recaptcha4j" type="jar" ext="jar" status="no" details="" size="10245" time="0" location="/home/ryan/.ivy2/cache/net.tanesha.recaptcha4j/recaptcha4j/jars/recaptcha4j-0.0.7.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/net/tanesha/recaptcha4j/recaptcha4j/0.0.7/recaptcha4j-0.0.7.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
 		<module organisation="org.mindrot" name="jbcrypt">
 			<revision name="0.3m" status="release" pubdate="20100517034639" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.mindrot.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="88">
 				<license name="ISC/BSD License"/>

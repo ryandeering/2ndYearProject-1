@@ -14,8 +14,8 @@ GET     /listProducts                       controllers.ProductCtrl.listProducts
 # Shopping (added by Daria)
 GET     /showBasket                         controllers.ShoppingCtrl.showBasket()
 GET     /addToBasket/:id                    controllers.ShoppingCtrl.addToBasket(id: Long)
-GET     /addOne/:itemId                     controllers.ShoppingCtrl.addOne(itemId: Long)
-GET     /removeOne/:itemId                  controllers.ShoppingCtrl.removeOne(itemId: Long)
+GET     /addOne/:itemId                     controllers.ShoppingCtrl.addOne(itemId: Long, pid: Long)
+GET     /removeOne/:itemId                  controllers.ShoppingCtrl.removeOne(itemId: Long, pid: Long)
 GET     /emptyBasket                        controllers.ShoppingCtrl.emptyBasket()
 GET     /placeOrder                         controllers.ShoppingCtrl.placeOrder()
 GET     /viewOrder/:id                      controllers.ShoppingCtrl.viewOrder(id: Long)
@@ -37,6 +37,7 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 
 #login
+
 GET     /login                      controllers.LoginController.login
 GET     /loginSubmit                controllers.LoginController.loginSubmit
 GET     /logout                     controllers.LoginController.logout
@@ -52,6 +53,9 @@ GET /admin/updateCustomer/:id controllers.HomeController.updateCustomer(id: Stri
 GET /admin/deleteCustomer/:id controllers.HomeController.deleteCustomer(id: String)
 GET /admin/updateAdmin/:id controllers.HomeController.updateAdmin(id: String)
 GET /admin/deleteAdmin/:id controllers.HomeController.deleteAdmin(id: String)
+
+GET     /cancelOrder                         controllers.ShoppingCtrl.cancelOrder(id: Long)
+GET     /viewOrders                         controllers.ShoppingCtrl.viewOrders()
 
 
 #GET     manager/addEmployee                    controllers.HomeController.addItem

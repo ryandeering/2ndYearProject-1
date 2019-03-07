@@ -1,5 +1,6 @@
 package models.shopping;
 
+import java.text.DateFormat;
 import java.util.*;
 import javax.persistence.*;
 
@@ -11,7 +12,7 @@ import java.util.Date;
 
 import models.products.*;
 import models.users.*;
-
+import java.text.SimpleDateFormat;
 // ShopOrder entity managed by Ebean
 @Entity
 public class ShopOrder extends Model {
@@ -66,6 +67,19 @@ public class ShopOrder extends Model {
         return OrderDate;
     }
 
+
+    public Calendar toCalendar(){
+        Date date = getOrderDate();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal;
+    }
+
+
+
+
+
+
     public void setOrderDate(Date orderDate) {
         OrderDate = orderDate;
     }
@@ -85,5 +99,27 @@ public class ShopOrder extends Model {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+
+    public String getOrderDateString() {
+        if(OrderDate == null) {
+            return "No Date Availible";
+        }
+        String s = new SimpleDateFormat("dd-MMM-yyyy").format(OrderDate.getTime());
+        return s;
+    }
+
+
+    public void adjustStock(){
+        for (OrderItem i : items) {
+            Product ios = Product.find.byId(i.getProduct().getId());
+            if (i.getProduct().getId() == ios.getId()) {
+                int quantity = i.getQuantity();
+                ios.incrementStock(quantity);
+                ios.update();
+            }
+        }
+    }
+
 }
 
