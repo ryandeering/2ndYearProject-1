@@ -39,17 +39,25 @@ Seq[Any](format.raw/*2.1*/("""
 
 """),_display_(/*9.2*/main("Order Confirmation", customer)/*9.38*/ {_display_(Seq[Any](format.raw/*9.40*/("""
 
+"""),format.raw/*11.1*/("""<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-"""),format.raw/*12.1*/("""<div class="row">
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=sb">
+  </script>
+</head>
+
+<div class="row">
 
 	<div class="col-md-12">
-		"""),_display_(/*15.4*/if(flash.containsKey("success"))/*15.36*/ {_display_(Seq[Any](format.raw/*15.38*/("""
-			  """),format.raw/*16.6*/("""<div class="alert alert-success">
-			      """),_display_(/*17.11*/flash/*17.16*/.get("success")),format.raw/*17.31*/("""
-			  """),format.raw/*18.6*/("""</div>
-		""")))}),format.raw/*19.4*/(""" 
+		"""),_display_(/*23.4*/if(flash.containsKey("success"))/*23.36*/ {_display_(Seq[Any](format.raw/*23.38*/("""
+			  """),format.raw/*24.6*/("""<div class="alert alert-success">
+			      """),_display_(/*25.11*/flash/*25.16*/.get("success")),format.raw/*25.31*/("""
+			  """),format.raw/*26.6*/("""</div>
+		""")))}),format.raw/*27.4*/(""" 
 
-		"""),format.raw/*21.3*/("""<table class="table table-bordered table-hover table-condensed">
+		"""),format.raw/*29.3*/("""<table class="table table-bordered table-hover table-condensed">
 			<thead>
 
 			<tr>
@@ -61,28 +69,76 @@ Seq[Any](format.raw/*2.1*/("""
 			</tr>
 			</thead>
 			<tbody>
-                """),_display_(/*33.18*/if(order != null)/*33.35*/ {_display_(Seq[Any](format.raw/*33.37*/("""
+                """),_display_(/*41.18*/if(order != null)/*41.35*/ {_display_(Seq[Any](format.raw/*41.37*/("""
 
-                    """),_display_(/*35.22*/for(i <- order.getItems) yield /*35.46*/ {_display_(Seq[Any](format.raw/*35.48*/("""
-                    """),format.raw/*36.21*/("""<tr>
-                        <td>"""),_display_(/*37.30*/i/*37.31*/.getProduct.getName),format.raw/*37.50*/("""</td>
-                        <td>"""),_display_(/*38.30*/i/*38.31*/.getProduct.getDescription),format.raw/*38.57*/("""</td>
-                        <td>&euro; """),_display_(/*39.37*/("%.2f".format(i.getPrice))),format.raw/*39.64*/("""</td>
-                        <td>"""),_display_(/*40.30*/i/*40.31*/.getQuantity()),format.raw/*40.45*/("""</td>
-                        <td>&euro; """),_display_(/*41.37*/("%.2f".format(i.getItemTotal))),format.raw/*41.68*/("""</td>
+                    """),_display_(/*43.22*/for(i <- order.getItems) yield /*43.46*/ {_display_(Seq[Any](format.raw/*43.48*/("""
+                    """),format.raw/*44.21*/("""<tr>
+                        <td>"""),_display_(/*45.30*/i/*45.31*/.getProduct.getName),format.raw/*45.50*/("""</td>
+                        <td>"""),_display_(/*46.30*/i/*46.31*/.getProduct.getDescription),format.raw/*46.57*/("""</td>
+                        <td>&euro; """),_display_(/*47.37*/("%.2f".format(i.getPrice))),format.raw/*47.64*/("""</td>
+                        <td>"""),_display_(/*48.30*/i/*48.31*/.getQuantity()),format.raw/*48.45*/("""</td>
+                        <td>&euro; """),_display_(/*49.37*/("%.2f".format(i.getItemTotal))),format.raw/*49.68*/("""</td>
                     </tr>
-                    """)))}),format.raw/*43.22*/("""
-              """)))}),format.raw/*44.16*/("""
-			"""),format.raw/*45.4*/("""</tbody>
+                    """)))}),format.raw/*51.22*/("""
+              """)))}),format.raw/*52.16*/("""
+			"""),format.raw/*53.4*/("""</tbody>
 		</table>
         <div class="row">
             <div class="col-md-12">
-                <p class="text-right"><strong>Order Total: &euro; """),_display_(/*49.68*/("%.2f".format(order.getOrderTotal))),format.raw/*49.104*/("""</strong></p>
+                <p class="text-right"><strong>Order Total: &euro; """),_display_(/*57.68*/("%.2f".format(order.getOrderTotal))),format.raw/*57.104*/("""</strong></p>
             </div>  
+ 
+
+  
+
         </div>
         </div>
+ 
 </div>
-""")))}))
+<div id="paypal-button-container"></div>
+<h1> Pay Via Stripe </h1>
+
+<form action="your-server-side-code" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_e9PCtT21TnhRh8b0iAgZ0erx"
+    data-amount='"""),_display_(/*74.19*/("%.0f".format(order.getOrderTotal))),format.raw/*74.55*/("""00'
+    data-name="Demo Site"
+    data-description="Widget"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto"
+    data-currency="eur">
+  </script>
+</form>
+
+
+""")))}),format.raw/*84.2*/("""
+"""),format.raw/*85.1*/("""<keep-alive>
+<script>
+
+    document.getElementById("paypal-button-container").onload = function() """),format.raw/*88.76*/("""{"""),format.raw/*88.77*/("""paypal.Buttons().render('#paypal-button-container');"""),format.raw/*88.129*/("""}"""),format.raw/*88.130*/("""
+
+  
+"""),format.raw/*91.1*/("""</script>
+
+<script>
+paypal.Buttons("""),format.raw/*94.16*/("""{"""),format.raw/*94.17*/("""
+    """),format.raw/*95.5*/("""createOrder: function(data, actions) """),format.raw/*95.42*/("""{"""),format.raw/*95.43*/("""
+      """),format.raw/*96.7*/("""// Set up the transaction
+      return actions.order.create("""),format.raw/*97.35*/("""{"""),format.raw/*97.36*/("""
+        """),format.raw/*98.9*/("""purchase_units: ["""),format.raw/*98.26*/("""{"""),format.raw/*98.27*/("""
+          """),format.raw/*99.11*/("""amount: """),format.raw/*99.19*/("""{"""),format.raw/*99.20*/("""
+            """),format.raw/*100.13*/("""value: '"""),_display_(/*100.22*/("%.2f".format(order.getOrderTotal))),format.raw/*100.58*/("""'
+          """),format.raw/*101.11*/("""}"""),format.raw/*101.12*/("""
+        """),format.raw/*102.9*/("""}"""),format.raw/*102.10*/("""]
+      """),format.raw/*103.7*/("""}"""),format.raw/*103.8*/(""");
+    """),format.raw/*104.5*/("""}"""),format.raw/*104.6*/("""
+  """),format.raw/*105.3*/("""}"""),format.raw/*105.4*/(""").render('#paypal-button-container');
+</script>
+
+
+
+</keep-alive>"""))
       }
     }
   }
@@ -98,11 +154,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Mar 07 12:09:56 GMT 2019
-                  SOURCE: /home/ryan/rawr/2ndYearProject2/app/views/orderConfirmed.scala.html
-                  HASH: 9ac2b55fcbc43346dc192f01f37a9bff95d2cde7
-                  MATRIX: 998->1|1138->72|1174->102|1206->128|1259->69|1287->153|1315->156|1359->192|1398->194|1428->197|1501->244|1542->276|1582->278|1615->284|1686->328|1700->333|1736->348|1769->354|1809->364|1841->369|2122->623|2148->640|2188->642|2238->665|2278->689|2318->691|2367->712|2428->746|2438->747|2478->766|2540->801|2550->802|2597->828|2666->870|2714->897|2776->932|2786->933|2821->947|2890->989|2942->1020|3026->1073|3073->1089|3104->1093|3280->1242|3338->1278
-                  LINES: 28->1|31->4|32->5|33->6|36->2|38->7|40->9|40->9|40->9|43->12|46->15|46->15|46->15|47->16|48->17|48->17|48->17|49->18|50->19|52->21|64->33|64->33|64->33|66->35|66->35|66->35|67->36|68->37|68->37|68->37|69->38|69->38|69->38|70->39|70->39|71->40|71->40|71->40|72->41|72->41|74->43|75->44|76->45|80->49|80->49
+                  DATE: Sun Mar 10 22:49:37 GMT 2019
+                  SOURCE: /home/wdd/2ndYrProject/2ndYearProject/app/views/orderConfirmed.scala.html
+                  HASH: d55e39d58b61de415f549421db32210081366410
+                  MATRIX: 998->1|1138->72|1174->102|1206->128|1259->69|1287->153|1315->156|1359->192|1398->194|1427->196|1722->465|1763->497|1803->499|1836->505|1907->549|1921->554|1957->569|1990->575|2030->585|2062->590|2343->844|2369->861|2409->863|2459->886|2499->910|2539->912|2588->933|2649->967|2659->968|2699->987|2761->1022|2771->1023|2818->1049|2887->1091|2935->1118|2997->1153|3007->1154|3042->1168|3111->1210|3163->1241|3247->1294|3294->1310|3325->1314|3501->1463|3559->1499|3935->1848|3992->1884|4232->2094|4260->2095|4386->2193|4415->2194|4496->2246|4526->2247|4558->2252|4621->2287|4650->2288|4682->2293|4747->2330|4776->2331|4810->2338|4898->2398|4927->2399|4963->2408|5008->2425|5037->2426|5076->2437|5112->2445|5141->2446|5183->2459|5220->2468|5278->2504|5319->2516|5349->2517|5386->2526|5416->2527|5452->2535|5481->2536|5516->2543|5545->2544|5576->2547|5605->2548
+                  LINES: 28->1|31->4|32->5|33->6|36->2|38->7|40->9|40->9|40->9|42->11|54->23|54->23|54->23|55->24|56->25|56->25|56->25|57->26|58->27|60->29|72->41|72->41|72->41|74->43|74->43|74->43|75->44|76->45|76->45|76->45|77->46|77->46|77->46|78->47|78->47|79->48|79->48|79->48|80->49|80->49|82->51|83->52|84->53|88->57|88->57|105->74|105->74|115->84|116->85|119->88|119->88|119->88|119->88|122->91|125->94|125->94|126->95|126->95|126->95|127->96|128->97|128->97|129->98|129->98|129->98|130->99|130->99|130->99|131->100|131->100|131->100|132->101|132->101|133->102|133->102|134->103|134->103|135->104|135->104|136->105|136->105
                   -- GENERATED --
               */
           
