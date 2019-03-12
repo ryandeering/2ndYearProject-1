@@ -1,5 +1,6 @@
 package controllers;
 
+import play.api.Environment;
 import play.mvc.*;
 import play.data.*;
 import play.db.ebean.Transactional;
@@ -7,6 +8,7 @@ import javax.inject.Inject;
 import views.html.*;
 import views.html.AdminPanel.*;
 import models.users.*;
+import models.products.*;
 import java.util.*;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -15,11 +17,13 @@ public class HomeController extends Controller {
 
 
     private FormFactory formFactory;
+    private Environment e;
 
 
     @Inject
-    public HomeController (FormFactory f){
+    public HomeController (FormFactory f, Environment env){
         this.formFactory = f;
+        this.e = env;
     }
 
     public Result index() {
@@ -183,6 +187,33 @@ public class HomeController extends Controller {
         cList = Customer.findAll();
         return ok(customers.render(cList,User.getUserById(session().get("email"))));
     }
+
+
+  //  @Security.Authenticated(Secured.class)
+//    @Transactional
+//    public Result product(Long id) {
+ //       List<Product> productList = null;
+  //      Product products = Product.find.byId(id);
+     //   if (id.equals(null)) {
+   //         return redirect(controllers.routes.HomeController.index());
+   //     } else {
+  //          productList = products.getProjects();
+    //    }
+      //  return ok(employeeProjects.render(projList, tempEmployee, User.getUserById(session().get("email"))));
+    //}
+
+
+
+    public Result product(Long id, String filter) {
+
+        List<Product> productList = null;
+        Product p;
+
+        p = Product.find.byId(id);
+        return ok(product.render(p, filter, User.getUserById(session().get("email")),e));
+    }
+
+
 
 }
 

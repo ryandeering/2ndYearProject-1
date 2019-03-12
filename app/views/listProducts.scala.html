@@ -62,7 +62,12 @@
 						} else {
 							<td><img src="/assets/images/productImages/thumbnails/noImage.png"/></td>
 						}
-						<td>@p.getName</td>
+
+
+					<td>
+							<a href="@routes.HomeController.product(p.getId,"")">@p.getName</a>
+					</td>
+
 						<td>@p.getDescription</td>
 						<td>@p.stockShortage</td>
 						<td>&euro; @("%.2f".format(p.getPrice))</td>

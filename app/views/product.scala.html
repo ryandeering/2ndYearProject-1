@@ -1,0 +1,31 @@
+@(product: models.products.Product, filter:String ,user : models.users.User, e: play.api.Environment)
+
+@main("Product", user) {
+    <p class="lead">@product.getName()</p>
+
+    <div class="col-sm-3">
+        <table class="table table-bordered table-hover table-condensed">
+            <thead>
+                <tr>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+
+                @if(e.resource("public/images/productImages/" + product.getId + ".jpg").isDefined) {
+                    <td><img src="/assets/images/productImages/@(product.getId).jpg"/></td>
+                } else {
+                    <td><img src="/assets/images/productImages/thumbnails/noImage.png"/></td>
+                }
+
+                @product.getPrice
+                @product.getDescription
+
+
+
+            </tbody>
+        </table>
+    </div>
+}

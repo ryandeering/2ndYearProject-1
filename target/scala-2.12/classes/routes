@@ -53,6 +53,7 @@ GET /admin/updateCustomer/:id controllers.HomeController.updateCustomer(id: Stri
 GET /admin/deleteCustomer/:id controllers.HomeController.deleteCustomer(id: String)
 GET /admin/updateAdmin/:id controllers.HomeController.updateAdmin(id: String)
 GET /admin/deleteAdmin/:id controllers.HomeController.deleteAdmin(id: String)
+GET     /product/:id                 controllers.HomeController.product(id: Long, filter?="")
 
 GET     /cancelOrder                         controllers.ShoppingCtrl.cancelOrder(id: Long)
 GET     /viewOrders                         controllers.ShoppingCtrl.viewOrders()
