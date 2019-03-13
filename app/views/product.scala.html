@@ -10,8 +10,8 @@
                 <style>
 
                         .pic {
-                        padding-top: 1em;
-                            border:1px solid #021a40;
+                            padding:0.2em;
+                            border:0.2px solid #021a40;
                         }
 
                         .lead{
@@ -26,24 +26,23 @@
                         }
 
                         .text-right{
-                            padding-left: 28em;
+                            padding-left:26em;
+                            float: inside;
                             font-weight: bold;
-                            font-size: 1.6em;
+                            position: relative;
                         }
-
-
                 </style>
             </thead>
             <tbody>
 
-
                 @if(e.resource("public/images/productImages/" + product.getId + ".jpg").isDefined) {
-                    <img class = "pic" src="/assets/images/productImages/@(product.getId).jpg"/>
+                    <img class="pic" src="/assets/images/productImages/@(product.getId).jpg"/>
                 } else {
-                    <img class = "pic" src="/assets/images/productImages/thumbnails/noImage.png"/>
+                    <img class="pic" src="/assets/images/productImages/thumbnails/noImage.png"/>
                 }
 
-                <p class = "text-right"> Price: &euro; @("%.2f".format(product.getPrice)) </p>
+                <p> &emsp; </p>
+
                 <p class = "lead" >@product.getDescription</p>
 
 
@@ -52,7 +51,7 @@
                         <button type="button" class="btn btn-lg btn-primary" >Add to Cart</button>
                     </a>
                 </div>
-
+                <p class = "a"> Price: &euro; @("%.2f".format(product.getPrice)) </p>
             </tbody>
         </table>
     </div>
