@@ -6,22 +6,52 @@
     <div class="col-sm-3">
         <table class="table table-bordered table-hover table-condensed">
             <thead>
-                <tr>
+                <link href="https://fonts.googleapis.com/css?family=Glegoo|Open+Sans" rel="stylesheet">
+                <style>
 
-                </tr>
+                        img {
+                        padding-left: 0em;
+                            border:1px solid #021a40;
+                        }
+
+                        .description{
+                            font-family: 'Open Sans', sans-serif;
+                            padding-left: 24em;
+                        }
+
+                        .lead{
+                            font-family: 'Glegoo', serif;
+                            font-weight: bold;
+                        }
+
+                        .bold{
+
+                        }
+
+                        .price{
+                            padding-left: 24em;
+                            padding-top: 20em;
+                        }
+
+
+
+
+                </style>
             </thead>
 
             <tbody>
 
 
                 @if(e.resource("public/images/productImages/" + product.getId + ".jpg").isDefined) {
-                    <td><img src="/assets/images/productImages/@(product.getId).jpg"/></td>
+                    <img src="/assets/images/productImages/@(product.getId).jpg"/>
                 } else {
-                    <td><img src="/assets/images/productImages/thumbnails/noImage.png"/></td>
+                    <img src="/assets/images/productImages/thumbnails/noImage.png"/>
                 }
 
-                @product.getPrice
-                @product.getDescription
+                <bold class = "price"> €@product.getPrice </bold>
+
+
+                <p class = "description" >@product.getDescription</p>
 
 
 
