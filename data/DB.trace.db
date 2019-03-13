@@ -2627,3 +2627,9 @@ org.h2.message.DbException: The connection was not closed by the application and
 Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-197]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
 	... 84 more
+2019-03-13 13:40:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "DESCRIPTION VARCHAR(255)": "'For the first time ever, the Master Chief''s entire story is on one console. Featuring a re-mastered Halo 2: Anniversary, along... (341)"; SQL statement:
+insert into product (name, description, stock, price) values (?,?,?,?) [22001-197]
+2019-03-13 13:40:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "DESCRIPTION VARCHAR(255)": "'For the first time ever, the Master Chief''s entire story is on one console. Featuring a re-mastered Halo 2: Anniversary, along... (275)"; SQL statement:
+insert into product (name, description, stock, price) values (?,?,?,?) [22001-197]

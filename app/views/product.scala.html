@@ -1,7 +1,7 @@
 @(product: models.products.Product, filter:String ,user : models.users.User, e: play.api.Environment)
 
 @main("Product", user) {
-    <p class="lead">@product.getName()</p>
+    <p class="producthead">@product.getName()</p>
 
     <div class="col-sm-3">
         <table class="table table-bordered table-hover table-condensed">
@@ -9,51 +9,49 @@
                 <link href="https://fonts.googleapis.com/css?family=Glegoo|Open+Sans" rel="stylesheet">
                 <style>
 
-                        img {
-                        padding-left: 0em;
+                        .pic {
+                        padding-top: 1em;
                             border:1px solid #021a40;
                         }
 
-                        .description{
+                        .lead{
                             font-family: 'Open Sans', sans-serif;
-                            padding-left: 24em;
+                            font-size: 1em;
                         }
 
-                        .lead{
+                        .producthead{
                             font-family: 'Glegoo', serif;
                             font-weight: bold;
+                            font-size: 2em;
                         }
 
-                        .bold{
-
+                        .text-right{
+                            padding-left: 28em;
+                            font-weight: bold;
+                            font-size: 1.6em;
                         }
-
-                        .price{
-                            padding-left: 24em;
-                            padding-top: 20em;
-                        }
-
-
 
 
                 </style>
             </thead>
-
             <tbody>
 
 
                 @if(e.resource("public/images/productImages/" + product.getId + ".jpg").isDefined) {
-                    <img src="/assets/images/productImages/@(product.getId).jpg"/>
+                    <img class = "pic" src="/assets/images/productImages/@(product.getId).jpg"/>
                 } else {
-                    <img src="/assets/images/productImages/thumbnails/noImage.png"/>
+                    <img class = "pic" src="/assets/images/productImages/thumbnails/noImage.png"/>
                 }
 
-                <bold class = "price"> €@product.getPrice </bold>
+                <p class = "text-right"> Price: &euro; @("%.2f".format(product.getPrice)) </p>
+                <p class = "lead" >@product.getDescription</p>
 
 
-                <p class = "description" >@product.getDescription</p>
-
-
+                <div class="actions">
+                    <a href="@routes.ShoppingCtrl.addToBasket(product.getId)">
+                        <button type="button" class="btn btn-lg btn-primary" >Add to Cart</button>
+                    </a>
+                </div>
 
             </tbody>
         </table>

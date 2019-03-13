@@ -171,7 +171,7 @@ public class AdminProductCtrl extends Controller {
                 // Get the uploaded image file
                 op.addImage(file.getAbsolutePath());
                 // Resize using height and width constraints
-                op.resize(300,200);
+                op.resize(300,400);
                 // Save the  image
                 op.addImage("public/images/productImages/" + id + ".jpg");
                 // thumbnail
