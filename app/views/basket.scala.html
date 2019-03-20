@@ -1,10 +1,9 @@
 @(customer: models.users.Customer)
 
-
 @import play.api.Play.current
 @import models.shopping._
 @import models.products._
-
+@import helper._
 
 @main("Shopping Basket", customer) {
 
@@ -33,7 +32,7 @@
 			</thead>
 			<tbody>
                 @if(customer.getBasket() != null) {
-
+                    <td>@(customer.getBasket().discount.getDiscountID())</td>
                     @for(i <- customer.getBasket().getBasketItems()) {
                     <tr>
                         <td>@i.getProduct.getName</td>
@@ -52,6 +51,11 @@
             <div class="col-md-12">
                 <p class="text-right"><strong>Basket Total: &euro; @("%.2f".format(customer.getBasket.getBasketTotal))</strong></p>
             </div>  
+        </div>
+        <div class="row">admin
+            <div class="col-md-12">
+                    <span class="glyphicon glyphicon-trash"></span> Set Discount</a>
+            </div>
         </div>
         <div class="row">
             <div class="col-md-6">

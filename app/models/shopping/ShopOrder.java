@@ -19,35 +19,34 @@ public class ShopOrder extends Model {
 
     @Id
     private Long id;
-    
+
     private Date OrderDate;
-    
-    // Order contains may items.
-    // mappedBy makes this side of the mapping the owner
-    // so foreign key will be placed in resulting OrderItem table
-    // All changes, including deletes will be cascaded
+
     @OneToMany(mappedBy="order", cascade = CascadeType.ALL)
     private List<OrderItem> items;
-    
+
+
     @ManyToOne
     private Customer customer;
+
 
     // Default constructor
     public  ShopOrder() {
         OrderDate = new Date();
     }
-    
+
     public double getOrderTotal() {
-        
+
         double total = 0;
-        
+
         for (OrderItem i: items) {
             total += i.getItemTotal();
         }
+
         return total;
     }
-	
-	//Generic query helper
+
+    //Generic query helper
     public static Finder<Long,ShopOrder> find = new Finder<Long,ShopOrder>(ShopOrder.class);
 
     //Find all Products in the database
@@ -76,10 +75,6 @@ public class ShopOrder extends Model {
     }
 
 
-
-
-
-
     public void setOrderDate(Date orderDate) {
         OrderDate = orderDate;
     }
@@ -103,7 +98,7 @@ public class ShopOrder extends Model {
 
     public String getOrderDateString() {
         if(OrderDate == null) {
-            return "No Date Availible";
+            return "No Date Available";
         }
         String s = new SimpleDateFormat("dd-MMM-yyyy").format(OrderDate.getTime());
         return s;
@@ -120,6 +115,7 @@ public class ShopOrder extends Model {
             }
         }
     }
+
 
 }
 

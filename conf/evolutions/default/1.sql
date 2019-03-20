@@ -6,6 +6,7 @@
 create table basket (
   id                            bigint auto_increment not null,
   customer_email                varchar(255),
+  discount_discount_id          varchar(255),
   constraint uq_basket_customer_email unique (customer_email),
   constraint pk_basket primary key (id)
 );
@@ -20,6 +21,14 @@ create table category_product (
   category_id                   bigint not null,
   product_id                    bigint not null,
   constraint pk_category_product primary key (category_id,product_id)
+);
+
+create table discount (
+  discount_id                   varchar(255) not null,
+  discount_name                 varchar(255),
+  valid                         boolean default false not null,
+  amount                        double not null,
+  constraint pk_discount primary key (discount_id)
 );
 
 create table order_item (
@@ -60,6 +69,9 @@ create table user (
 
 alter table basket add constraint fk_basket_customer_email foreign key (customer_email) references user (email) on delete restrict on update restrict;
 
+alter table basket add constraint fk_basket_discount_discount_id foreign key (discount_discount_id) references discount (discount_id) on delete restrict on update restrict;
+create index ix_basket_discount_discount_id on basket (discount_discount_id);
+
 alter table category_product add constraint fk_category_product_category foreign key (category_id) references category (id) on delete restrict on update restrict;
 create index ix_category_product_category on category_product (category_id);
 
@@ -82,6 +94,9 @@ create index ix_shop_order_customer_email on shop_order (customer_email);
 # --- !Downs
 
 alter table basket drop constraint if exists fk_basket_customer_email;
+
+alter table basket drop constraint if exists fk_basket_discount_discount_id;
+drop index if exists ix_basket_discount_discount_id;
 
 alter table category_product drop constraint if exists fk_category_product_category;
 drop index if exists ix_category_product_category;
@@ -106,6 +121,8 @@ drop table if exists basket;
 drop table if exists category;
 
 drop table if exists category_product;
+
+drop table if exists discount;
 
 drop table if exists order_item;
 

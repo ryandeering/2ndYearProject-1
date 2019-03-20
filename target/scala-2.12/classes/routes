@@ -20,6 +20,7 @@ GET     /emptyBasket                        controllers.ShoppingCtrl.emptyBasket
 GET     /placeOrder                         controllers.ShoppingCtrl.placeOrder()
 GET     /viewOrder/:id                      controllers.ShoppingCtrl.viewOrder(id: Long)
 
+
 # Product Administration(added by Daria and Ryan)
 GET		/Admin						        controllers.AdminProductCtrl.index()
 GET     /Admin/listProducts                 controllers.AdminProductCtrl.listProducts(cat: Long = 0)

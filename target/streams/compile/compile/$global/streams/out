@@ -1,0 +1,4 @@
+[error] /home/ryan/rawr/2ndYearProject2/app/controllers/ShoppingCtrl.java:153:1: cannot find symbol
+[error]   symbol:   method setDiscount(models.shopping.Discount)
+[error]   location: variable order of type models.shopping.ShopOrder
+[error]         order.setDiscount(c.getBasket().getDiscount());

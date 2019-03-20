@@ -28,28 +28,27 @@ object basket extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Htm
   def apply/*1.2*/(customer: models.users.Customer):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
-/*4.2*/import play.api.Play.current
-/*5.2*/import models.shopping._
-/*6.2*/import models.products._
+/*3.2*/import play.api.Play.current
+/*4.2*/import models.shopping._
+/*5.2*/import models.products._
+/*6.2*/import helper._
 
 
 Seq[Any](format.raw/*2.1*/("""
-
 """),format.raw/*7.1*/("""
+"""),_display_(/*8.2*/main("Shopping Basket", customer)/*8.35*/ {_display_(Seq[Any](format.raw/*8.37*/("""
 
-"""),_display_(/*9.2*/main("Shopping Basket", customer)/*9.35*/ {_display_(Seq[Any](format.raw/*9.37*/("""
 
-
-"""),format.raw/*12.1*/("""<div class="row">
+"""),format.raw/*11.1*/("""<div class="row">
 
 	<div class="col-md-12">
-		"""),_display_(/*15.4*/if(flash.containsKey("success"))/*15.36*/ {_display_(Seq[Any](format.raw/*15.38*/("""
-			  """),format.raw/*16.6*/("""<div class="alert alert-success">
-			      """),_display_(/*17.11*/flash/*17.16*/.get("success")),format.raw/*17.31*/("""
-			  """),format.raw/*18.6*/("""</div>
-		""")))}),format.raw/*19.4*/(""" 
+		"""),_display_(/*14.4*/if(flash.containsKey("success"))/*14.36*/ {_display_(Seq[Any](format.raw/*14.38*/("""
+			  """),format.raw/*15.6*/("""<div class="alert alert-success">
+			      """),_display_(/*16.11*/flash/*16.16*/.get("success")),format.raw/*16.31*/("""
+			  """),format.raw/*17.6*/("""</div>
+		""")))}),format.raw/*18.4*/(""" 
 
-		"""),format.raw/*21.3*/("""<table class="table table-bordered table-hover table-condensed">
+		"""),format.raw/*20.3*/("""<table class="table table-bordered table-hover table-condensed">
 			<thead>
 
 			<tr>
@@ -63,37 +62,42 @@ Seq[Any](format.raw/*2.1*/("""
 			</tr>
 			</thead>
 			<tbody>
-                """),_display_(/*35.18*/if(customer.getBasket() != null)/*35.50*/ {_display_(Seq[Any](format.raw/*35.52*/("""
-
-                    """),_display_(/*37.22*/for(i <- customer.getBasket().getBasketItems()) yield /*37.69*/ {_display_(Seq[Any](format.raw/*37.71*/("""
-                    """),format.raw/*38.21*/("""<tr>
-                        <td>"""),_display_(/*39.30*/i/*39.31*/.getProduct.getName),format.raw/*39.50*/("""</td>
-                        <td>"""),_display_(/*40.30*/i/*40.31*/.getProduct.getDescription()),format.raw/*40.59*/("""</td>
-                        <td>&euro; """),_display_(/*41.37*/("%.2f".format(i.getPrice))),format.raw/*41.64*/("""</td>
-                        <td>&euro; """),_display_(/*42.37*/("%.2f".format(i.getItemTotal))),format.raw/*42.68*/("""</td>
-                        <td>"""),_display_(/*43.30*/i/*43.31*/.getQuantity()),format.raw/*43.45*/("""</td>
-                        <td><a href=""""),_display_(/*44.39*/routes/*44.45*/.ShoppingCtrl.removeOne(i.getId,i.getProduct.getId())),format.raw/*44.98*/(""""><span class="glyphicon glyphicon-minus-sign"></span></a></td>
-                        <td><a href=""""),_display_(/*45.39*/routes/*45.45*/.ShoppingCtrl.addOne(i.getId,i.getProduct.getId())),format.raw/*45.95*/(""""><span class="glyphicon glyphicon-plus-sign"></span></a></td>
+                """),_display_(/*34.18*/if(customer.getBasket() != null)/*34.50*/ {_display_(Seq[Any](format.raw/*34.52*/("""
+                    """),format.raw/*35.21*/("""<td>"""),_display_(/*35.26*/(customer.getBasket().discount.getDiscountID())),format.raw/*35.73*/("""</td>
+                    """),_display_(/*36.22*/for(i <- customer.getBasket().getBasketItems()) yield /*36.69*/ {_display_(Seq[Any](format.raw/*36.71*/("""
+                    """),format.raw/*37.21*/("""<tr>
+                        <td>"""),_display_(/*38.30*/i/*38.31*/.getProduct.getName),format.raw/*38.50*/("""</td>
+                        <td>"""),_display_(/*39.30*/i/*39.31*/.getProduct.getDescription()),format.raw/*39.59*/("""</td>
+                        <td>&euro; """),_display_(/*40.37*/("%.2f".format(i.getPrice))),format.raw/*40.64*/("""</td>
+                        <td>&euro; """),_display_(/*41.37*/("%.2f".format(i.getItemTotal))),format.raw/*41.68*/("""</td>
+                        <td>"""),_display_(/*42.30*/i/*42.31*/.getQuantity()),format.raw/*42.45*/("""</td>
+                        <td><a href=""""),_display_(/*43.39*/routes/*43.45*/.ShoppingCtrl.removeOne(i.getId,i.getProduct.getId())),format.raw/*43.98*/(""""><span class="glyphicon glyphicon-minus-sign"></span></a></td>
+                        <td><a href=""""),_display_(/*44.39*/routes/*44.45*/.ShoppingCtrl.addOne(i.getId,i.getProduct.getId())),format.raw/*44.95*/(""""><span class="glyphicon glyphicon-plus-sign"></span></a></td>
                     </tr>
-                    """)))}),format.raw/*47.22*/("""
-              """)))}),format.raw/*48.16*/("""
-			"""),format.raw/*49.4*/("""</tbody>
+                    """)))}),format.raw/*46.22*/("""
+              """)))}),format.raw/*47.16*/("""
+			"""),format.raw/*48.4*/("""</tbody>
 		</table>
         <div class="row">
             <div class="col-md-12">
-                <p class="text-right"><strong>Basket Total: &euro; """),_display_(/*53.69*/("%.2f".format(customer.getBasket.getBasketTotal))),format.raw/*53.119*/("""</strong></p>
+                <p class="text-right"><strong>Basket Total: &euro; """),_display_(/*52.69*/("%.2f".format(customer.getBasket.getBasketTotal))),format.raw/*52.119*/("""</strong></p>
             </div>  
+        </div>
+        <div class="row">admin
+            <div class="col-md-12">
+                    <span class="glyphicon glyphicon-trash"></span> Set Discount</a>
+            </div>
         </div>
         <div class="row">
             <div class="col-md-6">
                 <p class="text-right">
-                    <a href=""""),_display_(/*59.31*/routes/*59.37*/.ShoppingCtrl.emptyBasket()),format.raw/*59.64*/("""" class="btn btn-danger btn-sm" onclick="return confirmDel();">
+                    <a href=""""),_display_(/*63.31*/routes/*63.37*/.ShoppingCtrl.emptyBasket()),format.raw/*63.64*/("""" class="btn btn-danger btn-sm" onclick="return confirmDel();">
                     <span class="glyphicon glyphicon-trash"></span> Empty Basket</a>
                 </p>
             </div>  
             <div class="col-md-6">
                 <p class="text-right">
-                    <a href=""""),_display_(/*65.31*/routes/*65.37*/.ShoppingCtrl.placeOrder()),format.raw/*65.63*/("""" class="btn btn-success btn-sm">
+                    <a href=""""),_display_(/*69.31*/routes/*69.37*/.ShoppingCtrl.placeOrder()),format.raw/*69.63*/("""" class="btn btn-success btn-sm">
                     <span class="glyphicon glyphicon-euro"></span> Place Order</a>
                 </p>
             </div>  
@@ -103,10 +107,10 @@ Seq[Any](format.raw/*2.1*/("""
 
 <script>
 
-	function confirmDel() """),format.raw/*75.24*/("""{"""),format.raw/*75.25*/("""
-		"""),format.raw/*76.3*/("""return confirm('Are you sure?');
-	"""),format.raw/*77.2*/("""}"""),format.raw/*77.3*/("""
-"""),format.raw/*78.1*/("""</script>
+	function confirmDel() """),format.raw/*79.24*/("""{"""),format.raw/*79.25*/("""
+		"""),format.raw/*80.3*/("""return confirm('Are you sure?');
+	"""),format.raw/*81.2*/("""}"""),format.raw/*81.3*/("""
+"""),format.raw/*82.1*/("""</script>
 """)))}))
       }
     }
@@ -123,11 +127,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Mar 12 22:33:08 GMT 2019
+                  DATE: Wed Mar 20 18:18:04 GMT 2019
                   SOURCE: /home/ryan/rawr/2ndYearProject2/app/views/basket.scala.html
-                  HASH: 39665fb545f14fc3973384d7f000c57cad52e085
-                  MATRIX: 964->1|1070->38|1106->68|1138->94|1191->35|1219->119|1247->122|1288->155|1327->157|1357->160|1430->207|1471->239|1511->241|1544->247|1615->291|1629->296|1665->311|1698->317|1738->327|1770->332|2099->634|2140->666|2180->668|2230->691|2293->738|2333->740|2382->761|2443->795|2453->796|2493->815|2555->850|2565->851|2614->879|2683->921|2731->948|2800->990|2852->1021|2914->1056|2924->1057|2959->1071|3030->1115|3045->1121|3119->1174|3248->1276|3263->1282|3334->1332|3475->1442|3522->1458|3553->1462|3730->1612|3802->1662|4009->1842|4024->1848|4072->1875|4394->2170|4409->2176|4456->2202|4710->2428|4739->2429|4769->2432|4830->2466|4858->2467|4886->2468
-                  LINES: 28->1|31->4|32->5|33->6|36->2|38->7|40->9|40->9|40->9|43->12|46->15|46->15|46->15|47->16|48->17|48->17|48->17|49->18|50->19|52->21|66->35|66->35|66->35|68->37|68->37|68->37|69->38|70->39|70->39|70->39|71->40|71->40|71->40|72->41|72->41|73->42|73->42|74->43|74->43|74->43|75->44|75->44|75->44|76->45|76->45|76->45|78->47|79->48|80->49|84->53|84->53|90->59|90->59|90->59|96->65|96->65|96->65|106->75|106->75|107->76|108->77|108->77|109->78
+                  HASH: f12a7608c55bf167ba3413abd1979c39f2ba6c94
+                  MATRIX: 964->1|1070->37|1106->67|1138->93|1170->119|1214->35|1241->135|1268->137|1309->170|1348->172|1378->175|1451->222|1492->254|1532->256|1565->262|1636->306|1650->311|1686->326|1719->332|1759->342|1791->347|2120->649|2161->681|2201->683|2250->704|2282->709|2350->756|2404->783|2467->830|2507->832|2556->853|2617->887|2627->888|2667->907|2729->942|2739->943|2788->971|2857->1013|2905->1040|2974->1082|3026->1113|3088->1148|3098->1149|3133->1163|3204->1207|3219->1213|3293->1266|3422->1368|3437->1374|3508->1424|3649->1534|3696->1550|3727->1554|3904->1704|3976->1754|4369->2120|4384->2126|4432->2153|4754->2448|4769->2454|4816->2480|5070->2706|5099->2707|5129->2710|5190->2744|5218->2745|5246->2746
+                  LINES: 28->1|31->3|32->4|33->5|34->6|37->2|38->7|39->8|39->8|39->8|42->11|45->14|45->14|45->14|46->15|47->16|47->16|47->16|48->17|49->18|51->20|65->34|65->34|65->34|66->35|66->35|66->35|67->36|67->36|67->36|68->37|69->38|69->38|69->38|70->39|70->39|70->39|71->40|71->40|72->41|72->41|73->42|73->42|73->42|74->43|74->43|74->43|75->44|75->44|75->44|77->46|78->47|79->48|83->52|83->52|94->63|94->63|94->63|100->69|100->69|100->69|110->79|110->79|111->80|112->81|112->81|113->82
                   -- GENERATED --
               */
           

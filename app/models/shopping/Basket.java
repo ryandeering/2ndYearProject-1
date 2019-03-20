@@ -24,14 +24,18 @@ public class Basket extends Model {
     @OneToOne
     private Customer customer;
 
+    @ManyToOne
+    public Discount discount;
+
+
     // Default constructor
     public  Basket() {
+
     }
 
     // Add product to basket
     // Either update existing order item or ad a new one.
     public void addProduct(Product p) {
-
         boolean itemFound = false;
         // Check if product already in this basket
         // Check if item in basket
@@ -92,6 +96,7 @@ public class Basket extends Model {
                 ios.update();
             }
             i.delete();
+
         }
         this.basketItems = null;
     }
@@ -103,7 +108,7 @@ public class Basket extends Model {
         for (OrderItem i: basketItems) {
             total += i.getItemTotal();
         }
-        return total;
+        return discountPrice(total);
     }
 
     //Generic query helper
@@ -137,6 +142,23 @@ public class Basket extends Model {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public double discountPrice(double total){
+        if (!discount.getDiscountID().equals("null") & discount.isValid() == true){
+            double discountAmount = total * discount.getAmount();
+            return total - discountAmount / 100;
+        } else {
+            return total;
+        }
+    }
+
+    public void setDiscount(Discount discount) {
+        this.discount = discount;
+    }
+
+    public Discount getDiscount() {
+        return discount;
     }
 }
 

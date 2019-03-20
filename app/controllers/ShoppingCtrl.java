@@ -43,7 +43,7 @@ public class ShoppingCtrl extends Controller {
         this.formFactory = f;
     }
 
-
+// @inputText(discountForm("discount.discountID"), '_label -> "Discount Voucher", 'class -> "form-control") </p>
     
     // Get a user - if logged in email will be set in the session
 	private Customer getCurrentUser() {
@@ -52,13 +52,17 @@ public class ShoppingCtrl extends Controller {
 
     @Transactional
     public Result showBasket() {
+        Form<Discount> discountForm = formFactory.form(Discount.class).bindFromRequest();
+       Customer c = (Customer) User.getLoggedIn(session().get("email"));
+       c.getBasket().getDiscount();
         return ok(basket.render(getCurrentUser()));
     }
     
     // Add item to customer basket
     @Transactional
     public Result addToBasket(Long id) {
-        
+
+
         // Find the product
         Product p = Product.find.byId(id);
         
@@ -70,10 +74,12 @@ public class ShoppingCtrl extends Controller {
             // If no basket, create one
             customer.setBasket(new Basket());
             customer.getBasket().setCustomer(customer);
+            customer.getBasket().setDiscount(new Discount());
             customer.update();
         }
         // Add product to the basket and save
         customer.getBasket().addProduct(p);
+        customer.getBasket().getDiscount();
         customer.update();
 
         p.decrementStock();
@@ -107,31 +113,36 @@ public class ShoppingCtrl extends Controller {
 
     @Transactional
     public Result removeOne(Long itemId, Long pid) {
-
+        Form<Discount> discountForm = formFactory.form(Discount.class).bindFromRequest();
         // Get the order item
         OrderItem item = OrderItem.find.byId(itemId);
         Product ios = Product.find.byId(pid);
         // Get user
+
         Customer c = getCurrentUser();
         // Call basket remove item method
         c.getBasket().removeItem(item,ios);
+        c.getBasket().getDiscount();
         c.getBasket().update();
         // back to basket
         return ok(basket.render(c));
     }
+
     // Empty Basket
     @Transactional
     public Result emptyBasket() {
-        
+        Form<Discount> discountForm = formFactory.form(Discount.class).bindFromRequest();
         Customer c = getCurrentUser();
         c.getBasket().removeAllItems();
+        c.getBasket().setDiscount(new Discount());
         c.getBasket().update();
         
         return ok(basket.render(c));
-    }
+    }                           //, discountForm
 
     @Transactional
     public Result placeOrder() {
+
         Customer c = getCurrentUser();
         
         // Create an order instance
@@ -148,8 +159,12 @@ public class ShoppingCtrl extends Controller {
        
        // Move items from basket to order
         for (OrderItem i: order.getItems()) {
+
             // Associate with order
             i.setOrder(order);
+
+            i.setDiscount(i.getBasket().getDiscount());
+
             // Remove from basket
             i.setBasket(null);
             // update item
@@ -178,6 +193,8 @@ public class ShoppingCtrl extends Controller {
 
     @Transactional
     public Result viewOrders() {
+        Customer c = (Customer) User.getLoggedIn(session().get("email"));
+
         return ok(viewOrders.render((Customer)User.getUserById(session().get("email"))));
     }
 
@@ -215,4 +232,9 @@ public class ShoppingCtrl extends Controller {
         }
         return allowed;
     }
+
+
+
+
+
 }

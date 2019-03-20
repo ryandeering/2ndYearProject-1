@@ -27,7 +27,9 @@ public class OrderItem extends Model {
     // Product not interested in this
     @ManyToOne
     private Product product;
-    
+
+    public Discount discount;
+
     private int quantity;
     private double price;
 
@@ -53,7 +55,8 @@ public class OrderItem extends Model {
     
     // Calculate and return total price for this order item
     public double getItemTotal() {
-        return this.price * this.quantity;
+        double total = this.price * this.quantity;
+        return total;
     }
 	
 	//Generic query helper
@@ -111,5 +114,14 @@ public class OrderItem extends Model {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public Discount getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Discount discount) {
+        this.discount = discount;
+    }
+
 }
 
