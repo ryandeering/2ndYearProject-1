@@ -162,13 +162,13 @@ public class ShoppingCtrl extends Controller {
        // Move items from basket to order
         for (OrderItem i: order.getItems()) {
 
-            i.setDiscount(c.getBasket().getDiscount()); // ??????? 
-
             // Associate with order
             i.setOrder(order);
 
             // Remove from basket
             i.setBasket(null);
+
+
             // update item
             i.update();
         }
@@ -178,9 +178,9 @@ public class ShoppingCtrl extends Controller {
         
         // Clear and update the shopping basket
         c.getBasket().setBasketItems(null);
-
+       // c.getBasket().setDiscount(new Discount()); This will be needed when Daria sorts out the order confirmed properly.
         c.getBasket().update();
-        
+
         // Show order confirmed view
         return ok(orderConfirmed.render(c, order));
     }
