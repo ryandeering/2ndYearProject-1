@@ -28,7 +28,8 @@ public class OrderItem extends Model {
     @ManyToOne
     private Product product;
 
-    public Discount discount;
+
+    private Discount discount = new Discount();
 
     private int quantity;
     private double price;
@@ -42,6 +43,9 @@ public class OrderItem extends Model {
             quantity = 1;
             price = p.getPrice();
     }
+
+
+
     
     // Increment quantity
     public void increaseQty() {
@@ -56,7 +60,17 @@ public class OrderItem extends Model {
     // Calculate and return total price for this order item
     public double getItemTotal() {
         double total = this.price * this.quantity;
+
+        if (!discount.getDiscountID().equals("null") & discount.isValid() == true){
+            double discountAmount = total * discount.getAmount();
+            return total - discountAmount / 100;
+        }
+        System.out.println(discount.getDiscountID());
+        System.out.println(discount.isValid());
+        System.out.println(discount.getAmount());
+        System.out.println(total);
         return total;
+
     }
 	
 	//Generic query helper
@@ -122,6 +136,5 @@ public class OrderItem extends Model {
     public void setDiscount(Discount discount) {
         this.discount = discount;
     }
-
 }
 

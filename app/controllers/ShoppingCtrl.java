@@ -61,8 +61,6 @@ public class ShoppingCtrl extends Controller {
     // Add item to customer basket
     @Transactional
     public Result addToBasket(Long id) {
-
-
         // Find the product
         Product p = Product.find.byId(id);
         
@@ -74,8 +72,9 @@ public class ShoppingCtrl extends Controller {
             // If no basket, create one
             customer.setBasket(new Basket());
             customer.getBasket().setCustomer(customer);
-            customer.getBasket().setDiscount(new Discount());
+            customer.getBasket().setDiscount(new Discount("null"));
             customer.update();
+
         }
         // Add product to the basket and save
         customer.getBasket().addProduct(p);
@@ -96,6 +95,7 @@ public class ShoppingCtrl extends Controller {
 
         // Get the order item
         OrderItem item = OrderItem.find.byId(itemId);
+
         Product ios = Product.find.byId(pid);
         // Increment quantity
         if(ios.getStock()>0){
@@ -144,9 +144,11 @@ public class ShoppingCtrl extends Controller {
     public Result placeOrder() {
 
         Customer c = getCurrentUser();
-        
+
+
         // Create an order instance
         ShopOrder order = new ShopOrder();
+
         
         // Associate order with customer
         order.setCustomer(c);
@@ -160,10 +162,10 @@ public class ShoppingCtrl extends Controller {
        // Move items from basket to order
         for (OrderItem i: order.getItems()) {
 
+            i.setDiscount(c.getBasket().getDiscount()); // ??????? 
+
             // Associate with order
             i.setOrder(order);
-
-            i.setDiscount(i.getBasket().getDiscount());
 
             // Remove from basket
             i.setBasket(null);
@@ -176,6 +178,7 @@ public class ShoppingCtrl extends Controller {
         
         // Clear and update the shopping basket
         c.getBasket().setBasketItems(null);
+
         c.getBasket().update();
         
         // Show order confirmed view
@@ -194,7 +197,6 @@ public class ShoppingCtrl extends Controller {
     @Transactional
     public Result viewOrders() {
         Customer c = (Customer) User.getLoggedIn(session().get("email"));
-
         return ok(viewOrders.render((Customer)User.getUserById(session().get("email"))));
     }
 

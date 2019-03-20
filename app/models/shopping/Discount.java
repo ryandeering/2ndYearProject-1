@@ -30,8 +30,16 @@ public class Discount extends Model{
         this.discountID = "null";
         this.discountName = "null";
         this.valid = true;
-        this.amount = 1;
+        this.amount = 1.0;
     }
+
+    public Discount(String discountID) {
+        this.discountID = discountID;
+        this.discountName = "null";
+        this.valid = true;
+        this.amount = 1.0;
+    }
+
 
     public Discount(String discountID, String discountName, boolean valid, double amount) {
         this.discountID = discountID;

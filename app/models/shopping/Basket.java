@@ -145,12 +145,13 @@ public class Basket extends Model {
     }
 
     public double discountPrice(double total){
-        if (!discount.getDiscountID().equals("null") & discount.isValid() == true){
+        if (discount.getDiscountID() != "null" & discount.isValid() == true){
             double discountAmount = total * discount.getAmount();
             return total - discountAmount / 100;
-        } else {
-            return total;
         }
+            System.out.println(discount.getAmount());
+            System.out.println(total);
+            return total;
     }
 
     public void setDiscount(Discount discount) {
@@ -159,6 +160,10 @@ public class Basket extends Model {
 
     public Discount getDiscount() {
         return discount;
+    }
+
+    public double getDiscountAmount(){
+        return discount.getAmount();
     }
 }
 
