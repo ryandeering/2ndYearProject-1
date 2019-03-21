@@ -3361,3 +3361,6 @@ org.h2.message.DbException: The connection was not closed by the application and
 Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-197]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
 	... 84 more
+2019-03-21 20:45:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE BASKET DISCOUNT_DISCOUNT_ID =[*] 'BIGSAVINGS' WHERE ID = 1"; expected "SET"; SQL statement:
+UPDATE BASKET DISCOUNT_DISCOUNT_ID = 'BIGSAVINGS' WHERE ID = 1 [42001-197]

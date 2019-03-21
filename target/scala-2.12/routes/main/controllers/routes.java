@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/ryan/rawr/2ndYearProject2/conf/routes
-// @DATE:Wed Mar 20 20:46:56 GMT 2019
+// @DATE:Thu Mar 21 19:55:55 GMT 2019
 
 package controllers;
 

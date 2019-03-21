@@ -40,7 +40,6 @@ public class ShopOrder extends Model {
         double total = 0;
 
         for (OrderItem i: items) {
-            i.setDiscount(customer.getBasket().getDiscount()); // iterates discount
             total += i.getItemTotal();
         }
 
@@ -116,6 +115,7 @@ public class ShopOrder extends Model {
             }
         }
     }
+
 
 
 }

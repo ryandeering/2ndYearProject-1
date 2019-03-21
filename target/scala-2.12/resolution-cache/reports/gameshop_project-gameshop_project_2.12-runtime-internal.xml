@@ -7,7 +7,7 @@
 		revision="1.0-SNAPSHOT"
 		conf="runtime-internal"
 		confs="compile, runtime, test, provided, optional, universal, universal-docs, universal-src, windows, docker, linux, rpm, debian, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool, docs"
-		date="20190320204656"/>
+		date="20190321195200"/>
 	<dependencies>
 		<module organisation="net.tanesha.recaptcha4j" name="recaptcha4j">
 			<revision name="0.0.7" status="release" pubdate="20100219211956" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://tanesha.net/projects/recaptcha4j/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="89">

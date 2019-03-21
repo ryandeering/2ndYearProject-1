@@ -1,4 +1,0 @@
-[error] /home/ryan/rawr/2ndYearProject2/app/models/shopping/Basket.java:151:1: bad operand types for binary operator '-'
-[error]   first type:  java.lang.String
-[error]   second type: double
-[error]             System.out.println("2" + total - discountAmount / 100);

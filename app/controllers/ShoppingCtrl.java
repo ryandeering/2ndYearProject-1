@@ -72,7 +72,7 @@ public class ShoppingCtrl extends Controller {
             // If no basket, create one
             customer.setBasket(new Basket());
             customer.getBasket().setCustomer(customer);
-            customer.getBasket().setDiscount(new Discount("null"));
+            customer.getBasket().setDiscount(new Discount());
             customer.update();
 
         }
@@ -152,7 +152,9 @@ public class ShoppingCtrl extends Controller {
         
         // Associate order with customer
         order.setCustomer(c);
-        
+
+
+
         // Copy basket to order
         order.setItems(c.getBasket().getBasketItems());
         
@@ -168,6 +170,7 @@ public class ShoppingCtrl extends Controller {
             // Remove from basket
             i.setBasket(null);
 
+            i.setDiscount(c.getBasket().getDiscount());
 
             // update item
             i.update();
@@ -234,6 +237,8 @@ public class ShoppingCtrl extends Controller {
         }
         return allowed;
     }
+
+
 
 
 

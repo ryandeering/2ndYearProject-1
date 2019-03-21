@@ -42,6 +42,7 @@ public class Basket extends Model {
         // Find orderitem with this product
         // if found increment quantity
         for (OrderItem i : basketItems) {
+            i.setDiscount(getDiscount());
             if (i.getProduct().getId() == p.getId()) {
                 i.increaseQty();
                 itemFound = true;
@@ -51,6 +52,7 @@ public class Basket extends Model {
         if (itemFound == false) {
             // Add orderItem to list
             OrderItem newItem = new OrderItem(p);
+            newItem.setDiscount(discount);
             // Add to items
             basketItems.add(newItem);
         }
@@ -145,8 +147,9 @@ public class Basket extends Model {
     }
 
     public double discountPrice(double total){
-        if (discount.getDiscountID() != "null" & discount.isValid() == true){
+        if (!discount.getDiscountID().equals("null") & discount.isValid() == true){
             double discountAmount = total * discount.getAmount();
+            System.out.println();
             return total - discountAmount / 100;
         }
             System.out.println(discount.getAmount());

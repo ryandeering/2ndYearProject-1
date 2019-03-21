@@ -28,8 +28,9 @@ public class OrderItem extends Model {
     @ManyToOne
     private Product product;
 
+    @OneToOne
+    public Discount discount;
 
-    private Discount discount = new Discount();
 
     private int quantity;
     private double price;
@@ -41,8 +42,7 @@ public class OrderItem extends Model {
     public OrderItem(Product p) {
             product = p;
             quantity = 1;
-            price = p.getPrice();
-    }
+            price = p.getPrice();   }
 
 
 
@@ -61,14 +61,11 @@ public class OrderItem extends Model {
     public double getItemTotal() {
         double total = this.price * this.quantity;
 
-        if (!discount.getDiscountID().equals("null") & discount.isValid() == true){
-            double discountAmount = total * discount.getAmount();
-            return total - discountAmount / 100;
-        }
-        System.out.println(discount.getDiscountID());
-        System.out.println(discount.isValid());
-        System.out.println(discount.getAmount());
-        System.out.println(total);
+           if (!discount.getDiscountID().equals("null") & discount.isValid() == true){
+             double discountAmount = total * discount.getAmount();
+             return total - discountAmount / 100;
+              }
+
         return total;
 
     }
