@@ -28,7 +28,7 @@ public class OrderItem extends Model {
     @ManyToOne
     private Product product;
 
-    @OneToOne
+    @ManyToOne
     public Discount discount;
 
 

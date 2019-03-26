@@ -96,6 +96,14 @@ public class Discount extends Model{
         return options;
     }
 
+    public static Discount getDiscountById(String discountID) {
+        if (discountID == null) {
+            return null;
+        } else {
+            return find.query().where().eq("discountID", discountID).findUnique();
+        }
+    }
+
 
 
 
