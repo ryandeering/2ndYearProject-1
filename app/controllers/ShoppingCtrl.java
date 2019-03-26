@@ -55,13 +55,14 @@ public class ShoppingCtrl extends Controller {
         Form<Discount> discountForm = formFactory.form(Discount.class).bindFromRequest();
        Customer c = (Customer) User.getLoggedIn(session().get("email"));
        c.getBasket().getDiscount();
-        return ok(basket.render(getCurrentUser()));
+        return ok(basket.render(getCurrentUser(), discountForm));
     }
     
     // Add item to customer basket
     @Transactional
     public Result addToBasket(Long id) {
         // Find the product
+        Form<Discount> discountForm = formFactory.form(Discount.class).bindFromRequest();
         Product p = Product.find.byId(id);
         
         // Get basket for logged in customer
@@ -86,7 +87,7 @@ public class ShoppingCtrl extends Controller {
 
 
         // Show the basket contents     
-        return ok(basket.render(customer));
+        return ok(basket.render(customer, discountForm));
     }
     
     // Add an item to the basket
@@ -125,7 +126,7 @@ public class ShoppingCtrl extends Controller {
         c.getBasket().getDiscount();
         c.getBasket().update();
         // back to basket
-        return ok(basket.render(c));
+        return ok(basket.render(c, discountForm));
     }
 
     // Empty Basket
@@ -137,7 +138,7 @@ public class ShoppingCtrl extends Controller {
         c.getBasket().setDiscount(new Discount());
         c.getBasket().update();
         
-        return ok(basket.render(c));
+        return ok(basket.render(c, discountForm));
     }                           //, discountForm
 
     @Transactional
@@ -236,6 +237,22 @@ public class ShoppingCtrl extends Controller {
             allowed=false;
         }
         return allowed;
+    }
+
+    @Transactional
+    public Result setDiscount(){
+        Customer c = getCurrentUser();
+        Form<Discount> discountForm = formFactory.form(Discount.class).bindFromRequest();
+        Discount d = discountForm.get();
+        Basket b = c.getBasket();
+        b.setDiscount(d);
+
+
+    if (d.getDiscountID() == null){
+        return badRequest(basket.render(c, discountForm));
+        }
+
+        return ok(basket.render(c, discountForm));
     }
 
 

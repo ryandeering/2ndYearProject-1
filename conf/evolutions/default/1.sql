@@ -39,7 +39,6 @@ create table order_item (
   discount_discount_id          varchar(255),
   quantity                      integer not null,
   price                         double not null,
-  constraint uq_order_item_discount_discount_id unique (discount_discount_id),
   constraint pk_order_item primary key (id)
 );
 
@@ -90,6 +89,7 @@ alter table order_item add constraint fk_order_item_product_id foreign key (prod
 create index ix_order_item_product_id on order_item (product_id);
 
 alter table order_item add constraint fk_order_item_discount_discount_id foreign key (discount_discount_id) references discount (discount_id) on delete restrict on update restrict;
+create index ix_order_item_discount_discount_id on order_item (discount_discount_id);
 
 alter table shop_order add constraint fk_shop_order_customer_email foreign key (customer_email) references user (email) on delete restrict on update restrict;
 create index ix_shop_order_customer_email on shop_order (customer_email);
@@ -118,6 +118,7 @@ alter table order_item drop constraint if exists fk_order_item_product_id;
 drop index if exists ix_order_item_product_id;
 
 alter table order_item drop constraint if exists fk_order_item_discount_discount_id;
+drop index if exists ix_order_item_discount_discount_id;
 
 alter table shop_order drop constraint if exists fk_shop_order_customer_email;
 drop index if exists ix_shop_order_customer_email;
