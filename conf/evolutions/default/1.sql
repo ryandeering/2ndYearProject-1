@@ -42,12 +42,21 @@ create table order_item (
   constraint pk_order_item primary key (id)
 );
 
+create table platform (
+  id                            bigint auto_increment not null,
+  name                          varchar(255),
+  constraint pk_platform primary key (id)
+);
+
 create table product (
   id                            bigint auto_increment not null,
+  platform_id                   bigint,
   name                          varchar(255),
   description                   varchar(255),
   stock                         integer not null,
   price                         double not null,
+  developer                     varchar(255),
+  publisher                     varchar(255),
   constraint pk_product primary key (id)
 );
 
@@ -91,6 +100,9 @@ create index ix_order_item_product_id on order_item (product_id);
 alter table order_item add constraint fk_order_item_discount_discount_id foreign key (discount_discount_id) references discount (discount_id) on delete restrict on update restrict;
 create index ix_order_item_discount_discount_id on order_item (discount_discount_id);
 
+alter table product add constraint fk_product_platform_id foreign key (platform_id) references platform (id) on delete restrict on update restrict;
+create index ix_product_platform_id on product (platform_id);
+
 alter table shop_order add constraint fk_shop_order_customer_email foreign key (customer_email) references user (email) on delete restrict on update restrict;
 create index ix_shop_order_customer_email on shop_order (customer_email);
 
@@ -120,6 +132,9 @@ drop index if exists ix_order_item_product_id;
 alter table order_item drop constraint if exists fk_order_item_discount_discount_id;
 drop index if exists ix_order_item_discount_discount_id;
 
+alter table product drop constraint if exists fk_product_platform_id;
+drop index if exists ix_product_platform_id;
+
 alter table shop_order drop constraint if exists fk_shop_order_customer_email;
 drop index if exists ix_shop_order_customer_email;
 
@@ -132,6 +147,8 @@ drop table if exists category_product;
 drop table if exists discount;
 
 drop table if exists order_item;
+
+drop table if exists platform;
 
 drop table if exists product;
 

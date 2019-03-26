@@ -58,24 +58,34 @@ Seq[Any](format.raw/*2.1*/("""
             """),format.raw/*27.13*/("""/>"""),_display_(/*27.16*/name),format.raw/*27.20*/("""<br>        
         """)))}),format.raw/*28.10*/("""
 
-		"""),_display_(/*30.4*/inputText(updateProductForm("stock"), '_label -> "Stock",'class -> "form-control")),format.raw/*30.86*/("""
-		"""),_display_(/*31.4*/inputText(updateProductForm("price"), '_label -> "Price",'class -> "form-control")),format.raw/*31.86*/("""
+
+		"""),_display_(/*31.4*/select(
+			updateProductForm("platform.id"),
+			options(Platform.options),
+			'_label -> "Platform", '_default -> "Choose a Platform",
+			'_showConstraints -> false, 'class -> "form-control"
+		)),format.raw/*36.4*/("""
+
+		"""),_display_(/*38.4*/inputText(updateProductForm("developer"), '_label -> "Developer",'class -> "form-control")),format.raw/*38.94*/("""
+		"""),_display_(/*39.4*/inputText(updateProductForm("publisher"), '_label -> "Publisher",'class -> "form-control")),format.raw/*39.94*/("""
+		"""),_display_(/*40.4*/inputText(updateProductForm("stock"), '_label -> "Stock",'class -> "form-control")),format.raw/*40.86*/("""
+		"""),_display_(/*41.4*/inputText(updateProductForm("price"), '_label -> "Price",'class -> "form-control")),format.raw/*41.86*/("""
 
 
-		"""),format.raw/*34.3*/("""<label>Image</label>
+		"""),format.raw/*44.3*/("""<label>Image</label>
     <input class="btn-sm btn-default" type="file" name="upload">
 	
 		<br><br>
 
   <div class="actions">
       <input type="submit" value="Save" class="btn btn-primary">
-			<a href=""""),_display_(/*41.14*/routes/*41.20*/.AdminProductCtrl.listProducts(0)),format.raw/*41.53*/(""""
+			<a href=""""),_display_(/*51.14*/routes/*51.20*/.AdminProductCtrl.listProducts(0)),format.raw/*51.53*/(""""
 				<button class="btn btn-warning" role="button">Cancel</button>
 			</a>
   </div>
-	""")))}),format.raw/*45.3*/("""
+	""")))}),format.raw/*55.3*/("""
 
-""")))}),format.raw/*47.2*/("""
+""")))}),format.raw/*57.2*/("""
 
 
 """))
@@ -94,16 +104,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-<<<<<<< HEAD
-                  DATE: Thu Mar 21 19:55:56 GMT 2019
+                  DATE: Tue Mar 26 21:07:02 GMT 2019
                   SOURCE: /home/ryan/rawr/2ndYearProject2/app/views/AdminPanel/updateProduct.scala.html
-=======
-                  DATE: Wed Mar 20 19:32:02 GMT 2019
-                  SOURCE: /home/wdd/2ndYrProject/2ndYearProject/app/views/AdminPanel/updateProduct.scala.html
->>>>>>> c0659dac054e747f3bb0e777503a54584ddf7b5d
-                  HASH: 5463bba008baa4bcafc717135a52c8ef42692130
-                  MATRIX: 1013->1|1171->90|1203->118|1247->87|1275->115|1303->134|1331->137|1349->147|1386->176|1425->178|1455->181|1510->210|1661->351|1702->353|1735->360|1747->364|1778->374|1809->379|1910->459|1940->463|2055->557|2094->569|2148->607|2188->609|2229->622|2306->672|2332->677|2374->692|2424->733|2464->735|2509->752|2561->773|2602->786|2632->789|2657->793|2710->815|2741->820|2844->902|2874->906|2977->988|3009->993|3238->1195|3253->1201|3307->1234|3424->1321|3457->1324
-                  LINES: 28->1|31->3|32->6|35->2|36->4|38->7|40->9|40->9|40->9|40->9|42->11|45->14|45->14|45->14|47->16|47->16|47->16|49->18|49->18|50->19|50->19|53->22|53->22|53->22|54->23|54->23|54->23|55->24|55->24|55->24|56->25|57->26|58->27|58->27|58->27|59->28|61->30|61->30|62->31|62->31|65->34|72->41|72->41|72->41|76->45|78->47
+                  HASH: 6dc8a89a28f4cbc7d41648f72c829b903d5ac06d
+                  MATRIX: 1013->1|1171->90|1203->118|1247->87|1275->115|1303->134|1331->137|1349->147|1386->176|1425->178|1455->181|1510->210|1661->351|1702->353|1735->360|1747->364|1778->374|1809->379|1910->459|1940->463|2055->557|2094->569|2148->607|2188->609|2229->622|2306->672|2332->677|2374->692|2424->733|2464->735|2509->752|2561->773|2602->786|2632->789|2657->793|2710->815|2742->821|2956->1015|2987->1020|3098->1110|3128->1114|3239->1204|3269->1208|3372->1290|3402->1294|3505->1376|3537->1381|3766->1583|3781->1589|3835->1622|3952->1709|3985->1712
+                  LINES: 28->1|31->3|32->6|35->2|36->4|38->7|40->9|40->9|40->9|40->9|42->11|45->14|45->14|45->14|47->16|47->16|47->16|49->18|49->18|50->19|50->19|53->22|53->22|53->22|54->23|54->23|54->23|55->24|55->24|55->24|56->25|57->26|58->27|58->27|58->27|59->28|62->31|67->36|69->38|69->38|70->39|70->39|71->40|71->40|72->41|72->41|75->44|82->51|82->51|82->51|86->55|88->57
                   -- GENERATED --
               */
           

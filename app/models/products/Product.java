@@ -9,13 +9,11 @@ import play.data.validation.*;
 
 import models.shopping.*;
 
-// Product entity managed by Ebean
+
 @Entity
 public class Product extends Model {
 
-    // Fields - note that these are defined as public and not private
-    // During compile time, The Play Framework
-    // automatically generates getters and setters
+
     @Id
     private Long id;
 
@@ -23,10 +21,10 @@ public class Product extends Model {
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "products")
     private List<Category> categories = new ArrayList<Category>();
 
-    //@OneToOne(mappedBy="product")
-    //public OrderItem item = new OrderItem();
-    
-    // List of category ids - this will be bound to checkboxes in the view form
+    @ManyToOne
+    private Platform platform;
+
+
     private List<Long> catSelect = new ArrayList<Long>();
 
     @Constraints.Required
@@ -41,17 +39,26 @@ public class Product extends Model {
     @Constraints.Required
     private double price;
 
+    @Constraints.Required
+    private String developer;
+
+    @Constraints.Required
+    private String publisher;
+
+
     // Default constructor
     public  Product() {
     }
 
     // Constructor to initialise object
-    public  Product(Long id, String name, String description, int stock, double price){
+    public  Product(Long id, String name, String description, int stock, double price, String developer, String publisher){
         this.id = id;
         this.name = name;
         this.description = description;
         this.stock = stock;
         this.price = price;
+        this.developer = developer;
+        this.publisher = publisher;
     }
 	
 	//Generic query helper for entity Computer with id Long
@@ -96,13 +103,7 @@ public class Product extends Model {
         this.categories = categories;
     }
 
-    public List<Long> getCatSelect() {
-        return catSelect;
-    }
 
-    public void setCatSelect(List<Long> catSelect) {
-        this.catSelect = catSelect;
-    }
 
     public String getName() {
         return name;
@@ -160,7 +161,36 @@ public class Product extends Model {
         stock +=qty;
     }
 
+    public String getDeveloper() {
+        return developer;
+    }
 
+    public void setDeveloper(String developer) {
+        this.developer = developer;
+    }
 
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public List<Long> getCatSelect() {
+        return catSelect;
+    }
+
+    public void setCatSelect(List<Long> catSelect) {
+        this.catSelect = catSelect;
+    }
+
+    public Platform getPlatform() {
+        return platform;
+    }
+
+    public void setPlatform(Platform platform) {
+        this.platform = platform;
+    }
 }
 

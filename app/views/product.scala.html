@@ -1,7 +1,7 @@
 @(product: models.products.Product, filter:String ,user : models.users.User, e: play.api.Environment)
 
 @main("Product", user) {
-    <p class="producthead">@product.getName()</p>
+    <p class="producthead">@product.getName() for @product.getPlatform.getName</p>
 
     <div class="col-sm-3">
         <table class="table table-bordered table-hover table-condensed">
@@ -43,7 +43,13 @@
 
                 <p> &emsp; </p>
 
+
+                <p class = "lead" >Developer: @product.getDeveloper</p>
+                <p class = "lead" >Publisher: @product.getPublisher</p>
                 <p class = "lead" >@product.getDescription</p>
+
+                <p class = "a"> Price: &euro; @("%.2f".format(product.getPrice)) </p>
+
 
 
                 <div class="actions">
@@ -51,7 +57,7 @@
                         <button type="button" class="btn btn-lg btn-primary" >Add to Cart</button>
                     </a>
                 </div>
-                <p class = "a"> Price: &euro; @("%.2f".format(product.getPrice)) </p>
+
             </tbody>
         </table>
     </div>

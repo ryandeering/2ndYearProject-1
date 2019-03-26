@@ -26,10 +26,20 @@ though a static HTML form would also work -->
             <input type="checkbox" name="catSelect[]" value="@value" />@name<br>        
         }
 
+	@select(
+		addProductForm("platform.id"),
+		options(Platform.options),
+		'_label -> "Platform", '_default -> "Choose a Platform",
+		'_showConstraints -> false, 'class -> "form-control"
+	)
+
+		@inputText(addProductForm("developer"), '_label -> "Developer",'class -> "form-control")
+		@inputText(addProductForm("publisher"), '_label -> "Publisher",'class -> "form-control")
 		@inputText(addProductForm("stock"), '_label -> "Stock",'class -> "form-control")
 		@inputText(addProductForm("price"), '_label -> "Price",'class -> "form-control")
 
-		<!-- Image upload input -->
+
+	<!-- Image upload input -->
 		<label>Image</label>
     <input class="btn-sm btn-default" type="file" name="upload">
 	

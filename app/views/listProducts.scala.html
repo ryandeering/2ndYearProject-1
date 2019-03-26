@@ -46,6 +46,7 @@
 				<tr>
 					<th></th>
 					<th>Name</th>
+					<th>Platform &nbsp;</th>
 					<th>Description</th>
 					<th>Stock</th>
 					<th>Price</th>
@@ -67,7 +68,7 @@
 					<td>
 							<a href="@routes.HomeController.product(p.getId,"")">@p.getName</a>
 					</td>
-
+						<td>@p.getPlatform.getName</td>
 						<td>@p.getDescription</td>
 						<td>@p.stockShortage</td>
 						<td>&euro; @("%.2f".format(p.getPrice))</td>

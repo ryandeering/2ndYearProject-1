@@ -57,10 +57,20 @@ though a static HTML form would also work -->
             """),format.raw/*26.13*/("""<input type="checkbox" name="catSelect[]" value=""""),_display_(/*26.63*/value),format.raw/*26.68*/("""" />"""),_display_(/*26.73*/name),format.raw/*26.77*/("""<br>        
         """)))}),format.raw/*27.10*/("""
 
-		"""),_display_(/*29.4*/inputText(addProductForm("stock"), '_label -> "Stock",'class -> "form-control")),format.raw/*29.83*/("""
-		"""),_display_(/*30.4*/inputText(addProductForm("price"), '_label -> "Price",'class -> "form-control")),format.raw/*30.83*/("""
+	"""),_display_(/*29.3*/select(
+		addProductForm("platform.id"),
+		options(Platform.options),
+		'_label -> "Platform", '_default -> "Choose a Platform",
+		'_showConstraints -> false, 'class -> "form-control"
+	)),format.raw/*34.3*/("""
 
-		"""),format.raw/*32.3*/("""<!-- Image upload input -->
+		"""),_display_(/*36.4*/inputText(addProductForm("developer"), '_label -> "Developer",'class -> "form-control")),format.raw/*36.91*/("""
+		"""),_display_(/*37.4*/inputText(addProductForm("publisher"), '_label -> "Publisher",'class -> "form-control")),format.raw/*37.91*/("""
+		"""),_display_(/*38.4*/inputText(addProductForm("stock"), '_label -> "Stock",'class -> "form-control")),format.raw/*38.83*/("""
+		"""),_display_(/*39.4*/inputText(addProductForm("price"), '_label -> "Price",'class -> "form-control")),format.raw/*39.83*/("""
+
+
+	"""),format.raw/*42.2*/("""<!-- Image upload input -->
 		<label>Image</label>
     <input class="btn-sm btn-default" type="file" name="upload">
 	
@@ -69,13 +79,13 @@ though a static HTML form would also work -->
 	<!-- Add a submit button -->
   <div class="actions">
       <input type="submit" value="Add Product" class="btn btn-primary">
-			<a href=""""),_display_(/*41.14*/routes/*41.20*/.AdminProductCtrl.listProducts(0)),format.raw/*41.53*/("""">
+			<a href=""""),_display_(/*51.14*/routes/*51.20*/.AdminProductCtrl.listProducts(0)),format.raw/*51.53*/("""">
 				<button class="btn btn-warning">Cancel</button>
 			</a>
   </div>
-	""")))}),format.raw/*45.3*/(""" """),format.raw/*45.4*/("""<!-- End Form definition -->
+	""")))}),format.raw/*55.3*/(""" """),format.raw/*55.4*/("""<!-- End Form definition -->
 
-""")))}),format.raw/*47.2*/(""" """),format.raw/*47.3*/("""<!-- End of page content -->
+""")))}),format.raw/*57.2*/(""" """),format.raw/*57.3*/("""<!-- End of page content -->
 
 
 """))
@@ -94,16 +104,11 @@ though a static HTML form would also work -->
 
               /*
                   -- GENERATED --
-<<<<<<< HEAD
-                  DATE: Thu Mar 21 19:55:56 GMT 2019
+                  DATE: Tue Mar 26 20:58:22 GMT 2019
                   SOURCE: /home/ryan/rawr/2ndYearProject2/app/views/AdminPanel/addProduct.scala.html
-=======
-                  DATE: Wed Mar 20 19:32:02 GMT 2019
-                  SOURCE: /home/wdd/2ndYrProject/2ndYearProject/app/views/AdminPanel/addProduct.scala.html
->>>>>>> c0659dac054e747f3bb0e777503a54584ddf7b5d
-                  HASH: 84d04b15b2a5bd5a3d1a05d2df67e840b6437b59
-                  MATRIX: 1005->1|1150->169|1182->304|1226->74|1346->194|1373->195|1507->320|1535->321|1615->375|1634->385|1669->411|1709->413|1739->416|1860->511|2025->666|2066->668|2096->672|2108->676|2139->686|2169->689|2290->784|2388->861|2418->865|2530->956|2567->966|2762->1134|2816->1172|2856->1174|2897->1187|2974->1237|3000->1242|3032->1247|3057->1251|3110->1273|3141->1278|3241->1357|3271->1361|3371->1440|3402->1444|3698->1713|3713->1719|3767->1752|3871->1826|3899->1827|3960->1858|3988->1859
-                  LINES: 28->1|31->4|32->8|35->2|37->5|38->6|40->9|41->10|42->11|42->11|42->11|42->11|44->13|47->16|47->16|47->16|48->17|48->17|48->17|49->18|51->20|51->20|52->21|52->21|54->23|56->25|56->25|56->25|57->26|57->26|57->26|57->26|57->26|58->27|60->29|60->29|61->30|61->30|63->32|72->41|72->41|72->41|76->45|76->45|78->47|78->47
+                  HASH: cce1e72de15d1de4f5beab3fc59fca5ed5bfe7cf
+                  MATRIX: 1005->1|1150->169|1182->304|1226->74|1346->194|1373->195|1507->320|1535->321|1615->375|1634->385|1669->411|1709->413|1739->416|1860->511|2025->666|2066->668|2096->672|2108->676|2139->686|2169->689|2290->784|2388->861|2418->865|2530->956|2567->966|2762->1134|2816->1172|2856->1174|2897->1187|2974->1237|3000->1242|3032->1247|3057->1251|3110->1273|3140->1277|3346->1463|3377->1468|3485->1555|3515->1559|3623->1646|3653->1650|3753->1729|3783->1733|3883->1812|3914->1816|4210->2085|4225->2091|4279->2124|4383->2198|4411->2199|4472->2230|4500->2231
+                  LINES: 28->1|31->4|32->8|35->2|37->5|38->6|40->9|41->10|42->11|42->11|42->11|42->11|44->13|47->16|47->16|47->16|48->17|48->17|48->17|49->18|51->20|51->20|52->21|52->21|54->23|56->25|56->25|56->25|57->26|57->26|57->26|57->26|57->26|58->27|60->29|65->34|67->36|67->36|68->37|68->37|69->38|69->38|70->39|70->39|73->42|82->51|82->51|82->51|86->55|86->55|88->57|88->57
                   -- GENERATED --
               */
           

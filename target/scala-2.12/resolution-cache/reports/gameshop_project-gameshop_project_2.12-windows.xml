@@ -7,11 +7,7 @@
 		revision="1.0-SNAPSHOT"
 		conf="windows"
 		confs="compile, runtime, test, provided, optional, universal, universal-docs, universal-src, windows, docker, linux, rpm, debian, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool, docs"
-<<<<<<< HEAD
-		date="20190321195200"/>
-=======
-		date="20190320193148"/>
->>>>>>> c0659dac054e747f3bb0e777503a54584ddf7b5d
+		date="20190326203038"/>
 	<dependencies>
 	</dependencies>
 </ivy-report>
