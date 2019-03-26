@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/2ndYrProject/2ndYearProject/app/views/viewOrders.scala.html:50:111: not found: value %.2f[0m
+[0m[[0m[31merror[0m] [0m[0m			    <td><button class="btn btn-primary" onclick="const pdf = new jsPDF(); pdf.text(10, 30, 'Order Total: @(`%.2f`.format(i.getItemTotal))'); pdf.text(10, 10, `Thanks for shopping with us!`); pdf.save();">Print Receipt</button></td>[0m
+[0m[[0m[31merror[0m] [0m[0m			                                                                                                           ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
