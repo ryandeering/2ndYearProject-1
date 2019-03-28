@@ -186,10 +186,12 @@ img {
 						
 						
 						<div class="action">
-<a href="@routes.ShoppingCtrl.addToBasket(product.getId)">
+                            @if((product.getStock > 0)){
+                    <a href="@routes.ShoppingCtrl.addToBasket(product.getId)">
 							<button class="add-to-cart btn btn-default" type="button">add to cart</button>
-</a>
-							
+                                </a>
+    }
+
 						</div>
 					</div>
 				</div>
