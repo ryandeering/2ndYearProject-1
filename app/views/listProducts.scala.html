@@ -1,5 +1,4 @@
-@import models.products.Category
-@import models.products.Product
+@import models.products.{Category, Product}
 @import models.users.User
 @(env: play.api.Environment, categories: List[Category], products: List[Product], catId: Long, filter: String, user: User)
 
@@ -54,7 +53,8 @@
 
   		</a>
   		<div class="media-body">
-    		<h4 class="media-heading"><a href="@routes.HomeController.product(p.getId,"")"> | @p.getName</a> @p.getPlatform.getName</h4>
+			<h4 class="media-heading"><a href="@routes.HomeController.product(p.getId, "")"> @p.getName</a>
+				| @p.getPlatform.getName</h4>
           <p class="text-right">&euro; @("%.2f".format(p.getPrice))</p>
           <p>@p.getDescription</p>
           <ul class="list-inline list-unstyled">

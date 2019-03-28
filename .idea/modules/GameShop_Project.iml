@@ -169,6 +169,5 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="jfreechart-1.5.0" level="project" />
-    <orderEntry type="library" name="play-mailer_2.12-6.0.1" level="project" />
   </component>
 </module>

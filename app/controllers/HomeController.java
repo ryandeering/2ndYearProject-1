@@ -1,16 +1,35 @@
 package controllers;
 
-import play.api.Environment;
-import play.mvc.*;
-import play.data.*;
-import play.db.ebean.Transactional;
-import javax.inject.Inject;
-import views.html.*;
-import views.html.AdminPanel.*;
-import models.users.*;
-import models.products.*;
-import java.util.*;
+import models.products.Product;
+import models.users.Admin;
+import models.users.Customer;
+import models.users.User;
 import org.mindrot.jbcrypt.BCrypt;
+import play.api.Environment;
+import play.data.Form;
+import play.data.FormFactory;
+import play.db.ebean.Transactional;
+import play.mvc.Controller;
+import play.mvc.Result;
+import play.mvc.Security;
+import play.mvc.With;
+import views.html.AdminPanel.addAdmin;
+import views.html.AdminPanel.addCustomer;
+import views.html.AdminPanel.admin;
+import views.html.AdminPanel.customers;
+import views.html.index;
+import views.html.product;
+import views.html.registerUser;
+
+import javax.inject.Inject;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 
 public class HomeController extends Controller {
@@ -214,6 +233,19 @@ public class HomeController extends Controller {
         return ok(product.render(p, filter, User.getUserById(session().get("email")),e));
     }
 
+
+    public static void log(String activity) {
+        User u = User.getLoggedIn(session().get("email"));
+
+        try {
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            Date date = new Date();
+            String content = (dateFormat.format(date)) + " | " + u.getfName() + " " + u.getlName() + " " + activity + " under role " + u.getRole() + "\n";
+            Files.write(Paths.get("logfile.txt"), content.getBytes(), StandardOpenOption.APPEND);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }

@@ -30,7 +30,8 @@ object error extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Html
       {
 
 
-Seq[Any](format.raw/*2.1*/("""<h2>Message:</h2>
+Seq[Any](format.raw/*1.19*/("""
+"""),format.raw/*2.1*/("""<h2>Message:</h2>
 <h3>"""),_display_(/*3.6*/message),format.raw/*3.13*/("""</h3>
 """))
       }
@@ -48,11 +49,11 @@ Seq[Any](format.raw/*2.1*/("""<h2>Message:</h2>
 
               /*
                   -- GENERATED --
-                  DATE: Thu Mar 28 12:29:26 GMT 2019
-                  SOURCE: /home/ryan/rawr/2ndYearProject2/app/views/error.scala.html
-                  HASH: 72c83de8cf5689c6f4b3a95985919c57d725764a
-                  MATRIX: 948->1|1059->19|1107->42|1134->49
-                  LINES: 28->1|33->2|34->3|34->3
+                  DATE: Thu Mar 28 18:31:20 GMT 2019
+                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/app/views/error.scala.html
+                  HASH: 73fb69b215a9f5419a8c57bc1c8419e6a02496bf
+                  MATRIX: 948->1|1060->18|1088->20|1137->44|1164->51
+                  LINES: 28->1|33->1|34->2|35->3|35->3
                   -- GENERATED --
               */
           

@@ -1,27 +1,31 @@
 package controllers;
 
-import play.mvc.*;
-import play.data.*;
-import javax.inject.Inject;
-
-import views.html.*;
-import play.db.ebean.Transactional;
+import models.products.Product;
+import models.shopping.Basket;
+import models.shopping.Discount;
+import models.shopping.OrderItem;
+import models.shopping.ShopOrder;
+import models.users.Customer;
+import models.users.User;
 import play.api.Environment;
-
-// Import models
-import models.users.*;
-import models.products.*;
-import models.shopping.*;
-import java.text.SimpleDateFormat;
-
-import java.util.Calendar;
+import play.data.Form;
+import play.data.FormFactory;
+import play.db.ebean.Transactional;
 import play.libs.mailer.Email;
 import play.libs.mailer.MailerClient;
+import play.mvc.Controller;
+import play.mvc.Result;
+import play.mvc.Security;
+import play.mvc.With;
+import views.html.basket;
+import views.html.orderConfirmed;
+import views.html.viewOrders;
 
+import javax.inject.Inject;
+import java.util.Calendar;
 
-
+// Import models
 // Import security controllers
-import controllers.*;
 
 // Authenticate user
 @Security.Authenticated(Secured.class)
@@ -184,7 +188,7 @@ public class ShoppingCtrl extends Controller {
 
         // Update the order
         order.update();
-
+        HomeController.log("placed order" + order.getId());
         // Clear and update the shopping basket
         c.getBasket().setBasketItems(null);
         // c.getBasket().setDiscount(new Discount()); This will be needed when Daria sorts out the order confirmed properly.
@@ -225,6 +229,7 @@ public class ShoppingCtrl extends Controller {
     @Transactional
     public Result cancelOrder(Long orderId){
         ShopOrder order = ShopOrder.find.byId(orderId);
+
         Calendar c1 = Calendar.getInstance();
         Calendar c2 = Calendar.getInstance();
 
@@ -235,6 +240,7 @@ public class ShoppingCtrl extends Controller {
             order.delete();
 
             flash("success", "Your order has been cancelled");
+            HomeController.log("cancelled order " + order.getId());
         }else {
             flash("success", "Sorry, it is too late to cancel this order");
         }

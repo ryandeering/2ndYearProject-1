@@ -1,37 +1,29 @@
 package controllers;
 
-import controllers.*;
-
+import models.products.Category;
+import models.products.Product;
 import models.shopping.ShopOrder;
-import play.mvc.*;
-import play.data.*;
-import play.db.ebean.Transactional;
+import models.users.User;
+import org.im4java.core.ConvertCmd;
+import org.im4java.core.IMOperation;
 import play.api.Environment;
-
-import play.mvc.Http.*;
+import play.data.Form;
+import play.data.FormFactory;
+import play.db.ebean.Transactional;
+import play.mvc.*;
+import play.mvc.Http.MultipartFormData;
 import play.mvc.Http.MultipartFormData.FilePart;
+import views.html.AdminPanel.addProduct;
+import views.html.AdminPanel.listProducts;
+import views.html.AdminPanel.statistics;
+import views.html.AdminPanel.updateProduct;
 
+import javax.inject.Inject;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Inject;
-import play.Logger;
-
-import java.io.IOException;
-import java.awt.image.*;
-import javax.imageio.*;
-
-
-
-import org.im4java.core.ConvertCmd;
-import org.im4java.core.IMOperation;
-
 
 // Import models and views
-import models.users.*;
-import models.products.*;
-
-import views.html.AdminPanel.*;
 
 
 
@@ -100,7 +92,7 @@ public class AdminProductCtrl extends Controller {
         }
 
         newProduct.update();
-
+        HomeController.log("added a product " + newProduct.getName());
         MultipartFormData<File> data = request().body().asMultipartFormData();
         FilePart<File> image = data.getFile("upload");
 
@@ -134,7 +126,7 @@ public class AdminProductCtrl extends Controller {
 
         Product p = updateProductForm.get();
         p.setId(id);
-
+        HomeController.log("updated a product");
         List<Category> newCats = new ArrayList<Category>();
         for (Long cat : p.getCatSelect()) {
             newCats.add(Category.find.byId(cat));
@@ -152,8 +144,10 @@ public class AdminProductCtrl extends Controller {
 
     @Transactional
     public Result deleteProduct(Long id) {
+        HomeController.log("deleted product " + Product.find.ref(id).getName());
         Product.find.ref(id).delete();
         flash("success", "Product has been deleted");
+
         return redirect(routes.AdminProductCtrl.index());
     }
 

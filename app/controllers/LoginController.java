@@ -1,15 +1,14 @@
 package controllers;
 
+import models.users.Login;
 import models.users.User;
-import play.mvc.*;
-
-import views.html.*;
-
-import play.data.*;
+import play.data.Form;
+import play.data.FormFactory;
+import play.mvc.Controller;
+import play.mvc.Result;
+import views.html.login;
 
 import javax.inject.Inject;
-
-import models.users.Login;
 
 public class LoginController extends Controller {
     private FormFactory formFactory;
@@ -34,6 +33,11 @@ public LoginController(FormFactory f){
             session("email", loginForm.get().getEmail());
 
             User u = User.getLoggedIn(loginForm.get().getEmail());
+
+
+            HomeController.log("logged in");
+
+
             if (u != null && "admin".equals(u.getRole())) {
                 return redirect(controllers.routes.AdminProductCtrl.index());
                 }
@@ -42,13 +46,12 @@ public LoginController(FormFactory f){
 }
 
     public Result logout(){
+
+        HomeController.log("logged out");
         session().clear();
         flash("success", "You have been logged out");
         return redirect(routes.LoginController.login());
 }
-
-
-
 
 
 }

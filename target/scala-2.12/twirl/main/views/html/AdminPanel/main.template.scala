@@ -30,7 +30,8 @@ object main extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlF
       {
 
 
-Seq[Any](format.raw/*2.1*/("""
+Seq[Any](format.raw/*1.57*/("""
+
 """),format.raw/*3.1*/("""<!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +43,7 @@ Seq[Any](format.raw/*2.1*/("""
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Product Catalogue - """),_display_(/*14.33*/title),format.raw/*14.38*/("""</title>
+    <title>Admin Panel - """),_display_(/*14.27*/title),format.raw/*14.32*/("""</title>
 
     <!-- Bootstrap Core CSS -->
     <link href=""""),_display_(/*17.18*/routes/*17.24*/.Assets.versioned("stylesheets/bootstrap.min.css")),format.raw/*17.74*/("""" rel="stylesheet">
@@ -72,7 +73,7 @@ Seq[Any](format.raw/*2.1*/("""
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href=""""),_display_(/*44.48*/routes/*44.54*/.AdminProductCtrl.listProducts(0)),format.raw/*44.87*/("""">Products Catalogue</a>
+                <a class="navbar-brand" href=""""),_display_(/*44.48*/routes/*44.54*/.AdminProductCtrl.listProducts(0)),format.raw/*44.87*/("""">Admin Panel</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -97,7 +98,7 @@ Seq[Any](format.raw/*2.1*/("""
 			<div class="row">
 
 				<div class="col-md-12">
-						<p class="lead">Products Catalogue</p>
+						<p class="lead">Statistics</p>
 				<div>
 			</div>
 
@@ -116,7 +117,7 @@ Seq[Any](format.raw/*2.1*/("""
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Products Catalogue Footer</p>
+                    <p></p>
                 </div>
             </div>
         </footer>
@@ -149,11 +150,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Mar 28 12:29:26 GMT 2019
-                  SOURCE: /home/ryan/rawr/2ndYearProject2/app/views/AdminPanel/main.scala.html
-                  HASH: a347ec55fdb1d58cbd05a4d5e0644e8f318b47ba
-                  MATRIX: 981->1|1130->57|1157->58|1494->368|1520->373|1606->432|1621->438|1692->488|1781->550|1796->556|1867->606|2987->1699|3002->1705|3056->1738|3428->2084|3453->2100|3493->2102|3529->2111|3566->2121|3586->2132|3639->2164|3677->2185|3690->2190|3729->2191|3783->2217|3820->2227|3840->2238|3892->2269|3941->2288|3990->2309|4358->2651|4386->2658|4417->2662|4846->3064|4861->3070|4924->3112|5022->3182|5038->3188|5109->3237
-                  LINES: 28->1|33->2|34->3|45->14|45->14|48->17|48->17|48->17|51->20|51->20|51->20|75->44|75->44|75->44|82->51|82->51|82->51|83->52|83->52|83->52|83->52|84->53|84->53|84->53|85->54|85->54|85->54|85->54|86->55|87->56|105->74|105->74|106->75|128->97|128->97|128->97|131->100|131->100|131->100
+                  DATE: Thu Mar 28 18:31:20 GMT 2019
+                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/app/views/AdminPanel/main.scala.html
+                  HASH: 11f74c97116e5d3aa7282326571ae8121de4c8a0
+                  MATRIX: 981->1|1131->56|1161->60|1503->375|1529->380|1618->442|1633->448|1704->498|1796->563|1811->569|1882->619|3026->1736|3041->1742|3095->1775|3467->2121|3492->2137|3532->2139|3569->2149|3606->2159|3626->2170|3679->2202|3718->2224|3731->2229|3770->2230|3825->2257|3862->2267|3882->2278|3934->2309|3984->2329|4034->2351|4412->2703|4440->2710|4472->2715|4898->3114|4913->3120|4976->3162|5077->3235|5093->3241|5164->3290
+                  LINES: 28->1|33->1|35->3|46->14|46->14|49->17|49->17|49->17|52->20|52->20|52->20|76->44|76->44|76->44|83->51|83->51|83->51|84->52|84->52|84->52|84->52|85->53|85->53|85->53|86->54|86->54|86->54|86->54|87->55|88->56|106->74|106->74|107->75|129->97|129->97|129->97|132->100|132->100|132->100
                   -- GENERATED --
               */
           
