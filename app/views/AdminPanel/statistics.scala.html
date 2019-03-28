@@ -1,0 +1,15 @@
+@(products: List[models.products.Product], orders: List[models.shopping.ShopOrder], user: models.users.User)
+@import helper._
+@main("Statistics",user){
+
+
+
+   <p>@controllers.Statistics.medianPrice()</p>
+
+   @controllers.Statistics.PieChart()
+   <td><img src="\assets\images\statImages\PieChart.jpeg"/></td>
+
+
+
+
+}

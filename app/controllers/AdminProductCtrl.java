@@ -2,6 +2,7 @@ package controllers;
 
 import controllers.*;
 
+import models.shopping.ShopOrder;
 import play.mvc.*;
 import play.data.*;
 import play.db.ebean.Transactional;
@@ -193,5 +194,18 @@ public class AdminProductCtrl extends Controller {
             }
         }
         return "image file missing";
+    }
+
+
+
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthAdmin.class)
+    public Result statistics() {
+        List<Product> productList = null;
+        List <ShopOrder> orderList = null;
+        productList = Product.findAll();
+        orderList = ShopOrder.findAll();
+        return ok(statistics.render(productList, orderList ,User.getUserById(session().get("email"))));
     }
 }

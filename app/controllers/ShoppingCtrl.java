@@ -75,11 +75,11 @@ public class ShoppingCtrl extends Controller {
             customer.getBasket().setCustomer(customer);
             customer.getBasket().setDiscount(new Discount());
             customer.update();
-
         }
         // Add product to the basket and save
         customer.getBasket().addProduct(p);
         customer.getBasket().getDiscount();
+
         customer.update();
 
         p.decrementStock();

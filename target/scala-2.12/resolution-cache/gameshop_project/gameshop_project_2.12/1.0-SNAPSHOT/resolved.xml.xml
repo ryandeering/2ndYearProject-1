@@ -4,7 +4,7 @@
 		module="gameshop_project_2.12"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20190326203038"
+		publication="20190327212404"
 	>
 		<description>
 		GameShop_Project
@@ -60,5 +60,6 @@
 		<dependency org="org.imgscalr" name="imgscalr-lib" rev="4.2" conf="compile->default(compile)"/>
 		<dependency org="org.mindrot" name="jbcrypt" rev="0.3m" conf="compile->default(compile)"/>
 		<dependency org="net.tanesha.recaptcha4j" name="recaptcha4j" rev="0.0.7" conf="compile->default(compile)"/>
+		<dependency org="org.jfree" name="jfreechart" rev="1.5.0" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

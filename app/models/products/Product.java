@@ -192,5 +192,14 @@ public class Product extends Model {
     public void setPlatform(Platform platform) {
         this.platform = platform;
     }
+
+    public static final Finder<Long, Product> finda = new Finder<>(Product.class);
+    // for all products
+
+    public static final List<Product> findAll() {
+        return Product.finda.all();
+    }
+
+
 }
 

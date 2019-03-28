@@ -118,5 +118,11 @@ public class ShopOrder extends Model {
 
 
 
+    // for all products
+
+
+
+
+
 }
 

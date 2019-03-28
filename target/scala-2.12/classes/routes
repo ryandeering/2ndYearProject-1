@@ -22,22 +22,21 @@ GET     /viewOrder/:id                      controllers.ShoppingCtrl.viewOrder(i
 
 
 # Product Administration(added by Daria and Ryan)
-GET		/Admin						        controllers.AdminProductCtrl.index()
-GET     /Admin/listProducts                 controllers.AdminProductCtrl.listProducts(cat: Long = 0)
-GET     /Admin/listProducts/:cat            controllers.AdminProductCtrl.listProducts(cat: Long)
-GET		/Admin/addProduct					controllers.AdminProductCtrl.addProduct()
-POST	/Admin/addProductSubmit				controllers.AdminProductCtrl.addProductSubmit()
-GET		/Admin/updateProduct/:id			controllers.AdminProductCtrl.updateProduct(id:Long)
-POST	/Admin/updateProductSubmit/:id		controllers.AdminProductCtrl.updateProductSubmit(id:Long)
-GET     /Admin/delProduct/:id               controllers.AdminProductCtrl.deleteProduct(id:Long)
-
+GET		/admin						        controllers.AdminProductCtrl.index()
+GET     /admin/listProducts                 controllers.AdminProductCtrl.listProducts(cat: Long = 0)
+GET     /admin/listProducts/:cat            controllers.AdminProductCtrl.listProducts(cat: Long)
+GET		/admin/addProduct					controllers.AdminProductCtrl.addProduct()
+POST	/admin/addProductSubmit				controllers.AdminProductCtrl.addProductSubmit()
+GET		/admin/updateProduct/:id			controllers.AdminProductCtrl.updateProduct(id:Long)
+POST	/admin/updateProductSubmit/:id		controllers.AdminProductCtrl.updateProductSubmit(id:Long)
+GET     /admin/delProduct/:id               controllers.AdminProductCtrl.deleteProduct(id:Long)
 
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 
-GET /setDiscount/ controllers.ShoppingCtrl.setDiscount()
+
 
 
 
@@ -62,8 +61,8 @@ GET     /product/:id                 controllers.HomeController.product(id: Long
 
 GET     /cancelOrder                         controllers.ShoppingCtrl.cancelOrder(id: Long)
 GET     /viewOrders                         controllers.ShoppingCtrl.viewOrders()
-
-
+GET /setDiscount/ controllers.ShoppingCtrl.setDiscount()
+GET     /admin/statistics                   controllers.AdminProductCtrl.statistics()
 #GET     manager/addEmployee                    controllers.HomeController.addItem
 
 #POST    manager/addEmployeeSubmit              controllers.HomeController.addItemSubmit

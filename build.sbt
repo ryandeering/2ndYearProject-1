@@ -31,3 +31,5 @@ libraryDependencies ++= Seq(evolutions, jdbc)
 libraryDependencies += "org.imgscalr" % "imgscalr-lib" % "4.2"
 libraryDependencies += "org.mindrot" % "jbcrypt" % "0.3m"
 libraryDependencies += "net.tanesha.recaptcha4j" % "recaptcha4j" % "0.0.7"
+// https://mvnrepository.com/artifact/org.jfree/jfreechart
+libraryDependencies += "org.jfree" % "jfreechart" % "1.5.0"

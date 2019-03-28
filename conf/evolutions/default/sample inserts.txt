@@ -7,6 +7,8 @@ jdbc:h2:file:./data/DB
 INSERT INTO USER VALUES('admin', 'admin@gmail.com', 'Hulk', 'Hogan', '$2a$10$CxclgqyMzrYng..2r9XzLuzgcExg1H8xi4d6mgLf/NzJbeNj8uRbG', 'admin');
 
 
+INSERT INTO DISCOUNT VALUES('null', 'lol', true, 1.0);
+
 insert into category (id,name) values ( 1,'Audio' );
 insert into category (id,name) values ( 2,'Books' );
 insert into category (id,name) values ( 3,'Computer' );

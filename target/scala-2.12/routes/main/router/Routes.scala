@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/ryan/rawr/2ndYearProject2/conf/routes
-// @DATE:Tue Mar 26 20:30:38 GMT 2019
+// @SOURCE:C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/conf/routes
+// @DATE:Wed Mar 27 21:12:40 GMT 2019
 
 package router
 
@@ -22,9 +22,9 @@ class Routes(
   ShoppingCtrl_2: controllers.ShoppingCtrl,
   // @LINE:25
   AdminProductCtrl_3: controllers.AdminProductCtrl,
-  // @LINE:37
+  // @LINE:36
   Assets_4: controllers.Assets,
-  // @LINE:46
+  // @LINE:45
   LoginController_5: controllers.LoginController,
   val prefix: String
 ) extends GeneratedRouter {
@@ -39,9 +39,9 @@ class Routes(
     ShoppingCtrl_2: controllers.ShoppingCtrl,
     // @LINE:25
     AdminProductCtrl_3: controllers.AdminProductCtrl,
-    // @LINE:37
+    // @LINE:36
     Assets_4: controllers.Assets,
-    // @LINE:46
+    // @LINE:45
     LoginController_5: controllers.LoginController
   ) = this(errorHandler, ProductCtrl_1, HomeController_0, ShoppingCtrl_2, AdminProductCtrl_3, Assets_4, LoginController_5, "/")
 
@@ -65,16 +65,15 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """emptyBasket""", """controllers.ShoppingCtrl.emptyBasket()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """placeOrder""", """controllers.ShoppingCtrl.placeOrder()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """viewOrder/""" + "$" + """id<[^/]+>""", """controllers.ShoppingCtrl.viewOrder(id:Long)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin""", """controllers.AdminProductCtrl.index()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin/listProducts""", """controllers.AdminProductCtrl.listProducts(cat:Long = 0)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin/listProducts/""" + "$" + """cat<[^/]+>""", """controllers.AdminProductCtrl.listProducts(cat:Long)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin/addProduct""", """controllers.AdminProductCtrl.addProduct()"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin/addProductSubmit""", """controllers.AdminProductCtrl.addProductSubmit()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin/updateProduct/""" + "$" + """id<[^/]+>""", """controllers.AdminProductCtrl.updateProduct(id:Long)"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin/updateProductSubmit/""" + "$" + """id<[^/]+>""", """controllers.AdminProductCtrl.updateProductSubmit(id:Long)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """Admin/delProduct/""" + "$" + """id<[^/]+>""", """controllers.AdminProductCtrl.deleteProduct(id:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """admin""", """controllers.AdminProductCtrl.index()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """admin/listProducts""", """controllers.AdminProductCtrl.listProducts(cat:Long = 0)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """admin/listProducts/""" + "$" + """cat<[^/]+>""", """controllers.AdminProductCtrl.listProducts(cat:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """admin/addProduct""", """controllers.AdminProductCtrl.addProduct()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """admin/addProductSubmit""", """controllers.AdminProductCtrl.addProductSubmit()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """admin/updateProduct/""" + "$" + """id<[^/]+>""", """controllers.AdminProductCtrl.updateProduct(id:Long)"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """admin/updateProductSubmit/""" + "$" + """id<[^/]+>""", """controllers.AdminProductCtrl.updateProductSubmit(id:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """admin/delProduct/""" + "$" + """id<[^/]+>""", """controllers.AdminProductCtrl.deleteProduct(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """setDiscount/""", """controllers.ShoppingCtrl.setDiscount()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.LoginController.login"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """loginSubmit""", """controllers.LoginController.loginSubmit"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """logout""", """controllers.LoginController.logout"""),
@@ -93,6 +92,8 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """product/""" + "$" + """id<[^/]+>""", """controllers.HomeController.product(id:Long, filter:String ?= "")"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """cancelOrder""", """controllers.ShoppingCtrl.cancelOrder(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """viewOrders""", """controllers.ShoppingCtrl.viewOrders()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """setDiscount/""", """controllers.ShoppingCtrl.setDiscount()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """admin/statistics""", """controllers.AdminProductCtrl.statistics()"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -282,7 +283,7 @@ class Routes(
 
   // @LINE:25
   private[this] lazy val controllers_AdminProductCtrl_index10_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("Admin")))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("admin")))
   )
   private[this] lazy val controllers_AdminProductCtrl_index10_invoker = createInvoker(
     AdminProductCtrl_3.index(),
@@ -292,7 +293,7 @@ class Routes(
       "index",
       Nil,
       "GET",
-      this.prefix + """Admin""",
+      this.prefix + """admin""",
       """ Product Administration(added by Daria and Ryan)""",
       Seq()
     )
@@ -300,7 +301,7 @@ class Routes(
 
   // @LINE:26
   private[this] lazy val controllers_AdminProductCtrl_listProducts11_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("Admin/listProducts")))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("admin/listProducts")))
   )
   private[this] lazy val controllers_AdminProductCtrl_listProducts11_invoker = createInvoker(
     AdminProductCtrl_3.listProducts(fakeValue[Long]),
@@ -310,7 +311,7 @@ class Routes(
       "listProducts",
       Seq(classOf[Long]),
       "GET",
-      this.prefix + """Admin/listProducts""",
+      this.prefix + """admin/listProducts""",
       """""",
       Seq()
     )
@@ -318,7 +319,7 @@ class Routes(
 
   // @LINE:27
   private[this] lazy val controllers_AdminProductCtrl_listProducts12_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("Admin/listProducts/"), DynamicPart("cat", """[^/]+""",true)))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("admin/listProducts/"), DynamicPart("cat", """[^/]+""",true)))
   )
   private[this] lazy val controllers_AdminProductCtrl_listProducts12_invoker = createInvoker(
     AdminProductCtrl_3.listProducts(fakeValue[Long]),
@@ -328,7 +329,7 @@ class Routes(
       "listProducts",
       Seq(classOf[Long]),
       "GET",
-      this.prefix + """Admin/listProducts/""" + "$" + """cat<[^/]+>""",
+      this.prefix + """admin/listProducts/""" + "$" + """cat<[^/]+>""",
       """""",
       Seq()
     )
@@ -336,7 +337,7 @@ class Routes(
 
   // @LINE:28
   private[this] lazy val controllers_AdminProductCtrl_addProduct13_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("Admin/addProduct")))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("admin/addProduct")))
   )
   private[this] lazy val controllers_AdminProductCtrl_addProduct13_invoker = createInvoker(
     AdminProductCtrl_3.addProduct(),
@@ -346,7 +347,7 @@ class Routes(
       "addProduct",
       Nil,
       "GET",
-      this.prefix + """Admin/addProduct""",
+      this.prefix + """admin/addProduct""",
       """""",
       Seq()
     )
@@ -354,7 +355,7 @@ class Routes(
 
   // @LINE:29
   private[this] lazy val controllers_AdminProductCtrl_addProductSubmit14_route = Route("POST",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("Admin/addProductSubmit")))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("admin/addProductSubmit")))
   )
   private[this] lazy val controllers_AdminProductCtrl_addProductSubmit14_invoker = createInvoker(
     AdminProductCtrl_3.addProductSubmit(),
@@ -364,7 +365,7 @@ class Routes(
       "addProductSubmit",
       Nil,
       "POST",
-      this.prefix + """Admin/addProductSubmit""",
+      this.prefix + """admin/addProductSubmit""",
       """""",
       Seq()
     )
@@ -372,7 +373,7 @@ class Routes(
 
   // @LINE:30
   private[this] lazy val controllers_AdminProductCtrl_updateProduct15_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("Admin/updateProduct/"), DynamicPart("id", """[^/]+""",true)))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("admin/updateProduct/"), DynamicPart("id", """[^/]+""",true)))
   )
   private[this] lazy val controllers_AdminProductCtrl_updateProduct15_invoker = createInvoker(
     AdminProductCtrl_3.updateProduct(fakeValue[Long]),
@@ -382,7 +383,7 @@ class Routes(
       "updateProduct",
       Seq(classOf[Long]),
       "GET",
-      this.prefix + """Admin/updateProduct/""" + "$" + """id<[^/]+>""",
+      this.prefix + """admin/updateProduct/""" + "$" + """id<[^/]+>""",
       """""",
       Seq()
     )
@@ -390,7 +391,7 @@ class Routes(
 
   // @LINE:31
   private[this] lazy val controllers_AdminProductCtrl_updateProductSubmit16_route = Route("POST",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("Admin/updateProductSubmit/"), DynamicPart("id", """[^/]+""",true)))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("admin/updateProductSubmit/"), DynamicPart("id", """[^/]+""",true)))
   )
   private[this] lazy val controllers_AdminProductCtrl_updateProductSubmit16_invoker = createInvoker(
     AdminProductCtrl_3.updateProductSubmit(fakeValue[Long]),
@@ -400,7 +401,7 @@ class Routes(
       "updateProductSubmit",
       Seq(classOf[Long]),
       "POST",
-      this.prefix + """Admin/updateProductSubmit/""" + "$" + """id<[^/]+>""",
+      this.prefix + """admin/updateProductSubmit/""" + "$" + """id<[^/]+>""",
       """""",
       Seq()
     )
@@ -408,7 +409,7 @@ class Routes(
 
   // @LINE:32
   private[this] lazy val controllers_AdminProductCtrl_deleteProduct17_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("Admin/delProduct/"), DynamicPart("id", """[^/]+""",true)))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("admin/delProduct/"), DynamicPart("id", """[^/]+""",true)))
   )
   private[this] lazy val controllers_AdminProductCtrl_deleteProduct17_invoker = createInvoker(
     AdminProductCtrl_3.deleteProduct(fakeValue[Long]),
@@ -418,13 +419,13 @@ class Routes(
       "deleteProduct",
       Seq(classOf[Long]),
       "GET",
-      this.prefix + """Admin/delProduct/""" + "$" + """id<[^/]+>""",
+      this.prefix + """admin/delProduct/""" + "$" + """id<[^/]+>""",
       """""",
       Seq()
     )
   )
 
-  // @LINE:37
+  // @LINE:36
   private[this] lazy val controllers_Assets_versioned18_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
@@ -442,29 +443,11 @@ class Routes(
     )
   )
 
-  // @LINE:40
-  private[this] lazy val controllers_ShoppingCtrl_setDiscount19_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("setDiscount/")))
-  )
-  private[this] lazy val controllers_ShoppingCtrl_setDiscount19_invoker = createInvoker(
-    ShoppingCtrl_2.setDiscount(),
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.ShoppingCtrl",
-      "setDiscount",
-      Nil,
-      "GET",
-      this.prefix + """setDiscount/""",
-      """""",
-      Seq()
-    )
-  )
-
-  // @LINE:46
-  private[this] lazy val controllers_LoginController_login20_route = Route("GET",
+  // @LINE:45
+  private[this] lazy val controllers_LoginController_login19_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("login")))
   )
-  private[this] lazy val controllers_LoginController_login20_invoker = createInvoker(
+  private[this] lazy val controllers_LoginController_login19_invoker = createInvoker(
     LoginController_5.login,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -478,11 +461,11 @@ class Routes(
     )
   )
 
-  // @LINE:47
-  private[this] lazy val controllers_LoginController_loginSubmit21_route = Route("GET",
+  // @LINE:46
+  private[this] lazy val controllers_LoginController_loginSubmit20_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("loginSubmit")))
   )
-  private[this] lazy val controllers_LoginController_loginSubmit21_invoker = createInvoker(
+  private[this] lazy val controllers_LoginController_loginSubmit20_invoker = createInvoker(
     LoginController_5.loginSubmit,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -496,11 +479,11 @@ class Routes(
     )
   )
 
-  // @LINE:48
-  private[this] lazy val controllers_LoginController_logout22_route = Route("GET",
+  // @LINE:47
+  private[this] lazy val controllers_LoginController_logout21_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("logout")))
   )
-  private[this] lazy val controllers_LoginController_logout22_invoker = createInvoker(
+  private[this] lazy val controllers_LoginController_logout21_invoker = createInvoker(
     LoginController_5.logout,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -514,11 +497,11 @@ class Routes(
     )
   )
 
-  // @LINE:49
-  private[this] lazy val controllers_HomeController_registerUser23_route = Route("GET",
+  // @LINE:48
+  private[this] lazy val controllers_HomeController_registerUser22_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("registerUser")))
   )
-  private[this] lazy val controllers_HomeController_registerUser23_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_registerUser22_invoker = createInvoker(
     HomeController_0.registerUser,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -532,11 +515,11 @@ class Routes(
     )
   )
 
-  // @LINE:50
-  private[this] lazy val controllers_HomeController_registerUserSubmit24_route = Route("POST",
+  // @LINE:49
+  private[this] lazy val controllers_HomeController_registerUserSubmit23_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("registerUserSubmit")))
   )
-  private[this] lazy val controllers_HomeController_registerUserSubmit24_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_registerUserSubmit23_invoker = createInvoker(
     HomeController_0.registerUserSubmit,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -550,11 +533,11 @@ class Routes(
     )
   )
 
-  // @LINE:51
-  private[this] lazy val controllers_HomeController_addAdmin25_route = Route("GET",
+  // @LINE:50
+  private[this] lazy val controllers_HomeController_addAdmin24_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("admin/addAdmin")))
   )
-  private[this] lazy val controllers_HomeController_addAdmin25_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_addAdmin24_invoker = createInvoker(
     HomeController_0.addAdmin,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -568,11 +551,11 @@ class Routes(
     )
   )
 
-  // @LINE:52
-  private[this] lazy val controllers_HomeController_addAdminSubmit26_route = Route("POST",
+  // @LINE:51
+  private[this] lazy val controllers_HomeController_addAdminSubmit25_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("admin/addAdminSubmit")))
   )
-  private[this] lazy val controllers_HomeController_addAdminSubmit26_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_addAdminSubmit25_invoker = createInvoker(
     HomeController_0.addAdminSubmit,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -586,11 +569,11 @@ class Routes(
     )
   )
 
-  // @LINE:53
-  private[this] lazy val controllers_HomeController_addCustomer27_route = Route("GET",
+  // @LINE:52
+  private[this] lazy val controllers_HomeController_addCustomer26_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("admin/addCustomer")))
   )
-  private[this] lazy val controllers_HomeController_addCustomer27_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_addCustomer26_invoker = createInvoker(
     HomeController_0.addCustomer,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -604,11 +587,11 @@ class Routes(
     )
   )
 
-  // @LINE:54
-  private[this] lazy val controllers_HomeController_addCustomerSubmit28_route = Route("POST",
+  // @LINE:53
+  private[this] lazy val controllers_HomeController_addCustomerSubmit27_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("admin/addCustomerSubmit")))
   )
-  private[this] lazy val controllers_HomeController_addCustomerSubmit28_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_addCustomerSubmit27_invoker = createInvoker(
     HomeController_0.addCustomerSubmit,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -622,11 +605,11 @@ class Routes(
     )
   )
 
-  // @LINE:55
-  private[this] lazy val controllers_HomeController_usersAdmin29_route = Route("GET",
+  // @LINE:54
+  private[this] lazy val controllers_HomeController_usersAdmin28_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("admin/admin")))
   )
-  private[this] lazy val controllers_HomeController_usersAdmin29_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_usersAdmin28_invoker = createInvoker(
     HomeController_0.usersAdmin,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -640,11 +623,11 @@ class Routes(
     )
   )
 
-  // @LINE:56
-  private[this] lazy val controllers_HomeController_usersCustomer30_route = Route("GET",
+  // @LINE:55
+  private[this] lazy val controllers_HomeController_usersCustomer29_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("admin/customers")))
   )
-  private[this] lazy val controllers_HomeController_usersCustomer30_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_usersCustomer29_invoker = createInvoker(
     HomeController_0.usersCustomer,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -658,11 +641,11 @@ class Routes(
     )
   )
 
-  // @LINE:57
-  private[this] lazy val controllers_HomeController_updateCustomer31_route = Route("GET",
+  // @LINE:56
+  private[this] lazy val controllers_HomeController_updateCustomer30_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("admin/updateCustomer/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_HomeController_updateCustomer31_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_updateCustomer30_invoker = createInvoker(
     HomeController_0.updateCustomer(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -676,11 +659,11 @@ class Routes(
     )
   )
 
-  // @LINE:58
-  private[this] lazy val controllers_HomeController_deleteCustomer32_route = Route("GET",
+  // @LINE:57
+  private[this] lazy val controllers_HomeController_deleteCustomer31_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("admin/deleteCustomer/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_HomeController_deleteCustomer32_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_deleteCustomer31_invoker = createInvoker(
     HomeController_0.deleteCustomer(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -694,11 +677,11 @@ class Routes(
     )
   )
 
-  // @LINE:59
-  private[this] lazy val controllers_HomeController_updateAdmin33_route = Route("GET",
+  // @LINE:58
+  private[this] lazy val controllers_HomeController_updateAdmin32_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("admin/updateAdmin/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_HomeController_updateAdmin33_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_updateAdmin32_invoker = createInvoker(
     HomeController_0.updateAdmin(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -712,11 +695,11 @@ class Routes(
     )
   )
 
-  // @LINE:60
-  private[this] lazy val controllers_HomeController_deleteAdmin34_route = Route("GET",
+  // @LINE:59
+  private[this] lazy val controllers_HomeController_deleteAdmin33_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("admin/deleteAdmin/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_HomeController_deleteAdmin34_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_deleteAdmin33_invoker = createInvoker(
     HomeController_0.deleteAdmin(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -730,11 +713,11 @@ class Routes(
     )
   )
 
-  // @LINE:61
-  private[this] lazy val controllers_HomeController_product35_route = Route("GET",
+  // @LINE:60
+  private[this] lazy val controllers_HomeController_product34_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("product/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_HomeController_product35_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_product34_invoker = createInvoker(
     HomeController_0.product(fakeValue[Long], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -748,11 +731,11 @@ class Routes(
     )
   )
 
-  // @LINE:63
-  private[this] lazy val controllers_ShoppingCtrl_cancelOrder36_route = Route("GET",
+  // @LINE:62
+  private[this] lazy val controllers_ShoppingCtrl_cancelOrder35_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("cancelOrder")))
   )
-  private[this] lazy val controllers_ShoppingCtrl_cancelOrder36_invoker = createInvoker(
+  private[this] lazy val controllers_ShoppingCtrl_cancelOrder35_invoker = createInvoker(
     ShoppingCtrl_2.cancelOrder(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -766,11 +749,11 @@ class Routes(
     )
   )
 
-  // @LINE:64
-  private[this] lazy val controllers_ShoppingCtrl_viewOrders37_route = Route("GET",
+  // @LINE:63
+  private[this] lazy val controllers_ShoppingCtrl_viewOrders36_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("viewOrders")))
   )
-  private[this] lazy val controllers_ShoppingCtrl_viewOrders37_invoker = createInvoker(
+  private[this] lazy val controllers_ShoppingCtrl_viewOrders36_invoker = createInvoker(
     ShoppingCtrl_2.viewOrders(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -779,6 +762,42 @@ class Routes(
       Nil,
       "GET",
       this.prefix + """viewOrders""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:64
+  private[this] lazy val controllers_ShoppingCtrl_setDiscount37_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("setDiscount/")))
+  )
+  private[this] lazy val controllers_ShoppingCtrl_setDiscount37_invoker = createInvoker(
+    ShoppingCtrl_2.setDiscount(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.ShoppingCtrl",
+      "setDiscount",
+      Nil,
+      "GET",
+      this.prefix + """setDiscount/""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:65
+  private[this] lazy val controllers_AdminProductCtrl_statistics38_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("admin/statistics")))
+  )
+  private[this] lazy val controllers_AdminProductCtrl_statistics38_invoker = createInvoker(
+    AdminProductCtrl_3.statistics(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.AdminProductCtrl",
+      "statistics",
+      Nil,
+      "GET",
+      this.prefix + """admin/statistics""",
       """""",
       Seq()
     )
@@ -895,124 +914,130 @@ class Routes(
         controllers_AdminProductCtrl_deleteProduct17_invoker.call(AdminProductCtrl_3.deleteProduct(id))
       }
   
-    // @LINE:37
+    // @LINE:36
     case controllers_Assets_versioned18_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
         controllers_Assets_versioned18_invoker.call(Assets_4.versioned(path, file))
       }
   
-    // @LINE:40
-    case controllers_ShoppingCtrl_setDiscount19_route(params@_) =>
+    // @LINE:45
+    case controllers_LoginController_login19_route(params@_) =>
       call { 
-        controllers_ShoppingCtrl_setDiscount19_invoker.call(ShoppingCtrl_2.setDiscount())
+        controllers_LoginController_login19_invoker.call(LoginController_5.login)
       }
   
     // @LINE:46
-    case controllers_LoginController_login20_route(params@_) =>
+    case controllers_LoginController_loginSubmit20_route(params@_) =>
       call { 
-        controllers_LoginController_login20_invoker.call(LoginController_5.login)
+        controllers_LoginController_loginSubmit20_invoker.call(LoginController_5.loginSubmit)
       }
   
     // @LINE:47
-    case controllers_LoginController_loginSubmit21_route(params@_) =>
+    case controllers_LoginController_logout21_route(params@_) =>
       call { 
-        controllers_LoginController_loginSubmit21_invoker.call(LoginController_5.loginSubmit)
+        controllers_LoginController_logout21_invoker.call(LoginController_5.logout)
       }
   
     // @LINE:48
-    case controllers_LoginController_logout22_route(params@_) =>
+    case controllers_HomeController_registerUser22_route(params@_) =>
       call { 
-        controllers_LoginController_logout22_invoker.call(LoginController_5.logout)
+        controllers_HomeController_registerUser22_invoker.call(HomeController_0.registerUser)
       }
   
     // @LINE:49
-    case controllers_HomeController_registerUser23_route(params@_) =>
+    case controllers_HomeController_registerUserSubmit23_route(params@_) =>
       call { 
-        controllers_HomeController_registerUser23_invoker.call(HomeController_0.registerUser)
+        controllers_HomeController_registerUserSubmit23_invoker.call(HomeController_0.registerUserSubmit)
       }
   
     // @LINE:50
-    case controllers_HomeController_registerUserSubmit24_route(params@_) =>
+    case controllers_HomeController_addAdmin24_route(params@_) =>
       call { 
-        controllers_HomeController_registerUserSubmit24_invoker.call(HomeController_0.registerUserSubmit)
+        controllers_HomeController_addAdmin24_invoker.call(HomeController_0.addAdmin)
       }
   
     // @LINE:51
-    case controllers_HomeController_addAdmin25_route(params@_) =>
+    case controllers_HomeController_addAdminSubmit25_route(params@_) =>
       call { 
-        controllers_HomeController_addAdmin25_invoker.call(HomeController_0.addAdmin)
+        controllers_HomeController_addAdminSubmit25_invoker.call(HomeController_0.addAdminSubmit)
       }
   
     // @LINE:52
-    case controllers_HomeController_addAdminSubmit26_route(params@_) =>
+    case controllers_HomeController_addCustomer26_route(params@_) =>
       call { 
-        controllers_HomeController_addAdminSubmit26_invoker.call(HomeController_0.addAdminSubmit)
+        controllers_HomeController_addCustomer26_invoker.call(HomeController_0.addCustomer)
       }
   
     // @LINE:53
-    case controllers_HomeController_addCustomer27_route(params@_) =>
+    case controllers_HomeController_addCustomerSubmit27_route(params@_) =>
       call { 
-        controllers_HomeController_addCustomer27_invoker.call(HomeController_0.addCustomer)
+        controllers_HomeController_addCustomerSubmit27_invoker.call(HomeController_0.addCustomerSubmit)
       }
   
     // @LINE:54
-    case controllers_HomeController_addCustomerSubmit28_route(params@_) =>
+    case controllers_HomeController_usersAdmin28_route(params@_) =>
       call { 
-        controllers_HomeController_addCustomerSubmit28_invoker.call(HomeController_0.addCustomerSubmit)
+        controllers_HomeController_usersAdmin28_invoker.call(HomeController_0.usersAdmin)
       }
   
     // @LINE:55
-    case controllers_HomeController_usersAdmin29_route(params@_) =>
+    case controllers_HomeController_usersCustomer29_route(params@_) =>
       call { 
-        controllers_HomeController_usersAdmin29_invoker.call(HomeController_0.usersAdmin)
+        controllers_HomeController_usersCustomer29_invoker.call(HomeController_0.usersCustomer)
       }
   
     // @LINE:56
-    case controllers_HomeController_usersCustomer30_route(params@_) =>
-      call { 
-        controllers_HomeController_usersCustomer30_invoker.call(HomeController_0.usersCustomer)
+    case controllers_HomeController_updateCustomer30_route(params@_) =>
+      call(params.fromPath[String]("id", None)) { (id) =>
+        controllers_HomeController_updateCustomer30_invoker.call(HomeController_0.updateCustomer(id))
       }
   
     // @LINE:57
-    case controllers_HomeController_updateCustomer31_route(params@_) =>
+    case controllers_HomeController_deleteCustomer31_route(params@_) =>
       call(params.fromPath[String]("id", None)) { (id) =>
-        controllers_HomeController_updateCustomer31_invoker.call(HomeController_0.updateCustomer(id))
+        controllers_HomeController_deleteCustomer31_invoker.call(HomeController_0.deleteCustomer(id))
       }
   
     // @LINE:58
-    case controllers_HomeController_deleteCustomer32_route(params@_) =>
+    case controllers_HomeController_updateAdmin32_route(params@_) =>
       call(params.fromPath[String]("id", None)) { (id) =>
-        controllers_HomeController_deleteCustomer32_invoker.call(HomeController_0.deleteCustomer(id))
+        controllers_HomeController_updateAdmin32_invoker.call(HomeController_0.updateAdmin(id))
       }
   
     // @LINE:59
-    case controllers_HomeController_updateAdmin33_route(params@_) =>
+    case controllers_HomeController_deleteAdmin33_route(params@_) =>
       call(params.fromPath[String]("id", None)) { (id) =>
-        controllers_HomeController_updateAdmin33_invoker.call(HomeController_0.updateAdmin(id))
+        controllers_HomeController_deleteAdmin33_invoker.call(HomeController_0.deleteAdmin(id))
       }
   
     // @LINE:60
-    case controllers_HomeController_deleteAdmin34_route(params@_) =>
-      call(params.fromPath[String]("id", None)) { (id) =>
-        controllers_HomeController_deleteAdmin34_invoker.call(HomeController_0.deleteAdmin(id))
+    case controllers_HomeController_product34_route(params@_) =>
+      call(params.fromPath[Long]("id", None), params.fromQuery[String]("filter", Some(""))) { (id, filter) =>
+        controllers_HomeController_product34_invoker.call(HomeController_0.product(id, filter))
       }
   
-    // @LINE:61
-    case controllers_HomeController_product35_route(params@_) =>
-      call(params.fromPath[Long]("id", None), params.fromQuery[String]("filter", Some(""))) { (id, filter) =>
-        controllers_HomeController_product35_invoker.call(HomeController_0.product(id, filter))
+    // @LINE:62
+    case controllers_ShoppingCtrl_cancelOrder35_route(params@_) =>
+      call(params.fromQuery[Long]("id", None)) { (id) =>
+        controllers_ShoppingCtrl_cancelOrder35_invoker.call(ShoppingCtrl_2.cancelOrder(id))
       }
   
     // @LINE:63
-    case controllers_ShoppingCtrl_cancelOrder36_route(params@_) =>
-      call(params.fromQuery[Long]("id", None)) { (id) =>
-        controllers_ShoppingCtrl_cancelOrder36_invoker.call(ShoppingCtrl_2.cancelOrder(id))
+    case controllers_ShoppingCtrl_viewOrders36_route(params@_) =>
+      call { 
+        controllers_ShoppingCtrl_viewOrders36_invoker.call(ShoppingCtrl_2.viewOrders())
       }
   
     // @LINE:64
-    case controllers_ShoppingCtrl_viewOrders37_route(params@_) =>
+    case controllers_ShoppingCtrl_setDiscount37_route(params@_) =>
       call { 
-        controllers_ShoppingCtrl_viewOrders37_invoker.call(ShoppingCtrl_2.viewOrders())
+        controllers_ShoppingCtrl_setDiscount37_invoker.call(ShoppingCtrl_2.setDiscount())
+      }
+  
+    // @LINE:65
+    case controllers_AdminProductCtrl_statistics38_route(params@_) =>
+      call { 
+        controllers_AdminProductCtrl_statistics38_invoker.call(AdminProductCtrl_3.statistics())
       }
   }
 }

@@ -31,6 +31,7 @@ public class HomeController extends Controller {
     }
 
 
+
     public Result registerUser() {
         Form<Customer> userForm = formFactory.form(Customer.class);
         return ok(registerUser.render(userForm, User.getUserById(session().get("email"))));
