@@ -9,4 +9,4 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-play-enhancer" % "1.2.2")
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-play-ebean" % "4.0.6")
 
-
+// https://mvnrepository.com/artifact/com.typesafe.play/play-mailer

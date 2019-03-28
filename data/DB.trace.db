@@ -3705,3 +3705,30 @@ INSERT INTO PRODUCT VALUES (1, 3, 'Halo: The Master Chief Collection', 50, 30.0,
 	at org.h2.server.web.WebThread.process(WebThread.java:165)
 	at org.h2.server.web.WebThread.run(WebThread.java:90)
 	at java.lang.Thread.run(Thread.java:748)
+2019-03-28 11:51:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO DISCOUNT VALUES('BIGSAVINGS', 'Opening discount.' TRUE[*], 1.0) "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO DISCOUNT VALUES('BIGSAVINGS', 'Opening discount.' true, 1.0) [42001-197]
+2019-03-28 12:05:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO DISCOUNT VALUES('BIGSAVINGS', 'Opening discount.' TRUE[*], 1.0) "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO DISCOUNT VALUES('BIGSAVINGS', 'Opening discount.' true, 1.0) [42001-197]
+2019-03-28 12:05:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO PRODUCT VALUES (1, 3, 'Halo: The Master Chief Collection', ,[*]'For the first time ever, the Master Chief''s entire story is on one console. Featuring a re-mastered Halo 2: Anniversary, along with Halo: Combat Evolved Anniversary, Halo 3, Halo 4.', 50, 30.0, '343 Industries', 'Microsoft')"; expected "), DEFAULT, NOT, EXISTS, INTERSECTS, SELECT, FROM, WITH"; SQL statement:
+INSERT INTO PRODUCT VALUES (1, 3, 'Halo: The Master Chief Collection', ,'For the first time ever, the Master Chief''s entire story is on one console. Featuring a re-mastered Halo 2: Anniversary, along with Halo: Combat Evolved Anniversary, Halo 3, Halo 4.', 50, 30.0, '343 Industries', 'Microsoft') [42001-197]
+2019-03-28 12:05:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO PRODUCT VALUES (3, 2, 'Sid Meier''s Civilization VI', ,[*]'Originally created by legendary game designer, Sid Meier, Civilization is a turn-based strategy game in which you build an empire to stand the test of time.', 5, 55.0, 'Firaxis Games', '2K')"; expected "), DEFAULT, NOT, EXISTS, INTERSECTS, SELECT, FROM, WITH"; SQL statement:
+INSERT INTO PRODUCT VALUES (3, 2, 'Sid Meier''s Civilization VI', ,'Originally created by legendary game designer, Sid Meier, Civilization is a turn-based strategy game in which you build an empire to stand the test of time.', 5, 55.0, 'Firaxis Games', '2K') [42001-197]
+2019-03-28 12:06:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO DISCOUNT VALUES('BIGSAVINGS', 'Opening discount.' TRUE[*], 1.01) "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO DISCOUNT VALUES('BIGSAVINGS', 'Opening discount.' true, 1.01) [42001-197]
+2019-03-28 12:06:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO PRODUCT VALUES (1, 3, 'Halo: The Master Chief Collection', ,[*]'For the first time ever, the Master Chief''s entire story is on one console. Featuring a re-mastered Halo 2: Anniversary, along with Halo: Combat Evolved Anniversary, Halo 3, Halo 4.', 50, 30.0, '343 Industries', 'Microsoft')"; expected "), DEFAULT, NOT, EXISTS, INTERSECTS, SELECT, FROM, WITH"; SQL statement:
+INSERT INTO PRODUCT VALUES (1, 3, 'Halo: The Master Chief Collection', ,'For the first time ever, the Master Chief''s entire story is on one console. Featuring a re-mastered Halo 2: Anniversary, along with Halo: Combat Evolved Anniversary, Halo 3, Halo 4.', 50, 30.0, '343 Industries', 'Microsoft') [42001-197]
+2019-03-28 12:06:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO PRODUCT VALUES (3, 2, 'Sid Meier''s Civilization VI', ,[*]'Originally created by legendary game designer, Sid Meier, Civilization is a turn-based strategy game in which you build an empire to stand the test of time.', 5, 55.0, 'Firaxis Games', '2K')"; expected "), DEFAULT, NOT, EXISTS, INTERSECTS, SELECT, FROM, WITH"; SQL statement:
+INSERT INTO PRODUCT VALUES (3, 2, 'Sid Meier''s Civilization VI', ,'Originally created by legendary game designer, Sid Meier, Civilization is a turn-based strategy game in which you build an empire to stand the test of time.', 5, 55.0, 'Firaxis Games', '2K') [42001-197]
+2019-03-28 12:07:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO PRODUCT VALUES (1, 3, 'Halo: The Master Chief Collection', ,[*]'For the first time ever, the Master Chief''s entire story is on one console. Featuring a re-mastered Halo 2: Anniversary, along with Halo: Combat Evolved Anniversary, Halo 3, Halo 4.', 50, 30.0, '343 Industries', 'Microsoft')"; expected "), DEFAULT, NOT, EXISTS, INTERSECTS, SELECT, FROM, WITH"; SQL statement:
+INSERT INTO PRODUCT VALUES (1, 3, 'Halo: The Master Chief Collection', ,'For the first time ever, the Master Chief''s entire story is on one console. Featuring a re-mastered Halo 2: Anniversary, along with Halo: Combat Evolved Anniversary, Halo 3, Halo 4.', 50, 30.0, '343 Industries', 'Microsoft') [42001-197]
+2019-03-28 12:07:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO PRODUCT VALUES (1, 3, 'Halo: The Master Chief Collection', ,[*]'For the first time ever, the Master Chief''s entire story is on one console. Featuring a re-mastered Halo 2: Anniversary, along with Halo: Combat Evolved Anniversary, Halo 3, Halo 4.', 50, 30.0, '343 Industries', 'Microsoft')"; expected "), DEFAULT, NOT, EXISTS, INTERSECTS, SELECT, FROM, WITH"; SQL statement:
+INSERT INTO PRODUCT VALUES (1, 3, 'Halo: The Master Chief Collection', ,'For the first time ever, the Master Chief''s entire story is on one console. Featuring a re-mastered Halo 2: Anniversary, along with Halo: Combat Evolved Anniversary, Halo 3, Halo 4.', 50, 30.0, '343 Industries', 'Microsoft') [42001-197]

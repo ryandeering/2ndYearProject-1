@@ -31,8 +31,7 @@ object statistics extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api
 /*2.2*/import helper._
 
 
-Seq[Any](format.raw/*1.109*/("""
-"""),_display_(/*3.2*/main("Statistics",user)/*3.25*/{_display_(Seq[Any](format.raw/*3.26*/("""
+Seq[Any](_display_(/*3.2*/main("Statistics",user)/*3.25*/{_display_(Seq[Any](format.raw/*3.26*/("""
 
 
 
@@ -60,11 +59,11 @@ Seq[Any](format.raw/*1.109*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Mar 27 21:50:09 GMT 2019
-                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/app/views/AdminPanel/statistics.scala.html
-                  HASH: 859489a1f7c6371363b564bf7a60b011207fcbd5
-                  MATRIX: 1037->1|1217->111|1263->108|1291->129|1322->152|1360->153|1397->164|1426->168|1445->179|1490->204|1527->216|1546->227|1588->249|1620->254
-                  LINES: 28->1|31->2|34->1|35->3|35->3|35->3|39->7|39->7|39->7|39->7|41->9|41->9|41->9|42->10
+                  DATE: Thu Mar 28 12:29:26 GMT 2019
+                  SOURCE: /home/ryan/rawr/2ndYearProject2/app/views/AdminPanel/statistics.scala.html
+                  HASH: dc7672c3c2dca7d99c94c0f6ad1be65bcbd74e55
+                  MATRIX: 1037->1|1217->110|1261->127|1292->150|1330->151|1363->158|1392->162|1411->173|1456->198|1491->208|1510->219|1552->241|1583->245
+                  LINES: 28->1|31->2|34->3|34->3|34->3|38->7|38->7|38->7|38->7|40->9|40->9|40->9|41->10
                   -- GENERATED --
               */
           

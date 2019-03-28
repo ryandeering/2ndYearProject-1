@@ -27,9 +27,14 @@ libraryDependencies += "org.awaitility" % "awaitility" % "3.1.3" % Test
 
 // Make verbose tests
 testOptions in Test := Seq(Tests.Argument(TestFrameworks.JUnit, "-a", "-v"))
+// https://mvnrepository.com/artifact/com.typesafe.play/play-mailer
+libraryDependencies += "com.typesafe.play" %% "play-mailer" % "6.0.1"
+
 libraryDependencies ++= Seq(evolutions, jdbc)
 libraryDependencies += "org.imgscalr" % "imgscalr-lib" % "4.2"
 libraryDependencies += "org.mindrot" % "jbcrypt" % "0.3m"
 libraryDependencies += "net.tanesha.recaptcha4j" % "recaptcha4j" % "0.0.7"
 // https://mvnrepository.com/artifact/org.jfree/jfreechart
 libraryDependencies += "org.jfree" % "jfreechart" % "1.5.0"
+libraryDependencies += "com.typesafe.play" %% "play-mailer" % "6.0.1"
+libraryDependencies += "com.typesafe.play" %% "play-mailer-guice" % "6.0.1"

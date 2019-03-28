@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="play-mailer_2.12-6.0.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/play-mailer_2.12-6.0.1.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/play-mailer-guice_2.12-6.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

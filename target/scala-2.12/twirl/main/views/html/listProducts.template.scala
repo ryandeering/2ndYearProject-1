@@ -33,8 +33,7 @@ object listProducts extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.a
       {
 
 
-Seq[Any](format.raw/*4.123*/("""
-
+Seq[Any](format.raw/*5.1*/("""
 
 
 """),_display_(/*8.2*/main("Products Page", user)/*8.29*/ {_display_(Seq[Any](format.raw/*8.31*/("""
@@ -72,49 +71,48 @@ Seq[Any](format.raw/*4.123*/("""
 			 </form>
 			</div>
 
-			<table class="table table-bordered table-hover table-condensed">
-				<thead>
 
-				<tr>
-					<th></th>
-					<th>Name</th>
-					<th>Platform &nbsp;</th>
-					<th>Description</th>
-					<th>Stock</th>
-					<th>Price</th>
-					<th>Buy</th>
-				</tr>
-				</thead>
-				<tbody>
+<div class="container">
+"""),_display_(/*45.2*/for(p <- products) yield /*45.20*/ {_display_(Seq[Any](format.raw/*45.22*/("""
+  """),format.raw/*46.3*/("""<div class="well">
+      <div class="media">
+      	<a class="pull-left" href="#">
+    		"""),_display_(/*49.8*/if(env.resource("public/images/productImages/thumbnails/" + p.getId + ".jpg").isDefined)/*49.96*/ {_display_(Seq[Any](format.raw/*49.98*/("""
+							"""),format.raw/*50.8*/("""<td><img src="/assets/images/productImages/thumbnails/"""),_display_(/*50.63*/(p.getId)),format.raw/*50.72*/(""".jpg"/></td>
+						""")))}/*51.9*/else/*51.14*/{_display_(Seq[Any](format.raw/*51.15*/("""
+							"""),format.raw/*52.8*/("""<td><img src="/assets/images/productImages/thumbnails/noImage.png"/></td>
+						""")))}),format.raw/*53.8*/("""
 
-					"""),_display_(/*58.7*/for(p <- products) yield /*58.25*/ {_display_(Seq[Any](format.raw/*58.27*/("""
-					"""),format.raw/*59.6*/("""<tr>
+  		"""),format.raw/*55.5*/("""</a>
+  		<div class="media-body">
+    		<h4 class="media-heading"><a href=""""),_display_(/*57.43*/routes/*57.49*/.HomeController.product(p.getId,"")),format.raw/*57.84*/("""">"""),_display_(/*57.87*/p/*57.88*/.getName),format.raw/*57.96*/("""</a> """),_display_(/*57.102*/p/*57.103*/.getPlatform.getName),format.raw/*57.123*/("""</h4>
+          <p class="text-right">&euro; """),_display_(/*58.41*/("%.2f".format(p.getPrice))),format.raw/*58.68*/("""</p>
+          <p>"""),_display_(/*59.15*/p/*59.16*/.getDescription),format.raw/*59.31*/("""</p>
+          <ul class="list-inline list-unstyled">
+  			<li><a href=""""),_display_(/*61.20*/routes/*61.26*/.ShoppingCtrl.addToBasket(p.getId)),format.raw/*61.60*/(""""  class="btn btn-default btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span> Add to basket</a></li>
+            <li>|</li>
+            <span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
+            <li>|</li>
+            <li>
+               <p>Stock: """),_display_(/*66.27*/p/*66.28*/.stockShortage),format.raw/*66.42*/("""</p>
+            </li>
+            <li>|</li>
+            <li>
+            <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+              <span><i class="fa fa-facebook-square"></i></span>
+              <span><i class="fa fa-twitter-square"></i></span>
+              <span><i class="fa fa-google-plus-square"></i></span>
+            </li>
+			</ul>
+        </div>
+    </div>
+  </div>
 
-						"""),_display_(/*61.8*/if(env.resource("public/images/productImages/thumbnails/" + p.getId + ".jpg").isDefined)/*61.96*/ {_display_(Seq[Any](format.raw/*61.98*/("""
-							"""),format.raw/*62.8*/("""<td><img src="/assets/images/productImages/thumbnails/"""),_display_(/*62.63*/(p.getId)),format.raw/*62.72*/(""".jpg"/></td>
-						""")))}/*63.9*/else/*63.14*/{_display_(Seq[Any](format.raw/*63.15*/("""
-							"""),format.raw/*64.8*/("""<td><img src="/assets/images/productImages/thumbnails/noImage.png"/></td>
-						""")))}),format.raw/*65.8*/("""
+""")))}),format.raw/*80.2*/("""
+ """),format.raw/*81.2*/("""</div>
 
 
-					"""),format.raw/*68.6*/("""<td>
-							<a href=""""),_display_(/*69.18*/routes/*69.24*/.HomeController.product(p.getId,"")),format.raw/*69.59*/("""">"""),_display_(/*69.62*/p/*69.63*/.getName),format.raw/*69.71*/("""</a>
-					</td>
-						<td>"""),_display_(/*71.12*/p/*71.13*/.getPlatform.getName),format.raw/*71.33*/("""</td>
-						<td>"""),_display_(/*72.12*/p/*72.13*/.getDescription),format.raw/*72.28*/("""</td>
-						<td>"""),_display_(/*73.12*/p/*73.13*/.stockShortage),format.raw/*73.27*/("""</td>
-						<td>&euro; """),_display_(/*74.19*/("%.2f".format(p.getPrice))),format.raw/*74.46*/("""</td>
-						"""),_display_(/*75.8*/if(p.getStock() > 0)/*75.28*/{_display_(Seq[Any](format.raw/*75.29*/("""
-							"""),format.raw/*76.8*/("""<td><a href=""""),_display_(/*76.22*/routes/*76.28*/.ShoppingCtrl.addToBasket(p.getId)),format.raw/*76.62*/(""""  class="btn btn-default btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
-						""")))}/*77.8*/else/*77.12*/{_display_(Seq[Any](format.raw/*77.13*/("""
-							"""),format.raw/*78.8*/("""<td></td>
-						""")))}),format.raw/*79.8*/("""
-						"""),format.raw/*80.7*/("""</tr>
-					 """)))}),format.raw/*81.8*/("""
-
-
-				"""),format.raw/*84.5*/("""</tbody>
-			</table>
+			
 		</div>
 	</div>
 """)))}))
@@ -133,11 +131,11 @@ Seq[Any](format.raw/*4.123*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Mar 27 21:12:41 GMT 2019
-                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/app/views/listProducts.scala.html
-                  HASH: a88a951889a2fb712e6a13c8f172a9289a9c1596
-                  MATRIX: 651->1|690->35|728->68|1124->95|1341->216|1375->225|1410->252|1449->254|1481->259|1524->275|1552->276|1584->281|1634->304|1662->305|1692->308|1822->411|1837->417|1894->453|1970->503|2006->523|2046->525|2077->529|2114->539|2129->545|2192->587|2246->614|2256->615|2285->623|2325->633|2355->636|2432->687|2473->719|2513->721|2548->729|2617->772|2631->777|2667->792|2702->800|2744->812|2778->819|2869->883|2884->889|2937->921|3043->1000|3070->1006|3556->1466|3590->1484|3630->1486|3664->1493|3705->1508|3802->1596|3842->1598|3878->1607|3960->1662|3990->1671|4029->1693|4042->1698|4081->1699|4117->1708|4229->1790|4267->1801|4317->1824|4332->1830|4388->1865|4418->1868|4428->1869|4457->1877|4513->1906|4523->1907|4564->1927|4609->1945|4619->1946|4655->1961|4700->1979|4710->1980|4745->1994|4797->2019|4845->2046|4885->2060|4914->2080|4953->2081|4989->2090|5030->2104|5045->2110|5100->2144|5225->2251|5238->2255|5277->2256|5313->2265|5361->2283|5396->2291|5440->2305|5477->2315
-                  LINES: 24->1|25->2|26->3|31->4|36->4|40->8|40->8|40->8|42->10|43->11|43->11|44->12|45->13|45->13|46->14|53->21|53->21|53->21|54->22|54->22|54->22|55->23|55->23|55->23|55->23|55->23|55->23|55->23|56->24|57->25|61->29|61->29|61->29|62->30|63->31|63->31|63->31|64->32|65->33|67->35|69->37|69->37|69->37|70->38|70->38|90->58|90->58|90->58|91->59|93->61|93->61|93->61|94->62|94->62|94->62|95->63|95->63|95->63|96->64|97->65|100->68|101->69|101->69|101->69|101->69|101->69|101->69|103->71|103->71|103->71|104->72|104->72|104->72|105->73|105->73|105->73|106->74|106->74|107->75|107->75|107->75|108->76|108->76|108->76|108->76|109->77|109->77|109->77|110->78|111->79|112->80|113->81|116->84
+                  DATE: Thu Mar 28 12:29:26 GMT 2019
+                  SOURCE: /home/ryan/rawr/2ndYearProject2/app/views/listProducts.scala.html
+                  HASH: 647f0648540f5d617915a9bbdc46785b9d188246
+                  MATRIX: 651->1|690->34|728->66|1124->92|1339->214|1368->218|1403->245|1442->247|1472->250|1514->265|1542->266|1573->270|1622->292|1650->293|1679->295|1802->391|1817->397|1874->433|1949->482|1985->502|2025->504|2055->507|2092->517|2107->523|2170->565|2224->592|2234->593|2263->601|2302->610|2331->612|2404->659|2445->691|2485->693|2519->700|2587->742|2601->747|2637->762|2671->769|2712->780|2744->785|2833->847|2848->853|2901->885|3006->963|3033->969|3245->1155|3279->1173|3319->1175|3349->1178|3465->1268|3562->1356|3602->1358|3637->1366|3719->1421|3749->1430|3787->1451|3800->1456|3839->1457|3874->1465|3985->1546|4018->1552|4121->1628|4136->1634|4192->1669|4222->1672|4232->1673|4261->1681|4295->1687|4306->1688|4348->1708|4421->1754|4469->1781|4515->1800|4525->1801|4561->1816|4661->1889|4676->1895|4731->1929|5040->2211|5050->2212|5085->2226|5520->2631|5549->2633
+                  LINES: 24->1|25->2|26->3|31->4|36->5|39->8|39->8|39->8|41->10|42->11|42->11|43->12|44->13|44->13|45->14|52->21|52->21|52->21|53->22|53->22|53->22|54->23|54->23|54->23|54->23|54->23|54->23|54->23|55->24|56->25|60->29|60->29|60->29|61->30|62->31|62->31|62->31|63->32|64->33|66->35|68->37|68->37|68->37|69->38|69->38|76->45|76->45|76->45|77->46|80->49|80->49|80->49|81->50|81->50|81->50|82->51|82->51|82->51|83->52|84->53|86->55|88->57|88->57|88->57|88->57|88->57|88->57|88->57|88->57|88->57|89->58|89->58|90->59|90->59|90->59|92->61|92->61|92->61|97->66|97->66|97->66|111->80|112->81
                   -- GENERATED --
               */
           

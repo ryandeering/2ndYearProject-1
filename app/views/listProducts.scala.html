@@ -40,49 +40,48 @@
 			 </form>
 			</div>
 
-			<table class="table table-bordered table-hover table-condensed">
-				<thead>
 
-				<tr>
-					<th></th>
-					<th>Name</th>
-					<th>Platform &nbsp;</th>
-					<th>Description</th>
-					<th>Stock</th>
-					<th>Price</th>
-					<th>Buy</th>
-				</tr>
-				</thead>
-				<tbody>
-
-					@for(p <- products) {
-					<tr>
-
-						@if(env.resource("public/images/productImages/thumbnails/" + p.getId + ".jpg").isDefined) {
+<div class="container">
+@for(p <- products) {
+  <div class="well">
+      <div class="media">
+      	<a class="pull-left" href="#">
+    		@if(env.resource("public/images/productImages/thumbnails/" + p.getId + ".jpg").isDefined) {
 							<td><img src="/assets/images/productImages/thumbnails/@(p.getId).jpg"/></td>
 						} else {
 							<td><img src="/assets/images/productImages/thumbnails/noImage.png"/></td>
 						}
 
+  		</a>
+  		<div class="media-body">
+    		<h4 class="media-heading"><a href="@routes.HomeController.product(p.getId,"")">@p.getName</a> @p.getPlatform.getName</h4>
+          <p class="text-right">&euro; @("%.2f".format(p.getPrice))</p>
+          <p>@p.getDescription</p>
+          <ul class="list-inline list-unstyled">
+  			<li><a href="@routes.ShoppingCtrl.addToBasket(p.getId)"  class="btn btn-default btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span> Add to basket</a></li>
+            <li>|</li>
+            <span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
+            <li>|</li>
+            <li>
+               <p>Stock: @p.stockShortage</p>
+            </li>
+            <li>|</li>
+            <li>
+            <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+              <span><i class="fa fa-facebook-square"></i></span>
+              <span><i class="fa fa-twitter-square"></i></span>
+              <span><i class="fa fa-google-plus-square"></i></span>
+            </li>
+			</ul>
+        </div>
+    </div>
+  </div>
 
-					<td>
-							<a href="@routes.HomeController.product(p.getId,"")">@p.getName</a>
-					</td>
-						<td>@p.getPlatform.getName</td>
-						<td>@p.getDescription</td>
-						<td>@p.stockShortage</td>
-						<td>&euro; @("%.2f".format(p.getPrice))</td>
-						@if(p.getStock() > 0){
-							<td><a href="@routes.ShoppingCtrl.addToBasket(p.getId)"  class="btn btn-default btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
-						}else{
-							<td></td>
-						}
-						</tr>
-					 }
+}
+ </div>
 
 
-				</tbody>
-			</table>
+			
 		</div>
 	</div>
 }

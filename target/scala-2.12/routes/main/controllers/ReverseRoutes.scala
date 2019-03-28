@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/conf/routes
-// @DATE:Wed Mar 27 21:12:40 GMT 2019
+// @SOURCE:/home/ryan/rawr/2ndYearProject2/conf/routes
+// @DATE:Thu Mar 28 12:29:25 GMT 2019
 
 import play.api.mvc.Call
 
@@ -11,14 +11,14 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers {
 
-  // @LINE:36
+  // @LINE:38
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:36
+    // @LINE:38
     def versioned(file:Asset): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))
@@ -79,7 +79,7 @@ package controllers {
     
     }
   
-    // @LINE:65
+    // @LINE:67
     def statistics(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/statistics")
@@ -124,67 +124,67 @@ package controllers {
     }
 
   
-    // @LINE:52
+    // @LINE:54
     def addCustomer(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/addCustomer")
     }
   
-    // @LINE:57
+    // @LINE:59
     def deleteCustomer(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/deleteCustomer/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:53
+    // @LINE:55
     def addCustomerSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "admin/addCustomerSubmit")
     }
   
-    // @LINE:54
+    // @LINE:56
     def usersAdmin(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/admin")
     }
   
-    // @LINE:48
+    // @LINE:50
     def registerUser(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "registerUser")
     }
   
-    // @LINE:50
+    // @LINE:52
     def addAdmin(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/addAdmin")
     }
   
-    // @LINE:58
+    // @LINE:60
     def updateAdmin(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/updateAdmin/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:59
+    // @LINE:61
     def deleteAdmin(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/deleteAdmin/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:60
+    // @LINE:62
     def product(id:Long, filter:String = ""): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "product/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)) + play.core.routing.queryString(List(if(filter == "") None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("filter", filter)))))
     }
   
-    // @LINE:49
+    // @LINE:51
     def registerUserSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "registerUserSubmit")
     }
   
-    // @LINE:55
+    // @LINE:57
     def usersCustomer(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/customers")
@@ -196,13 +196,13 @@ package controllers {
       Call("GET", _prefix)
     }
   
-    // @LINE:56
+    // @LINE:58
     def updateCustomer(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/updateCustomer/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:51
+    // @LINE:53
     def addAdminSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "admin/addAdminSubmit")
@@ -210,26 +210,26 @@ package controllers {
   
   }
 
-  // @LINE:45
+  // @LINE:47
   class ReverseLoginController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:46
+    // @LINE:48
     def loginSubmit(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "loginSubmit")
     }
   
-    // @LINE:47
+    // @LINE:49
     def logout(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "logout")
     }
   
-    // @LINE:45
+    // @LINE:47
     def login(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "login")
@@ -250,13 +250,13 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "addToBasket/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:63
+    // @LINE:65
     def viewOrders(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "viewOrders")
     }
   
-    // @LINE:62
+    // @LINE:64
     def cancelOrder(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "cancelOrder" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Long]].unbind("id", id)))))
@@ -298,7 +298,7 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "emptyBasket")
     }
   
-    // @LINE:64
+    // @LINE:66
     def setDiscount(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "setDiscount/")
