@@ -63,6 +63,14 @@ public class ShoppingCtrl extends Controller {
     public Result showBasket() {
         Form<Discount> discountForm = formFactory.form(Discount.class).bindFromRequest();
         Customer c = (Customer) User.getLoggedIn(session().get("email"));
+        if (c.getBasket() == null) {
+            // If no basket, create one
+            c.setBasket(new Basket());
+            c.getBasket().setCustomer(c);
+            c.getBasket().setDiscount(new Discount());
+            c.update();
+
+        }
         c.getBasket().getDiscount();
         return ok(basket.render(getCurrentUser(), discountForm));
     }

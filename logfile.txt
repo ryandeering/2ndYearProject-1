@@ -22,3 +22,4 @@
 30/03/2019 20:58:36 | Ryan Deering cancelled order 1 under role customer
 30/03/2019 20:59:05 | Ryan Deering placed order2 under role customer
 30/03/2019 21:16:46 | Ryan Deering logged out under role customer
+30/03/2019 23:12:04 | Ryan Deering logged in under role customer

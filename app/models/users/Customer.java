@@ -25,7 +25,6 @@ public class Customer extends User {
     private List<ShopOrder> orders;
 	
     public Customer(String email, String password, String fName, String lName, String role) {
-
         super(email, password, fName, lName, role);
     }
     public Basket getBasket() {
