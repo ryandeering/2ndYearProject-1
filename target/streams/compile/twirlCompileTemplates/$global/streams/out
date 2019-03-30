@@ -1,2 +1,2 @@
-[0m[[0m[31merror[0m] [0m[0m[Error] C:\Users\Ryan3\OneDrive\Documents\2ndYearProject\app\views\listProducts.scala.html:1[0m
-[0m[[0m[31merror[0m] [0m[0m@: Invalid '@' symbol[0m
+[error] [Error] /home/ryan/2ndyearproj/2ndYearProject/app/views/orderConfirmed.scala.html:59
+[error] </div>: Expected '}' but found 'EOF'

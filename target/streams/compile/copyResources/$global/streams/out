@@ -1,9 +1,9 @@
-[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Ryan3\OneDrive\Documents\2ndYearProject\conf\application.conf,C:\Users\Ryan3\OneDrive\Documents\2ndYearProject\target\scala-2.12\classes\application.conf)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Ryan3\OneDrive\Documents\2ndYearProject\conf\evolutions,C:\Users\Ryan3\OneDrive\Documents\2ndYearProject\target\scala-2.12\classes\evolutions)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Ryan3\OneDrive\Documents\2ndYearProject\conf\evolutions\default,C:\Users\Ryan3\OneDrive\Documents\2ndYearProject\target\scala-2.12\classes\evolutions\default)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Ryan3\OneDrive\Documents\2ndYearProject\conf\evolutions\default\1.sql,C:\Users\Ryan3\OneDrive\Documents\2ndYearProject\target\scala-2.12\classes\evolutions\default\1.sql)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Ryan3\OneDrive\Documents\2ndYearProject\conf\evolutions\default\2.sql,C:\Users\Ryan3\OneDrive\Documents\2ndYearProject\target\scala-2.12\classes\evolutions\default\2.sql)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Ryan3\OneDrive\Documents\2ndYearProject\conf\evolutions\default\sample inserts.txt,C:\Users\Ryan3\OneDrive\Documents\2ndYearProject\target\scala-2.12\classes\evolutions\default\sample inserts.txt)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Ryan3\OneDrive\Documents\2ndYearProject\conf\logback.xml,C:\Users\Ryan3\OneDrive\Documents\2ndYearProject\target\scala-2.12\classes\logback.xml)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Ryan3\OneDrive\Documents\2ndYearProject\conf\routes,C:\Users\Ryan3\OneDrive\Documents\2ndYearProject\target\scala-2.12\classes\routes)[0m
+[debug] Copy resource mappings: 
+[debug] 	(/home/ryan/2ndyearproj/2ndYearProject/conf/application.conf,/home/ryan/2ndyearproj/2ndYearProject/target/scala-2.12/classes/application.conf)
+[debug] 	(/home/ryan/2ndyearproj/2ndYearProject/conf/logback.xml,/home/ryan/2ndyearproj/2ndYearProject/target/scala-2.12/classes/logback.xml)
+[debug] 	(/home/ryan/2ndyearproj/2ndYearProject/conf/routes,/home/ryan/2ndyearproj/2ndYearProject/target/scala-2.12/classes/routes)
+[debug] 	(/home/ryan/2ndyearproj/2ndYearProject/conf/evolutions,/home/ryan/2ndyearproj/2ndYearProject/target/scala-2.12/classes/evolutions)
+[debug] 	(/home/ryan/2ndyearproj/2ndYearProject/conf/evolutions/default,/home/ryan/2ndyearproj/2ndYearProject/target/scala-2.12/classes/evolutions/default)
+[debug] 	(/home/ryan/2ndyearproj/2ndYearProject/conf/evolutions/default/1.sql,/home/ryan/2ndyearproj/2ndYearProject/target/scala-2.12/classes/evolutions/default/1.sql)
+[debug] 	(/home/ryan/2ndyearproj/2ndYearProject/conf/evolutions/default/2.sql,/home/ryan/2ndyearproj/2ndYearProject/target/scala-2.12/classes/evolutions/default/2.sql)
+[debug] 	(/home/ryan/2ndyearproj/2ndYearProject/conf/evolutions/default/sample inserts.txt,/home/ryan/2ndyearproj/2ndYearProject/target/scala-2.12/classes/evolutions/default/sample inserts.txt)

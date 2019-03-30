@@ -153,9 +153,16 @@ public class ShoppingCtrl extends Controller {
     @Transactional
     public Result placeOrder() {
 
+        Form<Discount> discountForm = formFactory.form(Discount.class).bindFromRequest();
+
         Customer c = getCurrentUser();
 
 
+        if(c.getBasket().getBasketTotal() == 0.00) {
+
+            flash("success", "Your basket is empty. ");
+            return badRequest(basket.render(c, discountForm));
+        }
         // Create an order instance
         ShopOrder order = new ShopOrder();
 

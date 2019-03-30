@@ -12,9 +12,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <script
-    src="https://www.paypal.com/sdk/js?client-id=sb">
-  </script>
 </head>
 
 <div class="row">
@@ -55,58 +52,9 @@
         <div class="row">
             <div class="col-md-12">
                 <p class="text-right"><strong>Order Total: &euro; @("%.2f".format(order.getOrderTotal))</strong></p>
-            </div>  
- 
-
-  
-
+            </div>
         </div>
         </div>
  
 </div>
-<div id="paypal-button-container"></div>
-<h1> Pay Via Stripe </h1>
-
-<form action="listProducts" method="GET">
-=======
-<form action="@routes.ShoppingCtrl.viewOrders()" method="GET">
-  <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="pk_test_e9PCtT21TnhRh8b0iAgZ0erx"
-    data-amount='@("%.0f".format(order.getOrderTotal))00'
-    data-name="Demo Site"
-    data-description="Widget"
-    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-    data-locale="auto"
-    data-currency="eur">
-  </script>
-</form>
-
-
 }
-<keep-alive>
-<script>
-
-    document.getElementById("paypal-button-container").onload = function() {paypal.Buttons().render('#paypal-button-container');}
-
-  
-</script>
-
-<script>
-paypal.Buttons({
-    createOrder: function(data, actions) {
-      // Set up the transaction
-      return actions.order.create({
-        purchase_units: [{
-          amount: {
-            value: '@("%.2f".format(order.getOrderTotal))'
-          }
-        }]
-      });
-    }
-  }).render('#paypal-button-container');
-</script>
-
-
-
-</keep-alive>

@@ -126,6 +126,7 @@ public class HomeController extends Controller {
             } else {
                 newUser.update();
             }
+
             flash("success", "User " + newUser.getfName() + newUser.getlName() + " was added/updated.");
             return redirect(controllers.routes.HomeController.usersAdmin());
         }

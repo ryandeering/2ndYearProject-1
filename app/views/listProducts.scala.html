@@ -10,6 +10,20 @@
 		form {
 			margin-bottom: 1em;
 		}
+
+		.list-group{
+    max-height: 300px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+	overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+	.game{
+	width: 101%;
+	padding-top:2.6em;
+	padding-right:1em;
+	}
 	</style>
 
 	<div class="row">
@@ -44,11 +58,11 @@
 @for(p <- products) {
   <div class="well">
       <div class="media">
-      	<a class="pull-left" href="#">
+      	<a class="pull-left" href="@routes.HomeController.product(p.getId, "")">
     		@if(env.resource("public/images/productImages/thumbnails/" + p.getId + ".jpg").isDefined) {
-							<td><img src="/assets/images/productImages/thumbnails/@(p.getId).jpg"/></td>
+							<td><img src="/assets/images/productImages/thumbnails/@(p.getId).jpg" class="game"/></td>
 						} else {
-							<td><img src="/assets/images/productImages/thumbnails/noImage.png"/></td>
+							<td><img src="/assets/images/productImages/thumbnails/noImage.png" class="game"/></td>
 						}
 
   		</a>
