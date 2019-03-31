@@ -14,10 +14,7 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
 import play.mvc.With;
-import views.html.AdminPanel.addAdmin;
-import views.html.AdminPanel.addCustomer;
-import views.html.AdminPanel.admin;
-import views.html.AdminPanel.customers;
+import views.html.AdminPanel.*;
 import views.html.addReview;
 import views.html.index;
 import views.html.product;
@@ -324,6 +321,9 @@ public class HomeController extends Controller {
 
         return redirect(routes.HomeController.product(prodId,""));
     }
+
+
+
 }
 
 

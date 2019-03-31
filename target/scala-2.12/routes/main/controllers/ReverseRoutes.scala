@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/ryan/2ndyearproj/2ndYearProject/conf/routes
-// @DATE:Sun Mar 31 16:22:10 IST 2019
+// @SOURCE:C:/Users/Ryan3/Desktop/2ndYearProject/conf/routes
+// @DATE:Sun Mar 31 19:47:59 BST 2019
 
 import play.api.mvc.Call
 
@@ -79,7 +79,7 @@ package controllers {
     
     }
   
-    // @LINE:67
+    // @LINE:70
     def statistics(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/statistics")
@@ -97,10 +97,28 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "admin/updateProduct/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
+    // @LINE:74
+    def adminPanel(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "admin/panel")
+    }
+  
     // @LINE:28
     def addProduct(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/addProduct")
+    }
+  
+    // @LINE:66
+    def updateDiscount(id:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "admin/updateDiscount/" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("id", id)))))
+    }
+  
+    // @LINE:63
+    def discount(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "admin/discounts/")
     }
   
     // @LINE:31
@@ -113,6 +131,18 @@ package controllers {
     def index(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin")
+    }
+  
+    // @LINE:65
+    def addDiscountSubmit(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "admin/addDiscountSubmit/")
+    }
+  
+    // @LINE:64
+    def addDiscount(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "admin/addDiscount/")
     }
   
   }
@@ -160,19 +190,19 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "admin/addAdmin")
     }
   
-    // @LINE:68
+    // @LINE:71
     def addReview(prodId:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addReview/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("prodId", prodId)))
     }
   
-    // @LINE:69
+    // @LINE:72
     def addReviewSubmit(prodId:Long): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addReviewSubmit/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("prodId", prodId)))
     }
   
-    // @LINE:70
+    // @LINE:73
     def deleteReview(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "deleteReview/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
@@ -268,13 +298,13 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "addToBasket/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:65
+    // @LINE:68
     def viewOrders(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "viewOrders")
     }
   
-    // @LINE:64
+    // @LINE:67
     def cancelOrder(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "cancelOrder" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Long]].unbind("id", id)))))
@@ -316,7 +346,7 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "emptyBasket")
     }
   
-    // @LINE:66
+    // @LINE:69
     def setDiscount(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "setDiscount/")

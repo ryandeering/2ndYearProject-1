@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/ryan/2ndyearproj/2ndYearProject/conf/routes
-// @DATE:Sun Mar 31 16:22:10 IST 2019
+// @SOURCE:C:/Users/Ryan3/Desktop/2ndYearProject/conf/routes
+// @DATE:Sun Mar 31 19:47:59 BST 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -97,7 +97,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:67
+    // @LINE:70
     def statistics: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AdminProductCtrl.statistics",
       """
@@ -127,12 +127,42 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:74
+    def adminPanel: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AdminProductCtrl.adminPanel",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "admin/panel"})
+        }
+      """
+    )
+  
     // @LINE:28
     def addProduct: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AdminProductCtrl.addProduct",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "admin/addProduct"})
+        }
+      """
+    )
+  
+    // @LINE:66
+    def updateDiscount: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AdminProductCtrl.updateDiscount",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "admin/updateDiscount/" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("id", id0)])})
+        }
+      """
+    )
+  
+    // @LINE:63
+    def discount: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AdminProductCtrl.discount",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "admin/discounts/"})
         }
       """
     )
@@ -153,6 +183,26 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "admin"})
+        }
+      """
+    )
+  
+    // @LINE:65
+    def addDiscountSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AdminProductCtrl.addDiscountSubmit",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "admin/addDiscountSubmit/"})
+        }
+      """
+    )
+  
+    // @LINE:64
+    def addDiscount: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AdminProductCtrl.addDiscount",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "admin/addDiscount/"})
         }
       """
     )
@@ -227,7 +277,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:68
+    // @LINE:71
     def addReview: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addReview",
       """
@@ -237,7 +287,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:69
+    // @LINE:72
     def addReviewSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addReviewSubmit",
       """
@@ -247,7 +297,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:70
+    // @LINE:73
     def deleteReview: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.deleteReview",
       """
@@ -397,7 +447,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:65
+    // @LINE:68
     def viewOrders: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ShoppingCtrl.viewOrders",
       """
@@ -407,7 +457,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:64
+    // @LINE:67
     def cancelOrder: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ShoppingCtrl.cancelOrder",
       """
@@ -477,7 +527,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:66
+    // @LINE:69
     def setDiscount: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ShoppingCtrl.setDiscount",
       """

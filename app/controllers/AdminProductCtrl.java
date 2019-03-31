@@ -2,6 +2,7 @@ package controllers;
 
 import models.products.Category;
 import models.products.Product;
+import models.shopping.Discount;
 import models.shopping.ShopOrder;
 import models.users.User;
 import org.im4java.core.ConvertCmd;
@@ -13,10 +14,7 @@ import play.db.ebean.Transactional;
 import play.mvc.*;
 import play.mvc.Http.MultipartFormData;
 import play.mvc.Http.MultipartFormData.FilePart;
-import views.html.AdminPanel.addProduct;
-import views.html.AdminPanel.listProducts;
-import views.html.AdminPanel.statistics;
-import views.html.AdminPanel.updateProduct;
+import views.html.AdminPanel.*;
 
 import javax.inject.Inject;
 import java.io.File;
@@ -43,6 +41,13 @@ public class AdminProductCtrl extends Controller {
         this.formFactory = f;
     }
 
+
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthAdmin.class)
+    public Result adminPanel() {
+        return ok(adminpanel.render(User.getUserById(session().get("email"))));
+    }
 
     private User getCurrentUser() { // returns user for session
         User u = User.getLoggedIn(session().get("email"));
@@ -96,7 +101,7 @@ public class AdminProductCtrl extends Controller {
         MultipartFormData<File> data = request().body().asMultipartFormData();
         FilePart<File> image = data.getFile("upload");
 
-       String saveImageMsg = saveFile(newProduct.getId(), image); ///fixed! - ryan
+        String saveImageMsg = saveFile(newProduct.getId(), image); ///fixed! - ryan
 
         flash("success", "Product " + newProduct.getName() + " has been created" + " " + saveImageMsg);
 
@@ -137,7 +142,7 @@ public class AdminProductCtrl extends Controller {
         p.update();
 
         Http.MultipartFormData body = request().body().asMultipartFormData();
-       Http.MultipartFormData.FilePart file = body.getFile("upload");
+        Http.MultipartFormData.FilePart file = body.getFile("upload");
 
         return redirect(controllers.routes.AdminProductCtrl.index());
     }
@@ -166,7 +171,7 @@ public class AdminProductCtrl extends Controller {
                 // Get the uploaded image file
                 op.addImage(file.getAbsolutePath());
                 // Resize using height and width constraints
-                op.resize(300,400);
+                op.resize(300, 400);
                 // Save the  image
                 op.addImage("public/images/productImages/" + id + ".jpg");
                 // thumbnail
@@ -177,11 +182,10 @@ public class AdminProductCtrl extends Controller {
                 // Save the  image
                 thumb.addImage("public/images/productImages/thumbnails/" + id + ".jpg");
                 // execute the operation
-                try{
+                try {
                     cmd.run(op);
                     cmd.run(thumb);
-                }
-                catch(Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 return " and image saved";
@@ -191,15 +195,69 @@ public class AdminProductCtrl extends Controller {
     }
 
 
-
     @Security.Authenticated(Secured.class)
     @Transactional
     @With(AuthAdmin.class)
     public Result statistics() {
         List<Product> productList = null;
-        List <ShopOrder> orderList = null;
+        List<ShopOrder> orderList = null;
         productList = Product.findAll();
         orderList = ShopOrder.findAll();
-        return ok(statistics.render(productList, orderList ,User.getUserById(session().get("email"))));
+        return ok(statistics.render(productList, orderList, User.getUserById(session().get("email"))));
     }
+
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthAdmin.class)
+    public Result discount() {
+        List<Discount> dList = null;
+        dList = Discount.findAll();
+        return ok(discount.render(dList, User.getUserById(session().get("email"))));
+    }
+
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthAdmin.class)
+    public Result addDiscount() {
+        Form<Discount> dForm = formFactory.form(Discount.class);
+        return ok(addDiscount.render(dForm, User.getUserById(session().get("email"))));
+    }
+
+
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthAdmin.class)
+    public Result addDiscountSubmit() {
+        List<Discount> a = Discount.findAll();
+        Form<Discount> newdForm = formFactory.form(Discount.class).bindFromRequest();
+        if (newdForm.hasErrors()) {
+            return badRequest(addDiscount.render(newdForm, User.getUserById(session().get("email"))));
+        } else {
+            Discount d = newdForm.get();
+
+            if (d.getAmount() < 1){
+                flash("success", "Under 0. Invalid.");
+                return badRequest(discount.render(a, User.getUserById(session().get("email"))));
+            }
+
+            if (d==null){
+                d.save();
+            } else {
+                d.update();
+            }
+
+            flash("success", "Discount added.");
+            return redirect(routes.AdminProductCtrl.discount());
+        }
+    }
+
+    @Transactional
+    public Result updateDiscount(String id) {
+        Discount d = Discount.find.byId(id);
+        Form<Discount> dForm = formFactory.form(Discount.class).fill(d);
+
+        return ok(addDiscount.render(dForm, User.getUserById(session().get("email"))));
+    }
+
+
 }

@@ -1,0 +1,22 @@
+@import models.users.User
+@(user: models.users.User)
+@main("Administrators",user){
+    <div class="col-sm-9">
+        <h4>Hello, @user.getfName() @user.getlName()!</h4>
+        <h5>This is the admin panel.</h5>
+        <div class="col-sm-9">
+            <a href="@routes.AdminProductCtrl.listProducts(0)" class="btn btn-primary active">
+                <span class=""></span>CRUD/List Products</a>
+            <a href="@routes.AdminProductCtrl.discount()" class="btn btn-primary active">
+                <span class=""></span>CRUD/List Discounts</a>
+            <a href="@routes.HomeController.usersAdmin" class="btn btn-primary active">
+                <span class=""></span>CRUD/List Admins</a>
+            <a href="@routes.HomeController.usersCustomer()" class="btn btn-primary active">
+                <span class=""></span>CRUD/List Customers</a>
+            <a href="@routes.AdminProductCtrl.statistics()" class="btn btn-primary active">
+                <span class=""></span>Statistics</a>
+        </div>
+
+        </table>
+    </div>
+}

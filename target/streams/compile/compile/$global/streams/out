@@ -1,4 +1,7 @@
-[0m[[0m[31merror[0m] [0m[0m/home/ryan/2ndyearproj/2ndYearProject/app/views/product.scala.html:213:42: value map is not a member of Int[0m
-[0m[[0m[31merror[0m] [0m[0m                            @for( x <- r.getRating ){[0m
-[0m[[0m[31merror[0m] [0m[0m                                         ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Ryan3\Desktop\2ndYearProject\app\views\AdminPanel\discount.scala.html:39:78: illegal start of simple expression[0m
+[0m[[0m[31merror[0m] [0m[0m                            <a href="@routes.AdminProductCtrl.updateDiscount(@d.getDiscountID)" class="button-xs btn-danger">[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Ryan3\Desktop\2ndYearProject\app\views\AdminPanel\discount.scala.html:47:6: ')' expected but '}' found.[0m
+[0m[[0m[31merror[0m] [0m[0m            </tbody>[0m
+[0m[[0m[31merror[0m] [0m[0m     ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

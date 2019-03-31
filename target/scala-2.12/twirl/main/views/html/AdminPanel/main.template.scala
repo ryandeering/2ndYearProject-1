@@ -37,19 +37,20 @@ Seq[Any](format.raw/*1.57*/("""
 
 <head>
 
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin Panel - """),_display_(/*14.27*/title),format.raw/*14.32*/("""</title>
+    <title>Admin Panel - """),_display_(/*15.27*/title),format.raw/*15.32*/("""</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href=""""),_display_(/*17.18*/routes/*17.24*/.Assets.versioned("stylesheets/bootstrap.min.css")),format.raw/*17.74*/("""" rel="stylesheet">
+    <link href=""""),_display_(/*18.18*/routes/*18.24*/.Assets.versioned("stylesheets/bootstrap.min.css")),format.raw/*18.74*/("""" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href=""""),_display_(/*20.18*/routes/*20.24*/.Assets.versioned("stylesheets/shop-homepage.css")),format.raw/*20.74*/("""" rel="stylesheet">
+    <link href=""""),_display_(/*21.18*/routes/*21.24*/.Assets.versioned("stylesheets/shop-homepage.css")),format.raw/*21.74*/("""" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -73,19 +74,19 @@ Seq[Any](format.raw/*1.57*/("""
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href=""""),_display_(/*44.48*/routes/*44.54*/.AdminProductCtrl.listProducts(0)),format.raw/*44.87*/("""">Admin Panel</a>
+                <a class="navbar-brand" href=""""),_display_(/*45.48*/routes/*45.54*/.AdminProductCtrl.adminPanel()),format.raw/*45.84*/("""">Admin Panel</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
 					<!-- Login/ logout Link - check if user logged in -->
                     <li>
-						"""),_display_(/*51.8*/if(user != null)/*51.24*/ {_display_(Seq[Any](format.raw/*51.26*/("""
-						  """),format.raw/*52.9*/("""<a href=""""),_display_(/*52.19*/controllers/*52.30*/.routes.LoginController.logout()),format.raw/*52.62*/("""">Logout</a>
-						""")))}/*53.9*/else/*53.14*/{_display_(Seq[Any](format.raw/*53.15*/("""
-                      	  """),format.raw/*54.26*/("""<a href=""""),_display_(/*54.36*/controllers/*54.47*/.routes.LoginController.login()),format.raw/*54.78*/("""">Login</a>
-						""")))}),format.raw/*55.8*/("""
-                    """),format.raw/*56.21*/("""</li>
+						"""),_display_(/*52.8*/if(user != null)/*52.24*/ {_display_(Seq[Any](format.raw/*52.26*/("""
+						  """),format.raw/*53.9*/("""<a href=""""),_display_(/*53.19*/controllers/*53.30*/.routes.LoginController.logout()),format.raw/*53.62*/("""">Logout</a>
+						""")))}/*54.9*/else/*54.14*/{_display_(Seq[Any](format.raw/*54.15*/("""
+                      	  """),format.raw/*55.26*/("""<a href=""""),_display_(/*55.36*/controllers/*55.47*/.routes.LoginController.login()),format.raw/*55.78*/("""">Login</a>
+						""")))}),format.raw/*56.8*/("""
+                    """),format.raw/*57.21*/("""</li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -98,13 +99,13 @@ Seq[Any](format.raw/*1.57*/("""
 			<div class="row">
 
 				<div class="col-md-12">
-						<p class="lead">Statistics</p>
+						<p class="lead"></p>
 				<div>
 			</div>
 
 			<!-- Start Content -->
-			"""),_display_(/*74.5*/content),format.raw/*74.12*/("""
-			"""),format.raw/*75.4*/("""<!-- End Content -->
+			"""),_display_(/*75.5*/content),format.raw/*75.12*/("""
+			"""),format.raw/*76.4*/("""<!-- End Content -->
 
     </div>
     <!-- /.container -->
@@ -126,10 +127,10 @@ Seq[Any](format.raw/*1.57*/("""
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src=""""),_display_(/*97.19*/routes/*97.25*/.Assets.versioned("javascripts/jquery.js")),format.raw/*97.67*/(""""></script>
+    <script src=""""),_display_(/*98.19*/routes/*98.25*/.Assets.versioned("javascripts/jquery.js")),format.raw/*98.67*/(""""></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src=""""),_display_(/*100.19*/routes/*100.25*/.Assets.versioned("javascripts/bootstrap.min.js")),format.raw/*100.74*/(""""></script>
+    <script src=""""),_display_(/*101.19*/routes/*101.25*/.Assets.versioned("javascripts/bootstrap.min.js")),format.raw/*101.74*/(""""></script>
 
 </body>
 
@@ -150,11 +151,11 @@ Seq[Any](format.raw/*1.57*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Mar 30 20:54:03 GMT 2019
-                  SOURCE: /home/ryan/2ndyearproj/2ndYearProject/app/views/AdminPanel/main.scala.html
-                  HASH: 11f74c97116e5d3aa7282326571ae8121de4c8a0
-                  MATRIX: 981->1|1131->56|1161->60|1503->375|1529->380|1618->442|1633->448|1704->498|1796->563|1811->569|1882->619|3026->1736|3041->1742|3095->1775|3467->2121|3492->2137|3532->2139|3569->2149|3606->2159|3626->2170|3679->2202|3718->2224|3731->2229|3770->2230|3825->2257|3862->2267|3882->2278|3934->2309|3984->2329|4034->2351|4412->2703|4440->2710|4472->2715|4898->3114|4913->3120|4976->3162|5077->3235|5093->3241|5164->3290
-                  LINES: 28->1|33->1|35->3|46->14|46->14|49->17|49->17|49->17|52->20|52->20|52->20|76->44|76->44|76->44|83->51|83->51|83->51|84->52|84->52|84->52|84->52|85->53|85->53|85->53|86->54|86->54|86->54|86->54|87->55|88->56|106->74|106->74|107->75|129->97|129->97|129->97|132->100|132->100|132->100
+                  DATE: Sun Mar 31 19:00:42 BST 2019
+                  SOURCE: C:/Users/Ryan3/Desktop/2ndYearProject/app/views/AdminPanel/main.scala.html
+                  HASH: cb507fe456c5bb525f3422caf5ca7b4064a7b3c9
+                  MATRIX: 981->1|1131->56|1161->60|1505->377|1531->382|1620->444|1635->450|1706->500|1798->565|1813->571|1884->621|3028->1738|3043->1744|3094->1774|3466->2120|3491->2136|3531->2138|3568->2148|3605->2158|3625->2169|3678->2201|3717->2223|3730->2228|3769->2229|3824->2256|3861->2266|3881->2277|3933->2308|3983->2328|4033->2350|4401->2692|4429->2699|4461->2704|4887->3103|4902->3109|4965->3151|5066->3224|5082->3230|5153->3279
+                  LINES: 28->1|33->1|35->3|47->15|47->15|50->18|50->18|50->18|53->21|53->21|53->21|77->45|77->45|77->45|84->52|84->52|84->52|85->53|85->53|85->53|85->53|86->54|86->54|86->54|87->55|87->55|87->55|87->55|88->56|89->57|107->75|107->75|108->76|130->98|130->98|130->98|133->101|133->101|133->101
                   -- GENERATED --
               */
           

@@ -7,6 +7,7 @@ import javax.persistence.*;
 
 
 import io.ebean.*;
+import models.reviews.Review;
 import play.data.format.*;
 import play.data.validation.*;
 import models.*;
@@ -23,6 +24,8 @@ public class Customer extends User {
     private Basket basket;
     @OneToMany(mappedBy="customer", cascade = CascadeType.ALL)
     private List<ShopOrder> orders;
+    @OneToMany(mappedBy="Customer", cascade = CascadeType.ALL)
+    private List<Review> reviews;
 	
     public Customer(String email, String password, String fName, String lName, String role) {
         super(email, password, fName, lName, role);

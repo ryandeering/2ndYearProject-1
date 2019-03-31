@@ -60,7 +60,10 @@ GET /admin/deleteCustomer/:id controllers.HomeController.deleteCustomer(id: Stri
 GET /admin/updateAdmin/:id controllers.HomeController.updateAdmin(id: String)
 GET /admin/deleteAdmin/:id controllers.HomeController.deleteAdmin(id: String)
 GET     /product/:id                 controllers.HomeController.product(id: Long, filter?="")
-
+GET     /admin/discounts/            controllers.AdminProductCtrl.discount()
+GET     /admin/addDiscount/          controllers.AdminProductCtrl.addDiscount()
+POST     /admin/addDiscountSubmit/          controllers.AdminProductCtrl.addDiscountSubmit
+GET      /admin/updateDiscount/             controllers.AdminProductCtrl.updateDiscount(id: String)
 GET     /cancelOrder                         controllers.ShoppingCtrl.cancelOrder(id: Long)
 GET     /viewOrders                         controllers.ShoppingCtrl.viewOrders()
 GET /setDiscount/ controllers.ShoppingCtrl.setDiscount()
@@ -68,6 +71,7 @@ GET     /admin/statistics                   controllers.AdminProductCtrl.statist
 GET     /addReview/:prodId               controllers.HomeController.addReview(prodId:Long)
 POST    /addReviewSubmit/:prodId         controllers.HomeController.addReviewSubmit(prodId:Long)
 GET     /deleteReview/:id                     controllers.HomeController.deleteReview(id:Long)
+GET /admin/panel         controllers.AdminProductCtrl.adminPanel
 #GET     manager/addEmployee                    controllers.HomeController.addItem
 
 #POST    manager/addEmployeeSubmit              controllers.HomeController.addItemSubmit
