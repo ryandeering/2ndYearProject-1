@@ -48,3 +48,6 @@
 31/03/2019 16:43:19 | Hulk Hogan logged out under role admin
 31/03/2019 16:43:24 | Gary Deering logged in under role customer
 31/03/2019 18:31:51 | Hulk Hogan logged in under role admin
+31/03/2019 22:34:03 | Ryan Deering logged in under role customer
+31/03/2019 22:36:16 | Ryan Deering placed order1 under role customer
+31/03/2019 22:37:26 | Ryan Deering logged out under role customer

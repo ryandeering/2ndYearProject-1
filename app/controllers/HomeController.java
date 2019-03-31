@@ -280,10 +280,9 @@ public class HomeController extends Controller {
                     getCurrentUser(), prodId));
         }
 
-        else {
+
             newReview = newReviewForm.get();
-            if (newReview.getRating() <= 1 && newReview.getRating() <= 5){
-                //if (angle <= 90 && angle <= 180) {
+            if (between(newReview.getRating(),1,5) == false){
                 flash("error", "Rating not between 1 and 5.");
                 return badRequest(addReview.render(newReviewForm, getCurrentUser(), prodId));
             }
@@ -299,7 +298,7 @@ public class HomeController extends Controller {
             p.update();
             newReview.update();
 
-        }
+
         flash("success", "Review has been created");
 
         return redirect(routes.HomeController.product(prodId,""));
@@ -322,9 +321,17 @@ public class HomeController extends Controller {
         return redirect(routes.HomeController.product(prodId,""));
     }
 
-
-
+    public static boolean between(int i, int minValueInclusive, int maxValueInclusive) {
+        if (i >= minValueInclusive && i <= maxValueInclusive)
+            return true;
+        else
+            return false;
+    }
 }
+
+
+
+
 
 
 
