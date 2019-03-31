@@ -2,6 +2,7 @@
 @import play.api.Play.current
 @import models.shopping._
 @import models.products._
+    @import scala.Predef; val x= 0
 
     <!-- Pass page title and user on to main -->
 @main("View Orders", customer) {
@@ -18,13 +19,14 @@
             </div>
         }
 
-
-
-
+        @if(x == 0){
+            <p>No orders found!</p> <!-- Scala variable used. -->
+            }
 
             <!-- Start of For loop - For each p in products add a row -->
         @for(o <- customer.getOrders()) {
 
+            @x++;
             <p>Order Number: @o.getId()</p>
             <p>Order Date: @o.getOrderDateString()</p>
             <table class="table table-bordered table-hover table-condensed">
@@ -55,6 +57,8 @@
                     }<!-- End of For loop -->
 
                 </tbody>
+
+
             </table>
             <div class="row">
                 <div class="col-md-12">

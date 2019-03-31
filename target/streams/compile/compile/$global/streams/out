@@ -1,2 +1,4 @@
-[error] /home/ryan/2ndyearproj/2ndYearProject/app/controllers/ShoppingCtrl.java:161:1: incompatible types: double cannot be converted to boolean
-[error]         if(c.getBasket().getBasketTotal()) {
+[0m[[0m[31merror[0m] [0m[0m/home/ryan/2ndyearproj/2ndYearProject/app/views/viewOrders.scala.html:5:26: ';' expected but 'val' found.[0m
+[0m[[0m[31merror[0m] [0m[0m    @import scala.Predef val x= 0;[0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
