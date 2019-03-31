@@ -4,6 +4,7 @@ import java.util.*;
 import javax.persistence.*;
 
 import io.ebean.*;
+import models.reviews.Review;
 import play.data.format.*;
 import play.data.validation.*;
 
@@ -45,6 +46,16 @@ public class Product extends Model {
     @Constraints.Required
     private String publisher;
 
+    @OneToMany(cascade = CascadeType.ALL,mappedBy="product")
+    private List<Review> reviews;
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
 
     // Default constructor
     public  Product() {
@@ -200,6 +211,25 @@ public class Product extends Model {
         return Product.finda.all();
     }
 
+
+    public String reviewCount(){
+        int count = 0;
+        String msg;
+        List<Review> rList = getReviews();
+        for (int i = 0; i < rList.size(); i++) {
+           if(rList.get(i) != null) {
+               count++;
+           }
+        }
+
+        if(count == 0){
+            msg = "No reviews found.";
+        } else {
+            msg = (count + " reviews.");
+        }
+
+        return msg;
+    }
 
 }
 

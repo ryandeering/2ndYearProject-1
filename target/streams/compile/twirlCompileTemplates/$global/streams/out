@@ -1,2 +1,2 @@
-[error] [Error] /home/ryan/2ndyearproj/2ndYearProject/app/views/orderConfirmed.scala.html:59
-[error] </div>: Expected '}' but found 'EOF'
+[0m[[0m[31merror[0m] [0m[0m[Error] /home/ryan/2ndyearproj/2ndYearProject/app/views/basket.scala.html:140[0m
+[0m[[0m[31merror[0m] [0m[0m      }}, '#paypal-button');: Not parsed?[0m

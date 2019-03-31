@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/ryan/2ndyearproj/2ndYearProject/conf/routes
-// @DATE:Sat Mar 30 20:54:02 GMT 2019
+// @DATE:Sun Mar 31 16:22:10 IST 2019
 
 import play.api.mvc.Call
 
@@ -158,6 +158,24 @@ package controllers {
     def addAdmin(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/addAdmin")
+    }
+  
+    // @LINE:68
+    def addReview(prodId:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "addReview/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("prodId", prodId)))
+    }
+  
+    // @LINE:69
+    def addReviewSubmit(prodId:Long): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "addReviewSubmit/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("prodId", prodId)))
+    }
+  
+    // @LINE:70
+    def deleteReview(id:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "deleteReview/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
     // @LINE:60

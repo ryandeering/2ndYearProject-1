@@ -9,8 +9,14 @@
     @*form(action = routes.ShoppingCtrl.setDiscount(), 'class -> "form-horizontal", 'role -> "form", 'enctype -> "multipart/form-data")*@
         @*CSRF.formField*@
 
-<div class="row">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+        <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    </head>
+    <body>
+<div class="row">
 
 
 	<div class="col-md-12">
@@ -22,7 +28,6 @@
 
 		<table class="table table-bordered table-hover table-condensed">
 			<thead>
-
 			<tr>
 				<th>Name</th>
 				<th>Description</th>
@@ -59,7 +64,6 @@
         <div class="row">
             <div class="col-md-12">
                 Set Discount
-
                     @inputText(discountForm("discountID"), '_label -> "discount", 'class -> "form-control")
                     <span class="glyphicon glyphicon-barcode"></span></a>
             </div>
@@ -78,16 +82,17 @@
                 </p>
             </div>  
         </div>
+        <div id="paypal-button"></div>
     </div>
 </div>
 
-<script>
 
+    </body>
+<script>
 	function confirmDel() {
 		return confirm('Are you sure?');
 	}
 </script>
-
 
 
 
@@ -104,5 +109,53 @@
             </script>
         </form>
 
-
 }
+
+
+
+    <keep-alive>
+
+        <script>
+  paypal.Button.render({
+      createOrder: function(data, actions) {
+          return actions.order.create({
+              purchase_units: [{
+                  amount: {
+                      value: '@("%.2f".format(customer.getBasket.getBasketTotal))'
+                  }
+              }]
+      })},
+      onAuthorize: function(data, actions) {
+          return actions.request('/placeOrder')
+      }
+      }, '#paypal-button');
+</script>
+
+
+        @*<script>*@
+  @*paypal.Button.render({*@
+      @*env: 'sandbox', // Or 'production'*@
+      @*// 1. Add a payment callback*@
+      @*payment: function(data, actions) {*@
+          @*// 2. Make a request to your server*@
+          @*return actions.request.post('/my-api/create-order/')*@
+                  @*.then(function(res) {*@
+                      @*// 3. Return res.id from the response*@
+                      @*return res.id;*@
+                  @*});*@
+      @*},*@
+      @*// 4. Add an onAuthorize callback*@
+      @*onAuthorize: function(data, actions) {*@
+          @*// 5. Make a request to your server*@
+          @*return actions.request.post('/my-api/capture-payment/', {*@
+              @*OrderID: data.orderID,*@
+          @*})*@
+                  @*.then(function(res) {*@
+                      @*// 6. Show the buyer a confirmation message.*@
+                  @*});*@
+      @*}*@
+  @*}, '#paypal-button');*@
+@*</script>*@
+
+    </keep-alive>
+

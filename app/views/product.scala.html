@@ -142,16 +142,20 @@ img {
 /*# sourceMappingURL=style.css.map */
 </style>
 
+    @if(flash.containsKey("error")) {
+        <div class="alert alert-danger">
+        @flash.get("error")
+        </div>
+    }
 
 
-
-    
-
-	<div class="container">
+    <div class="container">
 		<div class="card">
 			<div class="container-fliud">
 				<div class="wrapper row">
 					<div class="preview col-md-6">
+
+
 						
 						<div class="preview-pic tab-content">
 						  <div class="tab-pane active" id="pic-1">
@@ -161,6 +165,7 @@ img {
                     <img class="pic" src="/assets/images/productImages/thumbnails/noImage.png"/>
                 }
 </div>
+
 						 
 						</div>
 						
@@ -176,7 +181,7 @@ img {
 								<span class="fa fa-star"></span>
 								<span class="fa fa-star"></span>
 							</div>
-							<span class="review-no">41 reviews</span>
+							<span class="review-no">@product.reviewCount() </span>
 						</div>
 						<p>Developer: @product.getDeveloper</p>
 						<p>Publisher: @product.getPublisher</p>
@@ -196,8 +201,43 @@ img {
 					</div>
 				</div>
 			</div>
+            <label>Reviews:</label><br>
+            <div class="list-group" id="replies">
+            @for(r <- product.getReviews){
+
+                <div class="list-group-item" id="replies">
+                    @if(r.getCustomer != null){
+                        <label>@r.getCustomer.getfName | @r.getDate | @r.reviewStars
+                    }else{
+                        <label>N/A</label><br>
+                    }
+
+                <p>@r.getContent</p>
+
+                    @if(user != null){
+                        @if(user.isInstanceOf[models.users.Admin]){
+                            <a href="@routes.HomeController.deleteReview(r.getId)"  class="btn btn-default btn-xs">Delete <span class="glyphicon glyphicon-trash"></span></a>
+                        }
+                    }
+
+                </div>
+
+            }
+            </div>
+
+        </div>
+        <p>
+            <a href="@routes.HomeController.addReview(product.getId())">
+                <button class="btn btn-primary">Add a Review</button>
+            </a>
+        </p>
+
+    </div>
+    </div>
 		</div>
 	</div>
+
+
 
 
 

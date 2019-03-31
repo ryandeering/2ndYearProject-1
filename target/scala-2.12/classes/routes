@@ -65,6 +65,9 @@ GET     /cancelOrder                         controllers.ShoppingCtrl.cancelOrde
 GET     /viewOrders                         controllers.ShoppingCtrl.viewOrders()
 GET /setDiscount/ controllers.ShoppingCtrl.setDiscount()
 GET     /admin/statistics                   controllers.AdminProductCtrl.statistics()
+GET     /addReview/:prodId               controllers.HomeController.addReview(prodId:Long)
+POST    /addReviewSubmit/:prodId         controllers.HomeController.addReviewSubmit(prodId:Long)
+GET     /deleteReview/:id                     controllers.HomeController.deleteReview(id:Long)
 #GET     manager/addEmployee                    controllers.HomeController.addItem
 
 #POST    manager/addEmployeeSubmit              controllers.HomeController.addItemSubmit

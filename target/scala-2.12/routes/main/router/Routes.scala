@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/ryan/2ndyearproj/2ndYearProject/conf/routes
-// @DATE:Sat Mar 30 20:54:02 GMT 2019
+// @DATE:Sun Mar 31 16:22:10 IST 2019
 
 package router
 
@@ -94,6 +94,9 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """viewOrders""", """controllers.ShoppingCtrl.viewOrders()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """setDiscount/""", """controllers.ShoppingCtrl.setDiscount()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """admin/statistics""", """controllers.AdminProductCtrl.statistics()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addReview/""" + "$" + """prodId<[^/]+>""", """controllers.HomeController.addReview(prodId:Long)"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addReviewSubmit/""" + "$" + """prodId<[^/]+>""", """controllers.HomeController.addReviewSubmit(prodId:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteReview/""" + "$" + """id<[^/]+>""", """controllers.HomeController.deleteReview(id:Long)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -803,6 +806,60 @@ class Routes(
     )
   )
 
+  // @LINE:68
+  private[this] lazy val controllers_HomeController_addReview39_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addReview/"), DynamicPart("prodId", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_HomeController_addReview39_invoker = createInvoker(
+    HomeController_0.addReview(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "addReview",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """addReview/""" + "$" + """prodId<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:69
+  private[this] lazy val controllers_HomeController_addReviewSubmit40_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addReviewSubmit/"), DynamicPart("prodId", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_HomeController_addReviewSubmit40_invoker = createInvoker(
+    HomeController_0.addReviewSubmit(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "addReviewSubmit",
+      Seq(classOf[Long]),
+      "POST",
+      this.prefix + """addReviewSubmit/""" + "$" + """prodId<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:70
+  private[this] lazy val controllers_HomeController_deleteReview41_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("deleteReview/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_HomeController_deleteReview41_invoker = createInvoker(
+    HomeController_0.deleteReview(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "deleteReview",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """deleteReview/""" + "$" + """id<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -1038,6 +1095,24 @@ class Routes(
     case controllers_AdminProductCtrl_statistics38_route(params@_) =>
       call { 
         controllers_AdminProductCtrl_statistics38_invoker.call(AdminProductCtrl_3.statistics())
+      }
+  
+    // @LINE:68
+    case controllers_HomeController_addReview39_route(params@_) =>
+      call(params.fromPath[Long]("prodId", None)) { (prodId) =>
+        controllers_HomeController_addReview39_invoker.call(HomeController_0.addReview(prodId))
+      }
+  
+    // @LINE:69
+    case controllers_HomeController_addReviewSubmit40_route(params@_) =>
+      call(params.fromPath[Long]("prodId", None)) { (prodId) =>
+        controllers_HomeController_addReviewSubmit40_invoker.call(HomeController_0.addReviewSubmit(prodId))
+      }
+  
+    // @LINE:70
+    case controllers_HomeController_deleteReview41_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_HomeController_deleteReview41_invoker.call(HomeController_0.deleteReview(id))
       }
   }
 }

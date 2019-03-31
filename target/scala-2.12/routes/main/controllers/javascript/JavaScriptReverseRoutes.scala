@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/ryan/2ndyearproj/2ndYearProject/conf/routes
-// @DATE:Sat Mar 30 20:54:02 GMT 2019
+// @DATE:Sun Mar 31 16:22:10 IST 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -223,6 +223,36 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "admin/addAdmin"})
+        }
+      """
+    )
+  
+    // @LINE:68
+    def addReview: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.addReview",
+      """
+        function(prodId0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addReview/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("prodId", prodId0))})
+        }
+      """
+    )
+  
+    // @LINE:69
+    def addReviewSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.addReviewSubmit",
+      """
+        function(prodId0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addReviewSubmit/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("prodId", prodId0))})
+        }
+      """
+    )
+  
+    // @LINE:70
+    def deleteReview: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.deleteReview",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "deleteReview/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
         }
       """
     )

@@ -64,10 +64,9 @@ create table review (
   id                            bigint auto_increment not null,
   customer_email                varchar(255),
   product_id                    bigint,
+  date                          timestamp,
   rating                        integer not null,
   content                       varchar(255),
-  constraint uq_review_customer_email unique (customer_email),
-  constraint uq_review_product_id unique (product_id),
   constraint pk_review primary key (id)
 );
 
@@ -115,8 +114,10 @@ alter table product add constraint fk_product_platform_id foreign key (platform_
 create index ix_product_platform_id on product (platform_id);
 
 alter table review add constraint fk_review_customer_email foreign key (customer_email) references user (email) on delete restrict on update restrict;
+create index ix_review_customer_email on review (customer_email);
 
 alter table review add constraint fk_review_product_id foreign key (product_id) references product (id) on delete restrict on update restrict;
+create index ix_review_product_id on review (product_id);
 
 alter table shop_order add constraint fk_shop_order_customer_email foreign key (customer_email) references user (email) on delete restrict on update restrict;
 create index ix_shop_order_customer_email on shop_order (customer_email);
@@ -151,8 +152,10 @@ alter table product drop constraint if exists fk_product_platform_id;
 drop index if exists ix_product_platform_id;
 
 alter table review drop constraint if exists fk_review_customer_email;
+drop index if exists ix_review_customer_email;
 
 alter table review drop constraint if exists fk_review_product_id;
+drop index if exists ix_review_product_id;
 
 alter table shop_order drop constraint if exists fk_shop_order_customer_email;
 drop index if exists ix_shop_order_customer_email;

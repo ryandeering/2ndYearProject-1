@@ -20,14 +20,13 @@ public class Review extends Model {
     @Id
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     private Customer Customer;
 
-    @OneToOne
+    @ManyToOne
     private Product product;
-    
-    // List of product ids - this will be bound to checkboxes in the view form
-    private List<Long> prodSelect = new ArrayList<Long>();
+
+    private Date date;
 
     @Constraints.Required
     private int rating;
@@ -55,7 +54,7 @@ public class Review extends Model {
         return Review.find.query().where()
                         // name like filter value (surrounded by wildcards)
                         .ilike("id", "%" + filter + "%")
-                        .orderBy("id asc")
+                        .orderBy("author asc")
                         .findList();
     }
     
@@ -68,7 +67,7 @@ public class Review extends Model {
                         .eq("products.id", prodID)
                         // name like filter value (surrounded by wildcards)
                         .ilike("id", "%" + filter + "%")
-                        .orderBy("id asc")
+                        .orderBy("author asc")
                         .findList();
     }
 
@@ -80,37 +79,6 @@ public class Review extends Model {
         this.id = id;
     }
 
-//    public List<Product> getProducts() {
-//        return categories;
-//    }
-//
-//    public void setProducts(List<Product> products) {
-//        this.categories = categories;
-//    }
-
-    public List<Long> getProdSelect() {
-        return prodSelect;
-    }
-
-    public void setProdSelect(List<Long> prodSelect) {
-        this.prodSelect = prodSelect;
-    }
-
-//    public String getEmail() {
-//        return user_email;
-//    }
-//
-//    public void setEmail(String email) {
-//        this.user_email = email;
-//    }
-//
-//    public int getProduct() {
-//        return product_id;
-//    }
-//
-//    public void setProduct(int id) {
-//        this.product_id = id;
-//    }
 
     public String getContent() {
         return content;
@@ -124,9 +92,45 @@ public class Review extends Model {
         return rating;
     }
 
+    public Customer getCustomer() {
+        return Customer;
+    }
+
     public void setRating(int rating) {
         this.rating = rating;
     }
 
+    public void setAuthor(Customer c){
+        this.Customer = c;
+    }
+
+    public void setProduct(Product p){
+        this.product = p;
+    }
+
+    public void setDate() {
+        this.date = new Date();
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public Date getDate() {return date;}
+
+
+
+    public String reviewStars(){
+        String stars = "";
+        for (int i = 0; i < rating; i++) {
+            stars+="★";
+        }
+
+        for (int i = 0; i < 5-rating; i++) {
+            stars+="☆";
+        }
+
+        return stars;
+    }
 }
 

@@ -1,6 +1,7 @@
 package controllers;
 
 import models.products.Product;
+import models.reviews.Review;
 import models.users.Admin;
 import models.users.Customer;
 import models.users.User;
@@ -17,6 +18,7 @@ import views.html.AdminPanel.addAdmin;
 import views.html.AdminPanel.addCustomer;
 import views.html.AdminPanel.admin;
 import views.html.AdminPanel.customers;
+import views.html.addReview;
 import views.html.index;
 import views.html.product;
 import views.html.registerUser;
@@ -248,7 +250,80 @@ public class HomeController extends Controller {
         }
     }
 
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthCustomer.class)
+    public Result addReview(Long prodId) {
+        Form<Review> rForm = formFactory.form(Review.class);
+        return ok(addReview.render(rForm, getCurrentUser(), prodId));
+    }
 
+    @Transactional
+    public Result addReviewSubmit(Long prodId) {
+        Review newReview;
+
+        Form<Review> newReviewForm = formFactory.form(Review.class).bindFromRequest();
+
+
+        Product p = Product.find.byId(prodId);
+        List<Review> rList = p.getReviews();
+
+        for (int i = 0; i < rList.size(); i++) {
+            if(rList.get(i).getCustomer().equals(getCurrentUser())) {
+                flash("error", "Chill, you reviewed already.");
+                return redirect("/product/" + prodId );
+            }
+        }
+
+
+
+
+        if (newReviewForm.hasErrors()) {
+            return badRequest(addReview.render(newReviewForm,
+                    getCurrentUser(), prodId));
+        }
+
+        else {
+            newReview = newReviewForm.get();
+            if (newReview.getRating() <= 1 && newReview.getRating() <= 5){
+                //if (angle <= 90 && angle <= 180) {
+                flash("error", "Rating not between 1 and 5.");
+                return badRequest(addReview.render(newReviewForm, getCurrentUser(), prodId));
+            }
+            newReview.save();
+
+
+
+            newReview.setAuthor(getCurrentUser());
+            newReview.setProduct(p);
+            newReview.setDate();
+            p.getReviews().add(newReview);
+
+            p.update();
+            newReview.update();
+
+        }
+        flash("success", "Review has been created");
+
+        return redirect(routes.HomeController.product(prodId,""));
+    }
+
+    public Customer getCurrentUser() {
+        Customer u = (Customer) User.getLoggedIn(session().get("email"));
+        return u;
+    }
+
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    @Transactional
+    public Result deleteReview(Long id) {
+        Long prodId = Review.find.ref(id).getProduct().getId();
+        Review.find.ref(id).delete();
+
+        flash("success", "Review has been deleted");
+
+        return redirect(routes.HomeController.product(prodId,""));
+    }
 }
 
 

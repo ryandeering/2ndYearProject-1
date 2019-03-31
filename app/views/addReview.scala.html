@@ -1,0 +1,28 @@
+@import models.products.Product
+@import models.reviews.Review
+@import models.users.User
+@(reviewForm: Form[Review], user: User, prodId: Long)
+@import helper._
+
+@main("Add a Review",user) {
+    <p class="lead">Create a Review</p>
+    @if(flash.containsKey("error")) {
+        <div class="alert alert-danger">
+        @flash.get("error")
+        </div>
+    }
+
+    @form(action=routes.HomeController.addReviewSubmit(prodId), 'class -> "form-horizontal", 'role -> "form",'enctype -> "multipart/form-data") {
+        @* CSRF attack prevention *@
+        @CSRF.formField
+        @inputText(reviewForm("rating"), '_label -> "Rating (1-5), numerical characters accepted ONLY.", 'class -> "form-control")
+        @textarea(reviewForm("content"), '_label -> "Content", 'class -> "form-control")
+
+        <div class="actions">
+            <input type="submit" value="Submit" class="btn-md btn-default btn">
+            <a href="@routes.HomeController.product(prodId, "")">
+                <button type="button" class="btn-md btn-default btn">Cancel</button>
+            </a>
+        </div>
+    }
+}
