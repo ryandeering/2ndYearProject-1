@@ -7,7 +7,7 @@
 		revision="1.0-SNAPSHOT"
 		conf="compile-internal"
 		confs="compile, runtime, test, provided, optional, universal, universal-docs, universal-src, windows, docker, linux, rpm, debian, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool, docs"
-		date="20190331182450"/>
+		date="20190401153042"/>
 	<dependencies>
 		<module organisation="com.typesafe.play" name="play-mailer-guice_2.12">
 			<revision name="6.0.1" status="release" pubdate="20170801204847" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-mailer" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="95">
@@ -1167,7 +1167,7 @@
 				<caller organisation="com.typesafe.play" name="play_2.12" conf="compile, runtime" rev="1.10" rev-constraint-default="1.10" rev-constraint-dynamic="1.10" callerrev="2.6.20"/>
 				<artifacts>
 					<artifact name="commons-codec" type="jar" ext="jar" status="no" details="" size="284184" time="0" location="C:\Users\Ryan3\.ivy2\cache\commons-codec\commons-codec\jars\commons-codec-1.10.jar">
-						<origin-location is-local="false" location="UNKNOWN"/>
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/commons-codec/commons-codec/1.10/commons-codec-1.10.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>

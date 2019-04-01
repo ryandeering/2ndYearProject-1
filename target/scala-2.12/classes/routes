@@ -5,13 +5,12 @@
 # An example controller showing a sample home page
 GET     /                   controllers.ProductCtrl.index()
 GET     /                   controllers.HomeController.index()
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 
-# Show a list of products - note optional parameter (added by Daria)
+
+#Daria
 GET     /listProducts                       controllers.ProductCtrl.listProducts(cat:Long ?= 0, filter?="")
-
-
-# Shopping (added by Daria)
 GET     /showBasket                         controllers.ShoppingCtrl.showBasket()
 GET     /addToBasket/:id                    controllers.ShoppingCtrl.addToBasket(id: Long)
 GET     /addOne/:itemId                     controllers.ShoppingCtrl.addOne(itemId: Long, pid: Long)
@@ -19,9 +18,6 @@ GET     /removeOne/:itemId                  controllers.ShoppingCtrl.removeOne(i
 GET     /emptyBasket                        controllers.ShoppingCtrl.emptyBasket()
 GET     /placeOrder                         controllers.ShoppingCtrl.placeOrder()
 GET     /viewOrder/:id                      controllers.ShoppingCtrl.viewOrder(id: Long)
-
-
-# Product Administration(added by Daria and Ryan)
 GET		/admin						        controllers.AdminProductCtrl.index()
 GET     /admin/listProducts                 controllers.AdminProductCtrl.listProducts(cat: Long = 0)
 GET     /admin/listProducts/:cat            controllers.AdminProductCtrl.listProducts(cat: Long)
@@ -31,19 +27,8 @@ GET		/admin/updateProduct/:id			controllers.AdminProductCtrl.updateProduct(id:Lo
 POST	/admin/updateProductSubmit/:id		controllers.AdminProductCtrl.updateProductSubmit(id:Long)
 GET     /admin/delProduct/:id               controllers.AdminProductCtrl.deleteProduct(id:Long)
 
-#GET /addReview/:id                          controllers.ReviewCtrl.addReview(r.getId)
 
-
-# Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
-
-
-
-
-
-
-#login
-
+#Ryan
 GET     /login                      controllers.LoginController.login
 GET     /loginSubmit                controllers.LoginController.loginSubmit
 GET     /logout                     controllers.LoginController.logout
@@ -66,12 +51,10 @@ POST     /admin/addDiscountSubmit/          controllers.AdminProductCtrl.addDisc
 GET      /admin/updateDiscount/             controllers.AdminProductCtrl.updateDiscount(id: String)
 GET     /cancelOrder                         controllers.ShoppingCtrl.cancelOrder(id: Long)
 GET     /viewOrders                         controllers.ShoppingCtrl.viewOrders()
-GET /setDiscount/ controllers.ShoppingCtrl.setDiscount()
+GET /applyDiscount/ controllers.ShoppingCtrl.applyDiscount()
+GET /applyDiscountSubmit/ controllers.ShoppingCtrl.applyDiscountSubmit()
 GET     /admin/statistics                   controllers.AdminProductCtrl.statistics()
 GET     /addReview/:prodId               controllers.HomeController.addReview(prodId:Long)
 POST    /addReviewSubmit/:prodId         controllers.HomeController.addReviewSubmit(prodId:Long)
 GET     /deleteReview/:id                     controllers.HomeController.deleteReview(id:Long)
 GET /admin/panel         controllers.AdminProductCtrl.adminPanel
-#GET     manager/addEmployee                    controllers.HomeController.addItem
-
-#POST    manager/addEmployeeSubmit              controllers.HomeController.addItemSubmit

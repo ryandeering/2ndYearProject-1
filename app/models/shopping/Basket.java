@@ -28,9 +28,18 @@ public class Basket extends Model {
     public Discount discount;
 
 
+    private boolean discountSet;
     // Default constructor
     public  Basket() {
+       discountSet = false;
+    }
 
+    public boolean isDiscountSet() {
+        return discountSet;
+    }
+
+    public void setDiscountSet(boolean discountSet) {
+        this.discountSet = discountSet;
     }
 
     // Add product to basket

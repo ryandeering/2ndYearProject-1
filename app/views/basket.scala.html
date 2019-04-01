@@ -1,4 +1,4 @@
-@(customer: models.users.Customer, discountForm: Form[models.shopping.Discount])
+@(customer: models.users.Customer)
 
 @import play.api.Play.current
 @import models.shopping._
@@ -40,7 +40,6 @@
 			</thead>
 			<tbody>
                 @if(customer.getBasket() != null) {
-                    <td>@(customer.getBasket().discount.getDiscountID())</td>
                     @for(i <- customer.getBasket().getBasketItems()) {
                     <tr>
                         <td>@i.getProduct.getName</td>
@@ -58,14 +57,17 @@
         <div class="row">
             <div class="col-md-12">
                 <p class="text-right"><strong>Basket Total: &euro; @("%.2f".format(customer.getBasket.getBasketTotal))</strong></p>
+                @if(customer.getBasket.discount.getDiscountID() != "null"){
+                    <p class="text-right"><strong>Discount Applied: </a> @(customer.getBasket().discount.getDiscountID())</strong></p>
+                }
             </div>  
         </div>
 
         <div class="row">
             <div class="col-md-12">
-                Set Discount
-                    @inputText(discountForm("discountID"), '_label -> "discount", 'class -> "form-control")
-                    <span class="glyphicon glyphicon-barcode"></span></a>
+                <a href="@routes.ShoppingCtrl.applyDiscount()">
+                    <button class="btn btn-primary">Apply Discount</button>
+                </a>
             </div>
         </div>
         <div class="row">

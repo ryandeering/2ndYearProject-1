@@ -1,0 +1,25 @@
+@import models.shopping.Discount
+@import models.users.Customer
+@(discountForm: Form[Discount], c: users.Customer)
+@import helper._
+
+@main("Discount",c) {
+    <p class="lead">Apply Discount</p>
+    @if(flash.containsKey("error")) {
+        <div class="alert alert-danger">
+        @flash.get("error")
+        </div>
+    }
+
+    @form(action=routes.ShoppingCtrl.applyDiscountSubmit(), 'class -> "form-horizontal", 'role -> "form",'enctype -> "multipart/form-data") {
+        @CSRF.formField
+        @inputText(discountForm("discountID"), '_label -> "Enter your discount code here. Only valid codes accepted. One discount per order.", 'class -> "form-control")
+
+        <div class="actions">
+            <input type="submit" value="Submit" class="btn-md btn-default btn">
+            <a href="@routes.ShoppingCtrl.showBasket()">
+                <button type="button" class="btn-md btn-default btn">Cancel</button>
+            </a>
+        </div>
+    }
+}

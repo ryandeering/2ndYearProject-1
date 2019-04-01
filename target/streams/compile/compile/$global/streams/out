@@ -1,7 +1,7 @@
-[0m[[0m[31merror[0m] [0m[0mC:\Users\Ryan3\Desktop\2ndYearProject\app\views\AdminPanel\discount.scala.html:39:78: illegal start of simple expression[0m
-[0m[[0m[31merror[0m] [0m[0m                            <a href="@routes.AdminProductCtrl.updateDiscount(@d.getDiscountID)" class="button-xs btn-danger">[0m
-[0m[[0m[31merror[0m] [0m[0m                                                                             ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\Ryan3\Desktop\2ndYearProject\app\views\AdminPanel\discount.scala.html:47:6: ')' expected but '}' found.[0m
-[0m[[0m[31merror[0m] [0m[0m            </tbody>[0m
-[0m[[0m[31merror[0m] [0m[0m     ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Ryan3\OneDrive\Documents\2ndYearProject\app\views\basket.scala.html:60:73: unclosed character literal (or use " for string literal "null")[0m
+[0m[[0m[31merror[0m] [0m[0m                @if(customer.getBasket.discount.getDiscountID() != 'null'){[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                        ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Ryan3\OneDrive\Documents\2ndYearProject\app\views\basket.scala.html:118:2: ')' expected but '}' found.[0m
+[0m[[0m[31merror[0m] [0m[0m    <keep-alive>[0m
+[0m[[0m[31merror[0m] [0m[0m ^[0m
 [0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

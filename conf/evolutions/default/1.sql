@@ -7,6 +7,7 @@ create table basket (
   id                            bigint auto_increment not null,
   customer_email                varchar(255),
   discount_discount_id          varchar(255),
+  discount_set                  boolean default false not null,
   constraint uq_basket_customer_email unique (customer_email),
   constraint pk_basket primary key (id)
 );

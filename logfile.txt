@@ -51,3 +51,6 @@
 31/03/2019 22:34:03 | Ryan Deering logged in under role customer
 31/03/2019 22:36:16 | Ryan Deering placed order1 under role customer
 31/03/2019 22:37:26 | Ryan Deering logged out under role customer
+01/04/2019 16:10:26 | Ryan Deering placed order1 under role customer
+01/04/2019 16:11:49 | Ryan Deering placed order2 under role customer
+01/04/2019 16:15:37 | Ryan Deering placed order3 under role customer

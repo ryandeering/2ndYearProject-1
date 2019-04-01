@@ -17,6 +17,7 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
 import play.mvc.With;
+import views.html.applyDiscount;
 import views.html.basket;
 import views.html.orderConfirmed;
 import views.html.viewOrders;
@@ -72,7 +73,7 @@ public class ShoppingCtrl extends Controller {
 
         }
         c.getBasket().getDiscount();
-        return ok(basket.render(getCurrentUser(), discountForm));
+        return ok(basket.render(getCurrentUser()));
     }
 
     // Add item to customer basket
@@ -104,7 +105,7 @@ public class ShoppingCtrl extends Controller {
 
 
         // Show the basket contents
-        return ok(basket.render(customer, discountForm));
+        return ok(basket.render(customer));
     }
 
     // Add an item to the basket
@@ -143,7 +144,7 @@ public class ShoppingCtrl extends Controller {
         c.getBasket().getDiscount();
         c.getBasket().update();
         // back to basket
-        return ok(basket.render(c, discountForm));
+        return ok(basket.render(c));
     }
 
     // Empty Basket
@@ -153,15 +154,15 @@ public class ShoppingCtrl extends Controller {
         Customer c = getCurrentUser();
         c.getBasket().removeAllItems();
         c.getBasket().setDiscount(new Discount());
+        c.getBasket().setDiscountSet(false);
         c.getBasket().update();
 
-        return ok(basket.render(c, discountForm));
+        return ok(basket.render(c));
     }                           //, discountForm
 
     @Transactional
     public Result placeOrder() {
 
-        Form<Discount> discountForm = formFactory.form(Discount.class).bindFromRequest();
 
         Customer c = getCurrentUser();
 
@@ -169,7 +170,7 @@ public class ShoppingCtrl extends Controller {
         if(c.getBasket().getBasketTotal() == 0.00) {
 
             flash("success", "Your basket is empty. ");
-            return badRequest(basket.render(c, discountForm));
+            return badRequest(basket.render(c));
         }
         // Create an order instance
         ShopOrder order = new ShopOrder();
@@ -189,15 +190,9 @@ public class ShoppingCtrl extends Controller {
         // Move items from basket to order
         for (OrderItem i: order.getItems()) {
 
-            // Associate with order
             i.setOrder(order);
-
-            // Remove from basket
             i.setBasket(null);
-
             i.setDiscount(c.getBasket().getDiscount());
-
-            // update item
             i.update();
         }
 
@@ -206,7 +201,8 @@ public class ShoppingCtrl extends Controller {
         HomeController.log("placed order" + order.getId());
         // Clear and update the shopping basket
         c.getBasket().setBasketItems(null);
-        // c.getBasket().setDiscount(new Discount()); This will be needed when Daria sorts out the order confirmed properly.
+        c.getBasket().setDiscount(new Discount());
+        c.getBasket().setDiscountSet(false);
         c.getBasket().update();
 
         //send email
@@ -277,22 +273,63 @@ public class ShoppingCtrl extends Controller {
         return allowed;
     }
 
+//    @Transactional
+//    public Result setDiscount(){
+//        Customer c = getCurrentUser();
+//        Form<Discount> discountForm = formFactory.form(Discount.class).bindFromRequest();
+//        Discount d = discountForm.get();
+//        Basket b = c.getBasket();
+//        b.setDiscount(d);
+//
+//
+//
+//
+//        if (d.getDiscountID() == null){
+//            return badRequest(basket.render(c, discountForm));
+//        }
+//
+//        return ok(basket.render(c, discountForm));
+//    }
+
+
+    @Security.Authenticated(Secured.class)
     @Transactional
-    public Result setDiscount(){
-        Customer c = getCurrentUser();
-        Form<Discount> discountForm = formFactory.form(Discount.class).bindFromRequest();
-        Discount d = discountForm.get();
-        Basket b = c.getBasket();
-        b.setDiscount(d);
-
-
-        if (d.getDiscountID() == null){
-            return badRequest(basket.render(c, discountForm));
-        }
-
-        return ok(basket.render(c, discountForm));
+    @With(AuthCustomer.class)
+    public Result applyDiscount() {
+        Form<Discount> dForm = formFactory.form(Discount.class);
+        return ok(applyDiscount.render(dForm, getCurrentUser()));
     }
 
+    @Transactional
+    public Result applyDiscountSubmit() {
+
+
+        Discount d;
+        Form<Discount> newDiscountForm = formFactory.form(Discount.class).bindFromRequest();
+        d = newDiscountForm.get();
+        Customer c = getCurrentUser();
+
+        if (newDiscountForm.hasErrors()) {
+            flash("error", "Error");
+            return badRequest(basket.render(c));
+        }
+
+        if (c.getBasket().isDiscountSet() == true){
+            flash("error", "This is awkward...discount already applied.");
+            return badRequest(basket.render(c));
+        }
+
+        Basket b = c.getBasket();
+        b.setDiscount(d);
+        b.setDiscountSet(true);
+
+         b.save();
+         b.update();
+
+        flash("success", "Discount has been applied.");
+
+        return redirect(routes.ShoppingCtrl.showBasket());
+    }
 
 
 
