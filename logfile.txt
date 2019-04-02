@@ -54,3 +54,17 @@
 01/04/2019 16:10:26 | Ryan Deering placed order1 under role customer
 01/04/2019 16:11:49 | Ryan Deering placed order2 under role customer
 01/04/2019 16:15:37 | Ryan Deering placed order3 under role customer
+02/04/2019 21:48:40 | Hulk Hogan logged in under role admin
+02/04/2019 21:49:27 | Daria Denisiuk logged in under role customer
+02/04/2019 21:50:27 | Daria Denisiuk logged out under role customer
+02/04/2019 21:51:41 | Daria Denisiuk logged in under role customer
+02/04/2019 22:42:51 | Daria Denisiuk placed order4 under role customer
+02/04/2019 22:44:19 | Daria Denisiuk placed order5 under role customer
+02/04/2019 23:38:03 | Daria Denisiuk placed order6 under role customer
+02/04/2019 23:40:05 | Daria Denisiuk placed order7 under role customer
+02/04/2019 23:43:56 | Daria Denisiuk placed order8 under role customer
+02/04/2019 23:48:48 | Daria Denisiuk placed order9 under role customer
+02/04/2019 23:52:12 | Daria Denisiuk placed order10 under role customer
+02/04/2019 23:54:52 | Daria Denisiuk placed order11 under role customer
+02/04/2019 23:59:09 | Daria Denisiuk placed order12 under role customer
+02/04/2019 23:59:45 | Daria Denisiuk placed order13 under role customer
