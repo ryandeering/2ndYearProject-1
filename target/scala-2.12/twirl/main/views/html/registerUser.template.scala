@@ -48,24 +48,25 @@ Seq[Any](format.raw/*2.1*/("""
         """),_display_(/*17.10*/inputText(userForm("email"), '_label -> "Email", 'class -> "form-control")),format.raw/*17.84*/("""
         """),_display_(/*18.10*/inputText(userForm("fName"), '_label -> "Name", 'class -> "form-control")),format.raw/*18.83*/("""
         """),_display_(/*19.10*/inputText(userForm("lName"), '_label -> "Name", 'class -> "form-control")),format.raw/*19.83*/("""
-        """),_display_(/*20.10*/inputText(userForm("password"), '_label -> "Password", 'class -> "form-control")),format.raw/*20.90*/("""
-        """),_display_(/*21.10*/inputText(userForm("role").copy(value=Some("customer")), '_label -> "",'hidden -> "hidden")),format.raw/*21.101*/("""
+	"""),_display_(/*20.3*/inputText(userForm("address"), '_label -> "address", 'class -> "form-control")),format.raw/*20.81*/("""
+        """),_display_(/*21.10*/inputText(userForm("password"), '_label -> "Password", 'class -> "form-control")),format.raw/*21.90*/("""
+        """),_display_(/*22.10*/inputText(userForm("role").copy(value=Some("customer")), '_label -> "",'hidden -> "hidden")),format.raw/*22.101*/("""
 
 
 
 
-        """),format.raw/*26.9*/("""<!-- We use the bootstrap actions class for the buttons at the bottom:
+        """),format.raw/*27.9*/("""<!-- We use the bootstrap actions class for the buttons at the bottom:
                 1. The submit button for the form
                 2. A button that allows the user to cancel without adding an item
             -->
     <div class="actions">
         <input type="submit" value="Register user" class="btn btn-primary">
-        <a href=""""),_display_(/*32.19*/routes/*32.25*/.HomeController.registerUser()),format.raw/*32.55*/("""">
+        <a href=""""),_display_(/*33.19*/routes/*33.25*/.HomeController.registerUser()),format.raw/*33.55*/("""">
             <button type="button" class="btn btn-warning">Cancel</button>
         </a>
     </div>
-""")))}),format.raw/*36.2*/(""" """),format.raw/*36.20*/("""
-""")))}),format.raw/*37.2*/(""" """))
+""")))}),format.raw/*37.2*/(""" """),format.raw/*37.20*/("""
+""")))}),format.raw/*38.2*/(""" """))
       }
     }
   }
@@ -81,11 +82,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 02 21:47:56 IST 2019
+                  DATE: Wed Apr 03 20:36:23 IST 2019
                   SOURCE: /home/wdd/2ndYearProject/2ndYearProject/app/views/registerUser.scala.html
-                  HASH: 729f1251f8989057f0547d7649045f398b02b4ea
-                  MATRIX: 994->1|1130->67|1174->65|1201->83|1228->85|1262->111|1300->112|1331->117|1658->418|1769->519|1810->521|1847->558|1884->657|1921->667|1934->671|1965->681|2004->693|2099->767|2136->777|2230->850|2267->860|2361->933|2398->943|2499->1023|2536->1033|2649->1124|2689->1137|3055->1476|3070->1482|3121->1512|3253->1614|3282->1632|3314->1634
-                  LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|42->11|42->11|42->11|43->12|44->13|45->14|45->14|45->14|48->17|48->17|49->18|49->18|50->19|50->19|51->20|51->20|52->21|52->21|57->26|63->32|63->32|63->32|67->36|67->36|68->37
+                  HASH: 1570e9b8158554c40c7bd90e35e0dbdfdc8bf88d
+                  MATRIX: 994->1|1130->67|1174->65|1201->83|1228->85|1262->111|1300->112|1331->117|1658->418|1769->519|1810->521|1847->558|1884->657|1921->667|1934->671|1965->681|2004->693|2099->767|2136->777|2230->850|2267->860|2361->933|2390->936|2489->1014|2526->1024|2627->1104|2664->1114|2777->1205|2817->1218|3183->1557|3198->1563|3249->1593|3381->1695|3410->1713|3442->1715
+                  LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|42->11|42->11|42->11|43->12|44->13|45->14|45->14|45->14|48->17|48->17|49->18|49->18|50->19|50->19|51->20|51->20|52->21|52->21|53->22|53->22|58->27|64->33|64->33|64->33|68->37|68->37|69->38
                   -- GENERATED --
               */
           

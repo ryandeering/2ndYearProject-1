@@ -1,0 +1,349 @@
+@import models.users.User
+@(user: User)
+
+<html>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<style>
+              input.hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+#profile-image1 {
+    cursor: pointer;
+  
+     width: 200px;
+    height: 200px;
+	border:2px solid #03b1ce ;}
+	.tital{ font-size:16px; font-weight:500;}
+	 .bot-border{ border-bottom:1px #f8f8f8 solid;  margin:5px 0  5px 0}	
+
+</style>
+
+
+<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="UTF-8"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style>
+        .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;}
+		.sidecol { font-weight: bold; background-color: steelblue; }
+		.sidecol h2 { font-weight: bold; }
+		.midcol h1 { margin-top: 2em; text-align: center; font-weight: bold; }
+		.midcol h3 { text-align: center; color: steelblue; }
+		.redtext { color: red; }
+
+		.navbar {background-color: #2D2D2D; color: #A5A5A5 background-color: #2D2D2D; color: #A5A5A5; }
+		.sidecol {background-color: #2D2D2D; color: #A5A5A5; }
+		.footer {background-color: #2D2D2D; color: #A5A5A5; }
+		.sidebar { width: 33%; float: right;}
+		.dropdown {  }
+		.navbar-right{  }
+		.headerImg { width: 100%; text-align: center; }
+
+
+
+
+
+@@charset "UTF-8";
+/*
+$content-width will be the max width of the content within the navigation bar.
+$breakpoint determines at which width the media query breakpoint will take effect.
+*/
+
+body {
+  background-color: ;
+}
+nav {
+  float: right;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 0.4em;
+  padding-bottom:0.4em;
+
+}
+nav ul li {
+  float: left;
+  position: relative;
+}
+nav ul li a {
+  display: block;
+  padding: 0 20px;
+  line-height: 70px;
+  background-color: #2D2D2D; color: #A5A5A5;
+  text-decoration: none;
+  /*
+  The full path of this code is nav ul li a:not(:only-child):after. This means that the code will apply to any a tag in our nav list that is NOT an only child, aka any dropdown. The :after means it comes after the output of the tag. I’ve decided that to specify any nav item as a dropdown, it will be followed by a unicode arrow – ▾ (#9662).
+  */
+}
+nav ul li a:hover {
+  background-color: #2D2D2D; color: #A5A5A5;
+}
+nav ul li a:not(:only-child):after {
+  padding-left: 4px;
+  content: ' ▾';
+}
+nav ul li ul li {
+  min-width: 190px;
+}
+nav ul li ul li a {
+  padding: 15px;
+  line-height: 20px;
+}
+
+.nav-dropdown {
+  position: absolute;
+  z-index: 1;
+  /* Guarantees that the dropdown will display on top of any content. */
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  display: none;
+}
+
+.nav-mobile {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #2D2D2D; color: #A5A5A5;
+  height: 70px;
+  width: 70px;
+}
+
+@@media only screen and (max-width: 800px) {
+
+  .brand{
+  padding-top: 10px !important;
+  padding-left: 20px !important;
+   position: absolute !important;
+  float: left !important;
+  line-height: 70px !important;
+  text-transform: uppercase !important;
+  font-size: 1.4em !important;
+  }
+
+  .nav-mobile {
+    display: block;
+  }
+
+  nav {
+  	background-color: #2D2D2D; color: #A5A5A5;
+    width: 100%;
+    padding: 70px 0 15px;
+  }
+  nav ul {
+    display: none;
+  }
+  nav ul li {
+    float: none;
+    padding-left: 2em;
+  }
+  nav ul li a {
+    padding: 15px;
+    line-height: 20px;
+  }
+  nav ul li ul li a {
+    padding-left: 30px;
+  }
+}
+#nav-toggle {
+  position: absolute;
+  left: 18px;
+  top: 22px;
+  cursor: pointer;
+  padding: 10px 35px 16px 0px;
+}
+#nav-toggle span,
+#nav-toggle span:before,
+#nav-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 5px;
+  width: 35px;
+  background: #463f3f;
+  position: absolute;
+  display: block;
+  content: '';
+  transition: all 300ms ease-in-out;
+}
+#nav-toggle span:before {
+  top: -10px;
+}
+#nav-toggle span:after {
+  bottom: -10px;
+}
+#nav-toggle.active span {
+  background-color: transparent;
+}
+#nav-toggle.active span:before, #nav-toggle.active span:after {
+  top: 0;
+}
+#nav-toggle.active span:before {
+  transform: rotate(45deg);
+}
+#nav-toggle.active span:after {
+  transform: rotate(-45deg);
+}
+
+@@media screen and (min-width: 800px) {
+
+  .brand{
+  padding-top: 1px !important;
+  }
+
+  .nav-list {
+    display: block !important;
+  }
+
+
+}
+/*
+.navigation – the outer wrapper for the navbar. Specifies the height and color, and will stretch the full width of the viewport.
+*/
+.navigation {
+  height: 62px;
+ background-color: #2D2D2D; color: #A5A5A5;
+}
+
+/*
+.nav-container – the inner wrapper for the navbar. Defines how far the actual content should stretch.
+*/
+.nav-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.brand {
+  position: relative;
+  overflow: auto;
+  float: left;
+  line-height: 70px;
+  text-transform: uppercase;
+  font-size: 1.4em;
+}
+.brand a,
+.brand a:visited {
+
+  text-decoration: none;
+}
+
+        </style>
+		<title>CDR Games Profile</title>
+	</head>
+
+<center>
+<div class="container" style=" margin: 0 auto; text-align: left;">
+	<div class="row">
+		
+        
+        
+       <div class="col-md-7 ">
+
+<div class="panel panel-default">
+  <div class="panel-heading">  <h4 >User Profile</h4></div>
+   <div class="panel-body">
+       
+    <div class="box box-info">
+        
+            <div class="box-body">
+                     <div class="col-sm-6">
+                     <div  align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive"> 
+                
+                <input id="profile-image-upload" class="hidden" type="file">
+<div style="color:#999;" >click here to change profile image</div>
+                
+           
+              
+   
+                
+                
+                     
+                     
+                     </div>
+              
+              <br>
+
+
+
+    
+              <!-- /input-group -->
+            </div>
+            <div class="col-sm-6">
+            <h4 style="color:#00b1b1;">@user.getfName() @user.getlName()</h4></span>
+              <span><p>@user.getRole()</p></span>            
+            </div>
+            <div class="clearfix"></div>
+            <hr style="margin:5px 0 5px 0;">
+    
+              
+<div class="col-sm-5 col-xs-6 tital " >First Name:</div><div class="col-sm-7 col-xs-6 ">@if(user!=null){@user.getfName()}</div>
+     <div class="clearfix"></div>
+<div class="bot-border"></div>
+
+<div class="col-sm-5 col-xs-6 tital " >Last Name:</div><div class="col-sm-7">@if(user!=null){@user.getlName()}</div>
+  <div class="clearfix"></div>
+<div class="bot-border"></div>
+
+<div class="col-sm-5 col-xs-6 tital " >Email:</div><div class="col-sm-7">@if(user!=null){@user.getEmail}</div>
+  <div class="clearfix"></div>
+<div class="bot-border"></div>
+
+<div class="col-sm-5 col-xs-6 tital " >Address:</div><div class="col-sm-7">@if(user!=null){@user.getAddress}</div>
+
+ <div class="clearfix"></div>
+<div class="bot-border"> <center><a href="@routes.ProductCtrl.listProducts(0)">
+						<i class="fa fa-user-circle-o"></i>
+						Go back to Store</span>
+
+					</a></center></div>
+
+
+
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+        </div>
+       
+            
+    </div> 
+    </div>
+</div>  
+    <script>
+              $(function() {
+    $('#profile-image1').on('click', function() {
+        $('#profile-image-upload').click();
+    });
+});       
+              </script> 
+  
+
+       
+       
+       
+       
+       
+       
+       
+       
+   </div>
+</div>
+</center>
+
+</html>

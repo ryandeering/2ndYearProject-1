@@ -27,8 +27,8 @@ public class Customer extends User {
     @OneToMany(mappedBy="Customer", cascade = CascadeType.ALL)
     private List<Review> reviews;
 	
-    public Customer(String email, String password, String fName, String lName, String role) {
-        super(email, password, fName, lName, role);
+    public Customer(String email, String password, String fName, String lName,String address, String role) {
+        super(email, password, fName, lName,address, role);
     }
     public Basket getBasket() {
         return basket;

@@ -17,6 +17,7 @@ import play.mvc.With;
 import views.html.AdminPanel.*;
 import views.html.addReview;
 import views.html.index;
+import views.html.profile;
 import views.html.product;
 import views.html.registerUser;
 
@@ -55,6 +56,9 @@ public class HomeController extends Controller {
         return ok(registerUser.render(userForm, User.getUserById(session().get("email"))));
     }
 
+  public Result profile() {
+    return ok(profile.render(User.getUserById(session().get("email"))));
+}
 
 
     public Result registerUserSubmit(){

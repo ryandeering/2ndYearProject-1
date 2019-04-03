@@ -221,7 +221,7 @@ nav ul li ul li a {
 }
 
         </style>
-		<title>CDR Games @pagename</title>
+		<title>CDR Games Profile</title>
 	</head>
 	<body>
 
@@ -248,7 +248,7 @@ nav ul li ul li a {
 					<li><a href="@routes.ShoppingCtrl.showBasket()"><span class="glyphicon glyphicon-shopping-cart"></span> Basket</a></li>
 					<li><a href="@routes.ShoppingCtrl.viewOrders()"><span class="glyphicon glyphicon-log-in"></span> View Orders</a></li>
 
-					<li><a href="#">
+					<li><a href="@routes.HomeController.profile()">
 						<i class="fa fa-user-circle-o"></i>
 						@if(user!=null){
 						@user.getEmail} </span>

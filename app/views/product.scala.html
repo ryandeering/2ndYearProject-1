@@ -173,6 +173,15 @@ img {
 					</div>
 					<div class="details col-md-6">
 						<h3 class="product-title">@product.getName() for @product.getPlatform.getName</h3>
+                            @if((product.getStock > 0)){
+			<div class="action">
+
+                   	 <a href="@routes.ShoppingCtrl.addToBasket(product.getId)">
+							<button type="button">add to cart</button>
+                                </a>
+			</div>
+   					 }
+
 						<div class="rating">
 							<div class="stars">
 								<span class="fa fa-star checked"></span>
@@ -182,6 +191,7 @@ img {
 								<span class="fa fa-star"></span>
 							</div>
 							<span class="review-no">@product.reviewCount() </span>
+
 						</div>
 						<p>Developer: @product.getDeveloper</p>
 						<p>Publisher: @product.getPublisher</p>
@@ -190,14 +200,7 @@ img {
 						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
 						
 						
-						<div class="action">
-                            @if((product.getStock > 0)){
-                    <a href="@routes.ShoppingCtrl.addToBasket(product.getId)">
-							<button class="add-to-cart btn btn-default" type="button">add to cart</button>
-                                </a>
-    }
-
-						</div>
+						
 					</div>
 				</div>
 			</div>

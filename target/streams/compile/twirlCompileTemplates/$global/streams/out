@@ -1,2 +1,3 @@
-[0m[[0m[31merror[0m] [0m[0m[Error] /home/ryan/2ndyearproj/2ndYearProject/app/views/basket.scala.html:140[0m
-[0m[[0m[31merror[0m] [0m[0m      }}, '#paypal-button');: Not parsed?[0m
+[0m[[0m[31merror[0m] [0m[0m[Error] /home/wdd/2ndYearProject/2ndYearProject/app/views/profile.scala.html:348[0m
+[0m[[0m[31merror[0m] [0m[0m</html>: Expected '}' but found 'EOF'[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mtwirlCompileTemplates[0m) Twirl compilation failed[0m

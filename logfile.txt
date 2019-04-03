@@ -68,3 +68,8 @@
 02/04/2019 23:54:52 | Daria Denisiuk placed order11 under role customer
 02/04/2019 23:59:09 | Daria Denisiuk placed order12 under role customer
 02/04/2019 23:59:45 | Daria Denisiuk placed order13 under role customer
+03/04/2019 20:40:04 | q q logged in under role customer
+03/04/2019 22:40:38 | q q logged out under role customer
+03/04/2019 22:40:44 | Rita Daria logged in under role customer
+03/04/2019 22:41:11 | Rita Daria logged out under role customer
+03/04/2019 23:03:37 | Rita Daria logged in under role customer

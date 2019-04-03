@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/2ndYearProject/2ndYearProject/app/controllers/ShoppingCtrl.java:200:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   variable getProduct[0m
-[0m[[0m[31merror[0m] [0m[0m  location: variable i of type models.shopping.OrderItem[0m
-[0m[[0m[31merror[0m] [0m[0m	    itable = itable+"<tr> <td>"+i.getId()+"</td><td>"+i.getProduct.getName()+"</td><td>"+i.getQuantity()+"</td><td> "+i.getPrice()+" Euro</td><td>"+i.getItemTotal()+" Euro</td></tr>";[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/2ndYearProject/2ndYearProject/app/views/profile.scala.html:2:18: not found: value user[0m
+[0m[[0m[31merror[0m] [0m[0m@main("profile", user) {[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

@@ -8,7 +8,8 @@ DELETE FROM CATEGORY;
 DELETE FROM PLATFORM;
 DELETE FROM DISCOUNT;
 
-INSERT INTO USER VALUES('admin', 'admin@gmail.com', 'Hulk', 'Hogan', '$2a$10$CxclgqyMzrYng..2r9XzLuzgcExg1H8xi4d6mgLf/NzJbeNj8uRbG', 'admin');
+INSERT INTO USER VALUES('admin', 'admin@gmail.com', 'Hulk', 'Hogan','Merryway road 123','$2a$10$CxclgqyMzrYng..2r9XzLuzgcExg1H8xi4d6mgLf/NzJbeNj8uRbG', 'admin');
+INSERT INTO USER VALUES('customer', 'ritadaria1@gmail.com', 'Rita', 'Daria','Somewhere over the rainbow road, 123 street, dublin','$2a$10$CxclgqyMzrYng..2r9XzLuzgcExg1H8xi4d6mgLf/NzJbeNj8uRbG', 'customer');
 
 INSERT INTO DISCOUNT VALUES('null', 'lol', true, 1.0);
 INSERT INTO DISCOUNT VALUES('BIGSAVINGS', 'Opening discount.', true, 1.0);
