@@ -1,33 +1,17 @@
 package controllers;
 
+import models.products.Product;
 import models.shopping.OrderItem;
 import models.shopping.ShopOrder;
-import org.jfree.data.general.DefaultPieDataset;
-import org.springframework.core.annotation.Order;
-import play.mvc.*;
-import play.data.*;
-import javax.inject.Inject;
-import javax.xml.bind.SchemaOutputResolver;
-
-import views.html.*;
-import play.db.ebean.Transactional;
-import play.api.Environment;
-import org.jfree.chart.ChartUtils;
+import models.users.Customer;
 import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartUtils;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
+import play.mvc.Controller;
 
-
-
-import models.products.Product;
-
-import java.awt.*;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.HashMap;
-import java.util.Collection.*;
-import java.util.Map;
+import java.util.*;
 
 public class Statistics extends Controller{
 
@@ -45,6 +29,60 @@ public class Statistics extends Controller{
     }
 
 
+    public static double medianAmountSpentfr() {
+
+        List<ShopOrder> all = ShopOrder.findAll();
+        ArrayList<Double> amountsSpent = new ArrayList<>();
+
+        for (int i = 0; i < all.size(); i++) {
+            amountsSpent.add(all.get(i).getOrderTotal());
+        }
+
+
+        Collections.sort(amountsSpent);
+        int middle = amountsSpent.size() / 2;
+        middle = middle > 0 && middle % 2 == 0 ? middle - 1 : middle;
+        return amountsSpent.get(middle);
+    }
+
+
+    public static String popularGame() {
+        List<ShopOrder> a = ShopOrder.findAll();
+        List<String> popGames = new ArrayList<String>() {
+        };
+        for (int i = 0; i < a.size(); i++) {
+            List<OrderItem> ab = a.get(i).getItems();
+            for (int j = 0; j < ab.size(); j++) {
+                popGames.add(ab.get(j).getProduct().getName());
+            }
+        }
+        return "Most popular game:" + mostCommonElement(popGames);
+    }
+
+
+    public static int amountofCustomers() {
+        List<Customer> itr = Customer.findAll();
+        int count = 0;
+        for (int i = 0; i < itr.size(); i++) {
+            count++;
+        }
+        return count;
+    }
+
+    public static String popularDiscount() {
+        List<ShopOrder> a = ShopOrder.findAll();
+        List<String> discountsUsed = new ArrayList<String>() {
+        };
+        for (int i = 0; i < a.size(); i++) {
+            List<OrderItem> ab = a.get(i).getItems();
+            for (int j = 0; j < ab.size(); j++) {
+                if (ab.get(j).getDiscount().getDiscountName() != "null") {
+                    discountsUsed.add(ab.get(j).getDiscount().getDiscountID());
+                }
+            }
+        }
+        return mostCommonElement(discountsUsed);
+    }
 
 
 //https://deveshsharmablogs.wordpress.com/2013/07/16/find-most-common-element-in-a-list-in-java/

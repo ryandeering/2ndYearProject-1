@@ -1,26 +1,13 @@
 
 package views.html.AdminPanel
 
-import _root_.play.twirl.api.TwirlFeatureImports._
-import _root_.play.twirl.api.TwirlHelperImports._
-import _root_.play.twirl.api.Html
-import _root_.play.twirl.api.JavaScript
-import _root_.play.twirl.api.Txt
-import _root_.play.twirl.api.Xml
-import models._
-import controllers._
-import play.api.i18n._
-import views.html._
-import play.api.templates.PlayMagic._
 import java.lang._
-import java.util._
-import scala.collection.JavaConverters._
-import play.core.j.PlayMagicForJava._
-import play.mvc._
-import play.api.data.Field
-import play.mvc.Http.Context.Implicit._
-import play.data._
+
+import controllers._
 import play.core.j.PlayFormsMagicForJava._
+import play.core.j.PlayMagicForJava._
+import play.data._
+import views.html._
 
 object updateProduct extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[Long,Form[models.products.Product],models.users.User,play.twirl.api.HtmlFormat.Appendable] {
 
@@ -28,8 +15,8 @@ object updateProduct extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.
   def apply/*1.2*/(id: Long, updateProductForm: Form[models.products.Product], user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
-/*3.3*/import models.products._
-/*6.2*/import helper._
+/*3.3*/import helper._
+import models.products._
 
 
 Seq[Any](format.raw/*1.87*/("""

@@ -2,11 +2,8 @@
 // @SOURCE:C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/a/2ndYearProject/conf/routes
 // @DATE:Wed Apr 03 23:20:40 BST 2019
 
-import play.api.routing.JavaScriptReverseRoute
-
-
 import _root_.controllers.Assets.Asset
-import _root_.play.libs.F
+import play.api.routing.JavaScriptReverseRoute
 
 // @LINE:6
 package controllers.javascript {

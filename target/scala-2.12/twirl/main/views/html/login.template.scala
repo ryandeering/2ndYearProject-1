@@ -1,27 +1,11 @@
 
 package views.html
 
-import _root_.play.twirl.api.TwirlFeatureImports._
-import _root_.play.twirl.api.TwirlHelperImports._
-import _root_.play.twirl.api.Html
-import _root_.play.twirl.api.JavaScript
-import _root_.play.twirl.api.Txt
-import _root_.play.twirl.api.Xml
-import models._
-import controllers._
-import play.api.i18n._
-import views.html._
-import play.api.templates.PlayMagic._
-import java.lang._
-import java.util._
-import scala.collection.JavaConverters._
-import play.core.j.PlayMagicForJava._
-import play.mvc._
-import play.api.data.Field
-import play.mvc.Http.Context.Implicit._
-import play.data._
+import models.users.User
 import play.core.j.PlayFormsMagicForJava._
-/*1.2*/import models.users.User
+import play.core.j.PlayMagicForJava._
+import play.data._
+import play.mvc.Http.Context.Implicit._
 
 object login extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[Form[models.users.Login],User,play.twirl.api.HtmlFormat.Appendable] {
 

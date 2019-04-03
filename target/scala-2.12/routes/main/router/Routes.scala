@@ -4,13 +4,10 @@
 
 package router
 
-import play.core.routing._
-import play.core.routing.HandlerInvokerFactory._
-
-import play.api.mvc._
-
 import _root_.controllers.Assets.Asset
-import _root_.play.libs.F
+import play.api.mvc._
+import play.core.routing.HandlerInvokerFactory._
+import play.core.routing._
 
 class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
