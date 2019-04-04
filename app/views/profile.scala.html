@@ -1,5 +1,7 @@
 @import models.users.User
-@(user: User)
+@import helper._
+
+@(env: play.api.Environment,user: User, pf:Form[models.users.User])
 
 <html>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -258,17 +260,25 @@ nav ul li ul li a {
 <div class="panel panel-default">
   <div class="panel-heading">  <h4 >User Profile</h4></div>
    <div class="panel-body">
-       
+       @form(action = helper.CSRF(routes.HomeController.changeProfilePic()), 'enctype -> "multipart/form-data") {
     <div class="box box-info">
-        
+        @*productImages/*@
             <div class="box-body">
                      <div class="col-sm-6">
-                     <div  align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive"> 
+                         @if(env.resource("public/images/profileImages/" + user.getEmail + ".jpg").isDefined) {
+                             <div  align="center"> <img alt="User Pic" src="/assets/images/profileImages/@(user.getEmail).jpg" id="profile-image1" class="img-circle img-responsive">
+                         } else {
+                             <div  align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">
+                                 }
+                                Change your profile picture here!
+
+                         <input class="btn-sm btn-default" type="file" name="upload">
+                         <div class="actions">
+                             <input type="submit" value="Change pic" class="btn btn-primary">
+                             }
+<div style="color:#999;" ></div>
                 
-                <input id="profile-image-upload" class="hidden" type="file">
-<div style="color:#999;" >click here to change profile image</div>
-                
-           
+
               
    
                 
@@ -325,13 +335,7 @@ nav ul li ul li a {
     </div> 
     </div>
 </div>  
-    <script>
-              $(function() {
-    $('#profile-image1').on('click', function() {
-        $('#profile-image-upload').click();
-    });
-});       
-              </script> 
+
   
 
        

@@ -67,3 +67,37 @@
 04/04/2019 11:39:38 | Hulk Hogan added a product Deering under role admin
 04/04/2019 11:41:15 | Hulk Hogan deleted product Deering under role admin
 04/04/2019 11:41:18 | Hulk Hogan deleted product Bubsy 3D under role admin
+04/04/2019 13:10:35 | Hulk Hogan logged in under role admin
+04/04/2019 13:11:52 | Hulk Hogan added a product safasf under role admin
+04/04/2019 13:20:30 | Hulk Hogan updated a product under role admin
+04/04/2019 13:32:30 | Hulk Hogan deleted product safasf under role admin
+04/04/2019 13:32:58 | Hulk Hogan added a product Bubsy under role admin
+04/04/2019 13:33:35 | Ryan Deering logged in under role customer
+04/04/2019 13:34:45 | Ryan Deering logged out under role customer
+04/04/2019 13:34:49 | Hulk Hogan logged in under role admin
+04/04/2019 13:34:54 | Hulk Hogan deleted product Bubsy under role admin
+04/04/2019 13:35:28 | Hulk Hogan logged out under role admin
+04/04/2019 13:35:34 | Rita Daria logged in under role customer
+04/04/2019 13:35:51 | Rita Daria placed order1 under role customer
+04/04/2019 13:36:00 | Rita Daria placed order2 under role customer
+04/04/2019 13:36:08 | Rita Daria placed order3 under role customer
+04/04/2019 13:36:12 | Rita Daria logged out under role customer
+04/04/2019 13:36:18 | Hulk Hogan logged in under role admin
+04/04/2019 13:36:32 | Hulk Hogan updated a product under role admin
+04/04/2019 13:36:52 | Hulk Hogan logged out under role admin
+04/04/2019 13:37:29 | Ryan Deering logged in under role customer
+04/04/2019 13:37:52 | Ryan Deering placed order4 under role customer
+04/04/2019 13:39:09 | Ryan Deering placed order5 under role customer
+04/04/2019 13:39:15 | Ryan Deering logged out under role customer
+04/04/2019 13:39:18 | Hulk Hogan logged in under role admin
+04/04/2019 14:00:23 | Rita Daria logged in under role customer
+04/04/2019 14:01:09 | Rita Daria placed order6 under role customer
+04/04/2019 14:22:59 | Rita Daria placed order7 under role customer
+04/04/2019 14:23:24 | Rita Daria logged out under role customer
+04/04/2019 14:23:28 | Hulk Hogan logged in under role admin
+04/04/2019 18:36:44 | Hulk Hogan logged in under role admin
+04/04/2019 19:12:54 | Hulk Hogan logged out under role admin
+04/04/2019 19:13:00 | Rita Daria logged in under role customer
+04/04/2019 20:26:12 | Rita Daria logged out under role customer
+04/04/2019 20:42:25 | Hulk Hogan logged in under role admin
+04/04/2019 20:46:19 | Hulk Hogan logged out under role admin

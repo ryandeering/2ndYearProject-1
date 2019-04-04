@@ -17,6 +17,7 @@
         @inputText(cForm("fName"), '_label -> "First Name", 'class -> "form-control")
         @inputText(cForm("lName"), '_label -> "Last Name", 'class -> "form-control")
         @inputText(cForm("password"), '_label -> "Password", 'class -> "form-control")
+        @inputText(cForm("address").copy(value=Some("null")), '_label -> "",'hidden -> "hidden")
         @inputText(cForm("role").copy(value=Some("customer")), '_label -> "",'hidden -> "hidden")
         @inputText(cForm("email"), '_label -> "", 'hidden -> "hidden")
 

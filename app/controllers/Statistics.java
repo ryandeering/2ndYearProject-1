@@ -76,7 +76,7 @@ public class Statistics extends Controller{
         for (int i = 0; i < a.size(); i++) {
             List<OrderItem> ab = a.get(i).getItems();
             for (int j = 0; j < ab.size(); j++) {
-                if (ab.get(j).getDiscount().getDiscountName() != "null") {
+                if (!ab.get(j).getDiscount().getDiscountName().equals("null")){
                     discountsUsed.add(ab.get(j).getDiscount().getDiscountID());
                 }
             }

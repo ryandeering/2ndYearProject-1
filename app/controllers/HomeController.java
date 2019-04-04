@@ -1,19 +1,18 @@
 package controllers;
 
+import models.products.Category;
 import models.products.Product;
 import models.reviews.Review;
 import models.users.Admin;
 import models.users.Customer;
 import models.users.User;
+import models.users.Valid;
 import org.mindrot.jbcrypt.BCrypt;
 import play.api.Environment;
 import play.data.Form;
 import play.data.FormFactory;
 import play.db.ebean.Transactional;
-import play.mvc.Controller;
-import play.mvc.Result;
-import play.mvc.Security;
-import play.mvc.With;
+import play.mvc.*;
 import views.html.AdminPanel.*;
 import views.html.addReview;
 import views.html.index;
@@ -22,6 +21,7 @@ import views.html.product;
 import views.html.registerUser;
 
 import javax.inject.Inject;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -53,26 +53,47 @@ public class HomeController extends Controller {
 
     public Result registerUser() {
         Form<Customer> userForm = formFactory.form(Customer.class);
-        return ok(registerUser.render(userForm, User.getUserById(session().get("email"))));
+        Form<Valid> vf = formFactory.form(Valid.class);
+        return ok(registerUser.render(vf, userForm, User.getUserById(session().get("email"))));
     }
 
     public Result profile() {
-        return ok(profile.render(User.getUserById(session().get("email"))));
+        Form<User> pf = formFactory.form(User.class); // hack
+        return ok(profile.render(e,User.getUserById(session().get("email")),pf));
     }
 
 
     public Result registerUserSubmit(){
         Form<Customer> customerForm = formFactory.form(Customer.class).bindFromRequest();
+        Form<Valid> vf = formFactory.form(Valid.class).bindFromRequest();
 
         if(customerForm.hasErrors()){
-            return badRequest(registerUser.render(customerForm, User.getUserById(session().get("email"))));
-        }else{
+            return badRequest(registerUser.render(vf,customerForm, User.getUserById(session().get("email"))));
+        }
+
+        if(vf.hasErrors()) {
+            return badRequest(registerUser.render(vf,customerForm, User.getUserById(session().get("email"))));
+        }
+
             Customer newCustomer = customerForm.get();
-            newCustomer.setPassword(BCrypt.hashpw(newCustomer.getPassword(), BCrypt.gensalt()));
+            Valid vfa = vf.get();
+
+            String salt = BCrypt.gensalt();
+
+            newCustomer.setPassword(BCrypt.hashpw(newCustomer.getPassword(), salt));
+            vfa.setPassword2(BCrypt.hashpw(vfa.getPassword2(), salt));
+
+            if(newCustomer.getPassword().equals(vfa.getPassword2()) == false){
+                flash("error", "Passwords must match.");
+                return badRequest(registerUser.render(vf,customerForm, User.getUserById(session().get("email"))));
+            }
+
+
+
             newCustomer.save();
-            flash("You have Successfully registered!");
-            return redirect(controllers.routes.HomeController.index());}
-    }
+            flash("success","Congratulations, " + newCustomer.getfName()+ " ! You're now part of the CDR Games family. Login, set your address in the profile settings and shop to your heart's content!");
+            return redirect(routes.LoginController.login());}
+
 
 
     @Security.Authenticated(Secured.class)
@@ -328,6 +349,26 @@ public class HomeController extends Controller {
     public static boolean between(int i, int minValueInclusive, int maxValueInclusive) {
         return i >= minValueInclusive && i <= maxValueInclusive;
     }
+
+
+
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    public Result changeProfilePic() {
+
+        Form<User> User = formFactory.form(User.class).bindFromRequest();
+        User u = getCurrentUser();
+
+        Http.MultipartFormData<File> data = request().body().asMultipartFormData();
+        Http.MultipartFormData.FilePart<File> image = data.getFile("upload");
+
+        String saveImageMsg = AdminProductCtrl.saveFile("profileImages/",(u.getEmail()), image); ///fixed! - ryan
+
+        flash("success", "Profile picture has been created" + " " + saveImageMsg);
+
+        return redirect(routes.HomeController.profile());
+    }
+
 }
 
 

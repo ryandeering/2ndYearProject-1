@@ -89,6 +89,10 @@ create table user (
   constraint pk_user primary key (email)
 );
 
+create table valid (
+  password2                     varchar(255)
+);
+
 alter table basket add constraint fk_basket_customer_email foreign key (customer_email) references user (email) on delete restrict on update restrict;
 
 alter table basket add constraint fk_basket_discount_discount_id foreign key (discount_discount_id) references discount (discount_id) on delete restrict on update restrict;
@@ -181,4 +185,6 @@ drop table if exists review;
 drop table if exists shop_order;
 
 drop table if exists user;
+
+drop table if exists valid;
 

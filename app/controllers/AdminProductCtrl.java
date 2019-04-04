@@ -96,12 +96,12 @@ public class AdminProductCtrl extends Controller {
             newProduct.getCategories().add(Category.find.byId(cat));
         }
 
-        newProduct.update();
         HomeController.log("added a product " + newProduct.getName());
+        newProduct.update();
         MultipartFormData<File> data = request().body().asMultipartFormData();
         FilePart<File> image = data.getFile("upload");
 
-        String saveImageMsg = saveFile(newProduct.getId(), image); ///fixed! - ryan
+        String saveImageMsg = saveFile("productImages/",Long.toString(newProduct.getId()), image); ///fixed! - ryan
 
         flash("success", "Product " + newProduct.getName() + " has been created" + " " + saveImageMsg);
 
@@ -156,7 +156,7 @@ public class AdminProductCtrl extends Controller {
         return redirect(routes.AdminProductCtrl.index());
     }
 
-    public String saveFile(Long id, FilePart<File> image) {
+    public static String saveFile(String dir, String id, FilePart<File> image) {
         if (image != null) {
             // Get mimetype from image
             String mimeType = image.getContentType();
@@ -173,14 +173,14 @@ public class AdminProductCtrl extends Controller {
                 // Resize using height and width constraints
                 op.resize(300, 400);
                 // Save the  image
-                op.addImage("public/images/productImages/" + id + ".jpg");
+                op.addImage("public/images/" + dir + id + ".jpg");
                 // thumbnail
                 IMOperation thumb = new IMOperation();
                 // Get the uploaded image file
                 thumb.addImage(file.getAbsolutePath());
                 thumb.thumbnail(60);
                 // Save the  image
-                thumb.addImage("public/images/productImages/thumbnails/" + id + ".jpg");
+                thumb.addImage("public/images/" + dir + "thumbnails/" + id + ".jpg");
                 // execute the operation
                 try {
                     cmd.run(op);

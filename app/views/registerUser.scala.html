@@ -1,9 +1,16 @@
-@(userForm: Form[models.users.Customer],user: models.users.User)
+@(vf: Form[models.users.Valid] ,userForm: Form[models.users.Customer],user: models.users.User)
 
     @import helper._
 
     @main("Register User",user){
-        <p class="lead">Add a new user</p>
+
+        @if(flash.containsKey("error")) {
+            <div class="alert alert-danger">
+            @flash.get("error")
+            </div>
+        }
+
+        <p class="lead">Registration</p>
 
             <!-- Use a views.html.helpers package method to create the form (instead of html)-->
             <!-- Note the arguments that are being passed to the scala function form (they are
@@ -19,6 +26,7 @@
             @inputText(userForm("lName"), '_label -> "Name", 'class -> "form-control")
             @inputText(userForm("address"), '_label -> "address", 'class -> "form-control")
             @inputText(userForm("password"), '_label -> "Password", 'class -> "form-control")
+            @inputText(vf("password2"), '_label -> "Confirm Password", 'class -> "form-control")
             @inputText(userForm("role").copy(value=Some("customer")), '_label -> "",'hidden -> "hidden")
 
 
