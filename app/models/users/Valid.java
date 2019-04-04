@@ -1,17 +1,18 @@
 package models.users;
 
-import io.ebean.Finder;
 import io.ebean.Model;
-import org.mindrot.jbcrypt.BCrypt;
-import play.data.validation.Constraints;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
 
 
 
 @Entity
 
 public class Valid extends Model {
+
+
+    // This is the password validation class.
+
     private String password2;
 
 

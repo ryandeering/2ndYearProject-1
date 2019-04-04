@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/conf/routes
-// @DATE:Thu Apr 04 11:22:56 BST 2019
+// @SOURCE:/home/ryan/Downloads/aa/2ndYearProject/conf/routes
+// @DATE:Thu Apr 04 21:01:49 IST 2019
 
 package router
 
@@ -104,6 +104,7 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addReviewSubmit/""" + "$" + """prodId<[^/]+>""", """controllers.HomeController.addReviewSubmit(prodId:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteReview/""" + "$" + """id<[^/]+>""", """controllers.HomeController.deleteReview(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """admin/panel""", """controllers.AdminProductCtrl.adminPanel"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """profile/changeProfilePic""", """controllers.HomeController.changeProfilePic()"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -993,6 +994,24 @@ class Routes(
     )
   )
 
+  // @LINE:62
+  private[this] lazy val controllers_HomeController_changeProfilePic49_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("profile/changeProfilePic")))
+  )
+  private[this] lazy val controllers_HomeController_changeProfilePic49_invoker = createInvoker(
+    HomeController_0.changeProfilePic(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "changeProfilePic",
+      Nil,
+      "POST",
+      this.prefix + """profile/changeProfilePic""",
+      """""",
+      Seq()
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -1288,6 +1307,12 @@ class Routes(
     case controllers_AdminProductCtrl_adminPanel48_route(params@_) =>
       call { 
         controllers_AdminProductCtrl_adminPanel48_invoker.call(AdminProductCtrl_3.adminPanel)
+      }
+  
+    // @LINE:62
+    case controllers_HomeController_changeProfilePic49_route(params@_) =>
+      call { 
+        controllers_HomeController_changeProfilePic49_invoker.call(HomeController_0.changeProfilePic())
       }
   }
 }

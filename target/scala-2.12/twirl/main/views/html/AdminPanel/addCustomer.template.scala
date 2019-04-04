@@ -31,8 +31,7 @@ object addCustomer extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.ap
 /*4.2*/import helper._
 
 
-Seq[Any](format.raw/*1.62*/("""
-
+Seq[Any](format.raw/*2.1*/("""
 
 """),format.raw/*5.1*/("""
 """),_display_(/*6.2*/main("Add Customer",user)/*6.27*/{_display_(Seq[Any](format.raw/*6.28*/("""
@@ -49,21 +48,22 @@ Seq[Any](format.raw/*1.62*/("""
         """),_display_(/*17.10*/inputText(cForm("fName"), '_label -> "First Name", 'class -> "form-control")),format.raw/*17.86*/("""
         """),_display_(/*18.10*/inputText(cForm("lName"), '_label -> "Last Name", 'class -> "form-control")),format.raw/*18.85*/("""
         """),_display_(/*19.10*/inputText(cForm("password"), '_label -> "Password", 'class -> "form-control")),format.raw/*19.87*/("""
-        """),_display_(/*20.10*/inputText(cForm("role").copy(value=Some("customer")), '_label -> "",'hidden -> "hidden")),format.raw/*20.98*/("""
-        """),_display_(/*21.10*/inputText(cForm("email"), '_label -> "", 'hidden -> "hidden")),format.raw/*21.71*/("""
+        """),_display_(/*20.10*/inputText(cForm("address").copy(value=Some("null")), '_label -> "",'hidden -> "hidden")),format.raw/*20.97*/("""
+        """),_display_(/*21.10*/inputText(cForm("role").copy(value=Some("customer")), '_label -> "",'hidden -> "hidden")),format.raw/*21.98*/("""
+        """),_display_(/*22.10*/inputText(cForm("email"), '_label -> "", 'hidden -> "hidden")),format.raw/*22.71*/("""
 
-        """),format.raw/*23.9*/("""<!-- We use the bootstrap actions class for the buttons at the bottom:
+        """),format.raw/*24.9*/("""<!-- We use the bootstrap actions class for the buttons at the bottom:
                 1. The submit button for the form
                 2. A button that allows the user to cancel without adding an item
             -->
     <div class="actions">
         <input type="submit" value="Add/Update Customer" class="btn btn-primary">
-        <a href=""""),_display_(/*29.19*/routes/*29.25*/.HomeController.usersCustomer()),format.raw/*29.56*/("""">
+        <a href=""""),_display_(/*30.19*/routes/*30.25*/.HomeController.usersCustomer()),format.raw/*30.56*/("""">
             <button type="button" class="btn btn-warning">Cancel</button>
         </a>
     </div>
-""")))}),format.raw/*33.2*/(""" """),format.raw/*33.20*/("""
 """)))}),format.raw/*34.2*/(""" """),format.raw/*34.20*/("""
+""")))}),format.raw/*35.2*/(""" """),format.raw/*35.20*/("""
 """))
       }
     }
@@ -80,11 +80,11 @@ Seq[Any](format.raw/*1.62*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Apr 04 01:09:46 BST 2019
-                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/app/views/AdminPanel/addCustomer.scala.html
-                  HASH: 5f9a07a83655b052f8627ced5a8a14a4d925ebf1
-                  MATRIX: 1004->1|1137->68|1182->61|1214->85|1242->88|1275->113|1313->114|1345->120|1681->430|1789->528|1830->530|1868->568|1906->668|1944->679|1957->683|1988->693|2026->704|2118->775|2156->786|2253->862|2291->873|2387->948|2425->959|2523->1036|2561->1047|2670->1135|2708->1146|2790->1207|2829->1219|3207->1570|3222->1576|3274->1607|3410->1713|3439->1731|3472->1734|3501->1752
-                  LINES: 28->1|31->4|34->1|37->5|38->6|38->6|38->6|39->7|44->12|44->12|44->12|45->13|46->14|47->15|47->15|47->15|48->16|48->16|49->17|49->17|50->18|50->18|51->19|51->19|52->20|52->20|53->21|53->21|55->23|61->29|61->29|61->29|65->33|65->33|66->34|66->34
+                  DATE: Thu Apr 04 21:01:49 IST 2019
+                  SOURCE: /home/ryan/Downloads/aa/2ndYearProject/app/views/AdminPanel/addCustomer.scala.html
+                  HASH: b05ee6a90f3e1969114ae6ff19072b4d82d1e5b9
+                  MATRIX: 1004->1|1137->65|1181->62|1209->81|1236->83|1269->108|1307->109|1338->114|1669->419|1777->517|1818->519|1855->556|1892->655|1929->665|1942->669|1973->679|2010->689|2102->760|2139->770|2236->846|2273->856|2369->931|2406->941|2504->1018|2541->1028|2649->1115|2686->1125|2795->1213|2832->1223|2914->1284|2951->1294|3323->1639|3338->1645|3390->1676|3522->1778|3551->1796|3583->1798|3612->1816
+                  LINES: 28->1|31->4|34->2|36->5|37->6|37->6|37->6|38->7|43->12|43->12|43->12|44->13|45->14|46->15|46->15|46->15|47->16|47->16|48->17|48->17|49->18|49->18|50->19|50->19|51->20|51->20|52->21|52->21|53->22|53->22|55->24|61->30|61->30|61->30|65->34|65->34|66->35|66->35
                   -- GENERATED --
               */
           

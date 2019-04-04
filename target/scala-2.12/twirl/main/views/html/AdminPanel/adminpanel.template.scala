@@ -31,8 +31,7 @@ object adminpanel extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api
       {
 
 
-Seq[Any](format.raw/*2.27*/("""
-"""),_display_(/*3.2*/main("Administrators",user)/*3.29*/{_display_(Seq[Any](format.raw/*3.30*/("""
+Seq[Any](_display_(/*3.2*/main("Administrators",user)/*3.29*/{_display_(Seq[Any](format.raw/*3.30*/("""
     """),format.raw/*4.5*/("""<div class="col-sm-9">
         <h4>Hello, """),_display_(/*5.21*/user/*5.25*/.getfName()),format.raw/*5.36*/(""" """),_display_(/*5.38*/user/*5.42*/.getlName()),format.raw/*5.53*/("""!</h4>
         <h5>This is the admin panel.</h5>
@@ -67,11 +66,11 @@ Seq[Any](format.raw/*2.27*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Apr 04 01:09:46 BST 2019
-                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/app/views/AdminPanel/adminpanel.scala.html
-                  HASH: e9cf2051acd77780b2fb1525ecd5a5a56b709500
-                  MATRIX: 662->1|1007->28|1127->53|1155->56|1190->83|1228->84|1260->90|1330->134|1342->138|1373->149|1401->151|1413->155|1444->166|1575->271|1589->277|1642->310|1788->429|1803->435|1852->463|1999->583|2014->589|2061->615|2205->732|2220->738|2272->769|2419->889|2434->895|2485->925
-                  LINES: 24->1|29->2|34->2|35->3|35->3|35->3|36->4|37->5|37->5|37->5|37->5|37->5|37->5|40->8|40->8|40->8|42->10|42->10|42->10|44->12|44->12|44->12|46->14|46->14|46->14|48->16|48->16|48->16
+                  DATE: Thu Apr 04 21:01:49 IST 2019
+                  SOURCE: /home/ryan/Downloads/aa/2ndYearProject/app/views/AdminPanel/adminpanel.scala.html
+                  HASH: 1b689ca7df9a160be04516d22c3688c1634467c4
+                  MATRIX: 662->1|1007->27|1126->54|1161->81|1199->82|1230->87|1299->130|1311->134|1342->145|1370->147|1382->151|1413->162|1541->264|1555->270|1608->303|1752->420|1767->426|1816->454|1961->572|1976->578|2023->604|2165->719|2180->725|2232->756|2377->874|2392->880|2443->910
+                  LINES: 24->1|29->2|34->3|34->3|34->3|35->4|36->5|36->5|36->5|36->5|36->5|36->5|39->8|39->8|39->8|41->10|41->10|41->10|43->12|43->12|43->12|45->14|45->14|45->14|47->16|47->16|47->16
                   -- GENERATED --
               */
           

@@ -59,3 +59,4 @@ GET     /addReview/:prodId               controllers.HomeController.addReview(pr
 POST    /addReviewSubmit/:prodId         controllers.HomeController.addReviewSubmit(prodId:Long)
 GET     /deleteReview/:id                     controllers.HomeController.deleteReview(id:Long)
 GET /admin/panel         controllers.AdminProductCtrl.adminPanel
+POST /profile/changeProfilePic controllers.HomeController.changeProfilePic()

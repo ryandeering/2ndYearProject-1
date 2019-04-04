@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/conf/routes
-// @DATE:Thu Apr 04 11:22:56 BST 2019
+// @SOURCE:/home/ryan/Downloads/aa/2ndYearProject/conf/routes
+// @DATE:Thu Apr 04 21:01:49 IST 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -233,6 +233,16 @@ package controllers.javascript {
       """
         function(id0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "admin/deleteCustomer/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:62
+    def changeProfilePic: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.changeProfilePic",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "profile/changeProfilePic"})
         }
       """
     )

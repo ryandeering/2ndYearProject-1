@@ -24,6 +24,7 @@ import views.html.viewOrders;
 
 import javax.inject.Inject;
 import java.util.Calendar;
+import java.util.List;
 
 // Import models
 // Import security controllers
@@ -41,7 +42,7 @@ public class ShoppingCtrl extends Controller {
     /** http://stackoverflow.com/questions/15600186/play-framework-dependency-injection **/
     private FormFactory formFactory;
     private final MailerClient mailer;
-    private String itable;
+
 
     /** http://stackoverflow.com/a/37024198 **/
     private Environment env;
@@ -190,6 +191,7 @@ public class ShoppingCtrl extends Controller {
         // Save the order now to generate a new id for this order
         order.save();
 
+
         // Move items from basket to order
         for (OrderItem i: order.getItems()) {
 
@@ -197,12 +199,13 @@ public class ShoppingCtrl extends Controller {
             i.setBasket(null);
             i.setDiscount(c.getBasket().getDiscount());
             i.update();
-            itable = itable+"<tr> <td>"+i.getId()+"</td><td>"+i.getProduct().getName()+"</td><td>"+i.getQuantity()+"</td><td> "+i.getPrice()+" Euro</td><td>"+i.getItemTotal()+" Euro</td></tr>";
-
         }
+
+        String itable = "";
 
         // Update the order
         order.update();
+        List<OrderItem> copy = order.getItems();
         HomeController.log("placed order" + order.getId());
         // Clear and update the shopping basket
         c.getBasket().setBasketItems(null);
@@ -210,17 +213,18 @@ public class ShoppingCtrl extends Controller {
         c.getBasket().setDiscountSet(false);
         c.getBasket().update();
 
+        for (OrderItem i : copy) {
+            itable = itable + "<tr><td>" + i.getProduct().getName() + "</td><td>" + i.getQuantity() + "</td><td> " + i.getPrice() + " Euro</td><td>" + i.getItemTotal() + " Euro</td></tr>";
+        }
+
         //send email
         String cid = c.getEmail();
         final Email email = new Email()
                 .setSubject("Order ID:" + order.getId() + " | " + order.getOrderDate())
                 .setFrom("CDR Games <cdrgamescdr@email.com>")
                 .addTo(c.getfName() + " " + c.getlName() + "<" + c.getEmail() + ">")
-                .setBodyHtml("<html> <body style=' border: 1px solid black; background-color:grey;'><center><h1>CDR Games</h1></center> <h2> Name: "+c.getfName() + " " + c.getlName() + " <br/> Address: " + c.getAddress() + "</h2><br/><h2>ORDER RECEIPT: <br/>  Order Info:  <table style=' border: 1px solid black;'>"+ itable + " <br/> </table></h2></body></html>");
-
-
+                .setBodyHtml("<html> <body style=' border: 1px solid black; background-color:grey;'><center><h1>CDR Games</h1></center> <h2> Name: " + c.getfName() + " " + c.getlName() + " <br/> Address: " + c.getAddress() + " <br/> Order Total: " + order.getOrderTotal() + "</h2><br/><h2>ORDER RECEIPT: <br/>  Order Info:  <table style=' border: 1px solid black;'>" + itable + " <br/> </table></h2></body></html>");
         mailer.send(email);
-
 
         // Show order confirmed view
         return ok(orderConfirmed.render(c, order));

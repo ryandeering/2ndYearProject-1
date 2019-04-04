@@ -32,8 +32,7 @@ object login extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Html
 /*3.2*/import helper._
 
 
-Seq[Any](format.raw/*2.50*/("""
-"""),format.raw/*4.1*/("""
+Seq[Any](format.raw/*4.1*/("""
 """),_display_(/*5.2*/main("Login", user)/*5.21*/{_display_(Seq[Any](format.raw/*5.22*/("""
     """),format.raw/*6.5*/("""<h3>Sign in</h3>
 
@@ -46,32 +45,40 @@ Seq[Any](format.raw/*2.50*/("""
 """),format.raw/*14.1*/("""</p>
 """)))}),format.raw/*15.2*/("""
 
-"""),_display_(/*17.2*/if(flash.containsKey("error"))/*17.32*/{_display_(Seq[Any](format.raw/*17.33*/("""
-    """),format.raw/*18.5*/("""<div class="alert alert-success">
+    """),_display_(/*17.6*/if(flash.containsKey("error"))/*17.36*/ {_display_(Seq[Any](format.raw/*17.38*/("""
+        """),format.raw/*18.9*/("""<div class="alert alert-danger">
         """),_display_(/*19.10*/flash/*19.15*/.get("error")),format.raw/*19.28*/("""
-    """),format.raw/*20.5*/("""</div>
-""")))}),format.raw/*21.2*/("""
+        """),format.raw/*20.9*/("""</div>
+    """)))}),format.raw/*21.6*/("""
+
+
+
+"""),_display_(/*25.2*/if(flash.containsKey("success"))/*25.34*/{_display_(Seq[Any](format.raw/*25.35*/("""
+    """),format.raw/*26.5*/("""<div class="alert alert-success">
+        """),_display_(/*27.10*/flash/*27.15*/.get("success")),format.raw/*27.30*/("""
+    """),format.raw/*28.5*/("""</div>
+""")))}),format.raw/*29.2*/("""
 
 
 
 
 
-"""),_display_(/*27.2*/helper/*27.8*/.form(action = controllers.routes.LoginController.loginSubmit())/*27.72*/ {_display_(Seq[Any](format.raw/*27.74*/("""
-"""),_display_(/*28.2*/CSRF/*28.6*/.formField),format.raw/*28.16*/("""
-"""),format.raw/*29.1*/("""<div class="form-group">
-    """),_display_(/*30.6*/inputText(loginForm("email"), '_label -> "",
-    'class -> "form-control input-xs", 'placeholder -> "Email")),format.raw/*31.64*/("""
-"""),format.raw/*32.1*/("""</div>
+"""),_display_(/*35.2*/helper/*35.8*/.form(action = controllers.routes.LoginController.loginSubmit())/*35.72*/ {_display_(Seq[Any](format.raw/*35.74*/("""
+"""),_display_(/*36.2*/CSRF/*36.6*/.formField),format.raw/*36.16*/("""
+"""),format.raw/*37.1*/("""<div class="form-group">
+    """),_display_(/*38.6*/inputText(loginForm("email"), '_label -> "",
+    'class -> "form-control input-xs", 'placeholder -> "Email")),format.raw/*39.64*/("""
+"""),format.raw/*40.1*/("""</div>
 <div class="form-group">
-    """),_display_(/*34.6*/inputPassword(loginForm("password"), '_label -> "",
-    'class -> "form-control input-xs", 'placeholder -> "Password")),format.raw/*35.67*/("""
-"""),format.raw/*36.1*/("""</div>
+    """),_display_(/*42.6*/inputPassword(loginForm("password"), '_label -> "",
+    'class -> "form-control input-xs", 'placeholder -> "Password")),format.raw/*43.67*/("""
+"""),format.raw/*44.1*/("""</div>
 <div class="form-group">
     <input type="submit" value="Sign In" class="btn btn-primary">
 </div>
 
-""")))}),format.raw/*41.2*/("""
-""")))}),format.raw/*42.2*/("""
+""")))}),format.raw/*49.2*/("""
+""")))}),format.raw/*50.2*/("""
 
 
 
@@ -91,11 +98,11 @@ Seq[Any](format.raw/*2.50*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Apr 04 01:09:47 BST 2019
-                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/app/views/login.scala.html
-                  HASH: b9e81c7dbe1e688525ed91a7bd799b3aff49fed2
-                  MATRIX: 651->1|1003->28|1124->79|1169->76|1197->96|1225->99|1252->118|1290->119|1322->125|1368->146|1405->175|1444->177|1476->183|1543->224|1591->256|1631->258|1669->269|1679->270|1708->278|1750->290|1779->292|1816->299|1847->304|1886->334|1925->335|1958->341|2029->385|2043->390|2077->403|2110->409|2149->418|2188->431|2202->437|2275->501|2315->503|2344->506|2356->510|2387->520|2416->522|2473->553|2603->662|2632->664|2697->703|2837->822|2866->824|3008->936|3041->939
-                  LINES: 24->1|29->2|32->3|35->2|36->4|37->5|37->5|37->5|38->6|40->8|40->8|40->8|41->9|43->11|43->11|43->11|44->12|44->12|44->12|45->13|46->14|47->15|49->17|49->17|49->17|50->18|51->19|51->19|51->19|52->20|53->21|59->27|59->27|59->27|59->27|60->28|60->28|60->28|61->29|62->30|63->31|64->32|66->34|67->35|68->36|73->41|74->42
+                  DATE: Thu Apr 04 21:01:49 IST 2019
+                  SOURCE: /home/ryan/Downloads/aa/2ndYearProject/app/views/login.scala.html
+                  HASH: 045eb24d09bc01333ccc2a1734ecf65376dd2ec0
+                  MATRIX: 651->1|1003->27|1124->77|1168->93|1195->95|1222->114|1260->115|1291->120|1335->139|1372->168|1411->170|1442->175|1507->214|1555->246|1595->248|1632->258|1642->259|1671->267|1712->278|1740->279|1776->285|1809->292|1848->322|1888->324|1924->333|1993->375|2007->380|2041->393|2077->402|2119->414|2150->419|2191->451|2230->452|2262->457|2332->500|2346->505|2382->520|2414->525|2452->533|2485->540|2499->546|2572->610|2612->612|2640->614|2652->618|2683->628|2711->629|2767->659|2896->767|2924->768|2987->805|3126->923|3154->924|3291->1031|3323->1033
+                  LINES: 24->1|29->2|32->3|35->4|36->5|36->5|36->5|37->6|39->8|39->8|39->8|40->9|42->11|42->11|42->11|43->12|43->12|43->12|44->13|45->14|46->15|48->17|48->17|48->17|49->18|50->19|50->19|50->19|51->20|52->21|56->25|56->25|56->25|57->26|58->27|58->27|58->27|59->28|60->29|66->35|66->35|66->35|66->35|67->36|67->36|67->36|68->37|69->38|70->39|71->40|73->42|74->43|75->44|80->49|81->50
                   -- GENERATED --
               */
           

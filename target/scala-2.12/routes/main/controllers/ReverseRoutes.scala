@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/conf/routes
-// @DATE:Thu Apr 04 11:22:56 BST 2019
+// @SOURCE:/home/ryan/Downloads/aa/2ndYearProject/conf/routes
+// @DATE:Thu Apr 04 21:01:49 IST 2019
 
 import play.api.mvc.Call
 
@@ -164,6 +164,12 @@ package controllers {
     def deleteCustomer(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "admin/deleteCustomer/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
+    }
+  
+    // @LINE:62
+    def changeProfilePic(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "profile/changeProfilePic")
     }
   
     // @LINE:41

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra">
 	<info organisation="gameshop_project"
-		module="gameshop_project_2.12"
-		revision="1.0-SNAPSHOT"
-		status="integration"
-		publication="20190404010928"
+          module="gameshop_project_2.12"
+          revision="1.0-SNAPSHOT"
+          status="integration"
+          publication="20190404210044"
 	>
 		<description>
 		GameShop_Project

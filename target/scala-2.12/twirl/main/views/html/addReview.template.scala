@@ -34,8 +34,7 @@ object addReview extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.
 /*5.2*/import helper._
 
 
-Seq[Any](format.raw/*4.54*/("""
-"""),format.raw/*6.1*/("""
+Seq[Any](format.raw/*6.1*/("""
 """),_display_(/*7.2*/main("Add a Review",user)/*7.27*/ {_display_(Seq[Any](format.raw/*7.29*/("""
     """),format.raw/*8.5*/("""<p class="lead">Create a Review</p>
     """),_display_(/*9.6*/if(flash.containsKey("error"))/*9.36*/ {_display_(Seq[Any](format.raw/*9.38*/("""
@@ -44,7 +43,7 @@ Seq[Any](format.raw/*4.54*/("""
         """),format.raw/*12.9*/("""</div>
     """)))}),format.raw/*13.6*/("""
 
-    """),_display_(/*15.6*/form(action=routes.HomeController.addReviewSubmit(prodId), 'class -> "form-horizontal", 'role -> "form",'enctype -> "multipart/form-data")/*15.144*/ {_display_(Seq[Any](format.raw/*15.146*/("""
+        """),_display_(/*15.10*/form(action=routes.HomeController.addReviewSubmit(prodId), 'class -> "form-horizontal", 'role -> "form",'enctype -> "multipart/form-data")/*15.148*/ {_display_(Seq[Any](format.raw/*15.150*/("""
         """),format.raw/*16.37*/("""
         """),_display_(/*17.10*/CSRF/*17.14*/.formField),format.raw/*17.24*/("""
         """),_display_(/*18.10*/inputText(reviewForm("rating"), '_label -> "Rating (1-5), numerical characters accepted ONLY.", 'class -> "form-control")),format.raw/*18.131*/("""
@@ -73,11 +72,11 @@ Seq[Any](format.raw/*4.54*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Apr 04 01:09:45 BST 2019
-                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/app/views/addReview.scala.html
-                  HASH: c9a4296f40a99d90c96cfe31b31fc03493b3bd96
-                  MATRIX: 651->1|689->34|725->65|1074->92|1199->147|1244->144|1272->164|1300->167|1333->192|1372->194|1404->200|1471->242|1509->272|1548->274|1585->284|1655->327|1669->332|1703->345|1740->355|1783->368|1818->377|1966->515|2007->517|2045->555|2083->566|2096->570|2127->580|2165->591|2308->712|2346->723|2446->802|2485->814|2638->940|2653->946|2709->981|2868->1110
-                  LINES: 24->1|25->2|26->3|31->4|34->5|37->4|38->6|39->7|39->7|39->7|40->8|41->9|41->9|41->9|42->10|43->11|43->11|43->11|44->12|45->13|47->15|47->15|47->15|48->16|49->17|49->17|49->17|50->18|50->18|51->19|51->19|53->21|55->23|55->23|55->23|59->27
+                  DATE: Thu Apr 04 21:01:49 IST 2019
+                  SOURCE: /home/ryan/Downloads/aa/2ndYearProject/app/views/addReview.scala.html
+                  HASH: 9aee0b7846b9dfe5daec2a63788ce60a9dee055c
+                  MATRIX: 651->1|689->33|725->63|1074->89|1199->143|1243->159|1270->161|1303->186|1342->188|1373->193|1439->234|1477->264|1516->266|1552->275|1621->317|1635->322|1669->335|1705->344|1747->356|1785->367|1933->505|1974->507|2011->544|2048->554|2061->558|2092->568|2129->578|2272->699|2309->709|2409->788|2446->798|2597->922|2612->928|2668->963|2823->1088
+                  LINES: 24->1|25->2|26->3|31->4|34->5|37->6|38->7|38->7|38->7|39->8|40->9|40->9|40->9|41->10|42->11|42->11|42->11|43->12|44->13|46->15|46->15|46->15|47->16|48->17|48->17|48->17|49->18|49->18|50->19|50->19|52->21|54->23|54->23|54->23|58->27
                   -- GENERATED --
               */
           

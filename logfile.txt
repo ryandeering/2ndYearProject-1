@@ -101,3 +101,19 @@
 04/04/2019 20:26:12 | Rita Daria logged out under role customer
 04/04/2019 20:42:25 | Hulk Hogan logged in under role admin
 04/04/2019 20:46:19 | Hulk Hogan logged out under role admin
+04/04/2019 21:02:29 | Ryan Deering logged in under role customer
+04/04/2019 21:02:40 | Ryan Deering placed order1 under role customer
+04/04/2019 21:02:42 | Ryan Deering placed order2 under role customer
+04/04/2019 21:03:45 | Ryan Deering cancelled order 1 under role customer
+04/04/2019 21:03:50 | Ryan Deering placed order3 under role customer
+04/04/2019 21:04:48 | Ryan Deering placed order4 under role customer
+04/04/2019 21:06:30 | Ryan Deering placed order5 under role customer
+04/04/2019 21:06:49 | Ryan Deering placed order6 under role customer
+04/04/2019 21:08:40 | Ryan Deering placed order7 under role customer
+04/04/2019 21:08:55 | Ryan Deering placed order8 under role customer
+04/04/2019 21:12:25 | Ryan Deering placed order39 under role customer
+04/04/2019 21:14:01 | Ryan Deering placed order40 under role customer
+04/04/2019 21:15:55 | Ryan Deering placed order41 under role customer
+04/04/2019 21:16:08 | Ryan Deering placed order42 under role customer
+04/04/2019 21:16:34 | Ryan Deering placed order43 under role customer
+04/04/2019 21:19:42 | Ryan Deering placed order44 under role customer
