@@ -1,11 +1,26 @@
 
 package views.html.AdminPanel
 
+import _root_.play.twirl.api.TwirlFeatureImports._
+import _root_.play.twirl.api.TwirlHelperImports._
+import _root_.play.twirl.api.Html
+import _root_.play.twirl.api.JavaScript
+import _root_.play.twirl.api.Txt
+import _root_.play.twirl.api.Xml
+import models._
 import controllers._
-import play.core.j.PlayFormsMagicForJava._
-import play.core.j.PlayMagicForJava._
-import play.data._
+import play.api.i18n._
 import views.html._
+import play.api.templates.PlayMagic._
+import java.lang._
+import java.util._
+import scala.collection.JavaConverters._
+import play.core.j.PlayMagicForJava._
+import play.mvc._
+import play.api.data.Field
+import play.mvc.Http.Context.Implicit._
+import play.data._
+import play.core.j.PlayFormsMagicForJava._
 
 object addCustomer extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[Form[models.users.Customer],models.users.User,play.twirl.api.HtmlFormat.Appendable] {
 
@@ -65,8 +80,8 @@ Seq[Any](format.raw/*1.62*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Apr 03 23:20:41 BST 2019
-                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/a/2ndYearProject/app/views/AdminPanel/addCustomer.scala.html
+                  DATE: Thu Apr 04 01:09:46 BST 2019
+                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/app/views/AdminPanel/addCustomer.scala.html
                   HASH: 5f9a07a83655b052f8627ced5a8a14a4d925ebf1
                   MATRIX: 1004->1|1137->68|1182->61|1214->85|1242->88|1275->113|1313->114|1345->120|1681->430|1789->528|1830->530|1868->568|1906->668|1944->679|1957->683|1988->693|2026->704|2118->775|2156->786|2253->862|2291->873|2387->948|2425->959|2523->1036|2561->1047|2670->1135|2708->1146|2790->1207|2829->1219|3207->1570|3222->1576|3274->1607|3410->1713|3439->1731|3472->1734|3501->1752
                   LINES: 28->1|31->4|34->1|37->5|38->6|38->6|38->6|39->7|44->12|44->12|44->12|45->13|46->14|47->15|47->15|47->15|48->16|48->16|49->17|49->17|50->18|50->18|51->19|51->19|52->20|52->20|53->21|53->21|55->23|61->29|61->29|61->29|65->33|65->33|66->34|66->34

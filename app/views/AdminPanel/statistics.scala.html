@@ -1,15 +1,18 @@
 @(products: List[models.products.Product], orders: List[models.shopping.ShopOrder], user: models.users.User)
-
+@import helper._
 @main("Statistics",user){
 
 
-    @controllers.Statistics.PieChart()
+
+
+
+   @controllers.Statistics.PieChart()
    <td><img src="\assets\images\statImages\PieChart.jpeg"/></td>
-    <span></span>
-    <p>Most popular game: @controllers.Statistics.popularGame()</p>
-    <p>Most used discount: @controllers.Statistics.popularDiscount()</p>
-    <p>Amount of customers in the database: @controllers.Statistics.amountofCustomers()</p>
-    <p>Median amount spent per order: @controllers.Statistics.medianAmountSpentfr()</p>
+   <span></span>
+   <p>Most popular game: @controllers.Statistics.popularGame()</p>
+   <p>Most used discount: @controllers.Statistics.popularDiscount()</p>
+   <p>Amount of customers in the database: @controllers.Statistics.amountofCustomers()</p>
+   <p>Median amount spent per order: @controllers.Statistics.medianAmountSpentfr()</p>
 
 
 }

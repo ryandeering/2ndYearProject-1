@@ -1,11 +1,27 @@
 
 package views.html.AdminPanel
 
-import java.util._
-
+import _root_.play.twirl.api.TwirlFeatureImports._
+import _root_.play.twirl.api.TwirlHelperImports._
+import _root_.play.twirl.api.Html
+import _root_.play.twirl.api.JavaScript
+import _root_.play.twirl.api.Txt
+import _root_.play.twirl.api.Xml
+import models._
 import controllers._
+import play.api.i18n._
+import views.html._
+import play.api.templates.PlayMagic._
+import java.lang._
+import java.util._
+import scala.collection.JavaConverters._
 import play.core.j.PlayMagicForJava._
+import play.mvc._
+import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
+import play.data._
+import play.core.j.PlayFormsMagicForJava._
+/*1.2*/import models.users.User
 
 object admin extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[List[models.users.Admin],models.users.User,play.twirl.api.HtmlFormat.Appendable] {
 
@@ -90,8 +106,8 @@ Seq[Any](format.raw/*2.60*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Apr 03 23:20:41 BST 2019
-                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/a/2ndYearProject/app/views/AdminPanel/admin.scala.html
+                  DATE: Thu Apr 04 01:09:46 BST 2019
+                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/app/views/AdminPanel/admin.scala.html
                   HASH: f41470ee70e5b2778bb580665558136e75fae619
                   MATRIX: 662->1|1027->28|1180->86|1208->89|1243->116|1281->117|1313->123|1381->230|1413->237|1453->269|1492->271|1528->281|1599->325|1613->330|1649->345|1686->355|1729->368|1764->376|2323->956|2369->975|2401->991|2441->993|2491->1015|2553->1050|2563->1051|2593->1060|2656->1096|2666->1097|2695->1105|2758->1141|2768->1142|2798->1151|2861->1187|2871->1188|2901->1197|3057->1326|3072->1332|3132->1371|3459->1671|3474->1677|3534->1716|3819->1970|3863->1986|3955->2051|3970->2057|4017->2083
                   LINES: 24->1|29->2|34->2|35->3|35->3|35->3|36->4|39->7|40->8|40->8|40->8|41->9|42->10|42->10|42->10|43->11|44->12|46->14|61->29|62->30|62->30|62->30|63->31|64->32|64->32|64->32|65->33|65->33|65->33|66->34|66->34|66->34|67->35|67->35|67->35|71->39|71->39|71->39|77->45|77->45|77->45|82->50|84->52|88->56|88->56|88->56

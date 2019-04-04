@@ -1,11 +1,26 @@
 
 package views.html.AdminPanel
 
-import java.util._
-
+import _root_.play.twirl.api.TwirlFeatureImports._
+import _root_.play.twirl.api.TwirlHelperImports._
+import _root_.play.twirl.api.Html
+import _root_.play.twirl.api.JavaScript
+import _root_.play.twirl.api.Txt
+import _root_.play.twirl.api.Xml
+import models._
 import controllers._
+import play.api.i18n._
+import views.html._
+import play.api.templates.PlayMagic._
+import java.lang._
+import java.util._
+import scala.collection.JavaConverters._
 import play.core.j.PlayMagicForJava._
+import play.mvc._
+import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
+import play.data._
+import play.core.j.PlayFormsMagicForJava._
 
 object customers extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[List[models.users.Customer],models.users.User,play.twirl.api.HtmlFormat.Appendable] {
 
@@ -91,8 +106,8 @@ Seq[Any](format.raw/*1.66*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Apr 03 23:20:41 BST 2019
-                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/a/2ndYearProject/app/views/AdminPanel/customers.scala.html
+                  DATE: Thu Apr 04 01:09:46 BST 2019
+                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/app/views/AdminPanel/customers.scala.html
                   HASH: dcfbb48c69ed6bb5f04a797a2a360ecdc8d5d763
                   MATRIX: 1002->1|1161->65|1189->68|1219->90|1257->91|1289->97|1352->199|1384->206|1424->238|1463->240|1499->250|1569->294|1582->299|1617->314|1654->324|1697->337|1732->345|2291->925|2337->944|2370->961|2410->963|2460->985|2522->1020|2532->1021|2562->1030|2625->1066|2635->1067|2664->1075|2727->1111|2737->1112|2767->1121|2830->1157|2840->1158|2870->1167|3026->1296|3041->1302|3104->1344|3431->1644|3446->1650|3509->1692|3794->1946|3838->1962|3930->2027|3945->2033|3995->2062
                   LINES: 28->1|33->1|34->2|34->2|34->2|35->3|38->6|39->7|39->7|39->7|40->8|41->9|41->9|41->9|42->10|43->11|45->13|61->29|62->30|62->30|62->30|63->31|64->32|64->32|64->32|65->33|65->33|65->33|66->34|66->34|66->34|67->35|67->35|67->35|71->39|71->39|71->39|77->45|77->45|77->45|82->50|84->52|88->56|88->56|88->56

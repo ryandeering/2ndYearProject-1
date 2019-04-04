@@ -166,8 +166,8 @@ public class ShoppingCtrl extends Controller {
 
 
         Customer c = getCurrentUser();
-	
-	
+
+
 
 
         if(c.getBasket().getBasketTotal() == 0.00) {
@@ -195,10 +195,10 @@ public class ShoppingCtrl extends Controller {
 
             i.setOrder(order);
             i.setBasket(null);
-            i.setDiscount(c.getBasket().getDiscount());     
+            i.setDiscount(c.getBasket().getDiscount());
             i.update();
-	    itable = itable+"<tr> <td>"+i.getId()+"</td><td>"+i.getProduct().getName()+"</td><td>"+i.getQuantity()+"</td><td> "+i.getPrice()+" Euro</td><td>"+i.getItemTotal()+" Euro</td></tr>";
-   
+            itable = itable+"<tr> <td>"+i.getId()+"</td><td>"+i.getProduct().getName()+"</td><td>"+i.getQuantity()+"</td><td> "+i.getPrice()+" Euro</td><td>"+i.getItemTotal()+" Euro</td></tr>";
+
         }
 
         // Update the order
@@ -211,16 +211,16 @@ public class ShoppingCtrl extends Controller {
         c.getBasket().update();
 
         //send email
-	String cid = c.getEmail();
+        String cid = c.getEmail();
         final Email email = new Email()
                 .setSubject("Order ID:" + order.getId() + " | " + order.getOrderDate())
                 .setFrom("CDR Games <cdrgamescdr@email.com>")
                 .addTo(c.getfName() + " " + c.getlName() + "<" + c.getEmail() + ">")
-                .setBodyHtml("<html> <body style=' border: 1px solid black; background-color:grey;'><center><h1>CDR Games</h1></center> <h2>ORDER RECEIPT: <br/>  Order Info:  <table style=' border: 1px solid black;'>"+ itable + " <br/> </table></h2></body></html>");
+                .setBodyHtml("<html> <body style=' border: 1px solid black; background-color:grey;'><center><h1>CDR Games</h1></center> <h2> Name: "+c.getfName() + " " + c.getlName() + " <br/> Address: " + c.getAddress() + "</h2><br/><h2>ORDER RECEIPT: <br/>  Order Info:  <table style=' border: 1px solid black;'>"+ itable + " <br/> </table></h2></body></html>");
 
-		
-                mailer.send(email);
-      	
+
+        mailer.send(email);
+
 
         // Show order confirmed view
         return ok(orderConfirmed.render(c, order));
@@ -328,8 +328,8 @@ public class ShoppingCtrl extends Controller {
         b.setDiscount(d);
         b.setDiscountSet(true);
 
-         b.save();
-         b.update();
+        b.save();
+        b.update();
 
         flash("success", "Discount has been applied.");
 

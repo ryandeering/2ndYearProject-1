@@ -1,10 +1,11 @@
 package models.users;
 
-import java.util.*;
-import javax.persistence.*;
-import io.ebean.*;
-import org.mindrot.jbcrypt.BCrypt;
-import play.data.validation.*;
+import io.ebean.Finder;
+
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.util.List;
 
 
 

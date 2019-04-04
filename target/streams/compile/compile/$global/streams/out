@@ -1,4 +1,7 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/2ndYearProject/2ndYearProject/app/views/profile.scala.html:2:18: not found: value user[0m
-[0m[[0m[31merror[0m] [0m[0m@main("profile", user) {[0m
-[0m[[0m[31merror[0m] [0m[0m                 ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Ryan3\OneDrive\Documents\2ndYearProject\app\views\product.scala.html:187:78: illegal start of simple expression[0m
+[0m[[0m[31merror[0m] [0m[0m                                    @if(product.averageRating(product.getId)) == 0 {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Ryan3\OneDrive\Documents\2ndYearProject\app\views\product.scala.html:245:6: ')' expected but '}' found.[0m
+[0m[[0m[31merror[0m] [0m[0m    }[0m
+[0m[[0m[31merror[0m] [0m[0m     ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

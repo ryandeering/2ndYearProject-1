@@ -1,11 +1,26 @@
 
 package views.html.AdminPanel
 
+import _root_.play.twirl.api.TwirlFeatureImports._
+import _root_.play.twirl.api.TwirlHelperImports._
+import _root_.play.twirl.api.Html
+import _root_.play.twirl.api.JavaScript
+import _root_.play.twirl.api.Txt
+import _root_.play.twirl.api.Xml
+import models._
 import controllers._
-import play.core.j.PlayFormsMagicForJava._
-import play.core.j.PlayMagicForJava._
-import play.data._
+import play.api.i18n._
 import views.html._
+import play.api.templates.PlayMagic._
+import java.lang._
+import java.util._
+import scala.collection.JavaConverters._
+import play.core.j.PlayMagicForJava._
+import play.mvc._
+import play.api.data.Field
+import play.mvc.Http.Context.Implicit._
+import play.data._
+import play.core.j.PlayFormsMagicForJava._
 
 object addProduct extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[Form[models.products.Product],models.users.User,play.twirl.api.HtmlFormat.Appendable] {
 
@@ -13,8 +28,8 @@ object addProduct extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api
   def apply/*1.2*/(addProductForm: Form[models.products.Product], user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
-/*4.2*/import helper._
-import models.products._
+/*4.2*/import models.products._
+/*8.2*/import helper._
 
 
 Seq[Any](format.raw/*1.74*/("""
@@ -90,8 +105,8 @@ though a static HTML form would also work -->
 
               /*
                   -- GENERATED --
-                  DATE: Wed Apr 03 23:20:41 BST 2019
-                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/a/2ndYearProject/app/views/AdminPanel/addProduct.scala.html
+                  DATE: Thu Apr 04 01:09:46 BST 2019
+                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/app/views/AdminPanel/addProduct.scala.html
                   HASH: 851be70aa9b31e815ae84dcbd85e695bdf655bd7
                   MATRIX: 1005->1|1150->172|1182->311|1227->73|1255->75|1377->198|1405->200|1541->328|1570->330|1651->385|1670->395|1705->421|1745->423|1777->428|1901->526|2066->681|2107->683|2138->688|2150->692|2181->702|2212->706|2335->803|2433->880|2464->885|2576->976|2615->988|2812->1158|2866->1196|2906->1198|2948->1212|3025->1262|3051->1267|3083->1272|3108->1276|3162->1299|3194->1305|3405->1496|3438->1503|3546->1590|3577->1595|3685->1682|3716->1687|3816->1766|3847->1771|3947->1850|3981->1857|4286->2135|4301->2141|4355->2174|4463->2252|4491->2253|4554->2286|4582->2287
                   LINES: 28->1|31->4|32->8|35->1|36->2|38->5|39->6|41->9|42->10|43->11|43->11|43->11|43->11|45->13|48->16|48->16|48->16|49->17|49->17|49->17|50->18|52->20|52->20|53->21|53->21|55->23|57->25|57->25|57->25|58->26|58->26|58->26|58->26|58->26|59->27|61->29|66->34|68->36|68->36|69->37|69->37|70->38|70->38|71->39|71->39|74->42|83->51|83->51|83->51|87->55|87->55|89->57|89->57

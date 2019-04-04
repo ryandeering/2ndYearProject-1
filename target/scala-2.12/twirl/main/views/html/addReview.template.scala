@@ -1,15 +1,29 @@
 
 package views.html
 
-import java.lang._
-
+import _root_.play.twirl.api.TwirlFeatureImports._
+import _root_.play.twirl.api.TwirlHelperImports._
+import _root_.play.twirl.api.Html
+import _root_.play.twirl.api.JavaScript
+import _root_.play.twirl.api.Txt
+import _root_.play.twirl.api.Xml
+import models._
 import controllers._
-import models.reviews.Review
-import models.users.User
-import play.core.j.PlayFormsMagicForJava._
+import play.api.i18n._
+import views.html._
+import play.api.templates.PlayMagic._
+import java.lang._
+import java.util._
+import scala.collection.JavaConverters._
 import play.core.j.PlayMagicForJava._
-import play.data._
+import play.mvc._
+import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
+import play.data._
+import play.core.j.PlayFormsMagicForJava._
+/*1.2*/import models.products.Product
+/*2.2*/import models.reviews.Review
+/*3.2*/import models.users.User
 
 object addReview extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[Form[Review],User,Long,play.twirl.api.HtmlFormat.Appendable] {
 
@@ -59,8 +73,8 @@ Seq[Any](format.raw/*4.54*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Apr 03 23:20:41 BST 2019
-                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/a/2ndYearProject/app/views/addReview.scala.html
+                  DATE: Thu Apr 04 01:09:45 BST 2019
+                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/app/views/addReview.scala.html
                   HASH: c9a4296f40a99d90c96cfe31b31fc03493b3bd96
                   MATRIX: 651->1|689->34|725->65|1074->92|1199->147|1244->144|1272->164|1300->167|1333->192|1372->194|1404->200|1471->242|1509->272|1548->274|1585->284|1655->327|1669->332|1703->345|1740->355|1783->368|1818->377|1966->515|2007->517|2045->555|2083->566|2096->570|2127->580|2165->591|2308->712|2346->723|2446->802|2485->814|2638->940|2653->946|2709->981|2868->1110
                   LINES: 24->1|25->2|26->3|31->4|34->5|37->4|38->6|39->7|39->7|39->7|40->8|41->9|41->9|41->9|42->10|43->11|43->11|43->11|44->12|45->13|47->15|47->15|47->15|48->16|49->17|49->17|49->17|50->18|50->18|51->19|51->19|53->21|55->23|55->23|55->23|59->27

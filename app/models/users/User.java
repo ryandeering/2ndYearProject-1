@@ -1,10 +1,11 @@
 package models.users;
 
-import java.util.*;
-import javax.persistence.*;
-import io.ebean.*;
+import io.ebean.Finder;
+import io.ebean.Model;
 import org.mindrot.jbcrypt.BCrypt;
-import play.data.validation.*;
+import play.data.validation.Constraints;
+
+import javax.persistence.*;
 
 
 

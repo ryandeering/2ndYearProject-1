@@ -1,105 +1,327 @@
-@(title: String, user: models.users.User)(content: Html)
+@import models.users.User
+@(pagename: String, user: User)(content:Html)
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+                .footer {
+                    position: fixed;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    background-color: red;
+                    color: white;
+                    text-align: center;}
+                .sidecol { font-weight: bold; background-color: steelblue; }
+                .sidecol h2 { font-weight: bold; }
+                .midcol h1 { margin-top: 2em; text-align: center; font-weight: bold; }
+                .midcol h3 { text-align: center; color: steelblue; }
+                .redtext { color: red; }
 
-<!DOCTYPE html>
-<html lang="en">
+                .navbar {background-color: #2D2D2D; color: #A5A5A5 background-color: #2D2D2D; color: #A5A5A5; }
+                .sidecol {background-color: #2D2D2D; color: #A5A5A5; }
+                .footer {background-color: #2D2D2D; color: #A5A5A5; }
+                .sidebar { width: 33%; float: right;}
+                .dropdown {  }
+                .navbar-right{  }
+                .headerImg { width: 100%; text-align: center; }
 
-<head>
 
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title>Admin Panel - @title</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")" rel="stylesheet">
+                @@charset "UTF-8";
+                /*
+                $content-width will be the max width of the content within the navigation bar.
+                $breakpoint determines at which width the media query breakpoint will take effect.
+                */
 
-    <!-- Custom CSS -->
-    <link href="@routes.Assets.versioned("stylesheets/shop-homepage.css")" rel="stylesheet">
+                body {
+                    background-color: ;
+                }
+                nav {
+                    float: right;
+                }
+                nav ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    padding-top: 0.4em;
+                    padding-bottom:0.4em;
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+                }
+                nav ul li {
+                    float: left;
+                    position: relative;
+                }
+                nav ul li a {
+                    display: block;
+                    padding: 0 20px;
+                    line-height: 70px;
+                    background-color: #2D2D2D; color: #A5A5A5;
+                    text-decoration: none;
+                    /*
+                    The full path of this code is nav ul li a:not(:only-child):after. This means that the code will apply to any a tag in our nav list that is NOT an only child, aka any dropdown. The :after means it comes after the output of the tag. I’ve decided that to specify any nav item as a dropdown, it will be followed by a unicode arrow – ▾ (#9662).
+                    */
+                }
+                nav ul li a:hover {
+                    background-color: #2D2D2D; color: #A5A5A5;
+                }
+                nav ul li a:not(:only-child):after {
+                    padding-left: 4px;
+                    content: ' ▾';
+                }
+                nav ul li ul li {
+                    min-width: 190px;
+                }
+                nav ul li ul li a {
+                    padding: 15px;
+                    line-height: 20px;
+                }
 
-</head>
+                .nav-dropdown {
+                    position: absolute;
+                    z-index: 1;
+                    /* Guarantees that the dropdown will display on top of any content. */
+                    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+                    display: none;
+                }
 
-<body>
+                .nav-mobile {
+                    display: none;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    background-color: #2D2D2D; color: #A5A5A5;
+                    height: 70px;
+                    width: 70px;
+                }
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="@routes.AdminProductCtrl.adminPanel()">Admin Panel</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-					<!-- Login/ logout Link - check if user logged in -->
-                    <li>
-						@if(user != null) {
-						  <a href="@controllers.routes.LoginController.logout()">Logout</a>
-						} else {
-                      	  <a href="@controllers.routes.LoginController.login()">Login</a>
-						}
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+                @@media only screen and (max-width: 800px) {
 
-    <!-- Page Content -->
-    <div class="container">
-			<div class="row">
+                .brand{
+                    padding-top: 10px !important;
+                    padding-left: 20px !important;
+                    position: absolute !important;
+                    float: left !important;
+                    line-height: 70px !important;
+                    text-transform: uppercase !important;
+                    font-size: 1.4em !important;
+                }
 
-				<div class="col-md-12">
-						<p class="lead"></p>
-				<div>
-			</div>
+                .nav-mobile {
+                    display: block;
+                }
 
-			<!-- Start Content -->
-			@content
-			<!-- End Content -->
+                nav {
+                    background-color: #2D2D2D; color: #A5A5A5;
+                    width: 100%;
+                    padding: 70px 0 15px;
+                }
+                nav ul {
+                    display: none;
+                }
+                nav ul li {
+                    float: none;
+                    padding-left: 2em;
+                }
+                nav ul li a {
+                    padding: 15px;
+                    line-height: 20px;
+                }
+                nav ul li ul li a {
+                    padding-left: 30px;
+                }
+                }
+                #nav-toggle {
+                    position: absolute;
+                    left: 18px;
+                    top: 22px;
+                    cursor: pointer;
+                    padding: 10px 35px 16px 0px;
+                }
+                #nav-toggle span,
+                #nav-toggle span:before,
+                #nav-toggle span:after {
+                    cursor: pointer;
+                    border-radius: 1px;
+                    height: 5px;
+                    width: 35px;
+                    background: #463f3f;
+                    position: absolute;
+                    display: block;
+                    content: '';
+                    transition: all 300ms ease-in-out;
+                }
+                #nav-toggle span:before {
+                    top: -10px;
+                }
+                #nav-toggle span:after {
+                    bottom: -10px;
+                }
+                #nav-toggle.active span {
+                    background-color: transparent;
+                }
+                #nav-toggle.active span:before, #nav-toggle.active span:after {
+                    top: 0;
+                }
+                #nav-toggle.active span:before {
+                    transform: rotate(45deg);
+                }
+                #nav-toggle.active span:after {
+                    transform: rotate(-45deg);
+                }
 
-    </div>
-    <!-- /.container -->
+                @@media screen and (min-width: 800px) {
 
-    <div class="container">
+                .brand{
+                    padding-top: 1px !important;
+                }
 
-        <hr>
+                .nav-list {
+                    display: block !important;
+                }
 
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p></p>
+
+                }
+                /*
+                .navigation – the outer wrapper for the navbar. Specifies the height and color, and will stretch the full width of the viewport.
+                */
+                .navigation {
+                    height: 62px;
+                    background-color: #2D2D2D; color: #A5A5A5;
+                }
+
+                /*
+                .nav-container – the inner wrapper for the navbar. Defines how far the actual content should stretch.
+                */
+                .nav-container {
+                    max-width: 1000px;
+                    margin: 0 auto;
+                }
+
+                .brand {
+                    position: relative;
+                    overflow: auto;
+                    float: left;
+                    line-height: 70px;
+                    text-transform: uppercase;
+                    font-size: 1.4em;
+                }
+                .brand a,
+                .brand a:visited {
+
+                    text-decoration: none;
+                }
+
+        </style>
+        <title>CDR Games</title>
+    </head>
+    <body>
+
+
+            <!--
+    Following Tania Ruscia's tutorial on creating your own responsive dropdown navigation bar. https://www.taniarascia.com/responsive-dropdown-navigation-bar/
+    -->
+        <section class="navigation">
+            <div class="nav-container">
+                <div class="brand">
+                    <a href='@routes.ProductCtrl.listProducts(0)'><img src="/assets/images/logo.png" width='60px' height='60px' alt="logo"></a>
                 </div>
+                <nav>
+                    <div class="nav-mobile">
+                        <a id="nav-toggle" href="#!"><span></span></a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+                    @if(user != null) {
+
+                        @if(user.isInstanceOf[models.users.Admin]){
+                            <li><a href="@routes.AdminProductCtrl.adminPanel()"><span class="glyphicon glyphicon-cog"></span> Admin Panel</a></li>
+                        }
+                        <li><a href="@routes.ShoppingCtrl.showBasket()"><span class="glyphicon glyphicon-shopping-cart"></span> Basket</a></li>
+                        <li><a href="@routes.ShoppingCtrl.viewOrders()"><span class="glyphicon glyphicon-log-in"></span> View Orders</a></li>
+
+                        <li><a href="@routes.HomeController.profile()">
+                            <i class="fa fa-user-circle-o"></i>
+                            @if(user!=null){
+                                @user.getEmail} </span>
+
+                        </a></li>
+                        <li><a href="@routes.LoginController.logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    } else {
+                        <li><a href="@routes.HomeController.registerUser()"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="@routes.LoginController.login()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+                    }
+                    </ul></li>
+
+
+                </nav>
             </div>
-        </footer>
+        </section>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
 
-    </div>
-    <!-- /.container -->
+                <div class="col-sm-8">
+                    <div class="midcol">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="lead"></p>
+                                    <div>
+                                    </div>
 
-    <!-- jQuery -->
-    <script src="@routes.Assets.versioned("javascripts/jquery.js")"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="@routes.Assets.versioned("javascripts/bootstrap.min.js")"></script>
+                                    @content
 
-</body>
 
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <h5>Website created by CDR Games</h5>
+                </div>
+
+
+
+    </body>
 </html>
+
+<script>
+        (function($) { // Begin jQuery
+            $(function() { // DOM ready
+                // If a link has a dropdown, add sub menu toggle.
+                $('nav ul li a:not(:only-child)').click(function(e) {
+                    $(this).siblings('.nav-dropdown').toggle();
+                    // Close one dropdown when selecting another
+                    $('.nav-dropdown').not($(this).siblings()).hide();
+                    e.stopPropagation();
+                });
+                // Clicking away from dropdown will remove the dropdown class
+                $('html').click(function() {
+                    $('.nav-dropdown').hide();
+                });
+                // Toggle open and close nav styles on click
+                $('#nav-toggle').click(function() {
+                    $('nav ul').slideToggle();
+                });
+                // Hamburger to X toggle
+                $('#nav-toggle').on('click', function() {
+                    this.classList.toggle('active');
+                });
+            }); // end DOM ready
+        })(jQuery); // end jQuery
+</script>

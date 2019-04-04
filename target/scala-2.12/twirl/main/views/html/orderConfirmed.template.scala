@@ -1,8 +1,26 @@
 
 package views.html
 
+import _root_.play.twirl.api.TwirlFeatureImports._
+import _root_.play.twirl.api.TwirlHelperImports._
+import _root_.play.twirl.api.Html
+import _root_.play.twirl.api.JavaScript
+import _root_.play.twirl.api.Txt
+import _root_.play.twirl.api.Xml
+import models._
+import controllers._
+import play.api.i18n._
+import views.html._
+import play.api.templates.PlayMagic._
+import java.lang._
+import java.util._
+import scala.collection.JavaConverters._
 import play.core.j.PlayMagicForJava._
+import play.mvc._
+import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
+import play.data._
+import play.core.j.PlayFormsMagicForJava._
 
 object orderConfirmed extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[models.users.Customer,models.shopping.ShopOrder,play.twirl.api.HtmlFormat.Appendable] {
 
@@ -10,7 +28,9 @@ object orderConfirmed extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl
   def apply/*1.2*/(customer: models.users.Customer, order: models.shopping.ShopOrder):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
-/*4.2*/
+/*4.2*/import play.api.Play.current
+/*5.2*/import models.shopping._
+/*6.2*/import models.products._
 
 
 Seq[Any](format.raw/*1.69*/("""
@@ -86,8 +106,8 @@ Seq[Any](format.raw/*1.69*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Apr 03 23:20:42 BST 2019
-                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/a/2ndYearProject/app/views/orderConfirmed.scala.html
+                  DATE: Thu Apr 04 01:09:47 BST 2019
+                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/app/views/orderConfirmed.scala.html
                   HASH: 37db96fa6de1c1ef948f4df3f8484960870d3691
                   MATRIX: 998->1|1138->75|1174->106|1206->133|1260->68|1292->159|1322->164|1366->200|1405->202|1436->206|1664->408|1705->440|1745->442|1779->449|1851->494|1865->499|1901->514|1935->521|1976->532|2010->539|2303->805|2329->822|2369->824|2421->849|2461->873|2501->875|2551->897|2613->932|2623->933|2663->952|2726->988|2736->989|2783->1015|2853->1058|2901->1085|2964->1121|2974->1122|3009->1136|3079->1179|3131->1210|3217->1265|3265->1282|3297->1287|3477->1440|3535->1476|3644->1555
                   LINES: 28->1|31->4|32->5|33->6|36->1|39->7|41->9|41->9|41->9|43->11|52->20|52->20|52->20|53->21|54->22|54->22|54->22|55->23|56->24|58->26|70->38|70->38|70->38|72->40|72->40|72->40|73->41|74->42|74->42|74->42|75->43|75->43|75->43|76->44|76->44|77->45|77->45|77->45|78->46|78->46|80->48|81->49|82->50|86->54|86->54|92->60

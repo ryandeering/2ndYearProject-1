@@ -56,9 +56,9 @@ public class HomeController extends Controller {
         return ok(registerUser.render(userForm, User.getUserById(session().get("email"))));
     }
 
-  public Result profile() {
-    return ok(profile.render(User.getUserById(session().get("email"))));
-}
+    public Result profile() {
+        return ok(profile.render(User.getUserById(session().get("email"))));
+    }
 
 
     public Result registerUserSubmit(){
@@ -72,7 +72,7 @@ public class HomeController extends Controller {
             newCustomer.save();
             flash("You have Successfully registered!");
             return redirect(controllers.routes.HomeController.index());}
-        }
+    }
 
 
     @Security.Authenticated(Secured.class)
@@ -213,17 +213,17 @@ public class HomeController extends Controller {
     }
 
 
-  //  @Security.Authenticated(Secured.class)
+    //  @Security.Authenticated(Secured.class)
 //    @Transactional
 //    public Result product(Long id) {
- //       List<Product> productList = null;
-  //      Product products = Product.find.byId(id);
-     //   if (id.equals(null)) {
-   //         return redirect(controllers.routes.HomeController.index());
-   //     } else {
-  //          productList = products.getProjects();
+    //       List<Product> productList = null;
+    //      Product products = Product.find.byId(id);
+    //   if (id.equals(null)) {
+    //         return redirect(controllers.routes.HomeController.index());
+    //     } else {
+    //          productList = products.getProjects();
     //    }
-      //  return ok(employeeProjects.render(projList, tempEmployee, User.getUserById(session().get("email"))));
+    //  return ok(employeeProjects.render(projList, tempEmployee, User.getUserById(session().get("email"))));
     //}
 
 
@@ -285,22 +285,22 @@ public class HomeController extends Controller {
         }
 
 
-            newReview = newReviewForm.get();
-            if (between(newReview.getRating(),1,5) == false){
-                flash("error", "Rating not between 1 and 5.");
-                return badRequest(addReview.render(newReviewForm, getCurrentUser(), prodId));
-            }
-            newReview.save();
+        newReview = newReviewForm.get();
+        if (between(newReview.getRating(),1,5) == false){
+            flash("error", "Rating not between 1 and 5.");
+            return badRequest(addReview.render(newReviewForm, getCurrentUser(), prodId));
+        }
+        newReview.save();
 
 
 
-            newReview.setAuthor(getCurrentUser());
-            newReview.setProduct(p);
-            newReview.setDate();
-            p.getReviews().add(newReview);
+        newReview.setAuthor(getCurrentUser());
+        newReview.setProduct(p);
+        newReview.setDate();
+        p.getReviews().add(newReview);
 
-            p.update();
-            newReview.update();
+        p.update();
+        newReview.update();
 
 
         flash("success", "Review has been created");
@@ -326,10 +326,7 @@ public class HomeController extends Controller {
     }
 
     public static boolean between(int i, int minValueInclusive, int maxValueInclusive) {
-        if (i >= minValueInclusive && i <= maxValueInclusive)
-            return true;
-        else
-            return false;
+        return i >= minValueInclusive && i <= maxValueInclusive;
     }
 }
 

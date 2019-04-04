@@ -1,14 +1,29 @@
 
 package views.html.AdminPanel
 
-import java.util._
-
+import _root_.play.twirl.api.TwirlFeatureImports._
+import _root_.play.twirl.api.TwirlHelperImports._
+import _root_.play.twirl.api.Html
+import _root_.play.twirl.api.JavaScript
+import _root_.play.twirl.api.Txt
+import _root_.play.twirl.api.Xml
+import models._
 import controllers._
-import models.products.{Category, Product}
-import models.users.User
-import play.core.j.PlayMagicForJava._
-import play.mvc.Http.Context.Implicit._
+import play.api.i18n._
 import views.html._
+import play.api.templates.PlayMagic._
+import java.lang._
+import java.util._
+import scala.collection.JavaConverters._
+import play.core.j.PlayMagicForJava._
+import play.mvc._
+import play.api.data.Field
+import play.mvc.Http.Context.Implicit._
+import play.data._
+import play.core.j.PlayFormsMagicForJava._
+/*1.2*/import models.products.Category
+/*2.2*/import models.products.Product
+/*3.2*/import models.users.User
 
 object listProducts extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template4[play.api.Environment,List[Category],List[Product],User,play.twirl.api.HtmlFormat.Appendable] {
 
@@ -122,8 +137,8 @@ Seq[Any](format.raw/*4.94*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Apr 03 23:20:41 BST 2019
-                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/a/2ndYearProject/app/views/AdminPanel/listProducts.scala.html
+                  DATE: Thu Apr 04 01:09:46 BST 2019
+                  SOURCE: C:/Users/Ryan3/OneDrive/Documents/2ndYearProject/app/views/AdminPanel/listProducts.scala.html
                   HASH: cd7f09398fad22e2eed27c36acebb4e44c4396a2
                   MATRIX: 662->1|701->35|739->68|1123->95|1310->187|1342->193|1414->240|1432->250|1468->278|1507->280|1540->286|1730->449|1745->455|1799->488|1876->539|1912->559|1952->561|1992->573|2029->583|2044->589|2104->628|2158->655|2168->656|2198->664|2239->675|2274->683|2348->731|2389->763|2429->765|2463->772|2535->817|2549->822|2585->837|2619->844|2660->855|2694->862|3070->1212|3104->1230|3144->1232|3177->1238|3275->1310|3372->1398|3412->1400|3447->1408|3529->1463|3559->1472|3597->1493|3610->1498|3649->1499|3684->1507|3795->1588|3829->1595|3861->1600|3871->1601|3898->1607|3942->1624|3952->1625|3981->1633|4025->1650|4035->1651|4071->1666|4115->1683|4125->1684|4155->1693|4206->1717|4254->1744|4328->1792|4353->1808|4393->1810|4427->1817|4476->1839|4491->1845|4552->1885|4745->2051|4760->2057|4821->2097|4996->2242|5029->2248|5071->2260|5151->2314|5176->2330|5216->2332|5247->2336|5294->2356|5309->2362|5360->2392|5476->2478|5506->2481|5660->2607|5689->2608|5720->2612|5782->2647|5810->2648|5839->2650|5881->2662
                   LINES: 24->1|25->2|26->3|31->4|36->4|39->7|40->8|40->8|40->8|40->8|43->11|48->16|48->16|48->16|49->17|49->17|49->17|50->18|50->18|50->18|50->18|50->18|50->18|50->18|51->19|52->20|56->24|56->24|56->24|57->25|58->26|58->26|58->26|59->27|60->28|62->30|76->44|76->44|76->44|77->45|79->47|79->47|79->47|80->48|80->48|80->48|81->49|81->49|81->49|82->50|83->51|84->52|84->52|84->52|84->52|85->53|85->53|85->53|86->54|86->54|86->54|87->55|87->55|87->55|88->56|88->56|90->58|90->58|90->58|91->59|92->60|92->60|92->60|97->65|97->65|97->65|101->69|102->70|103->71|106->74|106->74|106->74|107->75|108->76|108->76|108->76|112->80|113->81|118->86|118->86|119->87|120->88|120->88|121->89|122->90

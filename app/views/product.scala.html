@@ -1,247 +1,243 @@
 @(product: models.products.Product, filter:String ,user : models.users.User, e: play.api.Environment)
 
-@main("Product", user) {
+    @main("Product", user) {
 
 
-<style>
-body {
-  font-family: 'open sans';
-  overflow-x: hidden; }
+        <style>
+                body {
+                    font-family: 'open sans';
+                    overflow-x: hidden; }
 
-img {
-  max-width: 100%; }
+                img {
+                    max-width: 100%; }
 
-.preview {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column; }
-  
-.preview-pic {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1; }
+                .preview {
+                    display: -webkit-box;
+                    display: -webkit-flex;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: normal;
+                    -webkit-flex-direction: column;
+                    -ms-flex-direction: column;
+                    flex-direction: column; }
 
-.preview-thumbnail.nav-tabs {
-  border: none;
-  margin-top: 15px; }
-  .preview-thumbnail.nav-tabs li {
-    width: 18%;
-    margin-right: 2.5%; }
-    .preview-thumbnail.nav-tabs li img {
-      max-width: 100%;
-      display: block; }
-    .preview-thumbnail.nav-tabs li a {
-      padding: 0;
-      margin: 0; }
-    .preview-thumbnail.nav-tabs li:last-of-type {
-      margin-right: 0; }
+                .preview-pic {
+                    -webkit-box-flex: 1;
+                    -webkit-flex-grow: 1;
+                    -ms-flex-positive: 1;
+                    flex-grow: 1; }
 
-.tab-content {
-  overflow: hidden; }
-  .tab-content img {
-    width: 100%;
-    -webkit-animation-name: opacity;
-            animation-name: opacity;
-    -webkit-animation-duration: .3s;
-            animation-duration: .3s; }
+                .preview-thumbnail.nav-tabs {
+                    border: none;
+                    margin-top: 15px; }
+                .preview-thumbnail.nav-tabs li {
+                    width: 18%;
+                    margin-right: 2.5%; }
+                .preview-thumbnail.nav-tabs li img {
+                    max-width: 100%;
+                    display: block; }
+                .preview-thumbnail.nav-tabs li a {
+                    padding: 0;
+                    margin: 0; }
+                .preview-thumbnail.nav-tabs li:last-of-type {
+                    margin-right: 0; }
 
-.card {
-  margin-top: 50px;
-  background: #eee;
-  padding: 3em;
-  line-height: 1.5em; }
+                .tab-content {
+                    overflow: hidden; }
+                .tab-content img {
+                    width: 100%;
+                    -webkit-animation-name: opacity;
+                    animation-name: opacity;
+                    -webkit-animation-duration: .3s;
+                    animation-duration: .3s; }
 
-
-.details {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column; }
-
-.colors {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1; }
-
-.product-title, .price, .sizes, .colors {
-  text-transform: UPPERCASE;
-  font-weight: bold; }
-
-.checked, .price span {
-  color: #ff9f1a; }
-
-.product-title, .rating, .product-description, .price, .vote, .sizes {
-  margin-bottom: 15px; }
-
-.product-title {
-  margin-top: 0; }
-
-.size {
-  margin-right: 10px; }
-  .size:first-of-type {
-    margin-left: 40px; }
-
-.color {
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 10px;
-  height: 2em;
-  width: 2em;
-  border-radius: 2px; }
-  .color:first-of-type {
-    margin-left: 20px; }
-
-.add-to-cart, .like {
-  background: #ff9f1a;
-  padding: 1.2em 1.5em;
-  border: none;
-  text-transform: UPPERCASE;
-  font-weight: bold;
-  color: #fff;
-  -webkit-transition: background .3s ease;
-          transition: background .3s ease; }
-  .add-to-cart:hover, .like:hover {
-    background: #b36800;
-    color: #fff; }
-
-.not-available {
-  text-align: center;
-  line-height: 2em; }
-  .not-available:before {
-    font-family: fontawesome;
-    content: "\f00d";
-    color: #fff; }
-
-.orange {
-  background: #ff9f1a; }
-
-.green {
-  background: #85ad00; }
-
-.blue {
-  background: #0076ad; }
-
-.tooltip-inner {
-  padding: 1.3em; }
+                .card {
+                    margin-top: 50px;
+                    background: #eee;
+                    padding: 3em;
+                    line-height: 1.5em; }
 
 
+                .details {
+                    display: -webkit-box;
+                    display: -webkit-flex;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: normal;
+                    -webkit-flex-direction: column;
+                    -ms-flex-direction: column;
+                    flex-direction: column; }
 
-/*# sourceMappingURL=style.css.map */
-</style>
+                .colors {
+                    -webkit-box-flex: 1;
+                    -webkit-flex-grow: 1;
+                    -ms-flex-positive: 1;
+                    flex-grow: 1; }
 
-    @if(flash.containsKey("error")) {
-        <div class="alert alert-danger">
-        @flash.get("error")
-        </div>
-    }
+                .product-title, .price, .sizes, .colors {
+                    text-transform: UPPERCASE;
+                    font-weight: bold; }
+
+                .checked, .price span {
+                    color: #ff9f1a; }
+
+                .product-title, .rating, .product-description, .price, .vote, .sizes {
+                    margin-bottom: 15px; }
+
+                .product-title {
+                    margin-top: 0; }
+
+                .size {
+                    margin-right: 10px; }
+                .size:first-of-type {
+                    margin-left: 40px; }
+
+                .color {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 10px;
+                    height: 2em;
+                    width: 2em;
+                    border-radius: 2px; }
+                .color:first-of-type {
+                    margin-left: 20px; }
+
+                .add-to-cart, .like {
+                    background: #ff9f1a;
+                    padding: 1.2em 1.5em;
+                    border: none;
+                    text-transform: UPPERCASE;
+                    font-weight: bold;
+                    color: #fff;
+                    -webkit-transition: background .3s ease;
+                    transition: background .3s ease; }
+                .add-to-cart:hover, .like:hover {
+                    background: #b36800;
+                    color: #fff; }
+
+                .not-available {
+                    text-align: center;
+                    line-height: 2em; }
+                .not-available:before {
+                    font-family: fontawesome;
+                    content: "\f00d";
+                    color: #fff; }
+
+                .orange {
+                    background: #ff9f1a; }
+
+                .green {
+                    background: #85ad00; }
+
+                .blue {
+                    background: #0076ad; }
+
+                .tooltip-inner {
+                    padding: 1.3em; }
 
 
-    <div class="container">
-		<div class="card">
-			<div class="container-fliud">
-				<div class="wrapper row">
-					<div class="preview col-md-6">
+
+                /*# sourceMappingURL=style.css.map */
+        </style>
+
+        @if(flash.containsKey("error")) {
+            <div class="alert alert-danger">
+            @flash.get("error")
+            </div>
+        }
 
 
-						
-						<div class="preview-pic tab-content">
-						  <div class="tab-pane active" id="pic-1">
-@if(e.resource("public/images/productImages/" + product.getId + ".jpg").isDefined) {
-                    <img class="pic" src="/assets/images/productImages/@(product.getId).jpg"/>
-                } else {
-                    <img class="pic" src="/assets/images/productImages/thumbnails/noImage.png"/>
-                }
-</div>
+        <div class="container">
+            <div class="card">
+                <div class="container-fliud">
+                    <div class="wrapper row">
+                        <div class="preview col-md-6">
 
-						 
-						</div>
-						
-						
-					</div>
-					<div class="details col-md-6">
-						<h3 class="product-title">@product.getName() for @product.getPlatform.getName</h3>
+
+
+                            <div class="preview-pic tab-content">
+                                <div class="tab-pane active" id="pic-1">
+                                @if(e.resource("public/images/productImages/" + product.getId + ".jpg").isDefined) {
+                                    <img class="pic" src="/assets/images/productImages/@(product.getId).jpg"/>
+                                } else {
+                                    <img class="pic" src="/assets/images/productImages/thumbnails/noImage.png"/>
+                                }
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                        <div class="details col-md-6">
+                            <h3 class="product-title">@product.getName() for @product.getPlatform.getName</h3>
                             @if((product.getStock > 0)){
-			<div class="action">
+                                <div class="action">
 
-                   	 <a href="@routes.ShoppingCtrl.addToBasket(product.getId)">
-							<button type="button">add to cart</button>
-                                </a>
-			</div>
-   					 }
+                                    <a href="@routes.ShoppingCtrl.addToBasket(product.getId)">
+                                        <button type="button">add to cart</button>
+                                    </a>
+                                </div>
+                            }
 
-						<div class="rating">
-							<div class="stars">
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-							</div>
-							<span class="review-no">@product.reviewCount() </span>
+                            <div class="rating">
+                                <div class="stars">
+                                    @product.averageRating(product.getId)
+                                </div>
+                                <span class="review-no">@product.reviewCount() </span>
 
-						</div>
-						<p>Developer: @product.getDeveloper</p>
-						<p>Publisher: @product.getPublisher</p>
-						<p class="product-description">@product.getDescription</p>
-						<h4 class="price">Price: &euro; @("%.2f".format(product.getPrice))</h4>
-						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
-						
-						
-						
-					</div>
-				</div>
-			</div>
-            <label>Reviews:</label><br>
-            <div class="list-group" id="replies">
-            @for(r <- product.getReviews){
+                            </div>
+                            <p>Developer: @product.getDeveloper</p>
+                            <p>Publisher: @product.getPublisher</p>
+                            <p class="product-description">@product.getDescription</p>
+                            <h4 class="price">Price: &euro; @("%.2f".format(product.getPrice))</h4>
+                            <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
 
-                <div class="list-group-item" id="replies">
-                    @if(r.getCustomer != null){
-                        <label>@r.getCustomer.getfName | @r.getDate | @r.reviewStars
-                    }else{
-                        <label>N/A</label><br>
-                    }
+                            <label>Reviews:</label><br>
+                            <div class="list-group" id="replies">
+                            @for(r <- product.getReviews){
 
-                <p>@r.getContent</p>
+                                <div class="list-group-item" id="replies">
+                                    @if(r.getCustomer != null){
+                                        <label>@r.getCustomer.getfName | @r.getDate | @r.reviewStars()
+                                        }else{
+                                        <label>N/A</label><br>
+                                    }
 
-                    @if(user != null){
-                        @if(user.isInstanceOf[models.users.Admin]){
-                            <a href="@routes.HomeController.deleteReview(r.getId)"  class="btn btn-default btn-xs">Delete <span class="glyphicon glyphicon-trash"></span></a>
-                        }
-                    }
+                                <p>@r.getContent</p>
 
+                                    @if(user != null){
+                                        @if(user.isInstanceOf[models.users.Admin]){
+                                            <a href="@routes.HomeController.deleteReview(r.getId)"  class="btn btn-default btn-xs">Delete <span class="glyphicon glyphicon-trash"></span></a>
+                                        }
+                                    }
+
+                                </div>
+
+                            }
+                            </div>
+
+                        </div>
+                        <p>
+                            <a href="@routes.HomeController.addReview(product.getId())">
+                                <button class="btn btn-primary">Add a Review</button>
+                            </a>
+                        </p>
+
+                    </div>
                 </div>
-
-            }
             </div>
 
+
         </div>
-        <p>
-            <a href="@routes.HomeController.addReview(product.getId())">
-                <button class="btn btn-primary">Add a Review</button>
-            </a>
-        </p>
-
-    </div>
-    </div>
-		</div>
-	</div>
+        </div>
+        </div>
+        </div>
 
 
 
 
 
-}
+    }

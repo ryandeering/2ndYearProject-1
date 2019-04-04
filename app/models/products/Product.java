@@ -231,5 +231,37 @@ public class Product extends Model {
         return msg;
     }
 
+    public String averageRating(Long id){
+
+        try{
+            Product p = Product.find.byId(id);
+            List<Review> r = p.getReviews();
+            int amountofReviews = 0;
+            int sum = 0;
+            for (int i = 0; i < r.size(); i++) {
+                amountofReviews++;
+                sum += r.get(i).getRating();
+            }
+
+            double avg = sum / amountofReviews;
+            String stars = "";
+            double rating = Math.rint(avg);
+            for (int i = 0; i < rating; i++) {
+                stars+="★";
+            }
+
+            for (int i = 0; i < 5-rating; i++) {
+                stars+="☆";
+            }
+
+            return stars;
+        } catch (ArithmeticException e ) {
+            return "No average rating found.";
+        }
+
+
+
+    }
+
 }
 
