@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/ryan/Downloads/aa/2ndYearProject/conf/routes
-// @DATE:Thu Apr 04 21:01:49 IST 2019
+// @SOURCE:F:/dsad/2ndYearProject2/conf/routes
+// @DATE:Fri Apr 05 19:03:41 BST 2019
 
 package router
 
@@ -105,6 +105,8 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteReview/""" + "$" + """id<[^/]+>""", """controllers.HomeController.deleteReview(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """admin/panel""", """controllers.AdminProductCtrl.adminPanel"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """profile/changeProfilePic""", """controllers.HomeController.changeProfilePic()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """changePassword""", """controllers.HomeController.changePassword()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """changePasswordSubmit""", """controllers.HomeController.changePasswordSubmit"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -1012,6 +1014,42 @@ class Routes(
     )
   )
 
+  // @LINE:63
+  private[this] lazy val controllers_HomeController_changePassword50_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("changePassword")))
+  )
+  private[this] lazy val controllers_HomeController_changePassword50_invoker = createInvoker(
+    HomeController_0.changePassword(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "changePassword",
+      Nil,
+      "GET",
+      this.prefix + """changePassword""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:64
+  private[this] lazy val controllers_HomeController_changePasswordSubmit51_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("changePasswordSubmit")))
+  )
+  private[this] lazy val controllers_HomeController_changePasswordSubmit51_invoker = createInvoker(
+    HomeController_0.changePasswordSubmit,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "changePasswordSubmit",
+      Nil,
+      "POST",
+      this.prefix + """changePasswordSubmit""",
+      """""",
+      Seq()
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -1313,6 +1351,18 @@ class Routes(
     case controllers_HomeController_changeProfilePic49_route(params@_) =>
       call { 
         controllers_HomeController_changeProfilePic49_invoker.call(HomeController_0.changeProfilePic())
+      }
+  
+    // @LINE:63
+    case controllers_HomeController_changePassword50_route(params@_) =>
+      call { 
+        controllers_HomeController_changePassword50_invoker.call(HomeController_0.changePassword())
+      }
+  
+    // @LINE:64
+    case controllers_HomeController_changePasswordSubmit51_route(params@_) =>
+      call { 
+        controllers_HomeController_changePasswordSubmit51_invoker.call(HomeController_0.changePasswordSubmit)
       }
   }
 }

@@ -1,9 +1,9 @@
 [0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/ryan/Downloads/aa/2ndYearProject/conf/application.conf,/home/ryan/Downloads/aa/2ndYearProject/target/scala-2.12/classes/application.conf)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/ryan/Downloads/aa/2ndYearProject/conf/logback.xml,/home/ryan/Downloads/aa/2ndYearProject/target/scala-2.12/classes/logback.xml)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/ryan/Downloads/aa/2ndYearProject/conf/routes,/home/ryan/Downloads/aa/2ndYearProject/target/scala-2.12/classes/routes)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/ryan/Downloads/aa/2ndYearProject/conf/evolutions,/home/ryan/Downloads/aa/2ndYearProject/target/scala-2.12/classes/evolutions)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/ryan/Downloads/aa/2ndYearProject/conf/evolutions/default,/home/ryan/Downloads/aa/2ndYearProject/target/scala-2.12/classes/evolutions/default)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/ryan/Downloads/aa/2ndYearProject/conf/evolutions/default/1.sql,/home/ryan/Downloads/aa/2ndYearProject/target/scala-2.12/classes/evolutions/default/1.sql)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/ryan/Downloads/aa/2ndYearProject/conf/evolutions/default/2.sql,/home/ryan/Downloads/aa/2ndYearProject/target/scala-2.12/classes/evolutions/default/2.sql)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/ryan/Downloads/aa/2ndYearProject/conf/evolutions/default/sample inserts.txt,/home/ryan/Downloads/aa/2ndYearProject/target/scala-2.12/classes/evolutions/default/sample inserts.txt)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(F:\dsad\2ndYearProject2\conf\application.conf,F:\dsad\2ndYearProject2\target\scala-2.12\classes\application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(F:\dsad\2ndYearProject2\conf\evolutions,F:\dsad\2ndYearProject2\target\scala-2.12\classes\evolutions)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(F:\dsad\2ndYearProject2\conf\evolutions\default,F:\dsad\2ndYearProject2\target\scala-2.12\classes\evolutions\default)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(F:\dsad\2ndYearProject2\conf\evolutions\default\1.sql,F:\dsad\2ndYearProject2\target\scala-2.12\classes\evolutions\default\1.sql)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(F:\dsad\2ndYearProject2\conf\evolutions\default\2.sql,F:\dsad\2ndYearProject2\target\scala-2.12\classes\evolutions\default\2.sql)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(F:\dsad\2ndYearProject2\conf\evolutions\default\sample inserts.txt,F:\dsad\2ndYearProject2\target\scala-2.12\classes\evolutions\default\sample inserts.txt)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(F:\dsad\2ndYearProject2\conf\logback.xml,F:\dsad\2ndYearProject2\target\scala-2.12\classes\logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(F:\dsad\2ndYearProject2\conf\routes,F:\dsad\2ndYearProject2\target\scala-2.12\classes\routes)[0m

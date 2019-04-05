@@ -85,8 +85,18 @@ public class ShoppingCtrl extends Controller {
         Form<Discount> discountForm = formFactory.form(Discount.class).bindFromRequest();
         Product p = Product.find.byId(id);
 
-        // Get basket for logged in customer
+
+
+            // Get basket for logged in customer
         Customer customer = (Customer) User.getLoggedIn(session().get("email"));
+
+
+        if(p.getStock() <= 0){
+            flash("success", "Product out of stock.");
+            return redirect("/showBasket");
+        }
+
+
 
         // Check if item in basket
         if (customer.getBasket() == null) {
@@ -98,6 +108,9 @@ public class ShoppingCtrl extends Controller {
 
         }
         // Add product to the basket and save
+
+
+
         customer.getBasket().addProduct(p);
         customer.getBasket().getDiscount();
         customer.update();

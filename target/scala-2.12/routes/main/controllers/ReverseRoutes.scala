@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/ryan/Downloads/aa/2ndYearProject/conf/routes
-// @DATE:Thu Apr 04 21:01:49 IST 2019
+// @SOURCE:F:/dsad/2ndYearProject2/conf/routes
+// @DATE:Fri Apr 05 19:03:41 BST 2019
 
 import play.api.mvc.Call
 
@@ -154,6 +154,12 @@ package controllers {
     }
 
   
+    // @LINE:64
+    def changePasswordSubmit(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "changePasswordSubmit")
+    }
+  
     // @LINE:40
     def addCustomer(): Call = {
       
@@ -236,6 +242,12 @@ package controllers {
     def product(id:Long, filter:String = ""): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "product/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)) + play.core.routing.queryString(List(if(filter == "") None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("filter", filter)))))
+    }
+  
+    // @LINE:63
+    def changePassword(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "changePassword")
     }
   
     // @LINE:37

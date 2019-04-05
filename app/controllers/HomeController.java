@@ -13,12 +13,8 @@ import play.data.Form;
 import play.data.FormFactory;
 import play.db.ebean.Transactional;
 import play.mvc.*;
+import views.html.*;
 import views.html.AdminPanel.*;
-import views.html.addReview;
-import views.html.index;
-import views.html.profile;
-import views.html.product;
-import views.html.registerUser;
 
 import javax.inject.Inject;
 import java.io.File;
@@ -50,13 +46,14 @@ public class HomeController extends Controller {
     }
 
 
-
     public Result registerUser() {
         Form<Customer> userForm = formFactory.form(Customer.class);
         Form<Valid> vf = formFactory.form(Valid.class);
         return ok(registerUser.render(vf, userForm, User.getUserById(session().get("email"))));
     }
 
+    @Security.Authenticated(Secured.class)
+    @Transactional
     public Result profile() {
         Form<User> pf = formFactory.form(User.class); // hack
         return ok(profile.render(e,User.getUserById(session().get("email")),pf));
@@ -75,15 +72,15 @@ public class HomeController extends Controller {
             return badRequest(registerUser.render(vf,customerForm, User.getUserById(session().get("email"))));
         }
 
-            Customer newCustomer = customerForm.get();
-            Valid vfa = vf.get();
+        Customer newCustomer = customerForm.get();
+        Valid vfa = vf.get();
 
-            String salt = BCrypt.gensalt();
+        String salt = BCrypt.gensalt();
 
-            newCustomer.setPassword(BCrypt.hashpw(newCustomer.getPassword(), salt));
-            vfa.setPassword2(BCrypt.hashpw(vfa.getPassword2(), salt));
+        newCustomer.setPassword(BCrypt.hashpw(newCustomer.getPassword(), salt));
+        vfa.setPassword2(BCrypt.hashpw(vfa.getPassword2(), salt));
 
-            if(newCustomer.getPassword().equals(vfa.getPassword2()) == false){
+        if(newCustomer.getPassword().equals(vfa.getPassword2()) == false){
                 flash("error", "Passwords must match.");
                 return badRequest(registerUser.render(vf,customerForm, User.getUserById(session().get("email"))));
             }
@@ -277,7 +274,7 @@ public class HomeController extends Controller {
     @With(AuthCustomer.class)
     public Result addReview(Long prodId) {
         Form<Review> rForm = formFactory.form(Review.class);
-        return ok(addReview.render(rForm, getCurrentUser(), prodId));
+        return ok(addReview.render(rForm, (Customer)getCurrentUser(), prodId));
     }
 
     @Transactional
@@ -291,7 +288,7 @@ public class HomeController extends Controller {
         List<Review> rList = p.getReviews();
 
         for (int i = 0; i < rList.size(); i++) {
-            if(rList.get(i).getCustomer().equals(getCurrentUser())) {
+            if(rList.get(i).getCustomer().equals((Customer)getCurrentUser())) {
                 flash("error", "Chill, you reviewed already.");
                 return redirect("/product/" + prodId );
             }
@@ -302,20 +299,20 @@ public class HomeController extends Controller {
 
         if (newReviewForm.hasErrors()) {
             return badRequest(addReview.render(newReviewForm,
-                    getCurrentUser(), prodId));
+                    (Customer)getCurrentUser(), prodId));
         }
 
 
         newReview = newReviewForm.get();
         if (between(newReview.getRating(),1,5) == false){
             flash("error", "Rating not between 1 and 5.");
-            return badRequest(addReview.render(newReviewForm, getCurrentUser(), prodId));
+            return badRequest(addReview.render(newReviewForm, (Customer)getCurrentUser(), prodId));
         }
         newReview.save();
 
 
 
-        newReview.setAuthor(getCurrentUser());
+        newReview.setAuthor((Customer)getCurrentUser());
         newReview.setProduct(p);
         newReview.setDate();
         p.getReviews().add(newReview);
@@ -329,8 +326,8 @@ public class HomeController extends Controller {
         return redirect(routes.HomeController.product(prodId,""));
     }
 
-    public Customer getCurrentUser() {
-        Customer u = (Customer) User.getLoggedIn(session().get("email"));
+    public User getCurrentUser() {
+        User u = User.getLoggedIn(session().get("email"));
         return u;
     }
 
@@ -368,6 +365,36 @@ public class HomeController extends Controller {
 
         return redirect(routes.HomeController.profile());
     }
+
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    public Result changePassword(){
+        Form<User> userForm = formFactory.form(User.class);
+        Form<Valid> vf = formFactory.form(Valid.class);
+        return ok(changePassword.render(userForm, vf, getCurrentUser()));
+    }
+
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    public Result changePasswordSubmit(){
+
+        Form<User> userForm = formFactory.form(User.class).bindFromRequest();
+        Form<Valid> vf = formFactory.form(Valid.class).bindFromRequest();
+
+        User u = userForm.get();
+        Valid vfa = vf.get();
+
+        String salt = BCrypt.gensalt();
+
+        u.setPassword(BCrypt.hashpw(u.getPassword(), salt));
+        vfa.setPassword2(BCrypt.hashpw(vfa.getPassword2(), salt));
+
+        u.update();
+
+        flash("success", "Password successfully changed.");
+        return ok(profile.render(e, getCurrentUser(), userForm));
+    }
+
 
 }
 

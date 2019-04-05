@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/ryan/Downloads/aa/2ndYearProject/conf/routes
-// @DATE:Thu Apr 04 21:01:49 IST 2019
+// @SOURCE:F:/dsad/2ndYearProject2/conf/routes
+// @DATE:Fri Apr 05 19:03:41 BST 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -217,6 +217,16 @@ package controllers.javascript {
     }
 
   
+    // @LINE:64
+    def changePasswordSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.changePasswordSubmit",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "changePasswordSubmit"})
+        }
+      """
+    )
+  
     // @LINE:40
     def addCustomer: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addCustomer",
@@ -353,6 +363,16 @@ package controllers.javascript {
       """
         function(id0,filter1) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "product/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0)) + _qS([(filter1 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("filter", filter1))])})
+        }
+      """
+    )
+  
+    // @LINE:63
+    def changePassword: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.changePassword",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "changePassword"})
         }
       """
     )

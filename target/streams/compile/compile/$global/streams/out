@@ -1,4 +1,2 @@
-[0m[[0m[31merror[0m] [0m[0m/home/ryan/Downloads/aa/2ndYearProject/app/controllers/ShoppingCtrl.java:218:1: variable itable might not have been initialized[0m
-[0m[[0m[31merror[0m] [0m[0m            itable = itable+"<tr><td>"+i.getProduct().getName()+"</td><td>"+i.getQuantity()+"</td><td> "+i.getPrice()+" Euro</td><td>"+i.getItemTotal()+" Euro</td></tr>";[0m
-[0m[[0m[31merror[0m] [0m[0m/home/ryan/Downloads/aa/2ndYearProject/app/controllers/ShoppingCtrl.java:227:1: variable itable might not have been initialized[0m
-[0m[[0m[31merror[0m] [0m[0m                .setBodyHtml("<html> <body style=' border: 1px solid black; background-color:grey;'><center><h1>CDR Games</h1></center> <h2> Name: "+c.getfName() + " " + c.getlName() + " <br/> Address: " + c.getAddress() + "</h2><br/><h2>ORDER RECEIPT: <br/>  Order Info:  <table style=' border: 1px solid black;'>"+ itable + " <br/> </table></h2></body></html>");[0m
+[0m[[0m[31merror[0m] [0m[0mF:\dsad\2ndYearProject2\app\models\users\User.java:50:1: missing return statement[0m
+[0m[[0m[31merror[0m] [0m[0m    }[0m
