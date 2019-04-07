@@ -359,7 +359,9 @@ public class HomeController extends Controller {
         Http.MultipartFormData<File> data = request().body().asMultipartFormData();
         Http.MultipartFormData.FilePart<File> image = data.getFile("upload");
 
-        String saveImageMsg = AdminProductCtrl.saveFile("profileImages/",(u.getEmail()), image); ///fixed! - ryan
+        String saveImageMsg;
+	saveImageMsg = AdminProductCtrl.saveFile("profileImages/",(u.getEmail()), image);
+        
 
         flash("success", "Profile picture has been created" + " " + saveImageMsg);
 
