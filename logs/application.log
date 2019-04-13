@@ -1933,3 +1933,6 @@ play.api.db.evolutions.InconsistentDatabase: Database 'default' is in an inconsi
     filters.ExampleFilter
 
 2019-04-13 22:30:30,416 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-249 - Application started (Dev)
+2019-04-13 22:31:17,694 [WARN] from play in application-akka.actor.default-dispatcher-8 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2019-04-13 22:32:22,870 [WARN] from play in application-akka.actor.default-dispatcher-12 - You are using status code '200' with flashing, which should only be used with a redirect status!
+2019-04-13 22:33:12,146 [WARN] from play in application-akka.actor.default-dispatcher-17 - You are using status code '200' with flashing, which should only be used with a redirect status!
