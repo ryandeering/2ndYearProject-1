@@ -1,9 +1,0 @@
-[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/run/media/ryan/BEECC945ECC8F923/dsad/2ndYearProject2/conf/application.conf,/run/media/ryan/BEECC945ECC8F923/dsad/2ndYearProject2/target/scala-2.12/classes/application.conf)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/run/media/ryan/BEECC945ECC8F923/dsad/2ndYearProject2/conf/evolutions,/run/media/ryan/BEECC945ECC8F923/dsad/2ndYearProject2/target/scala-2.12/classes/evolutions)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/run/media/ryan/BEECC945ECC8F923/dsad/2ndYearProject2/conf/evolutions/default,/run/media/ryan/BEECC945ECC8F923/dsad/2ndYearProject2/target/scala-2.12/classes/evolutions/default)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/run/media/ryan/BEECC945ECC8F923/dsad/2ndYearProject2/conf/evolutions/default/1.sql,/run/media/ryan/BEECC945ECC8F923/dsad/2ndYearProject2/target/scala-2.12/classes/evolutions/default/1.sql)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/run/media/ryan/BEECC945ECC8F923/dsad/2ndYearProject2/conf/evolutions/default/2.sql,/run/media/ryan/BEECC945ECC8F923/dsad/2ndYearProject2/target/scala-2.12/classes/evolutions/default/2.sql)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/run/media/ryan/BEECC945ECC8F923/dsad/2ndYearProject2/conf/evolutions/default/sample inserts.txt,/run/media/ryan/BEECC945ECC8F923/dsad/2ndYearProject2/target/scala-2.12/classes/evolutions/default/sample inserts.txt)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/run/media/ryan/BEECC945ECC8F923/dsad/2ndYearProject2/conf/logback.xml,/run/media/ryan/BEECC945ECC8F923/dsad/2ndYearProject2/target/scala-2.12/classes/logback.xml)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/run/media/ryan/BEECC945ECC8F923/dsad/2ndYearProject2/conf/routes,/run/media/ryan/BEECC945ECC8F923/dsad/2ndYearProject2/target/scala-2.12/classes/routes)[0m

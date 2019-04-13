@@ -1,2 +1,0 @@
-[0m[[0m[31merror[0m] [0m[0m/run/media/ryan/BEECC945ECC8F923/dsad/2ndYearProject2/app/controllers/HomeController.java:363:1: ';' expected[0m
-[0m[[0m[31merror[0m] [0m[0m	saveImageMsg = AdminProductCtrl.saveFile("profileImages/",(u.getEmail()), image)[0m

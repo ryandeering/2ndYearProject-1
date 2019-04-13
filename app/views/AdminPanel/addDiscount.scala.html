@@ -9,15 +9,14 @@
         <!-- Use a views.html.helpers package method to create the form (instead of html)-->
         <!-- Note the arguments that are being passed to the scala function form (they are
          essentially instructions for constructing an HTML form element)-->
-    @form(action=routes.AdminProductCtrl.addDiscountSubmit(), 'class -> "form-horizontal", 'role -> "form") {
+    @helper.form(action=routes.AdminProductCtrl.addDiscountSubmit(), 'class -> "form-horizontal", 'role -> "form") {
         @* CSRF attack prevention *@
         @* This token, sent by the controller, will be used to authenticate the form submission *@
         @CSRF.formField
-
         @inputText(dForm("discountID"), '_label -> "Discount ID", 'class -> "form-control")
         @inputText(dForm("discountName"), '_label -> "Discount Name", 'class -> "form-control")
         @inputText(dForm("amount"), '_label -> "Amount", 'class -> "form-control")
-        <input id=dForm("amount") type="checkbox" name=dForm("amount") ${dForm("amount") ? 'checked':''}  />
+        @helper.checkbox(dForm("valid"))
 
     <div class="actions">
         <input type="submit" value="Add Discount" class="btn btn-primary">

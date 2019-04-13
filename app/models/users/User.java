@@ -29,9 +29,6 @@ public class User extends Model {
     private String lName;
 
     @Constraints.Required
-    private String address;
-
-    @Constraints.Required
     private String password;
 
     private String role;
@@ -72,11 +69,10 @@ public class User extends Model {
 
     }
 
-    public User(String email, String fName, String lName,String address, String password, String role) {
+    public User(String email, String fName, String lName, String password, String role) {
         this.email = email;
         this.fName = fName;
         this.lName = lName;
-	this.address = address;
         this.password = password;
         this.role = role;
     }
@@ -87,14 +83,6 @@ public class User extends Model {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-  public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getPassword() {

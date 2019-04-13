@@ -62,3 +62,5 @@ GET /admin/panel         controllers.AdminProductCtrl.adminPanel
 POST /profile/changeProfilePic controllers.HomeController.changeProfilePic()
 GET /changePassword controllers.HomeController.changePassword()
 POST /changePasswordSubmit controllers.HomeController.changePasswordSubmit
+GET /changeAddress controllers.HomeController.changeAddress
+POST /changeAddressSubmit controllers.HomeController.changeAddressSubmit
