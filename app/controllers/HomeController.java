@@ -3,10 +3,7 @@ package controllers;
 import models.products.Category;
 import models.products.Product;
 import models.reviews.Review;
-import models.users.Admin;
-import models.users.Customer;
-import models.users.User;
-import models.users.Valid;
+import models.users.*;
 import org.mindrot.jbcrypt.BCrypt;
 import play.api.Environment;
 import play.data.Form;
@@ -49,7 +46,8 @@ public class HomeController extends Controller {
     public Result registerUser() {
         Form<Customer> userForm = formFactory.form(Customer.class);
         Form<Valid> vf = formFactory.form(Valid.class);
-        return ok(registerUser.render(vf, userForm, User.getUserById(session().get("email"))));
+        Form<Address> addressForm = formFactory.form(Address.class);
+        return ok(registerUser.render(vf, userForm, addressForm, User.getUserById(session().get("email"))));
     }
 
     @Security.Authenticated(Secured.class)
@@ -63,26 +61,34 @@ public class HomeController extends Controller {
     public Result registerUserSubmit(){
         Form<Customer> customerForm = formFactory.form(Customer.class).bindFromRequest();
         Form<Valid> vf = formFactory.form(Valid.class).bindFromRequest();
-
+        Form<Address> af = formFactory.form(Address.class).bindFromRequest();
         if(customerForm.hasErrors()){
-            return badRequest(registerUser.render(vf,customerForm, User.getUserById(session().get("email"))));
+            return badRequest(registerUser.render(vf,customerForm, af, User.getUserById(session().get("email"))));
         }
 
+        if(af.hasErrors()){
+            return badRequest(registerUser.render(vf,customerForm, af, User.getUserById(session().get("email"))));
+        }
+
+
+
         if(vf.hasErrors()) {
-            return badRequest(registerUser.render(vf,customerForm, User.getUserById(session().get("email"))));
+            return badRequest(registerUser.render(vf,customerForm, af, User.getUserById(session().get("email"))));
         }
 
         Customer newCustomer = customerForm.get();
+        Address afa = af.get();
         Valid vfa = vf.get();
 
         String salt = BCrypt.gensalt();
 
         newCustomer.setPassword(BCrypt.hashpw(newCustomer.getPassword(), salt));
         vfa.setPassword2(BCrypt.hashpw(vfa.getPassword2(), salt));
+        newCustomer.setAddress(afa);
 
         if(newCustomer.getPassword().equals(vfa.getPassword2()) == false){
                 flash("error", "Passwords must match.");
-                return badRequest(registerUser.render(vf,customerForm, User.getUserById(session().get("email"))));
+                return badRequest(registerUser.render(vf,customerForm, af, User.getUserById(session().get("email"))));
             }
 
 
@@ -286,7 +292,7 @@ public class HomeController extends Controller {
 
         Product p = Product.find.byId(prodId);
         List<Review> rList = p.getReviews();
-
+        System.out.println();
         for (int i = 0; i < rList.size(); i++) {
             if(rList.get(i).getCustomer().equals((Customer)getCurrentUser())) {
                 flash("error", "Chill, you reviewed already.");
@@ -396,6 +402,53 @@ public class HomeController extends Controller {
         flash("success", "Password successfully changed.");
         return ok(profile.render(e, getCurrentUser(), userForm));
     }
+
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    public Result changeAddress(){
+        Form<Address> addressForm = formFactory.form(Address.class);
+        return ok(changeAddress.render(addressForm, (Customer)getCurrentUser()));
+    }
+
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    public Result changeAddressSubmit(){
+
+        Form<User> userForm = formFactory.form(User.class);
+        Form<Address> addressForm = formFactory.form(Address.class).bindFromRequest();
+
+
+        if (addressForm.hasErrors()) {
+            return badRequest(changeAddress.render(addressForm, (Customer)getCurrentUser()));
+        }
+
+
+        if(addressForm.get().getCountry().equals("Ireland")){
+        if (Address.eircodeCheck(addressForm.get().getEircode()) == false) {
+            flash("error", "Eircode doesn't match the format. Example: A65 F4E2.");
+            return badRequest(changeAddress.render(addressForm, (Customer)getCurrentUser()));
+        }}
+
+
+        Address a = addressForm.get();
+
+
+
+        Customer u = (Customer)getCurrentUser();
+        Address ao = u.getAddress();
+        ao.setfName(a.getfName());
+        ao.setlName(a.getlName());
+        ao.setStreetAddress(a.getStreetAddress());
+        ao.setCountry(a.getCountry());
+        ao.setEircode(a.getEircode());
+        ao.setTown(a.getTown());
+        u.setAddress(ao);
+        u.save();
+
+        flash("success", "Address successfully changed.");
+        return ok(profile.render(e, getCurrentUser(), userForm));
+    }
+
 
 
 }

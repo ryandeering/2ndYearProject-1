@@ -1,0 +1,51 @@
+@(addressForm: Form[models.users.Address],user: models.users.Customer)
+
+@import helper._
+
+@main("Change Address",user){
+
+    @if(flash.containsKey("error")) {
+        <div class="alert alert-danger">
+        @flash.get("error")
+        </div>
+    }
+
+    <div class="col-md-12">
+        @if(flash.containsKey("success")) {
+            <div class="alert alert-success">
+            @flash.get("success")
+            </div>
+        }
+
+        <p class="lead">Change your Address</p>
+
+            <!-- Use a views.html.helpers package method to create the form (instead of html)-->
+            <!-- Note the arguments that are being passed to the scala function form (they are
+         essentially instructions for constructing an HTML form element)-->
+        @form(action=routes.HomeController.changeAddressSubmit, 'class -> "form-horizontal", 'role -> "form") {
+            @* CSRF attack prevention *@
+            @* This token, sent by the controller, will be used to authenticate the form submission *@
+
+            @*The required fields are showing because of the constraints. Gonna look into this.*@
+            @CSRF.formField
+
+            @inputText(addressForm("fName").copy(value=Some(user.getAddress.getfName())), '_label -> "Name")
+            @inputText(addressForm("lName").copy(value=Some(user.getAddress.getlName())), '_label -> "Surname")
+            @inputText(addressForm("streetAddress").copy(value=Some(user.getAddress.getStreetAddress())), '_label -> "Street Address")
+            @inputText(addressForm("town").copy(value=Some(user.getAddress.getTown())), '_label -> "Town")
+            @inputText(addressForm("country").copy(value=Some(user.getAddress.getCountry())), '_label -> "Country")
+            @inputText(addressForm("eircode").copy(value=Some(user.getAddress.getEircode())), '_label -> "Postcode")
+
+
+            <!-- We use the bootstrap actions class for the buttons at the bottom:
+                1. The submit button for the form
+                2. A button that allows the user to cancel without adding an item
+            -->
+        <div class="actions">
+            <input type="submit" value="Add/Update Customer" class="btn btn-primary">
+            <a href="@routes.HomeController.usersCustomer()">
+                <button type="button" class="btn btn-warning">Cancel</button>
+            </a>
+        </div>
+} @* end of form *@
+} @* end of main *@

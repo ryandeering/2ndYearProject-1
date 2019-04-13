@@ -1,4 +1,4 @@
-@(vf: Form[models.users.Valid] ,userForm: Form[models.users.Customer],user: models.users.User)
+@(vf: Form[models.users.Valid] ,userForm: Form[models.users.Customer], addressForm: Form[models.users.Address], user: models.users.User)
 
     @import helper._
 
@@ -21,14 +21,12 @@
             @CSRF.formField
 
 
-            @inputText(userForm("email"), '_label -> "Email", 'class -> "form-control")
-            @inputText(userForm("fName"), '_label -> "Name", 'class -> "form-control")
-            @inputText(userForm("lName"), '_label -> "Name", 'class -> "form-control")
-            @inputText(userForm("address"), '_label -> "address", 'class -> "form-control")
-            @inputText(userForm("password"), '_label -> "Password", 'class -> "form-control")
-            @inputText(vf("password2"), '_label -> "Confirm Password", 'class -> "form-control")
+            @inputText(userForm("email"), '_showConstraints->false, '_label -> "Email", 'class -> "form-control")
+            @inputText(userForm("fName"), '_showConstraints->false, '_label -> "Name", 'class -> "form-control")
+            @inputText(userForm("lName"), '_showConstraints->false, '_label -> "Surname", 'class -> "form-control")
+            @inputText(userForm("password"), '_showConstraints->false, '_label -> "Password", 'class -> "form-control")
+            @inputText(vf("password2"), '_showConstraints->false, '_label -> "Confirm Password", 'class -> "form-control")
             @inputText(userForm("role").copy(value=Some("customer")), '_label -> "",'hidden -> "hidden")
-
 
 
 
@@ -41,6 +39,16 @@
             <a href="@routes.HomeController.registerUser()">
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
+
+            @inputText(addressForm("fName").copy(value=Some("")), '_label -> "",'hidden -> "hidden")
+            @inputText(addressForm("lName").copy(value=Some("")), '_label -> "",'hidden -> "hidden")
+            @inputText(addressForm("streetAddress").copy(value=Some("")), '_label -> "",'hidden -> "hidden")
+            @inputText(addressForm("town").copy(value=Some("")), '_label -> "",'hidden -> "hidden")
+            @inputText(addressForm("eircode").copy(value=Some("")), '_label -> "",'hidden -> "hidden")
+            @inputText(addressForm("country").copy(value=Some("")), '_label -> "",'hidden -> "hidden")
+
+
+
         </div>
     } @* end of form *@
     } @* end of main *@

@@ -164,3 +164,45 @@
 07/04/2019 12:36:05 | Ryan Deering logged in under role customer
 07/04/2019 12:36:07 | Ryan Deering logged out under role customer
 07/04/2019 12:36:18 | Ryan Deering logged in under role customer
+08/04/2019 21:51:32 | Hulk Hogan logged out under role admin
+08/04/2019 21:52:21 | Hulk Hogan logged in under role admin
+11/04/2019 11:35:51 | Hulk Hogan logged in under role admin
+11/04/2019 11:36:00 | Hulk Hogan updated a product under role admin
+11/04/2019 11:43:27 | Hulk Hogan logged out under role admin
+11/04/2019 11:43:45 | Ryan Deering logged in under role customer
+11/04/2019 11:57:20 | Ryan Deering logged out under role customer
+11/04/2019 12:31:16 | Ryan Deering logged in under role customer
+11/04/2019 12:31:28 | Ryan Deering logged out under role customer
+11/04/2019 12:34:08 | Ryan Deering logged in under role customer
+11/04/2019 12:35:05 | Ryan Deering placed order72 under role customer
+11/04/2019 12:36:38 | Ryan Deering logged out under role customer
+11/04/2019 12:36:49 | Ryan Deering logged in under role customer
+11/04/2019 12:39:03 | Ryan Deering logged out under role customer
+11/04/2019 12:39:09 | Ryan Deering logged in under role customer
+11/04/2019 12:39:11 | Ryan Deering logged out under role customer
+11/04/2019 12:39:21 | Ryan Deering logged in under role customer
+11/04/2019 12:40:22 | Ryan Deering cancelled order 72 under role customer
+11/04/2019 12:40:49 | Ryan Deering logged out under role customer
+11/04/2019 12:40:54 | Hulk Hogan logged in under role admin
+11/04/2019 12:41:46 | Hulk Hogan added a product sdhsajkf under role admin
+11/04/2019 12:43:29 | Hulk Hogan deleted product sdhsajkf under role admin
+11/04/2019 12:43:39 | Hulk Hogan updated a product under role admin
+13/04/2019 15:05:02 | Hulk Hogan logged in under role admin
+13/04/2019 15:41:30 | Hulk Hogan logged out under role admin
+13/04/2019 15:41:58 | Ryan Deering logged in under role customer
+13/04/2019 15:42:01 | Ryan Deering logged out under role customer
+13/04/2019 15:42:17 | Ryan Deering logged in under role customer
+13/04/2019 15:45:56 | Ryan Deering logged out under role customer
+13/04/2019 15:46:09 | Ryan Deering logged in under role customer
+13/04/2019 20:37:26 | Ryan Deering logged in under role customer
+13/04/2019 21:17:13 | Ryan Deering logged out under role customer
+13/04/2019 21:17:23 | Ryan Deering logged in under role customer
+13/04/2019 21:17:57 | Ryan Deering logged out under role customer
+13/04/2019 21:18:04 | Ryan Deering logged in under role customer
+13/04/2019 21:59:21 | Ryan Deering logged out under role customer
+13/04/2019 22:00:00 | Ryan Deering logged in under role customer
+13/04/2019 22:26:51 | Hulk Hogan logged in under role admin
+13/04/2019 22:26:57 | Hulk Hogan logged out under role admin
+13/04/2019 22:28:16 | Ryan Deering logged in under role customer
+13/04/2019 22:28:50 | Ryan Deering placed order1 under role customer
+13/04/2019 22:32:51 | Ryan Deering placed order2 under role customer

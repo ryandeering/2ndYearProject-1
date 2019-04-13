@@ -230,6 +230,10 @@ public class AdminProductCtrl extends Controller {
     public Result addDiscountSubmit() {
         List<Discount> a = Discount.findAll();
         Form<Discount> newdForm = formFactory.form(Discount.class).bindFromRequest();
+
+        System.out.println(newdForm.get().getDiscountID());
+        System.out.println(newdForm.get().isValid());
+
         if (newdForm.hasErrors()) {
             return badRequest(addDiscount.render(newdForm, User.getUserById(session().get("email"))));
         } else {
@@ -240,7 +244,9 @@ public class AdminProductCtrl extends Controller {
                 return badRequest(discount.render(a, User.getUserById(session().get("email"))));
             }
 
-            if (d==null){
+
+
+            if (d!=null){
                 d.save();
             } else {
                 d.update();

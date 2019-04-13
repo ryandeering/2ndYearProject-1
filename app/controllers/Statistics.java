@@ -48,8 +48,7 @@ public class Statistics extends Controller{
 
     public static String popularGame() {
         List<ShopOrder> a = ShopOrder.findAll();
-        List<String> popGames = new ArrayList<String>() {
-        };
+        List<String> popGames = new ArrayList<String>() {};
         for (int i = 0; i < a.size(); i++) {
             List<OrderItem> ab = a.get(i).getItems();
             for (int j = 0; j < ab.size(); j++) {
@@ -71,13 +70,13 @@ public class Statistics extends Controller{
 
     public static String popularDiscount() {
         List<ShopOrder> a = ShopOrder.findAll();
-        List<String> discountsUsed = new ArrayList<String>() {
-        };
+        List<String> discountsUsed = new ArrayList<String>() {};
         for (int i = 0; i < a.size(); i++) {
             List<OrderItem> ab = a.get(i).getItems();
             for (int j = 0; j < ab.size(); j++) {
-                if (!ab.get(j).getDiscount().getDiscountName().equals("null")){
-                    discountsUsed.add(ab.get(j).getDiscount().getDiscountID());
+                String compare = ab.get(j).getDiscount().getDiscountID();
+                if (!compare.equals("null")){
+                    discountsUsed.add(compare);
                 }
             }
         }
@@ -114,7 +113,7 @@ public class Statistics extends Controller{
     }
 
 
-    public static void PieChart(){ // This is the ugliest function I've ever written.
+    public static void PieChart(){ // This is the ugliest function I've ever written. I'm so sorry
         List<Product> a = Product.findAll();
         List<ShopOrder> ab = ShopOrder.findAll();
 
@@ -173,5 +172,22 @@ public class Statistics extends Controller{
         }
 
     }
+
+    public static String systemDetails(){
+        String details = "";
+        String details1 = "Available cores in system: " + Runtime.getRuntime().availableProcessors() + System.lineSeparator();
+        String details2 = "Max memory: " +  formatSize(Runtime.getRuntime().maxMemory()) + System.lineSeparator();
+        String details3 = "Available memory: " +  formatSize(Runtime.getRuntime().totalMemory()) + System.lineSeparator();
+        details += details1 + details2 + details3;
+        return details;
+    }
+
+    public static String formatSize(long v) {
+        if (v < 1024) return v + " B";
+        int z = (63 - Long.numberOfLeadingZeros(v)) / 10;
+        return String.format("%.1f %sB", (double)v / (1L << (z*10)), " KMGTPE".charAt(z));
+    } // https://stackoverflow.com/questions/3758606/how-to-convert-byte-size-into-human-readable-format-in-java
+
+
 
 }

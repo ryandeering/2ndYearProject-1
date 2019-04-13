@@ -3,6 +3,17 @@
 
 # --- !Ups
 
+create table address (
+  id                            bigint auto_increment not null,
+  f_name                        varchar(255),
+  l_name                        varchar(255),
+  street_address                varchar(255),
+  town                          varchar(255),
+  eircode                       varchar(255),
+  country                       varchar(255),
+  constraint pk_address primary key (id)
+);
+
 create table basket (
   id                            bigint auto_increment not null,
   customer_email                varchar(255),
@@ -83,9 +94,10 @@ create table user (
   email                         varchar(255) not null,
   f_name                        varchar(255),
   l_name                        varchar(255),
-  address                       varchar(255),
   password                      varchar(255),
   role                          varchar(255),
+  address_id                    bigint,
+  constraint uq_user_address_id unique (address_id),
   constraint pk_user primary key (email)
 );
 
@@ -128,6 +140,8 @@ create index ix_review_product_id on review (product_id);
 alter table shop_order add constraint fk_shop_order_customer_email foreign key (customer_email) references user (email) on delete restrict on update restrict;
 create index ix_shop_order_customer_email on shop_order (customer_email);
 
+alter table user add constraint fk_user_address_id foreign key (address_id) references address (id) on delete restrict on update restrict;
+
 
 # --- !Downs
 
@@ -165,6 +179,10 @@ drop index if exists ix_review_product_id;
 
 alter table shop_order drop constraint if exists fk_shop_order_customer_email;
 drop index if exists ix_shop_order_customer_email;
+
+alter table user drop constraint if exists fk_user_address_id;
+
+drop table if exists address;
 
 drop table if exists basket;
 

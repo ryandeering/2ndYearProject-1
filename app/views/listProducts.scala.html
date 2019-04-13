@@ -72,7 +72,7 @@
           <p class="text-right">&euro; @("%.2f".format(p.getPrice))</p>
           <p>@p.getDescription</p>
           <ul class="list-inline list-unstyled">
-			  @if(p.getStock >= 0){
+			  @if(p.getStock > 0){
   			<li><a href="@routes.ShoppingCtrl.addToBasket(p.getId)"  class="btn btn-default btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span> Add to basket</a></li>
 				  }
             <li>|</li>

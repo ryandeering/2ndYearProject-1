@@ -131,6 +131,12 @@ public class ShoppingCtrl extends Controller {
         OrderItem item = OrderItem.find.byId(itemId);
 
         Product ios = Product.find.byId(pid);
+
+        if(ios.getStock()==0){
+            flash("error", "No more of these items left.");
+        }
+
+
         // Increment quantity
         if(ios.getStock()>0){
             item.increaseQty();
@@ -181,8 +187,10 @@ public class ShoppingCtrl extends Controller {
 
         Customer c = getCurrentUser();
 
-
-
+        if(c.getAddress().getStreetAddress().equals("")){
+            flash("error", "You've probably not set your address. Go to your profile and set it!");
+            return badRequest(basket.render(c));
+        }
 
         if(c.getBasket().getBasketTotal() == 0.00) {
 
