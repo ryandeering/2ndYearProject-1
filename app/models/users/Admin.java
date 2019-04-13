@@ -20,8 +20,8 @@ public class Admin extends User {
     public Admin(){
     }
 
-    public Admin(String email, String fName, String lName,String address, String password, String role) {
-        super(email, fName, lName, password,address, role);
+    public Admin(String email, String fName, String lName, String password, String role) {
+        super(email, fName, lName, password, role);
     }
 
     public static final Finder<Long, Admin> find = new Finder<>(Admin.class);
