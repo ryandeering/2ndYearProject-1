@@ -222,3 +222,8 @@
 14/04/2019 00:17:14 | Ryan Deering placed order2 under role customer
 14/04/2019 00:17:20 | Ryan Deering logged out under role customer
 14/04/2019 00:17:32 | Hulk Hogan logged in under role admin
+14/04/2019 13:56:33 | Hulk Hogan logged in under role admin
+14/04/2019 13:56:48 | Hulk Hogan logged out under role admin
+14/04/2019 13:56:54 | Hulk Hogan logged in under role admin
+14/04/2019 13:56:57 | Hulk Hogan logged out under role admin
+14/04/2019 13:57:07 | Hulk Hogan logged in under role admin
