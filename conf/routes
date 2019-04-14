@@ -64,3 +64,4 @@ GET /changePassword controllers.HomeController.changePassword()
 POST /changePasswordSubmit controllers.HomeController.changePasswordSubmit
 GET /changeAddress controllers.HomeController.changeAddress
 POST /changeAddressSubmit controllers.HomeController.changeAddressSubmit
+GET /404 controllers.HomeController.error()

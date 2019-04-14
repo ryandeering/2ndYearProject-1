@@ -41,6 +41,11 @@ public class HomeController extends Controller {
     public Result index() {
         return ok(index.render(User.getUserById(session().get("email"))));
     }
+	
+	public Result error() {
+        return ok(errora.render(User.getUserById(session().get("email"))));
+    }
+
 
 
     public Result registerUser() {
