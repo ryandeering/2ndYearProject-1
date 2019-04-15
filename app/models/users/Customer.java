@@ -9,18 +9,18 @@ import models.shopping.ShopOrder;
 import javax.persistence.*;
 import java.util.List;
 
-@Table(name="USER")
+@Table(name = "USER")
 
 @DiscriminatorValue("customer")
 @Entity
 public class Customer extends User {
 
 
-    @OneToOne(mappedBy="customer", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
     private Basket basket;
-    @OneToMany(mappedBy="customer", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<ShopOrder> orders;
-    @OneToMany(mappedBy="Customer", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "Customer", cascade = CascadeType.ALL)
     private List<Review> reviews;
     @OneToOne(cascade = CascadeType.ALL)
     public Address address;
@@ -30,6 +30,7 @@ public class Customer extends User {
         super(email, password, fName, lName, role);
         this.address = address;
     }
+
     public Basket getBasket() {
         return basket;
     }

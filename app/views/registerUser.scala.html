@@ -10,6 +10,13 @@
             </div>
         }
 
+        <div class="col-md-12">
+            @if(flash.containsKey("success")) {
+                <div class="alert alert-success">
+                @flash.get("success")
+                </div>
+            }
+
         <p class="lead">Registration</p>
 
             <!-- Use a views.html.helpers package method to create the form (instead of html)-->

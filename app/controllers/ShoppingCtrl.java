@@ -39,15 +39,21 @@ public class ShoppingCtrl extends Controller {
 
     /** Dependency Injection **/
 
-    /** http://stackoverflow.com/questions/15600186/play-framework-dependency-injection **/
+    /**
+     * http://stackoverflow.com/questions/15600186/play-framework-dependency-injection
+     **/
     private FormFactory formFactory;
     private final MailerClient mailer;
 
 
-    /** http://stackoverflow.com/a/37024198 **/
+    /**
+     * http://stackoverflow.com/a/37024198
+     **/
     private Environment env;
 
-    /** http://stackoverflow.com/a/10159220/6322856 **/
+    /**
+     * http://stackoverflow.com/a/10159220/6322856
+     **/
     @Inject
     public ShoppingCtrl(Environment e, FormFactory f, MailerClient m) {
         this.env = e;
@@ -59,7 +65,7 @@ public class ShoppingCtrl extends Controller {
 
     // Get a user - if logged in email will be set in the session
     private Customer getCurrentUser() {
-        return (Customer)User.getLoggedIn(session().get("email"));
+        return (Customer) User.getLoggedIn(session().get("email"));
     }
 
     @Transactional
@@ -86,16 +92,14 @@ public class ShoppingCtrl extends Controller {
         Product p = Product.find.byId(id);
 
 
-
-            // Get basket for logged in customer
+        // Get basket for logged in customer
         Customer customer = (Customer) User.getLoggedIn(session().get("email"));
 
 
-        if(p.getStock() <= 0){
+        if (p.getStock() <= 0) {
             flash("success", "Product out of stock.");
             return redirect("/showBasket");
         }
-
 
 
         // Check if item in basket
@@ -108,7 +112,6 @@ public class ShoppingCtrl extends Controller {
 
         }
         // Add product to the basket and save
-
 
 
         customer.getBasket().addProduct(p);
@@ -132,20 +135,20 @@ public class ShoppingCtrl extends Controller {
 
         Product ios = Product.find.byId(pid);
 
-        if(ios.getStock()==0){
+        if (ios.getStock() == 0) {
             flash("error", "No more of these items left.");
         }
 
 
         // Increment quantity
-        if(ios.getStock()>0){
+        if (ios.getStock() > 0) {
             item.increaseQty();
             // Save
             item.update();
             ios.decrementStock();
             ios.update();
-        }else{
-            flash("error","Sorry,no more of these items left");
+        } else {
+            flash("error", "Sorry,no more of these items left");
         }
         // Show updated basket
         return redirect(routes.ShoppingCtrl.showBasket());
@@ -161,7 +164,7 @@ public class ShoppingCtrl extends Controller {
 
         Customer c = getCurrentUser();
         // Call basket remove item method
-        c.getBasket().removeItem(item,ios);
+        c.getBasket().removeItem(item, ios);
         c.getBasket().getDiscount();
         c.getBasket().update();
         // back to basket
@@ -187,12 +190,12 @@ public class ShoppingCtrl extends Controller {
 
         Customer c = getCurrentUser();
 
-        if(c.getAddress().getStreetAddress().equals("")){
+        if (c.getAddress().getStreetAddress().equals("")) {
             flash("error", "You've probably not set your address. Go to your profile and set it!");
             return badRequest(basket.render(c));
         }
 
-        if(c.getBasket().getBasketTotal() == 0.00) {
+        if (c.getBasket().getBasketTotal() == 0.00) {
 
             flash("success", "Your basket is empty. ");
             return badRequest(basket.render(c));
@@ -205,7 +208,6 @@ public class ShoppingCtrl extends Controller {
         order.setCustomer(c);
 
 
-
         // Copy basket to order
         order.setItems(c.getBasket().getBasketItems());
 
@@ -214,7 +216,7 @@ public class ShoppingCtrl extends Controller {
 
 
         // Move items from basket to order
-        for (OrderItem i: order.getItems()) {
+        for (OrderItem i : order.getItems()) {
 
             i.setOrder(order);
             i.setBasket(null);
@@ -259,37 +261,36 @@ public class ShoppingCtrl extends Controller {
     }
 
 
-
     @Transactional
     public Result viewOrders() {
         Customer c = (Customer) User.getLoggedIn(session().get("email"));
-        return ok(viewOrders.render((Customer)User.getUserById(session().get("email"))));
+        return ok(viewOrders.render((Customer) User.getUserById(session().get("email"))));
     }
 
 
     @Transactional
-    public Result cancelOrder(Long orderId){
+    public Result cancelOrder(Long orderId) {
         ShopOrder order = ShopOrder.find.byId(orderId);
 
         Calendar c1 = Calendar.getInstance();
         Calendar c2 = Calendar.getInstance();
 
-        c1=order.toCalendar();
-        if(compareDates(c1,c2)){
+        c1 = order.toCalendar();
+        if (compareDates(c1, c2)) {
             // order.removeAllItems(orderId);
             order.adjustStock();
             order.delete();
 
             flash("success", "Your order has been cancelled");
             HomeController.log("cancelled order " + order.getId());
-        }else {
+        } else {
             flash("success", "Sorry, it is too late to cancel this order");
         }
-        return ok(viewOrders.render((Customer)User.getUserById(session().get("email"))));
+        return ok(viewOrders.render((Customer) User.getUserById(session().get("email"))));
     }
 
 
-    public boolean compareDates(Calendar c1, Calendar c2){
+    public boolean compareDates(Calendar c1, Calendar c2) {
         boolean allowed = true;
         long miliSecondForDate1 = c1.getTimeInMillis();
         long miliSecondForDate2 = c2.getTimeInMillis();
@@ -297,8 +298,8 @@ public class ShoppingCtrl extends Controller {
         long diffInMilis = miliSecondForDate2 - miliSecondForDate1;
 
         long diffInMinutes = diffInMilis / (60 * 1000);
-        if(diffInMinutes >60){
-            allowed=false;
+        if (diffInMinutes > 60) {
+            allowed = false;
         }
         return allowed;
     }
@@ -344,7 +345,7 @@ public class ShoppingCtrl extends Controller {
             return badRequest(basket.render(c));
         }
 
-        if (c.getBasket().isDiscountSet() == true){
+        if (c.getBasket().isDiscountSet() == true) {
             flash("error", "This is awkward...discount already applied.");
             return badRequest(basket.render(c));
         }
@@ -360,10 +361,6 @@ public class ShoppingCtrl extends Controller {
 
         return redirect(routes.ShoppingCtrl.showBasket());
     }
-
-
-
-
 
 
 }

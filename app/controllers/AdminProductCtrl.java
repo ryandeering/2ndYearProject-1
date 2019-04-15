@@ -24,7 +24,6 @@ import java.util.List;
 // Import models and views
 
 
-
 @Security.Authenticated(Secured.class)
 @With(AuthAdmin.class)
 
@@ -101,7 +100,7 @@ public class AdminProductCtrl extends Controller {
         MultipartFormData<File> data = request().body().asMultipartFormData();
         FilePart<File> image = data.getFile("upload");
 
-        String saveImageMsg = saveFile("productImages/",Long.toString(newProduct.getId()), image); ///fixed! - ryan
+        String saveImageMsg = saveFile("productImages/", Long.toString(newProduct.getId()), image); ///fixed! - ryan
 
         flash("success", "Product " + newProduct.getName() + " has been created" + " " + saveImageMsg);
 
@@ -239,14 +238,13 @@ public class AdminProductCtrl extends Controller {
         } else {
             Discount d = newdForm.get();
 
-            if (d.getAmount() < 1){
+            if (d.getAmount() < 1) {
                 flash("success", "Under 0. Invalid.");
                 return badRequest(discount.render(a, User.getUserById(session().get("email"))));
             }
 
 
-
-            if (d!=null){
+            if (d != null) {
                 d.save();
             } else {
                 d.update();

@@ -10,7 +10,7 @@ class ErrorHandler extends HttpErrorHandler {
 
   def onClientError(request: RequestHeader, statusCode: Int, message: String) = {
     Future.successful(
-      Status(statusCode)("404 Not Found " + message)
+      Status(statusCode)("Error: " + message)
     )
   }
 

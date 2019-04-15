@@ -8,16 +8,13 @@ import javax.persistence.Table;
 import java.util.List;
 
 
-
-
-
-@Table(name="USER")
+@Table(name = "USER")
 // the user type of this class is "admin"
 @DiscriminatorValue("admin")
 @Entity
 public class Admin extends User {
 
-    public Admin(){
+    public Admin() {
     }
 
     public Admin(String email, String fName, String lName, String password, String role) {
@@ -29,9 +26,6 @@ public class Admin extends User {
     public static final List<Admin> findAll() {
         return Admin.find.all();
     }
-
-
-
 
 
 }

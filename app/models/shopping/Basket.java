@@ -1,14 +1,13 @@
 package models.shopping;
 
-import java.util.*;
+import io.ebean.Finder;
+import io.ebean.Model;
+import models.products.Product;
+import models.users.Customer;
+
 import javax.persistence.*;
-
-import io.ebean.*;
-import play.data.format.*;
-import play.data.validation.*;
-
-import models.products.*;
-import models.users.*;
+import java.util.Iterator;
+import java.util.List;
 
 
 // Product entity managed by Ebean
@@ -29,9 +28,10 @@ public class Basket extends Model {
 
 
     private boolean discountSet;
+
     // Default constructor
-    public  Basket() {
-       discountSet = false;
+    public Basket() {
+        discountSet = false;
     }
 
     public boolean isDiscountSet() {
@@ -72,12 +72,11 @@ public class Basket extends Model {
         // Using an iterator ensures 'safe' removal of list objects
         // Removal of list items is unreliable as index can change if an item is added or removed elsewhere
         // iterator works with an object reference which does not change
-        for (Iterator<OrderItem> iter = basketItems.iterator(); iter.hasNext();) {
+        for (Iterator<OrderItem> iter = basketItems.iterator(); iter.hasNext(); ) {
             OrderItem i = iter.next();
-            if (i.getId().equals(item.getId()))
-            {
+            if (i.getId().equals(item.getId())) {
                 // If more than one of these items in the basket then decrement
-                if (i.getQuantity() > 1 ) {
+                if (i.getQuantity() > 1) {
                     i.decreaseQty();
                     ios.incrementStock();
                     ios.update();
@@ -97,11 +96,10 @@ public class Basket extends Model {
     }
 
     public void removeAllItems() {
-        for(OrderItem i: this.basketItems) {
+        for (OrderItem i : this.basketItems) {
 
             Product ios = Product.find.byId(i.getProduct().getId());
-            if(ios.getId() == i.getProduct().getId())
-            {
+            if (ios.getId() == i.getProduct().getId()) {
                 int quantity = i.getQuantity();
                 ios.incrementStock(quantity);
                 ios.update();
@@ -116,14 +114,14 @@ public class Basket extends Model {
 
         double total = 0;
 
-        for (OrderItem i: basketItems) {
+        for (OrderItem i : basketItems) {
             total += i.getItemTotal();
         }
         return discountPrice(total);
     }
 
     //Generic query helper
-    public static Finder<Long,Basket> find = new Finder<Long,Basket>(Basket.class);
+    public static Finder<Long, Basket> find = new Finder<Long, Basket>(Basket.class);
 
     //Find all Products in the database
     public static List<Basket> findAll() {
@@ -155,15 +153,15 @@ public class Basket extends Model {
         this.customer = customer;
     }
 
-    public double discountPrice(double total){
-        if (!discount.getDiscountID().equals("null") & discount.isValid() == true){
+    public double discountPrice(double total) {
+        if (!discount.getDiscountID().equals("null") & discount.isValid() == true) {
             double discountAmount = total * discount.getAmount();
             System.out.println();
             return total - discountAmount / 100;
         }
-            System.out.println(discount.getAmount());
-            System.out.println(total);
-            return total;
+        System.out.println(discount.getAmount());
+        System.out.println(total);
+        return total;
     }
 
     public void setDiscount(Discount discount) {
@@ -174,7 +172,7 @@ public class Basket extends Model {
         return discount;
     }
 
-    public double getDiscountAmount(){
+    public double getDiscountAmount() {
         return discount.getAmount();
     }
 }

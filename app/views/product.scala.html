@@ -193,7 +193,6 @@
                             <p>Publisher: @product.getPublisher</p>
                             <p class="product-description">@product.getDescription</p>
                             <h4 class="price">Price: &euro; @("%.2f".format(product.getPrice))</h4>
-                            <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
 
                             <label>Reviews:</label><br>
                             <div class="list-group" id="replies">
@@ -201,7 +200,7 @@
 
                                 <div class="list-group-item" id="replies">
                                     @if(r.getCustomer != null){
-                                        <label>@r.getCustomer.getfName | @r.getDate | @r.reviewStars()
+                                        <label>@r.getCustomer.getfName | @r.formatDate | @r.reviewStars()
                                         }else{
                                         <label>N/A</label><br>
                                     }
@@ -220,12 +219,13 @@
                             </div>
 
                         </div>
-                        <p>
-                            <a href="@routes.HomeController.addReview(product.getId())">
-                                <button class="btn btn-primary">Add a Review</button>
-                            </a>
-                        </p>
-
+                        @if(user.isInstanceOf[models.users.Customer]) {
+                            <p>
+                                <a href="@routes.HomeController.addReview(product.getId())">
+                                    <button class="btn btn-primary">Add a Review</button>
+                                </a>
+                            </p>
+                        }
                     </div>
                 </div>
             </div>

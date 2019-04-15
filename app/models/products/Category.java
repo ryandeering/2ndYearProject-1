@@ -1,11 +1,16 @@
 package models.products;
 
-import java.util.*;
-import javax.persistence.*;
+import io.ebean.Finder;
+import io.ebean.Model;
+import play.data.validation.Constraints;
 
-import io.ebean.*;
-import play.data.format.*;
-import play.data.validation.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 // Product entity managed by Ebean
 @Entity
@@ -27,39 +32,39 @@ public class Category extends Model {
     private List<Product> products; // = new ArrayList<Product>();
 
     // Default constructor
-    public  Category() {
+    public Category() {
     }
 
-    public  Category(Long id, String name, List<Product> products) {
-			this.id = id;
-			this.name = name;
-			this.products = products;
+    public Category(Long id, String name, List<Product> products) {
+        this.id = id;
+        this.name = name;
+        this.products = products;
     }
 
-	//Generic query helper for entity Computer with id Long
-    public static Finder<Long,Category> find = new Finder<Long,Category>(Category.class);
-    
+    //Generic query helper for entity Computer with id Long
+    public static Finder<Long, Category> find = new Finder<Long, Category>(Category.class);
+
     //Find all Products in the database
     public static List<Category> findAll() {
         return Category.find.query().where().orderBy("name asc").findList();
     }
 
-	// Generate options for an HTML select control
-    public static Map<String,String> options() {
-        LinkedHashMap<String,String> options = new LinkedHashMap<String,String>();
-        for(Category c: Category.find.query().orderBy("name").findList()) {
+    // Generate options for an HTML select control
+    public static Map<String, String> options() {
+        LinkedHashMap<String, String> options = new LinkedHashMap<String, String>();
+        for (Category c : Category.find.query().orderBy("name").findList()) {
             options.put(c.id.toString(), c.name);
         }
         return options;
     }
-    
+
 
     // Check if a product is in a category
     public static boolean inCategory(Long category, Long product) {
         return find.query().where()
-            .eq("products.id", product)
-            .eq("id", category)
-            .findCount() > 0;
+                .eq("products.id", product)
+                .eq("id", category)
+                .findCount() > 0;
     }
 
     public Long getId() {

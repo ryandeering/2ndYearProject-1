@@ -1,14 +1,13 @@
 package models.products;
 
-import java.util.*;
-import javax.persistence.*;
-
-import io.ebean.*;
+import io.ebean.Finder;
+import io.ebean.Model;
 import models.reviews.Review;
-import play.data.format.*;
-import play.data.validation.*;
+import play.data.validation.Constraints;
 
-import models.shopping.*;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -35,7 +34,7 @@ public class Product extends Model {
     private String description;
 
     @Constraints.Required
-    private int	stock;
+    private int stock;
 
     @Constraints.Required
     private double price;
@@ -46,7 +45,7 @@ public class Product extends Model {
     @Constraints.Required
     private String publisher;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy="product")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     private List<Review> reviews;
 
     public List<Review> getReviews() {
@@ -58,11 +57,11 @@ public class Product extends Model {
     }
 
     // Default constructor
-    public  Product() {
+    public Product() {
     }
 
     // Constructor to initialise object
-    public  Product(Long id, String name, String description, int stock, double price, String developer, String publisher){
+    public Product(Long id, String name, String description, int stock, double price, String developer, String publisher) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -71,31 +70,31 @@ public class Product extends Model {
         this.developer = developer;
         this.publisher = publisher;
     }
-	
-	//Generic query helper for entity Computer with id Long
-    public static Finder<Long,Product> find = new Finder<Long,Product>(Product.class);
+
+    //Generic query helper for entity Computer with id Long
+    public static Finder<Long, Product> find = new Finder<Long, Product>(Product.class);
 
     // Find all Products in the database
     // Filter product name 
     public static List<Product> findAll(String filter) {
         return Product.find.query().where()
-                        // name like filter value (surrounded by wildcards)
-                        .ilike("name", "%" + filter + "%")
-                        .orderBy("name asc")
-                        .findList();
+                // name like filter value (surrounded by wildcards)
+                .ilike("name", "%" + filter + "%")
+                .orderBy("name asc")
+                .findList();
     }
-    
+
     // Find all Products for a category
     // Filter product name 
     public static List<Product> findFilter(Long catID, String filter) {
         return Product.find.query().where()
-                        // Only include products from the matching cat ID
-                        // In this case search the ManyToMany relation
-                        .eq("categories.id", catID)
-                        // name like filter value (surrounded by wildcards)
-                        .ilike("name", "%" + filter + "%")
-                        .orderBy("name asc")
-                        .findList();
+                // Only include products from the matching cat ID
+                // In this case search the ManyToMany relation
+                .eq("categories.id", catID)
+                // name like filter value (surrounded by wildcards)
+                .ilike("name", "%" + filter + "%")
+                .orderBy("name asc")
+                .findList();
     }
 
     public Long getId() {
@@ -113,7 +112,6 @@ public class Product extends Model {
     public void setCategories(List<Category> categories) {
         this.categories = categories;
     }
-
 
 
     public String getName() {
@@ -149,27 +147,28 @@ public class Product extends Model {
     }
 
 
-    public String stockShortage(){
-       if (getStock() > 5){
-           return "In stock!";
-        } else if (getStock() > 0){
-           return "Short in stock.";
-       }  else {
-           return "Out of stock.";
-       }
+    public String stockShortage() {
+        if (getStock() > 5) {
+            return "In stock!";
+        } else if (getStock() > 0) {
+            return "Short in stock.";
+        } else {
+            return "Out of stock.";
+        }
 
     }
 
     public int decrementStock() {
         return stock--;
     }
+
     public int incrementStock() {
         return stock++;
     }
 
 
-    public void incrementStock(int qty){
-        stock +=qty;
+    public void incrementStock(int qty) {
+        stock += qty;
     }
 
     public String getDeveloper() {
@@ -212,17 +211,17 @@ public class Product extends Model {
     }
 
 
-    public String reviewCount(){
+    public String reviewCount() {
         int count = 0;
         String msg;
         List<Review> rList = getReviews();
         for (int i = 0; i < rList.size(); i++) {
-           if(rList.get(i) != null) {
-               count++;
-           }
+            if (rList.get(i) != null) {
+                count++;
+            }
         }
 
-        if(count == 0){
+        if (count == 0) {
             msg = "No reviews found.";
         } else {
             msg = (count + " reviews.");
@@ -231,9 +230,9 @@ public class Product extends Model {
         return msg;
     }
 
-    public String averageRating(Long id){
+    public String averageRating(Long id) {
 
-        try{
+        try {
             Product p = Product.find.byId(id);
             List<Review> r = p.getReviews();
             int amountofReviews = 0;
@@ -247,18 +246,17 @@ public class Product extends Model {
             String stars = "";
             double rating = Math.rint(avg);
             for (int i = 0; i < rating; i++) {
-                stars+="★";
+                stars += "★";
             }
 
-            for (int i = 0; i < 5-rating; i++) {
-                stars+="☆";
+            for (int i = 0; i < 5 - rating; i++) {
+                stars += "☆";
             }
 
             return stars;
-        } catch (ArithmeticException e ) {
+        } catch (ArithmeticException e) {
             return "No average rating found.";
         }
-
 
 
     }

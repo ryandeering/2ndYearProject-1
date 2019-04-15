@@ -13,17 +13,17 @@ import javax.inject.Inject;
 public class LoginController extends Controller {
     private FormFactory formFactory;
 
-@Inject
-public LoginController(FormFactory f){
-    this.formFactory = f;
-}
+    @Inject
+    public LoginController(FormFactory f) {
+        this.formFactory = f;
+    }
 
     public Result login() {
         Form<Login> loginForm = formFactory.form(Login.class);
         return ok(login.render(loginForm, User.getUserById(session().get("email"))));
- }
+    }
 
-    public Result loginSubmit(){
+    public Result loginSubmit() {
         Form<Login> loginForm = formFactory.form(Login.class).bindFromRequest();
 
         if (loginForm.hasErrors()) {
@@ -39,19 +39,19 @@ public LoginController(FormFactory f){
 
 
             if (u != null && "admin".equals(u.getRole())) {
-                return redirect(controllers.routes.AdminProductCtrl.index());
-                }
-                return redirect(controllers.routes.ProductCtrl.index());
+                return redirect(routes.AdminProductCtrl.adminPanel());
+            }
+            return redirect(controllers.routes.ProductCtrl.index());
         }
-}
+    }
 
-    public Result logout(){
+    public Result logout() {
 
         HomeController.log("logged out");
         session().clear();
         flash("success", "You have been logged out");
         return redirect(routes.LoginController.login());
-}
+    }
 
 
 }

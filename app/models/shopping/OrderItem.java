@@ -1,14 +1,13 @@
 package models.shopping;
 
-import java.util.*;
-import javax.persistence.*;
+import io.ebean.Finder;
+import io.ebean.Model;
+import models.products.Product;
 
-import io.ebean.*;
-import play.data.format.*;
-import play.data.validation.*;
-
-import models.products.*;
-import models.users.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import java.util.List;
 
 // OrderItem entity managed by Ebean
 @Entity
@@ -19,10 +18,10 @@ public class OrderItem extends Model {
 
     @ManyToOne
     private ShopOrder order;
-    
+
     @ManyToOne
     private Basket basket;
-    
+
     // Unidirection mapping - Many order items can have one product
     // Product not interested in this
     @ManyToOne
@@ -36,42 +35,41 @@ public class OrderItem extends Model {
     private double price;
 
     // Default constructor
-    public  OrderItem() {
+    public OrderItem() {
     }
-    
+
     public OrderItem(Product p) {
-            product = p;
-            quantity = 1;
-            price = p.getPrice();   }
+        product = p;
+        quantity = 1;
+        price = p.getPrice();
+    }
 
 
-
-    
     // Increment quantity
     public void increaseQty() {
         quantity += 1;
     }
-    
+
     // Decrement quantity
     public void decreaseQty() {
         quantity -= 1;
     }
-    
+
     // Calculate and return total price for this order item
     public double getItemTotal() {
         double total = this.price * this.quantity;
 
-           if (!discount.getDiscountID().equals("null") & discount.isValid() == true){
-             double discountAmount = total * discount.getAmount();
-             return total - discountAmount / 100;
-              }
+        if (!discount.getDiscountID().equals("null") & discount.isValid() == true) {
+            double discountAmount = total * discount.getAmount();
+            return total - discountAmount / 100;
+        }
 
         return total;
 
     }
-	
-	//Generic query helper
-    public static Finder<Long,OrderItem> find = new Finder<Long,OrderItem>(OrderItem.class);
+
+    //Generic query helper
+    public static Finder<Long, OrderItem> find = new Finder<Long, OrderItem>(OrderItem.class);
 
     //Find all Products in the database
     public static List<OrderItem> findAll() {

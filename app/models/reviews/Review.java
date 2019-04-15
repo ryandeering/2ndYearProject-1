@@ -1,14 +1,17 @@
 package models.reviews;
 
-import java.util.*;
-import javax.persistence.*;
+import io.ebean.Finder;
+import io.ebean.Model;
+import models.products.Product;
+import models.users.Customer;
+import play.data.validation.Constraints;
 
-import io.ebean.*;
-import play.data.format.*;
-import play.data.validation.*;
-
-import models.products.*;
-import models.users.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 // Product entity managed by Ebean
 @Entity
@@ -35,40 +38,40 @@ public class Review extends Model {
     private String content;
 
     // Default constructor
-    public  Review() {
+    public Review() {
     }
 
     // Constructor to initialise object
-    public  Review(Long id, int rating, String content){
+    public Review(Long id, int rating, String content) {
         this.id = id;
         this.rating = rating;
         this.content = content;
     }
-	
-	//Generic query helper for entity Computer with id Long
-    public static Finder<Long,Review> find = new Finder<Long,Review>(Review.class);
+
+    //Generic query helper for entity Computer with id Long
+    public static Finder<Long, Review> find = new Finder<Long, Review>(Review.class);
 
     // Find all Products in the database
     // Filter product id 
     public static List<Review> findAll(String filter) {
         return Review.find.query().where()
-                        // name like filter value (surrounded by wildcards)
-                        .ilike("id", "%" + filter + "%")
-                        .orderBy("author asc")
-                        .findList();
+                // name like filter value (surrounded by wildcards)
+                .ilike("id", "%" + filter + "%")
+                .orderBy("author asc")
+                .findList();
     }
-    
+
     // Find all Products for a category
     // Filter product id 
     public static List<Review> findFilter(Long prodID, String filter) {
         return Review.find.query().where()
-                        // Only include products from the matching cat ID
-                        // In this case search the ManyToMany relation
-                        .eq("products.id", prodID)
-                        // name like filter value (surrounded by wildcards)
-                        .ilike("id", "%" + filter + "%")
-                        .orderBy("author asc")
-                        .findList();
+                // Only include products from the matching cat ID
+                // In this case search the ManyToMany relation
+                .eq("products.id", prodID)
+                // name like filter value (surrounded by wildcards)
+                .ilike("id", "%" + filter + "%")
+                .orderBy("author asc")
+                .findList();
     }
 
     public Long getId() {
@@ -100,11 +103,11 @@ public class Review extends Model {
         this.rating = rating;
     }
 
-    public void setAuthor(Customer c){
+    public void setAuthor(Customer c) {
         this.Customer = c;
     }
 
-    public void setProduct(Product p){
+    public void setProduct(Product p) {
         this.product = p;
     }
 
@@ -116,21 +119,30 @@ public class Review extends Model {
         return product;
     }
 
-    public Date getDate() {return date;}
+    public Date getDate() {
+        return date;
+    }
 
 
-
-    public String reviewStars(){
+    public String reviewStars() {
         String stars = "";
         for (int i = 0; i < rating; i++) {
-            stars+="★";
+            stars += "★";
         }
 
-        for (int i = 0; i < 5-rating; i++) {
-            stars+="☆";
+        for (int i = 0; i < 5 - rating; i++) {
+            stars += "☆";
         }
 
         return stars;
     }
+
+
+    public String formatDate() {
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+        String dateString = format.format(getDate());
+        return dateString;
+    }
+
 }
 

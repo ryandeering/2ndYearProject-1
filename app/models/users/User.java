@@ -8,14 +8,13 @@ import play.data.validation.Constraints;
 import javax.persistence.*;
 
 
-
 @Entity
 // specify mapped table name
 @Table(name = "USER")
 // map subclasses to a single table
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 //the discriminator column is used to define User type
-@DiscriminatorColumn(name="type")
+@DiscriminatorColumn(name = "type")
 @DiscriminatorValue("user")
 
 public class User extends Model {
@@ -36,7 +35,6 @@ public class User extends Model {
     public static final Finder<Long, User> find = new Finder<>(User.class);
 
 
-
     public static User authenticate(String email, String password) {
         User user = User.find.query().where().eq("email", email).findUnique();
 
@@ -55,10 +53,10 @@ public class User extends Model {
         }
     }
 
-// Check if a user is logged in (by id - email address)
+    // Check if a user is logged in (by id - email address)
     public static User getLoggedIn(String email) {
         if (email == null)
-                return null;
+            return null;
         else
             // Find user by id and return object
             return find.query().where().eq("email", email).findUnique();

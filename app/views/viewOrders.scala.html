@@ -2,12 +2,12 @@
 @import play.api.Play.current
 @import models.shopping._
 @import models.products._
-    @import scala.Predef; val x= 0
+    @import scala.Predef;
 
     <!-- Pass page title and user on to main -->
 @main("View Orders", customer) {
-	<script 
-		src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js" 
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"
 	  integrity="sha256-vIL0pZJsOKSz76KKVCyLxzkOT00vXs+Qz4fYRVMoDhw="
 	  crossorigin="anonymous">
 	</script>
@@ -19,14 +19,14 @@
             </div>
         }
 
-        @if(x == 0){
-            <p>No orders found!</p> <!-- Scala variable used. -->
-            }
+     @if(customer.getOrders().isEmpty()){
+         <p>No orders found.</p>
+         }
 
             <!-- Start of For loop - For each p in products add a row -->
         @for(o <- customer.getOrders()) {
 
-            @x++;
+
             <p>Order Number: @o.getId()</p>
             <p>Order Date: @o.getOrderDateString()</p>
             <table class="table table-bordered table-hover table-condensed">
@@ -39,7 +39,7 @@
                         <th>Quantity</th>
                         <th>Price</th>
                         <th>Total</th>
-			
+
                     </tr>
                 </thead>
                 <tbody>

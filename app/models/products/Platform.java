@@ -1,11 +1,16 @@
 package models.products;
 
-import java.util.*;
-import javax.persistence.*;
+import io.ebean.Finder;
+import io.ebean.Model;
+import play.data.validation.Constraints;
 
-import io.ebean.*;
-import play.data.format.*;
-import play.data.validation.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 // Product entity managed by Ebean
 @Entity
@@ -27,17 +32,17 @@ public class Platform extends Model {
     private List<Product> products; // = new ArrayList<Product>();
 
     // Default constructor
-    public  Platform() {
+    public Platform() {
     }
 
-    public  Platform(Long id, String name, List<Product> products) {
+    public Platform(Long id, String name, List<Product> products) {
         this.id = id;
         this.name = name;
         this.products = products;
     }
 
     //Generic query helper for entity Computer with id Long
-    public static Finder<Long,Platform> find = new Finder<Long,Platform>(Platform.class);
+    public static Finder<Long, Platform> find = new Finder<Long, Platform>(Platform.class);
 
     //Find all Products in the database
     public static List<Platform> findAll() {
@@ -45,9 +50,9 @@ public class Platform extends Model {
     }
 
     // Generate options for an HTML select control
-    public static Map<String,String> options() {
-        LinkedHashMap<String,String> options = new LinkedHashMap<String,String>();
-        for(Platform c: Platform.find.query().orderBy("name").findList()) {
+    public static Map<String, String> options() {
+        LinkedHashMap<String, String> options = new LinkedHashMap<String, String>();
+        for (Platform c : Platform.find.query().orderBy("name").findList()) {
             options.put(c.id.toString(), c.name);
         }
         return options;

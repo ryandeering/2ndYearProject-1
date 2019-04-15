@@ -1,18 +1,19 @@
 package models.shopping;
 
-import java.util.*;
-import javax.persistence.*;
+import io.ebean.Finder;
+import io.ebean.Model;
 
-import io.ebean.*;
-import play.data.format.*;
-import play.data.validation.*;
-
-import models.products.*;
-import models.users.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 
 @Entity
-public class Discount extends Model{
+public class Discount extends Model {
 
     @Id
     private String discountID;
@@ -87,11 +88,11 @@ public class Discount extends Model{
         return Discount.find.all();
     }
 
-    public static Map<String,String> options(){
-        LinkedHashMap<String,String> options = new LinkedHashMap<>();
+    public static Map<String, String> options() {
+        LinkedHashMap<String, String> options = new LinkedHashMap<>();
 
-        for(Discount d: Discount.findAll()){
-            options.put(d.getDiscountID(),d.getDiscountName());
+        for (Discount d : Discount.findAll()) {
+            options.put(d.getDiscountID(), d.getDiscountName());
         }
         return options;
     }
@@ -105,8 +106,4 @@ public class Discount extends Model{
     }
 
 
-
-
-
-    
 }

@@ -1,12 +1,15 @@
 package controllers;
-import play.mvc.*;
-import java.util.concurrent.CompletionStage;
+
+import models.users.User;
+import play.mvc.Action;
+import play.mvc.Http;
+import play.mvc.Result;
+
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 
-import models.users.*;
-
-public class AuthCustomer extends Action.Simple{
-    public CompletionStage<Result> call(Http.Context ctx){
+public class AuthCustomer extends Action.Simple {
+    public CompletionStage<Result> call(Http.Context ctx) {
 
         String id = ctx.session().get("email");
         if (id != null) {

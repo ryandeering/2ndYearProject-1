@@ -1,12 +1,11 @@
 package models.users;
+
 import io.ebean.Finder;
-import io.ebean.Model;
-import org.mindrot.jbcrypt.BCrypt;
-import play.data.validation.Constraints;
-import javax.persistence.*;
-import java.util.LinkedHashMap;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -102,7 +101,7 @@ public class Address {
         return Address.find.all();
     }
 
-    public static boolean eircodeCheck(String eircode){
+    public static boolean eircodeCheck(String eircode) {
         boolean check = false;
 
         String regex = "(?:^[AC-FHKNPRTV-Y][0-9]{2}|D6W)[ -]?[0-9AC-FHKNPRTV-Y]{4}$";
@@ -110,7 +109,7 @@ public class Address {
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(eircode);
 
-        if(m.find() == true){
+        if (m.find() == true) {
             check = true;
         }
 

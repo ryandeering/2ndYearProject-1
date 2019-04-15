@@ -1,7 +1,7 @@
 package controllers;
 
-import models.products.Category;
 import models.products.Product;
+import models.reviews.BadWords;
 import models.reviews.Review;
 import models.users.*;
 import org.mindrot.jbcrypt.BCrypt;
@@ -10,8 +10,11 @@ import play.data.Form;
 import play.data.FormFactory;
 import play.db.ebean.Transactional;
 import play.mvc.*;
+import views.html.AdminPanel.addAdmin;
+import views.html.AdminPanel.addCustomer;
+import views.html.AdminPanel.admin;
+import views.html.AdminPanel.customers;
 import views.html.*;
-import views.html.AdminPanel.*;
 
 import javax.inject.Inject;
 import java.io.File;
@@ -21,6 +24,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -33,7 +37,7 @@ public class HomeController extends Controller {
 
 
     @Inject
-    public HomeController (FormFactory f, Environment env){
+    public HomeController(FormFactory f, Environment env) {
         this.formFactory = f;
         this.e = env;
     }
@@ -41,11 +45,10 @@ public class HomeController extends Controller {
     public Result index() {
         return ok(index.render(User.getUserById(session().get("email"))));
     }
-	
-	public Result error() {
+
+    public Result error() {
         return ok(errora.render(User.getUserById(session().get("email"))));
     }
-
 
 
     public Result registerUser() {
@@ -59,49 +62,53 @@ public class HomeController extends Controller {
     @Transactional
     public Result profile() {
         Form<User> pf = formFactory.form(User.class); // hack
-        return ok(profile.render(e,User.getUserById(session().get("email")),pf));
+        return ok(profile.render(e, User.getUserById(session().get("email")), pf));
     }
 
 
-    public Result registerUserSubmit(){
+    public Result registerUserSubmit() {
         Form<Customer> customerForm = formFactory.form(Customer.class).bindFromRequest();
         Form<Valid> vf = formFactory.form(Valid.class).bindFromRequest();
         Form<Address> af = formFactory.form(Address.class).bindFromRequest();
-        if(customerForm.hasErrors()){
-            return badRequest(registerUser.render(vf,customerForm, af, User.getUserById(session().get("email"))));
+        if (customerForm.hasErrors()) {
+            return badRequest(registerUser.render(vf, customerForm, af, User.getUserById(session().get("email"))));
         }
 
-        if(af.hasErrors()){
-            return badRequest(registerUser.render(vf,customerForm, af, User.getUserById(session().get("email"))));
+        if (af.hasErrors()) {
+            return badRequest(registerUser.render(vf, customerForm, af, User.getUserById(session().get("email"))));
         }
 
 
-
-        if(vf.hasErrors()) {
-            return badRequest(registerUser.render(vf,customerForm, af, User.getUserById(session().get("email"))));
+        if (vf.hasErrors()) {
+            return badRequest(registerUser.render(vf, customerForm, af, User.getUserById(session().get("email"))));
         }
+
 
         Customer newCustomer = customerForm.get();
         Address afa = af.get();
         Valid vfa = vf.get();
 
         String salt = BCrypt.gensalt();
+        try {
+            newCustomer.setPassword(BCrypt.hashpw(newCustomer.getPassword(), salt));
+            vfa.setPassword2(BCrypt.hashpw(vfa.getPassword2(), salt));
+            newCustomer.setAddress(afa);
 
-        newCustomer.setPassword(BCrypt.hashpw(newCustomer.getPassword(), salt));
-        vfa.setPassword2(BCrypt.hashpw(vfa.getPassword2(), salt));
-        newCustomer.setAddress(afa);
-
-        if(newCustomer.getPassword().equals(vfa.getPassword2()) == false){
+            if (newCustomer.getPassword().equals(vfa.getPassword2()) == false) {
                 flash("error", "Passwords must match.");
-                return badRequest(registerUser.render(vf,customerForm, af, User.getUserById(session().get("email"))));
+                return badRequest(registerUser.render(vf, customerForm, af, User.getUserById(session().get("email"))));
             }
 
-
-
             newCustomer.save();
-            flash("success","Congratulations, " + newCustomer.getfName()+ " ! You're now part of the CDR Games family. Login, set your address in the profile settings and shop to your heart's content!");
-            return redirect(routes.LoginController.login());}
+        } catch (Exception e) {
+            flash("error", "An error has occurred.");
+            return redirect(routes.HomeController.registerUser());
+        }
 
+
+        flash("success", "Congratulations, " + newCustomer.getfName() + " ! You're now part of the CDR Games family. Login, set your address in the profile settings and shop to your heart's content!");
+        return redirect(routes.LoginController.login());
+    }
 
 
     @Security.Authenticated(Secured.class)
@@ -124,13 +131,13 @@ public class HomeController extends Controller {
         Admin u;
         Form<Admin> userForm;
         try {
-            u = (Admin)User.getUserById(email);
+            u = (Admin) User.getUserById(email);
             u.update();
             userForm = formFactory.form(Admin.class).fill(u);
         } catch (Exception ex) {
             return badRequest("error");
         }
-        return ok(addAdmin.render(userForm,User.getUserById(session().get("email"))));
+        return ok(addAdmin.render(userForm, User.getUserById(session().get("email"))));
     }
 
 
@@ -139,7 +146,7 @@ public class HomeController extends Controller {
     @With(AuthAdmin.class)
     public Result addAdmin() {
         Form<Admin> userForm = formFactory.form(Admin.class);
-        return ok(addAdmin.render(userForm,User.getUserById(session().get("email"))));
+        return ok(addAdmin.render(userForm, User.getUserById(session().get("email"))));
     }
 
 
@@ -149,11 +156,11 @@ public class HomeController extends Controller {
     public Result addAdminSubmit() {
         Form<Admin> newUserForm = formFactory.form(Admin.class).bindFromRequest();
         if (newUserForm.hasErrors()) {
-            return badRequest(addAdmin.render(newUserForm,User.getUserById(session().get("email"))));
+            return badRequest(addAdmin.render(newUserForm, User.getUserById(session().get("email"))));
         } else {
             Admin newUser = newUserForm.get();
             newUser.setPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt())); // uses bcrypt to generate hashed password
-            if (User.getUserById(newUser.getEmail())==null){
+            if (User.getUserById(newUser.getEmail()) == null) {
                 newUser.save();
             } else {
                 newUser.update();
@@ -169,7 +176,7 @@ public class HomeController extends Controller {
     @With(AuthAdmin.class)
     public Result addCustomer() {
         Form<Customer> cForm = formFactory.form(Customer.class);
-        return ok(addCustomer.render(cForm,User.getUserById(session().get("email"))));
+        return ok(addCustomer.render(cForm, User.getUserById(session().get("email"))));
     }
 
     @Security.Authenticated(Secured.class)
@@ -178,12 +185,11 @@ public class HomeController extends Controller {
     public Result addCustomerSubmit() {
         Form<Customer> newUserForm = formFactory.form(Customer.class).bindFromRequest();
         if (newUserForm.hasErrors()) {
-
-            return badRequest(addCustomer.render(newUserForm,User.getUserById(session().get("email"))));
+            return badRequest(addCustomer.render(newUserForm, User.getUserById(session().get("email"))));
         } else {
             Customer newUser = newUserForm.get();
             newUser.setPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
-            if (User.getUserById(newUser.getEmail())==null){
+            if (User.getUserById(newUser.getEmail()) == null) {
                 newUser.save();
             } else {
                 newUser.update();
@@ -204,22 +210,19 @@ public class HomeController extends Controller {
     }
 
 
-
     @Security.Authenticated(Secured.class)
     @Transactional
     @With(AuthAdmin.class)
     public Result updateCustomer(String email) {
-        Customer u;
-        Form<Customer> userForm;
+        Customer u = (Customer) User.getUserById(email);
+        Form<Customer> userForm = userForm = formFactory.form(Customer.class).fill(u);
         try {
-            u = (Customer) User.getUserById(email);
-            u.setPassword(BCrypt.hashpw(u.getPassword(), BCrypt.gensalt()));
             u.update();
-            userForm = formFactory.form(Customer.class).fill(u);
         } catch (Exception ex) {
-            return badRequest("error");
+            flash("error", "An error occured.");
+            return badRequest(addCustomer.render(userForm, User.getUserById(session().get("email"))));
         }
-        return ok(addCustomer.render(userForm,User.getUserById(session().get("email"))));
+        return ok(addCustomer.render(userForm, User.getUserById(session().get("email"))));
     }
 
     @Security.Authenticated(Secured.class)
@@ -228,7 +231,7 @@ public class HomeController extends Controller {
     public Result usersAdmin() {
         List<Admin> userList = null;
         userList = Admin.findAll();
-        return ok(admin.render(userList,User.getUserById(session().get("email"))));
+        return ok(admin.render(userList, User.getUserById(session().get("email"))));
 
     }
 
@@ -238,7 +241,7 @@ public class HomeController extends Controller {
     public Result usersCustomer() {
         List<Customer> cList = null;
         cList = Customer.findAll();
-        return ok(customers.render(cList,User.getUserById(session().get("email"))));
+        return ok(customers.render(cList, User.getUserById(session().get("email"))));
     }
 
 
@@ -256,14 +259,13 @@ public class HomeController extends Controller {
     //}
 
 
-
     public Result product(Long id, String filter) {
 
         List<Product> productList = null;
         Product p;
 
         p = Product.find.byId(id);
-        return ok(product.render(p, filter, User.getUserById(session().get("email")),e));
+        return ok(product.render(p, filter, User.getUserById(session().get("email")), e));
     }
 
 
@@ -285,7 +287,7 @@ public class HomeController extends Controller {
     @With(AuthCustomer.class)
     public Result addReview(Long prodId) {
         Form<Review> rForm = formFactory.form(Review.class);
-        return ok(addReview.render(rForm, (Customer)getCurrentUser(), prodId));
+        return ok(addReview.render(rForm, getCurrentUser(), prodId));
     }
 
     @Transactional
@@ -295,35 +297,49 @@ public class HomeController extends Controller {
         Form<Review> newReviewForm = formFactory.form(Review.class).bindFromRequest();
 
 
+        if (newReviewForm.get().getContent().getBytes().length > 255) {
+            flash("error", "Your review has too many characters, we're sorry but please trim it down.");
+            return redirect("/product/" + prodId);
+
+        }
+
+
         Product p = Product.find.byId(prodId);
         List<Review> rList = p.getReviews();
         System.out.println();
         for (int i = 0; i < rList.size(); i++) {
-            if(rList.get(i).getCustomer().equals((Customer)getCurrentUser())) {
+            if (rList.get(i).getCustomer().equals(getCurrentUser())) {
                 flash("error", "Chill, you reviewed already.");
-                return redirect("/product/" + prodId );
+                return redirect("/product/" + prodId);
             }
         }
 
 
+        BadWords bw = new BadWords();
+        BadWords.loadConfigs();
+        ArrayList<String> curses = BadWords.badWordsFound(newReviewForm.get().getContent());
+
+        if (curses.size() > 0) {
+            flash("error", "This is a family friendly website. NO cursing. Thank you.");
+            return redirect("/product/" + prodId);
+        }
 
 
         if (newReviewForm.hasErrors()) {
             return badRequest(addReview.render(newReviewForm,
-                    (Customer)getCurrentUser(), prodId));
+                    getCurrentUser(), prodId));
         }
 
 
         newReview = newReviewForm.get();
-        if (between(newReview.getRating(),1,5) == false){
+        if (between(newReview.getRating(), 1, 5) == false) {
             flash("error", "Rating not between 1 and 5.");
-            return badRequest(addReview.render(newReviewForm, (Customer)getCurrentUser(), prodId));
+            return badRequest(addReview.render(newReviewForm, getCurrentUser(), prodId));
         }
         newReview.save();
 
 
-
-        newReview.setAuthor((Customer)getCurrentUser());
+        newReview.setAuthor((Customer) getCurrentUser());
         newReview.setProduct(p);
         newReview.setDate();
         p.getReviews().add(newReview);
@@ -334,7 +350,7 @@ public class HomeController extends Controller {
 
         flash("success", "Review has been created");
 
-        return redirect(routes.HomeController.product(prodId,""));
+        return redirect(routes.HomeController.product(prodId, ""));
     }
 
     public User getCurrentUser() {
@@ -351,13 +367,12 @@ public class HomeController extends Controller {
 
         flash("success", "Review has been deleted");
 
-        return redirect(routes.HomeController.product(prodId,""));
+        return redirect(routes.HomeController.product(prodId, ""));
     }
 
     public static boolean between(int i, int minValueInclusive, int maxValueInclusive) {
         return i >= minValueInclusive && i <= maxValueInclusive;
     }
-
 
 
     @Security.Authenticated(Secured.class)
@@ -371,8 +386,8 @@ public class HomeController extends Controller {
         Http.MultipartFormData.FilePart<File> image = data.getFile("upload");
 
         String saveImageMsg;
-	saveImageMsg = AdminProductCtrl.saveFile("profileImages/",(u.getEmail()), image);
-        
+        saveImageMsg = AdminProductCtrl.saveFile("profileImages/", (u.getEmail()), image);
+
 
         flash("success", "Profile picture has been created" + " " + saveImageMsg);
 
@@ -381,7 +396,7 @@ public class HomeController extends Controller {
 
     @Security.Authenticated(Secured.class)
     @Transactional
-    public Result changePassword(){
+    public Result changePassword() {
         Form<User> userForm = formFactory.form(User.class);
         Form<Valid> vf = formFactory.form(Valid.class);
         return ok(changePassword.render(userForm, vf, getCurrentUser()));
@@ -389,7 +404,7 @@ public class HomeController extends Controller {
 
     @Security.Authenticated(Secured.class)
     @Transactional
-    public Result changePasswordSubmit(){
+    public Result changePasswordSubmit() {
 
         Form<User> userForm = formFactory.form(User.class).bindFromRequest();
         Form<Valid> vf = formFactory.form(Valid.class).bindFromRequest();
@@ -402,6 +417,11 @@ public class HomeController extends Controller {
         u.setPassword(BCrypt.hashpw(u.getPassword(), salt));
         vfa.setPassword2(BCrypt.hashpw(vfa.getPassword2(), salt));
 
+        if (!u.getPassword().equals(vfa.getPassword2())) {
+            flash("error", "Your passwords are not the same.");
+            return ok(profile.render(e, getCurrentUser(), userForm));
+        }
+
         u.update();
 
         flash("success", "Password successfully changed.");
@@ -410,54 +430,57 @@ public class HomeController extends Controller {
 
     @Security.Authenticated(Secured.class)
     @Transactional
-    public Result changeAddress(){
+    public Result changeAddress() {
         Form<Address> addressForm = formFactory.form(Address.class);
-        return ok(changeAddress.render(addressForm, (Customer)getCurrentUser()));
+        return ok(changeAddress.render(addressForm, (Customer) getCurrentUser()));
     }
 
     @Security.Authenticated(Secured.class)
     @Transactional
-    public Result changeAddressSubmit(){
+    public Result changeAddressSubmit() {
 
         Form<User> userForm = formFactory.form(User.class);
         Form<Address> addressForm = formFactory.form(Address.class).bindFromRequest();
 
+        try {
+            if (addressForm.hasErrors()) {
+                flash("error", "Something went wrong.");
+                return badRequest(changeAddress.render(addressForm, (Customer) getCurrentUser()));
+            }
 
-        if (addressForm.hasErrors()) {
-            return badRequest(changeAddress.render(addressForm, (Customer)getCurrentUser()));
+
+            if (addressForm.get().getCountry().equals("Ireland")) {
+                if (Address.eircodeCheck(addressForm.get().getEircode()) == false) {
+                    flash("error", "Eircode doesn't match the format. Example: A65 F4E2.");
+                    return badRequest(changeAddress.render(addressForm, (Customer) getCurrentUser()));
+                }
+            }
+
+
+            Address a = addressForm.get();
+
+
+            Customer u = (Customer) getCurrentUser();
+            Address ao = u.getAddress();
+            ao.setfName(a.getfName());
+            ao.setlName(a.getlName());
+            ao.setStreetAddress(a.getStreetAddress());
+            ao.setCountry(a.getCountry());
+            ao.setEircode(a.getEircode());
+            ao.setTown(a.getTown());
+            u.setAddress(ao);
+            u.save();
+
+        } catch (io.ebean.DataIntegrityException e) {
+            flash("error", "One of your forms input had too much data in it.");
+            return badRequest(changeAddress.render(addressForm, (Customer) getCurrentUser()));
         }
-
-
-        if(addressForm.get().getCountry().equals("Ireland")){
-        if (Address.eircodeCheck(addressForm.get().getEircode()) == false) {
-            flash("error", "Eircode doesn't match the format. Example: A65 F4E2.");
-            return badRequest(changeAddress.render(addressForm, (Customer)getCurrentUser()));
-        }}
-
-
-        Address a = addressForm.get();
-
-
-
-        Customer u = (Customer)getCurrentUser();
-        Address ao = u.getAddress();
-        ao.setfName(a.getfName());
-        ao.setlName(a.getlName());
-        ao.setStreetAddress(a.getStreetAddress());
-        ao.setCountry(a.getCountry());
-        ao.setEircode(a.getEircode());
-        ao.setTown(a.getTown());
-        u.setAddress(ao);
-        u.save();
 
         flash("success", "Address successfully changed.");
         return ok(profile.render(e, getCurrentUser(), userForm));
     }
 
-
-
 }
-
 
 
 

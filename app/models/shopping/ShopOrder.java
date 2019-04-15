@@ -1,18 +1,16 @@
 package models.shopping;
 
-import java.text.DateFormat;
-import java.util.*;
+import io.ebean.Finder;
+import io.ebean.Model;
+import models.products.Product;
+import models.users.Customer;
+
 import javax.persistence.*;
-
-import io.ebean.*;
-import play.data.format.*;
-import play.data.validation.*;
-
-import java.util.Date;
-
-import models.products.*;
-import models.users.*;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 // ShopOrder entity managed by Ebean
 @Entity
 public class ShopOrder extends Model {
@@ -22,7 +20,7 @@ public class ShopOrder extends Model {
 
     private Date OrderDate;
 
-    @OneToMany(mappedBy="order", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> items;
 
 
@@ -31,7 +29,7 @@ public class ShopOrder extends Model {
 
 
     // Default constructor
-    public  ShopOrder() {
+    public ShopOrder() {
         OrderDate = new Date();
     }
 
@@ -39,7 +37,7 @@ public class ShopOrder extends Model {
 
         double total = 0;
 
-        for (OrderItem i: items) {
+        for (OrderItem i : items) {
             total += i.getItemTotal();
         }
 
@@ -47,7 +45,7 @@ public class ShopOrder extends Model {
     }
 
     //Generic query helper
-    public static Finder<Long,ShopOrder> find = new Finder<Long,ShopOrder>(ShopOrder.class);
+    public static Finder<Long, ShopOrder> find = new Finder<Long, ShopOrder>(ShopOrder.class);
 
     //Find all Products in the database
     public static List<ShopOrder> findAll() {
@@ -67,7 +65,7 @@ public class ShopOrder extends Model {
     }
 
 
-    public Calendar toCalendar(){
+    public Calendar toCalendar() {
         Date date = getOrderDate();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
@@ -97,7 +95,7 @@ public class ShopOrder extends Model {
 
 
     public String getOrderDateString() {
-        if(OrderDate == null) {
+        if (OrderDate == null) {
             return "No Date Available";
         }
         String s = new SimpleDateFormat("dd-MMM-yyyy").format(OrderDate.getTime());
@@ -105,7 +103,7 @@ public class ShopOrder extends Model {
     }
 
 
-    public void adjustStock(){
+    public void adjustStock() {
         for (OrderItem i : items) {
             Product ios = Product.find.byId(i.getProduct().getId());
             if (i.getProduct().getId() == ios.getId()) {
@@ -117,11 +115,7 @@ public class ShopOrder extends Model {
     }
 
 
-
     // for all products
-
-
-
 
 
 }

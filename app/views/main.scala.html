@@ -245,14 +245,14 @@
                         @if(user.isInstanceOf[models.users.Admin]){
                             <li><a href="@routes.AdminProductCtrl.adminPanel()"><span class="glyphicon glyphicon-cog"></span> Admin Panel</a></li>
                         }
+                        @if(user.isInstanceOf[models.users.Customer]){
                         <li><a href="@routes.ShoppingCtrl.showBasket()"><span class="glyphicon glyphicon-shopping-cart"></span> Basket</a></li>
                         <li><a href="@routes.ShoppingCtrl.viewOrders()"><span class="glyphicon glyphicon-log-in"></span> View Orders</a></li>
-
+                            }
                         <li><a href="@routes.HomeController.profile()">
                             <i class="fa fa-user-circle-o"></i>
                             @if(user!=null){
                                 @user.getEmail} </span>
-
                         </a></li>
                         <li><a href="@routes.LoginController.logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                     } else {
