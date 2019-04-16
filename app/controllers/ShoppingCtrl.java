@@ -369,13 +369,18 @@ try{
         d = Discount.find.byId(newDiscountForm.get().getDiscountID());
         b.setDiscountSet(true);
         b.setDiscount(d);
+
+        for (int i = 0; i < b.getBasketItems().size(); i++) {
+            b.getBasketItems().get(i).setDiscount(d);
+        }
+
         System.out.println("THIS HERE" + b.getDiscount().getAmount());
 
 
         System.out.println("HIHI" + d.getDiscountID());
         System.out.println("HIHI" + d.getAmount());
 
-        
+
         b.update();
 
         flash("success", "Discount has been applied.");
