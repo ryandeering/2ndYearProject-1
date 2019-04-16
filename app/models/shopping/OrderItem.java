@@ -7,6 +7,7 @@ import models.products.Product;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import java.sql.SQLOutput;
 import java.util.List;
 
 // OrderItem entity managed by Ebean
@@ -58,13 +59,10 @@ public class OrderItem extends Model {
     // Calculate and return total price for this order item
     public double getItemTotal() {
         double total = this.price * this.quantity;
-
-        if (!discount.getDiscountID().equals("null") & discount.isValid() == true) {
-            double discountAmount = total * discount.getAmount();
-            return total - discountAmount / 100;
-        }
-
-        return total;
+        double total2 = total * (2 - discount.getAmount());
+        System.out.println(discount.getAmount());
+        System.out.println("THIS IS TOTAL 2 " + total2);
+        return total2;
 
     }
 

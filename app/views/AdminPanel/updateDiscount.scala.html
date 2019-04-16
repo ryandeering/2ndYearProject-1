@@ -1,0 +1,28 @@
+@(dForm: Form[models.shopping.Discount],user: models.users.User)
+
+@import models.users.User
+@import helper._
+
+@main("Add/Update Discount",user){
+    <p class="lead">Add a new discount.</p>
+
+        <!-- Use a views.html.helpers package method to create the form (instead of html)-->
+        <!-- Note the arguments that are being passed to the scala function form (they are
+         essentially instructions for constructing an HTML form element)-->
+    @helper.form(action=routes.AdminProductCtrl.addDiscountSubmit(), 'class -> "form-horizontal", 'role -> "form") {
+        @* CSRF attack prevention *@
+        @* This token, sent by the controller, will be used to authenticate the form submission *@
+        @CSRF.formField
+        @inputText(dForm("discountID"), '_label -> "Discount ID", 'class -> "form-control")
+        @inputText(dForm("discountName"), '_label -> "Discount Name", 'class -> "form-control")
+        @inputText(dForm("amount"), '_label -> "Amount", 'class -> "form-control")
+        @checkbox(dForm("valid"), 'class -> "form-control")
+
+        <div class="actions">
+            <input type="submit" value="Add Discount" class="btn btn-primary">
+            <a href="@routes.AdminProductCtrl.discount()">
+                <button type="button" class="btn btn-warning">Cancel</button>
+            </a>
+        </div>
+    } @* end of form *@
+} @* end of main *@

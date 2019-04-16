@@ -117,7 +117,7 @@ public class Basket extends Model {
         for (OrderItem i : basketItems) {
             total += i.getItemTotal();
         }
-        return discountPrice(total);
+        return total;
     }
 
     //Generic query helper
@@ -153,16 +153,15 @@ public class Basket extends Model {
         this.customer = customer;
     }
 
-    public double discountPrice(double total) {
-        if (!discount.getDiscountID().equals("null") & discount.isValid() == true) {
-            double discountAmount = total * discount.getAmount();
-            System.out.println();
-            return total - discountAmount / 100;
-        }
-        System.out.println(discount.getAmount());
-        System.out.println(total);
-        return total;
-    }
+//    public double discountPrice(double total) {
+//        if (!discount.getDiscountID().equals("null") & discount.isValid() == true) {
+//            double discountAmount = total * discount.getAmount();
+//            System.out.println();
+//        }
+//        System.out.println(discount.getAmount());
+//        System.out.println(total);
+//        return total;
+//    }
 
     public void setDiscount(Discount discount) {
         this.discount = discount;

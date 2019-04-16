@@ -20,7 +20,7 @@ public class Discount extends Model {
 
     private String discountName;
 
-    private boolean valid;
+    public boolean valid;
 
     private double amount;
 

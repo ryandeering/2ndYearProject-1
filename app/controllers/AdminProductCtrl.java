@@ -231,7 +231,6 @@ public class AdminProductCtrl extends Controller {
         Form<Discount> newdForm = formFactory.form(Discount.class).bindFromRequest();
 
         System.out.println(newdForm.get().getDiscountID());
-        System.out.println(newdForm.get().isValid());
 
         if (newdForm.hasErrors()) {
             return badRequest(addDiscount.render(newdForm, User.getUserById(session().get("email"))));
@@ -243,10 +242,10 @@ public class AdminProductCtrl extends Controller {
                 return badRequest(discount.render(a, User.getUserById(session().get("email"))));
             }
 
-
-            if (d != null) {
+            if (Discount.getDiscountById(d.getDiscountID()) == null) {
                 d.save();
             } else {
+                d.setValid(false);
                 d.update();
             }
 

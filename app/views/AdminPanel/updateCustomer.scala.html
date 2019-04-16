@@ -4,7 +4,7 @@
 @import helper._
 
 @main("Add Customer",user){
-    <p class="lead">Add/Update a customer</p>
+    <p class="lead">Update Customer</p>
 
         <!-- Use a views.html.helpers package method to create the form (instead of html)-->
         <!-- Note the arguments that are being passed to the scala function form (they are
@@ -13,12 +13,12 @@
         @* CSRF attack prevention *@
         @* This token, sent by the controller, will be used to authenticate the form submission *@
         @CSRF.formField
-        @inputText(cForm("email"), '_label -> "Email", 'class -> "form-control")
+        @inputText(cForm("email"), '_label -> "", 'hidden -> "hidden")
         @inputText(cForm("fName"), '_label -> "First Name", 'class -> "form-control")
         @inputText(cForm("lName"), '_label -> "Last Name", 'class -> "form-control")
         @inputText(cForm("password"), '_label -> "Password", 'class -> "form-control")
         @inputText(cForm("role").copy(value=Some("customer")), '_label -> "",'hidden -> "hidden")
-        @inputText(cForm("email"), '_label -> "", 'hidden -> "hidden")
+
 
         <!-- We use the bootstrap actions class for the buttons at the bottom:
                 1. The submit button for the form

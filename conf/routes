@@ -38,7 +38,7 @@ POST   /registerUserSubmit                      controllers.HomeController.regis
 GET /admin/addAdmin         controllers.HomeController.addAdmin
 POST /admin/addAdminSubmit controllers.HomeController.addAdminSubmit
 GET /admin/addCustomer controllers.HomeController.addCustomer
-POST /admin/addCustomerSubmit controllers.HomeController.addCustomerSubmit
+POST /admin/addCustomerSubmit controllers.HomeController.addCustomerSubmit(email: String)
 GET /admin/admin controllers.HomeController.usersAdmin
 GET /admin/customers controllers.HomeController.usersCustomer
 GET /admin/updateCustomer/:id controllers.HomeController.updateCustomer(id: String)
