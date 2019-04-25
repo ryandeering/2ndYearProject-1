@@ -369,3 +369,15 @@
 16/04/2019 21:18:09 | Ryan Deering placed order8 under role customer
 16/04/2019 21:40:50 | Ryan Deering placed order39 under role customer
 16/04/2019 21:41:28 | Ryan Deering placed order40 under role customer
+19/04/2019 22:08:31 | q q logged in under role customer
+                                                         22/04/2019 20:54:03 | q q logged in under role customer
+24/04/2019 19:00:48 | q q logged in under role customer
+24/04/2019 20:27:13 | q q logged out under role customer
+24/04/2019 20:34:40 | a a logged in under role customer
+24/04/2019 21:18:34 | a a logged out under role customer
+24/04/2019 21:19:12 | q q logged in under role customer
+24/04/2019 21:20:37 | q q placed order71 under role customer
+24/04/2019 21:24:28 | q q cancelled order 71 under role customer
+25/04/2019 21:10:09 | q q logged in under role customer
+25/04/2019 21:22:00 | q q logged out under role customer
+25/04/2019 21:22:09 | q q logged in under role customer

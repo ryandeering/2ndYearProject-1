@@ -3,6 +3,12 @@
 @import helper._
 
 @main("Change Address",user){
+<div style=" 
+		margin-left: 0px;
+		margin-right: 0px;
+                    background: #eee;
+                    padding: 3em;
+                    line-height: 1.5em; ">
 
     @if(flash.containsKey("error")) {
         <div class="alert alert-danger">
@@ -47,5 +53,6 @@
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>
+</div>
 } @* end of form *@
 } @* end of main *@

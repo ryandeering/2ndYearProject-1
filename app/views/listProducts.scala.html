@@ -5,38 +5,48 @@
 
 
 @main("Products Page", user) {
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- Stylesheets -->
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/assets/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="/assets/css/owl.carousel.css"/>
+	<link rel="stylesheet" href="/assets/css/style.css"/>
+	<link rel="stylesheet" href="/assets/css/animate.css"/>
+ 
+	
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+     
+    </head>
 
-	<style>
-		form {
-			margin-bottom: 1em;
-		}
+<!-- Page section -->
+	
+	<section class="page-section community-page set-bg" >
+		<div class="community-warp spad">
+			<div class="container">
+				<div class="row">
 
-		.list-group{
-    max-height: 300px;
-    margin-top: 12px;
-    margin-bottom: 12px;
-	overflow: auto;
-    -webkit-overflow-scrolling: touch;
-}
+	 			<ul class="community-post-list">
+					<li><a href="@routes.ProductCtrl.listProducts(0, filter)" class="fw-title"><p style="font-size:15px;color:#007bff;">All categories</p></a></li>
+					@for(c <- categories) {
+					<li>	
+								<a href="@routes.ProductCtrl.listProducts(c.getId, filter)" class="fw-title" ><p style="font-size:15px;color:#007bff;">@c.getName</p></a>
+					</li>
+					}
+				</ul>
+			</div>
+		
+	</section>
+	<!-- Page section end -->
 
-	.game{
-	width: 101%;
-	padding-top:2.6em;
-	padding-right:1em;
-	}
-	</style>
-
-	<div class="row">
-
-	  <div class="col-md-3">
-	<div class="list-group"	>
-
-			<a href="@routes.ProductCtrl.listProducts(0, filter)" class="list-group-item">All categories</a>
-			@for(c <- categories) {
-		<a href="@routes.ProductCtrl.listProducts(c.getId, filter)" class="list-group-item">@c.getName</a>
-			}
-	</div>
-	  </div>
 
 		<div class="col-md-9">
 			@if(flash.containsKey("success")) {
@@ -46,15 +56,18 @@
 			}
 
 			<!-- Search Form -->
-			<div id="actions">
-			 <form action="@routes.ProductCtrl.listProducts(catId)" method="GET">
-				<input type="search" id="searchbox" name="filter" value="@filter" placeholder="Filter by product name...">
-				<input type="submit" id="searchsubmit" value="Filter by name" class="btn-md btn-primary">
-			 </form>
-			</div>
+
+					<div class="widget-item">
+						<form action="@routes.ProductCtrl.listProducts(catId)" method="GET" class="search-widget">
+							<input type="search" id="searchbox" name="filter" value="@filter" placeholder="Search by name...">
+							<button ><input style="color:black;" type="submit" id="searchsubmit" value="🔍 Search"></button>
+						</form>
+					</div>
+
+			
 
 
-<div class="container">
+<div class="container" style=" margin: 0 auto; text-align: center; height:80%;">
 @for(p <- products) {
   <div class="well">
       <div class="media">
@@ -101,4 +114,22 @@
 			
 		</div>
 	</div>
+<!-- Footer section -->
+	<footer class="footer-section">
+		<div class="container">
+			<ul class="footer-menu">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="review.html">Games</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+			<p class="copyright">
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved  
+</p>
+		</div>
+	</footer>
+	<!-- Footer section end -->
+</div>
+
+</div>
+</div>
 }

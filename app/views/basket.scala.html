@@ -15,7 +15,7 @@
 
         <script src="https://www.paypalobjects.com/api/checkout.js"></script>
     </head>
-    <body>
+    <body >
 <div class="row">
 
 
@@ -28,13 +28,13 @@
         }
 
 
-        <table class="table table-bordered table-hover table-condensed">
+        <table class="table table-bordered table-hover table-condensed" style="background-color:white;">
 			<thead>
 			<tr>
 				<th>Name</th>
-				<th>Description</th>
-				<th>Item Price</th>
-				<th>Total</th>
+				<th style="width:400px;">Description</th>
+				<th style="width:80px;">Item Price</th>
+				<th style="width:60px;">Total</th>
 				<th>Quantity</th>
                 <th>Dec.</th>
                 <th>Inc.</th>
@@ -79,19 +79,17 @@
                     <span class="glyphicon glyphicon-trash"></span> Empty Basket</a>
                 </p>
             </div>  
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
                 <p class="text-right">
                     <a href="@routes.ShoppingCtrl.placeOrder()" class="btn btn-success btn-sm">
                     <span class="glyphicon glyphicon-euro"></span> Place Order</a>
                 </p>
             </div>  
-        </div>
+      -->
+
         <div id="paypal-button"></div>
     </div>
-</div>
 
-
-    </body>
 <script>
 	function confirmDel() {
 		return confirm('Are you sure?');
@@ -162,4 +160,7 @@
 @*</script>*@
 
     </keep-alive>
-
+</div>
+</div>
+</section>
+    </body>

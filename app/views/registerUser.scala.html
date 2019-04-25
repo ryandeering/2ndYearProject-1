@@ -3,6 +3,10 @@
     @import helper._
 
     @main("Register User",user){
+<div style=" 
+                    background: #eee;
+                    padding: 5em;
+                    line-height: 1.5em; ">
 
         @if(flash.containsKey("error")) {
             <div class="alert alert-danger">
@@ -57,5 +61,6 @@
 
 
         </div>
+</div>
     } @* end of form *@
     } @* end of main *@

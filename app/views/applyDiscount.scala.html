@@ -4,6 +4,12 @@
 @import helper._
 
 @main("Discount",c) {
+<div style=" 
+		margin-left: 0px;
+		margin-right: 0px;
+                    background: #eee;
+                    padding: 3em;
+                    line-height: 1.5em; ">
     <p class="lead">Apply Discount</p>
     @if(flash.containsKey("error")) {
         <div class="alert alert-danger">
@@ -21,5 +27,6 @@
                 <button type="button" class="btn-md btn-default btn">Cancel</button>
             </a>
         </div>
+</div>
     }
 }
