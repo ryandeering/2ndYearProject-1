@@ -28,7 +28,7 @@ public class Customer extends User {
 
     public Customer(String email, String password, String fName, String lName, String role) {
         super(email, password, fName, lName, role);
-        this.address = address;
+        this.address = new Address();
     }
 
     public Basket getBasket() {

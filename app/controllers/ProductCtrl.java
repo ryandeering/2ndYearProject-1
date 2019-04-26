@@ -40,6 +40,7 @@ public class ProductCtrl extends Controller {
         return redirect(routes.ProductCtrl.listProducts(0, ""));
     }
 
+
     @Transactional
     public Result listProducts(Long cat, String filter) {
         List<Category> categories = Category.findAll();

@@ -8,6 +8,8 @@ import models.users.Customer;
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
+
 import java.util.Date;
 import java.util.List;
 
@@ -98,7 +100,7 @@ public class ShopOrder extends Model {
         if (OrderDate == null) {
             return "No Date Available";
         }
-        String s = new SimpleDateFormat("dd-MMM-yyyy").format(OrderDate.getTime());
+        String s = new SimpleDateFormat("dd-MMM-yyyy").format(OrderDate);
         return s;
     }
 

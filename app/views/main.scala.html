@@ -43,27 +43,30 @@
                         @if(user.isInstanceOf[models.users.Admin]){
 				
                             <a href="@routes.AdminProductCtrl.adminPanel()"><span class="glyphicon glyphicon-cog"></span> Admin Panel</a></li>
-				
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         }
                         @if(user.isInstanceOf[models.users.Customer]){
-			
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="@routes.ShoppingCtrl.showBasket()"><span class="glyphicon glyphicon-shopping-cart"></span> Basket</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        <a href="@routes.ShoppingCtrl.viewOrders()"><span class="glyphicon glyphicon-log-in"></span> View Orders</a>
-			
+				&nbsp;&nbsp;&nbsp;&nbsp;
                             }
-			
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        <a href="@routes.HomeController.profile()">
                             <i class="fa fa-user-circle-o"></i>
                             @if(user!=null){
                                 @user.getEmail} </span>
+						   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </a>
                         <a href="@routes.LoginController.logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
-			
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     } else {
-			
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="@routes.HomeController.registerUser()"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="@routes.LoginController.login()"><span class="glyphicon glyphicon-log-in"></span> Login</a>
-			
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     }
 			</div>
 			<!-- responsive -->
@@ -76,22 +79,24 @@
 					<li><a href="@routes.ProductCtrl.listProducts(0)">Home</a></li>
 					
 					<li><a href="@routes.HomeController.contact()">Contact</a></li>
+
+
 				</ul>
 			</nav>
 		</div>
 	</header>
 	<!-- Header section end -->
 <!-- Latest news section -->
-	<div class="latest-news-section">
-		<div class="ln-title">Latest News</div>
-		<div class="news-ticker">
-			<div class="news-ticker-contant">
-				<div class="nt-item"><span class="new">new</span>USE CODE: 'BIGSAVINGS' for 1% off!! </div>
-				<div class="nt-item"><span class="strategy">strategy</span>Play Civilisation 6 out now !!!</div>
-				<div class="nt-item"><span class="racing">racing</span>Need for speed payback in stores now!!!</div>
-			</div>
+<div class="latest-news-section">
+	<div class="ln-title">Latest News</div>
+	<div class="news-ticker">
+		<div class="news-ticker-contant">
+			<div class="nt-item"><span class="new">new</span>Resident Evil 2 out now!</div>
+			<div class="nt-item"><span class="strategy">strategy</span>Civilization 6 out on Switch now. </div>
+			<div class="nt-item"><span class="racing">discount</span> Use BIGSAVINGS for 15% off.</div>
 		</div>
 	</div>
+</div>
 	<!-- Latest news section end -->
 
 
@@ -111,10 +116,21 @@
 
        
         </nav>
-      
-            	
 
 
+
+<footer class="footer-section">
+	<div class="container">
+		<ul class="footer-menu">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="review.html">Games</a></li>
+			<li><a href="contact.html">Contact</a></li>
+		</ul>
+		<p class="copyright">
+			Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+		</p>
+	</div>
+</footer>
     </body>
 </html>
 <!--====== Javascripts & Jquery ======-->

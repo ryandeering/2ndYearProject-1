@@ -36,6 +36,12 @@ public class Address {
 
 
     public Address() {
+        this.fName = "";
+        this.lName = "";
+        this.streetAddress = "";
+        this.town = "";
+        this.eircode = "";
+        this.country = "";
     }
 
     public Long getId() {

@@ -78,22 +78,26 @@
 	</header>
 	<!-- Header section end -->
 
+
+@if(flash.containsKey("error")) {
+<div class="alert alert-danger">
+    @flash.get("error")
+</div>
+}
+
+@if(flash.containsKey("success")) {
+<div class="alert alert-success">
+    @flash.get("success")
+</div>
+}
+
+
+
+
 <div class="container" style=" margin: 0 auto; text-align: center; height:85%;">
 	<div class="row">
 
 
-
-        @if(flash.containsKey("error")) {
-            <div class="alert alert-danger">
-            @flash.get("error")
-            </div>
-        }
-
-            @if(flash.containsKey("success")) {
-                <div class="alert alert-success">
-                @flash.get("success")
-                </div>
-            }
 
 
 

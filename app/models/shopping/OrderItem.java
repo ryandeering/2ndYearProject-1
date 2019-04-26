@@ -59,11 +59,13 @@ public class OrderItem extends Model {
     // Calculate and return total price for this order item
     public double getItemTotal() {
         double total = this.price * this.quantity;
-        double total2 = total * (2 - discount.getAmount());
-        System.out.println(discount.getAmount());
-        System.out.println("THIS IS TOTAL 2 " + total2);
-        return total2;
 
+        if(discount.getAmount() == 0){
+            return total;
+        } else {
+            double total2 = total * (1 - discount.getAmount());
+            return total2;
+        }
     }
 
     //Generic query helper

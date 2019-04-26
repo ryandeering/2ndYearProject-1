@@ -62,7 +62,7 @@ public class HomeController extends Controller {
 		return ok(profile.render(e, User.getUserById(session().get("email")), pf));
 	}
 
-	@Security.Authenticated(Secured.class)
+
 	@Transactional
 	public Result contact() {
 		Form<User> pf = formFactory.form(User.class); // hack

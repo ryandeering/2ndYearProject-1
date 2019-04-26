@@ -24,6 +24,7 @@ import views.html.orderConfirmed;
 import views.html.viewOrders;
 
 import javax.inject.Inject;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -192,16 +193,19 @@ public class ShoppingCtrl extends Controller {
 
     Customer c = getCurrentUser();
 
-    if (c.getAddress().getStreetAddress().equals(new Address())) {
-        flash("error", "You've probably not set your address. Go to your profile and set it!");
-        return badRequest(basket.render(c));
-    }
+
 
     if (c.getBasket().getBasketTotal() == 0.00) {
-
         flash("success", "Your basket is empty. ");
         return badRequest(basket.render(c));
     }
+            if (c.getAddress().getStreetAddress().equals("")) {
+                flash("error", "You've probably not set your address. Go to your profile and set it!");
+                return badRequest(basket.render(c));
+            }
+
+
+
     // Create an order instance
     ShopOrder order = new ShopOrder();
 try{
@@ -241,17 +245,17 @@ try{
     for (OrderItem i : copy) {
         itable = itable + "<tr><td>" + i.getProduct().getName() + "</td><td>" + i.getQuantity() + "</td><td> " + i.getPrice() + " Euro</td><td>" + i.getItemTotal() + " Euro</td></tr>";
     }
-
+    SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
     //send email
     String cid = c.getEmail();
     final Email email = new Email()
-            .setSubject("Order ID:" + order.getId() + " | " + order.getOrderDate())
+            .setSubject("Order ID:" + order.getId() + " | " + format.format(order.getOrderDate()))
             .setFrom("CDR Games <cdrgamescdr@email.com>")
             .addTo(c.getfName() + " " + c.getlName() + "<" + c.getEmail() + ">")
-            .setBodyHtml("<html> <body style=' border: 1px solid black; background-color:grey;'><center><h1>CDR Games</h1></center> <h2> Name: " + c.getfName() + " " + c.getlName() + " <br/> Address: " + c.getAddress() + " <br/> Order Total: " + order.getOrderTotal() + "</h2><br/><h2>ORDER RECEIPT: <br/>  Order Info:  <table style=' border: 1px solid black;'>" + itable + " <br/> </table></h2></body></html>");
+            .setBodyHtml("<html> <body style=' border: 1px solid black; background-color:grey;'><center><h1>CDR Games</h1></center> <h2> Name: " + c.getfName() + " " + c.getlName() + " <br/> Address: " + c.getAddress().getStreetAddress() + "\n" + c.getAddress().getTown() + "\n" + c.getAddress().getCountry() + "\n" + " <br/> Order Total: " + order.getOrderTotal() + "</h2><br/><h2>ORDER RECEIPT: <br/>  Order Info:  <table style=' border: 1px solid black;'>" + itable + " <br/> </table></h2></body></html>");
     mailer.send(email);
 } catch (Exception e) {
-    System.out.println(e.getMessage());
+    e.printStackTrace();
 }
 
         // Show order confirmed view
@@ -268,7 +272,12 @@ try{
 
     @Transactional
     public Result viewOrders() {
-        Customer c = (Customer) User.getLoggedIn(session().get("email"));
+        try {
+            Customer c = (Customer) User.getLoggedIn(session().get("email"));
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
         return ok(viewOrders.render((Customer) User.getUserById(session().get("email"))));
     }
 
@@ -360,25 +369,27 @@ try{
             return badRequest(basket.render(c));
         }
 
+//        if(d.valid == false){
+//            flash("error", "Discount is out of date and not valid anymore, sorry!");
+//            return badRequest(basket.render(c));
+//        }
+
+
+        d = Discount.find.byId(newDiscountForm.get().getDiscountID());
+
+
         if(d.valid == false){
             flash("error", "Discount is out of date and not valid anymore, sorry!");
             return badRequest(basket.render(c));
         }
 
 
-        d = Discount.find.byId(newDiscountForm.get().getDiscountID());
         b.setDiscountSet(true);
         b.setDiscount(d);
 
         for (int i = 0; i < b.getBasketItems().size(); i++) {
             b.getBasketItems().get(i).setDiscount(d);
         }
-
-        System.out.println("THIS HERE" + b.getDiscount().getAmount());
-
-
-        System.out.println("HIHI" + d.getDiscountID());
-        System.out.println("HIHI" + d.getAmount());
 
 
         b.update();
