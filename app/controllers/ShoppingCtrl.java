@@ -5,7 +5,6 @@ import models.shopping.Basket;
 import models.shopping.Discount;
 import models.shopping.OrderItem;
 import models.shopping.ShopOrder;
-import models.users.Address;
 import models.users.Customer;
 import models.users.User;
 import play.api.Environment;
@@ -25,7 +24,6 @@ import views.html.viewOrders;
 
 import javax.inject.Inject;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -191,72 +189,70 @@ public class ShoppingCtrl extends Controller {
     public Result placeOrder() {
 
 
-    Customer c = getCurrentUser();
+        Customer c = getCurrentUser();
 
 
+        if (c.getBasket().getBasketTotal() == 0.00) {
+            flash("success", "Your basket is empty. ");
+            return badRequest(basket.render(c));
+        }
+        if (c.getAddress().getStreetAddress().equals("")) {
+            flash("error", "You've probably not set your address. Go to your profile and set it!");
+            return badRequest(basket.render(c));
+        }
 
-    if (c.getBasket().getBasketTotal() == 0.00) {
-        flash("success", "Your basket is empty. ");
-        return badRequest(basket.render(c));
-    }
-            if (c.getAddress().getStreetAddress().equals("")) {
-                flash("error", "You've probably not set your address. Go to your profile and set it!");
-                return badRequest(basket.render(c));
+
+        // Create an order instance
+        ShopOrder order = new ShopOrder();
+        try {
+
+            // Associate order with customer
+            order.setCustomer(c);
+
+
+            // Copy basket to order
+            order.setItems(c.getBasket().getBasketItems());
+
+            // Save the order now to generate a new id for this order
+            order.save();
+
+
+            // Move items from basket to order
+            for (OrderItem i : order.getItems()) {
+
+                i.setOrder(order);
+                i.setBasket(null);
+                i.setDiscount(c.getBasket().getDiscount());
+                i.update();
             }
 
+            String itable = "";
 
+            // Update the order
+            order.update();
+            List<OrderItem> copy = order.getItems();
+            HomeController.log("placed order" + order.getId());
+            // Clear and update the shopping basket
+            c.getBasket().setBasketItems(null);
+            c.getBasket().setDiscount(new Discount());
+            c.getBasket().setDiscountSet(false);
+            c.getBasket().update();
 
-    // Create an order instance
-    ShopOrder order = new ShopOrder();
-try{
-
-    // Associate order with customer
-    order.setCustomer(c);
-
-
-    // Copy basket to order
-    order.setItems(c.getBasket().getBasketItems());
-
-    // Save the order now to generate a new id for this order
-    order.save();
-
-
-    // Move items from basket to order
-    for (OrderItem i : order.getItems()) {
-
-        i.setOrder(order);
-        i.setBasket(null);
-        i.setDiscount(c.getBasket().getDiscount());
-        i.update();
-    }
-
-    String itable = "";
-
-    // Update the order
-    order.update();
-    List<OrderItem> copy = order.getItems();
-    HomeController.log("placed order" + order.getId());
-    // Clear and update the shopping basket
-    c.getBasket().setBasketItems(null);
-    c.getBasket().setDiscount(new Discount());
-    c.getBasket().setDiscountSet(false);
-    c.getBasket().update();
-
-    for (OrderItem i : copy) {
-        itable = itable + "<tr><td>" + i.getProduct().getName() + "</td><td>" + i.getQuantity() + "</td><td> " + i.getPrice() + " Euro</td><td>" + i.getItemTotal() + " Euro</td></tr>";
-    }
-    SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-    //send email
-    String cid = c.getEmail();
-    final Email email = new Email()
-            .setSubject("Order ID:" + order.getId() + " | " + format.format(order.getOrderDate()))
-            .setFrom("CDR Games <cdrgamescdr@email.com>")
-            .addTo(c.getfName() + " " + c.getlName() + "<" + c.getEmail() + ">")
-            .setBodyHtml("<html> <body style=' border: 1px solid black; background-color:grey;'><center><h1>CDR Games</h1></center> <h2> Name: " + c.getfName() + " " + c.getlName() + " <br/> Address: " + c.getAddress().getStreetAddress() + "\n" + c.getAddress().getTown() + "\n" + c.getAddress().getCountry() + "\n" + " <br/> Order Total: " + order.getOrderTotal() + "</h2><br/><h2>ORDER RECEIPT: <br/>  Order Info:  <table style=' border: 1px solid black;'>" + itable + " <br/> </table></h2></body></html>");
-    mailer.send(email);
-} catch (Exception e) {
-    e.printStackTrace();
-}
+            for (OrderItem i : copy) {
+                itable = itable + "<tr><td>" + i.getProduct().getName() + "</td><td>" + i.getQuantity() + "</td><td> " + i.getPrice() + " Euro</td><td>" + i.getItemTotal() + " Euro</td></tr>";
+            }
+            SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+            //send email
+            String cid = c.getEmail();
+            final Email email = new Email()
+                    .setSubject("Order ID:" + order.getId() + " | " + format.format(order.getOrderDate()))
+                    .setFrom("CDR Games <cdrgamescdr@email.com>")
+                    .addTo(c.getfName() + " " + c.getlName() + "<" + c.getEmail() + ">")
+                    .setBodyHtml("<html> <body style=' border: 1px solid black; background-color:grey;'><center><h1>CDR Games</h1></center> <h2> Name: " + c.getfName() + " " + c.getlName() + " <br/> Address: " + c.getAddress().getStreetAddress() + "\n" + c.getAddress().getTown() + "\n" + c.getAddress().getCountry() + "\n" + " <br/> Order Total: " + order.getOrderTotal() + "</h2><br/><h2>ORDER RECEIPT: <br/>  Order Info:  <table style=' border: 1px solid black;'>" + itable + " <br/> </table></h2></body></html>");
+            mailer.send(email);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         // Show order confirmed view
         return ok(orderConfirmed.render(c, order));
@@ -275,7 +271,7 @@ try{
         try {
             Customer c = (Customer) User.getLoggedIn(session().get("email"));
 
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return ok(viewOrders.render((Customer) User.getUserById(session().get("email"))));
@@ -357,7 +353,6 @@ try{
         Basket b = c.getBasket();
 
 
-
         if (newDiscountForm.hasErrors()) {
             flash("error", "Error");
             return badRequest(basket.render(c));
@@ -378,7 +373,7 @@ try{
         d = Discount.find.byId(newDiscountForm.get().getDiscountID());
 
 
-        if(d.valid == false){
+        if (d.valid == false) {
             flash("error", "Discount is out of date and not valid anymore, sorry!");
             return badRequest(basket.render(c));
         }

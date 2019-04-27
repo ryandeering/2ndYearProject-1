@@ -60,7 +60,7 @@ public class OrderItem extends Model {
     public double getItemTotal() {
         double total = this.price * this.quantity;
 
-        if(discount.getAmount() == 0){
+        if (discount.getAmount() == 0) {
             return total;
         } else {
             double total2 = total * (1 - discount.getAmount());
