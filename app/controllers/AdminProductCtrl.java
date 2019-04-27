@@ -237,8 +237,8 @@ public class AdminProductCtrl extends Controller {
         } else {
             Discount d = newdForm.get();
 
-            if (d.getAmount() < 1) {
-                flash("success", "Under 0. Invalid.");
+            if (d.getAmount() < 0 || d.getAmount() > 1) {
+                flash("error", "Invalid number.");
                 return badRequest(discount.render(a, User.getUserById(session().get("email"))));
             }
 

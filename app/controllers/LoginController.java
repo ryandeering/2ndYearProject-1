@@ -48,7 +48,17 @@ public class LoginController extends Controller {
     public Result logout() {
 
         HomeController.log("logged out");
-        session().clear();
+
+
+        try{
+            session().clear();
+        } catch (Exception e){
+            flash("success", "You've probably already logged out.");
+            return redirect(routes.LoginController.login());
+        }
+
+
+
         flash("success", "You have been logged out");
         return redirect(routes.LoginController.login());
     }

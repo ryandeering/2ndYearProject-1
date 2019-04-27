@@ -1,14 +1,21 @@
 import akka.actor.ActorSystem;
-import controllers.AsyncController;
-import controllers.CountController;
+import models.products.Product;
+import models.shopping.Discount;
+import models.shopping.OrderItem;
+import models.shopping.ShopOrder;
+import models.users.Customer;
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 import play.mvc.Result;
 import scala.concurrent.ExecutionContextExecutor;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CompletionStage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
+import static org.hamcrest.CoreMatchers.is;
 import static play.test.Helpers.contentAsString;
 
 /**
@@ -19,36 +26,23 @@ import static play.test.Helpers.contentAsString;
 public class UnitTest {
 
     @Test
-    public void simpleCheck() {
-        int a = 1 + 1;
-        assertThat(a).isEqualTo(2);
+    public void applyDiscountCheck() {
+        Product p = new Product(20L, "Game", "aa", 2, 60.00, "nintendo", "nintendo");
+        OrderItem o = new OrderItem(p);
+        o.setDiscount(new Discount("BIGSAVING", "Saving", true, 0.15));
+        ShopOrder so = new ShopOrder();
+        List<OrderItem> items = new ArrayList<>();
+        items.add(o);
+        so.setItems(items);
+        System.out.println("aaa " + so.getOrderTotal());
+        MatcherAssert.assertThat(so.getOrderTotal(), is(51.00));
     }
 
-    // Unit test a controller
     @Test
-    public void testCount() {
-        final CountController controller = new CountController(() -> 49);
-        Result result = controller.count();
-        assertThat(contentAsString(result)).isEqualTo("49");
+    public void accountCreation(){
+        Customer c = new Customer("test@test.com","password","Test", "Test", "customer");
+        assertThat(c.getfName().equals("Test"));
     }
 
-    // Unit test a controller with async return
-    @Test
-    public void testAsync() {
-        final ActorSystem actorSystem = ActorSystem.create("test");
-        try {
-            final ExecutionContextExecutor ec = actorSystem.dispatcher();
-            final AsyncController controller = new AsyncController(actorSystem, ec);
-            final CompletionStage<Result> future = controller.message();
-
-            // Block until the result is completed
-            await().untilAsserted(() ->
-                    assertThat(future.toCompletableFuture())
-                        .isCompletedWithValueMatching(result -> contentAsString(result).equals("Hi!"))
-            );
-        } finally {
-            actorSystem.terminate();
-        }
-    }
 
 }

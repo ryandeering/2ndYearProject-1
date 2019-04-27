@@ -138,12 +138,11 @@ public class HomeController extends Controller {
 	@With(AuthAdmin.class)
 	@Transactional
 	public Result updateAdmin(String email) {
-		Admin u;
-		Form<Admin> userForm;
+
+		Admin u = (Admin) User.getUserById(email);
+		Form<Admin> userForm = formFactory.form(Admin.class).fill(u);
 		try {
-			u = (Admin) User.getUserById(email);
 			u.update();
-			userForm = formFactory.form(Admin.class).fill(u);
 		} catch (Exception ex) {
 			return badRequest("error");
 		}
@@ -164,6 +163,8 @@ public class HomeController extends Controller {
 	@Transactional
 	@With(AuthAdmin.class)
 	public Result addAdminSubmit() {
+
+
 		Form<Admin> newUserForm = formFactory.form(Admin.class).bindFromRequest();
 		if (newUserForm.hasErrors()) {
 			return badRequest(addAdmin.render(newUserForm, User.getUserById(session().get("email"))));
@@ -177,6 +178,7 @@ public class HomeController extends Controller {
 					newUser.setPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
 					newUser.update();
 				}
+				newUser.update();
 			}
 
 			flash("success", "User " + newUser.getfName() + newUser.getlName() + " was added/updated.");
@@ -242,7 +244,7 @@ public class HomeController extends Controller {
 			u.update();
 		} catch (Exception ex) {
 			flash("error", "An error occured.");
-			return badRequest(addCustomer.render(userForm, User.getUserById(session().get("email"))));
+			return badRequest(updateCustomer.render(userForm, User.getUserById(session().get("email"))));
 		}
 		return ok(updateCustomer.render(userForm, User.getUserById(session().get("email"))));
 	}

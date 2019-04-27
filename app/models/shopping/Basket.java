@@ -17,7 +17,7 @@ public class Basket extends Model {
     @Id
     private Long id;
 
-    @OneToMany(mappedBy = "basket", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "basket", cascade = CascadeType.ALL)
     private List<OrderItem> basketItems;
 
     @OneToOne
