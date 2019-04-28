@@ -671,3 +671,14 @@
 27/04/2019 21:10:32 | Rita Daria logged in under role customer
 27/04/2019 21:11:17 | Rita Daria logged out under role customer
 27/04/2019 21:11:29 | Rita Daria logged in under role customer
+28/04/2019 18:10:33 | Ryan Deering logged in under role customer
+28/04/2019 18:22:04 | Ryan Deering logged out under role customer
+28/04/2019 18:22:18 | CDR Games logged in under role admin
+28/04/2019 18:22:30 | CDR Games deleted product Test 2 under role admin
+28/04/2019 18:22:33 | CDR Games deleted product Test 2 under role admin
+28/04/2019 18:22:35 | CDR Games logged out under role admin
+28/04/2019 18:22:45 | Ryan Deering logged in under role customer
+28/04/2019 18:26:48 | Ryan Deering logged out under role customer
+28/04/2019 18:26:58 | Ryan Deering logged in under role customer
+28/04/2019 18:37:29 | Ryan Deering logged out under role customer
+28/04/2019 18:41:32 | Ryan Deering logged in under role customer
