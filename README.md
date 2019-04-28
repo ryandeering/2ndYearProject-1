@@ -25,8 +25,8 @@ sbt run
 * [im4java](http://im4java.sourceforge.net/) - Image Upload
 
 ## Authors
-* **Ryan Deering** [ryandeering](https://github.com/ryandeering)
-* **Daria Denisiuk** [ritadaria1](https://github.com/ritadaria1)
+* **Ryan Deering** - [ryandeering](https://github.com/ryandeering)
+* **Daria Denisiuk** - [ritadaria1](https://github.com/ritadaria1)
 
 ## License
 
