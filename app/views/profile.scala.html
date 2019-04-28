@@ -130,9 +130,14 @@
        			<a href ="@routes.HomeController.changeAddress()" class="btn btn-primary">Change your address</a>
                      		}
 
-  
-                     
-                     </div>
+	   			@if(user.getRole() == "customer"){
+					<a href ="@routes.HomeController.deleteUser()" class="btn btn-primary">Delete your Account</a>
+	   					}
+
+
+
+
+   </div>
               
               <br>
 

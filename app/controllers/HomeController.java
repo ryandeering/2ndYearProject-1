@@ -505,6 +505,22 @@ public class HomeController extends Controller {
         return ok(profile.render(e, getCurrentUser(), userForm));
     }
 
+
+    @Security.Authenticated(Secured.class)
+    public Result deleteUser() {
+
+
+
+
+        User u = User.getUserById(getCurrentUser().getEmail());
+        session().clear();
+        u.delete();
+        flash("success", "Your account has been deleted. We're sorry to see you go.");
+
+        return redirect(routes.HomeController.index());
+
+    }
+
 }
 
 

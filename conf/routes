@@ -67,3 +67,4 @@ POST /changePasswordSubmit controllers.HomeController.changePasswordSubmit
 GET /changeAddress controllers.HomeController.changeAddress
 POST /changeAddressSubmit controllers.HomeController.changeAddressSubmit
 GET /404 controllers.HomeController.error()
+GET /deleteAccount controllers.HomeController.deleteUser()
