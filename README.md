@@ -13,7 +13,7 @@ To run the application. Type this into your terminal. It will run on localhost:9
 ```
 sbt run
 ```
-To login into the respective user types, use **customer@cdrgames.com** & **admin@cdrgames.com** to login. Both of these accounts have the same password: password.
+To login into the respective user types, use *customer@cdrgames.com* & *admin@cdrgames.com* to login. Both of these accounts have the same password: password.
 
 ## Built With
 
