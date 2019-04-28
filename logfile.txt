@@ -768,3 +768,59 @@
 28/04/2019 20:24:16 | Rita Daria logged in under role customer
 28/04/2019 20:24:29 | Rita Daria logged in under role customer
 28/04/2019 20:24:47 | Rita Daria logged out under role customer
+28/04/2019 20:34:24 | Rita Daria logged in under role customer
+28/04/2019 20:34:33 | Rita Daria logged out under role customer
+28/04/2019 20:34:35 | CDR Games logged in under role admin
+28/04/2019 20:34:39 | CDR Games logged out under role admin
+28/04/2019 20:34:44 | CDR Games logged in under role admin
+28/04/2019 20:34:51 | CDR Games logged out under role admin
+28/04/2019 20:34:54 | Ryan Deering logged in under role admin
+28/04/2019 20:34:55 | Ryan Deering logged out under role admin
+28/04/2019 20:34:56 | CDR Games logged in under role admin
+28/04/2019 20:35:01 | CDR Games logged out under role admin
+28/04/2019 20:35:07 | CDR Games logged in under role admin
+28/04/2019 20:35:15 | CDR Games logged out under role admin
+28/04/2019 20:35:18 | Ryan Deeringe logged in under role customer
+28/04/2019 20:35:33 | Ryan Deeringe logged out under role customer
+28/04/2019 20:35:35 | CDR Games logged in under role admin
+28/04/2019 20:35:38 | CDR Games logged out under role admin
+28/04/2019 20:35:42 | CDR Games logged in under role admin
+28/04/2019 20:35:47 | CDR Games added a product Test under role admin
+28/04/2019 20:35:52 | CDR Games updated a product under role admin
+28/04/2019 20:35:56 | CDR Games updated a product under role admin
+28/04/2019 20:36:01 | CDR Games logged out under role admin
+28/04/2019 20:36:05 | Rita Daria logged in under role customer
+28/04/2019 20:36:11 | Rita Daria logged out under role customer
+28/04/2019 20:36:12 | Rita Daria logged in under role customer
+28/04/2019 20:36:18 | Rita Daria logged out under role customer
+28/04/2019 20:36:21 | Rita Daria logged in under role customer
+28/04/2019 20:36:22 | Rita Daria logged out under role customer
+28/04/2019 20:36:27 | Rita Daria logged in under role customer
+28/04/2019 20:36:44 | Rita Daria logged in under role customer
+28/04/2019 20:36:55 | Rita Daria logged out under role customer
+28/04/2019 20:37:00 | Rita Daria logged in under role customer
+28/04/2019 20:37:02 | Rita Daria logged out under role customer
+28/04/2019 20:37:07 | Rita Daria logged in under role customer
+28/04/2019 20:37:13 | Rita Daria logged out under role customer
+28/04/2019 20:37:37 | CDR Games logged in under role admin
+28/04/2019 20:37:49 | CDR Games logged out under role admin
+28/04/2019 20:38:03 | Ryan Deering logged in under role customer
+28/04/2019 20:38:31 | Ryan Deering logged in under role customer
+28/04/2019 20:42:57 | CDR Games logged in under role admin
+28/04/2019 20:43:02 | CDR Games deleted product Test 2 under role admin
+28/04/2019 20:43:05 | CDR Games deleted product Test 2 under role admin
+28/04/2019 20:43:47 | CDR Games added a product Ace Combat 7: Skies Unknown under role admin
+28/04/2019 20:44:12 | CDR Games deleted product Ace Combat 7: Skies Unknown under role admin
+28/04/2019 20:46:44 | CDR Games added a product a under role admin
+28/04/2019 20:47:30 | CDR Games updated a product under role admin
+28/04/2019 20:48:54 | CDR Games deleted product a under role admin
+28/04/2019 20:50:01 | CDR Games logged out under role admin
+28/04/2019 20:50:09 | Ryan Deering logged in under role customer
+28/04/2019 20:52:14 | r d logged in under role customer
+28/04/2019 20:53:17 | r d logged in under role customer
+28/04/2019 20:53:39 | Ryan Deering logged in under role customer
+28/04/2019 20:58:56 | Ryan Deering logged out under role customer
+28/04/2019 20:59:16 | r d logged in under role customer
+28/04/2019 21:03:39 | r d placed order5 under role customer
+28/04/2019 21:04:39 | r d cancelled order 5 under role customer
+28/04/2019 21:04:49 | Ryan Deering logged in under role customer
