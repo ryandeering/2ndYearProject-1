@@ -37,14 +37,43 @@
 		<div class="loader"></div>
 	</div>
 
-	<!-- Header section -->
+<!-- Header section -->
 	<header class="header-section">
 		<div class="container">
 			<!-- logo -->
-			<a class="site-logo" href="@routes.ProductCtrl.listProducts(0)">
-				<img src="/assets/images/logo.png" width="60px" height="60px" alt="">
-			</a>
-			
+			<img src="/assets/images/logo.png" width="120px" height="100px" alt="">
+			<div class="user-panel">
+				@if(user != null) {
+
+                        @if(user.isInstanceOf[models.users.Admin]){
+				
+                            <a href="@routes.AdminProductCtrl.adminPanel()"><span class="glyphicon glyphicon-cog"></span> Admin Panel</a></li>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        }
+                        @if(user.isInstanceOf[models.users.Customer]){
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="@routes.ShoppingCtrl.showBasket()"><span class="glyphicon glyphicon-shopping-cart"></span> Basket</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       <a href="@routes.ShoppingCtrl.viewOrders()"><span class="glyphicon glyphicon-log-in"></span> View Orders</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+                            }
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       <a href="@routes.HomeController.profile()">
+                            <i class="fa fa-user-circle-o"></i>
+                            @if(user!=null){
+                                @user.getEmail} </span>
+						   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </a>
+                        <a href="@routes.LoginController.logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    } else {
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="@routes.HomeController.registerUser()"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="@routes.LoginController.login()"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    }
+			</div>
 			<!-- responsive -->
 			<div class="nav-switch">
 				<i class="fa fa-bars"></i>
@@ -52,9 +81,11 @@
 			<!-- site menu -->
 			<nav class="main-menu">
 				<ul>
-					<li><a href="@routes.ProductCtrl.listProducts(0)">Home</a></li>
-					
+					<li><a href="@routes.HomeController.home()">Home</a></li>
+					<li><a href="@routes.ProductCtrl.listProducts(0)">Products List</a></li>
 					<li><a href="@routes.HomeController.contact()">Contact</a></li>
+
+
 				</ul>
 			</nav>
 		</div>
@@ -95,7 +126,7 @@
 	<!-- Page section -->
 	<section class="page-section spad contact-page">
 		<div class="container">
-			<div class="map" id="map-canvas"></div>
+			
 			<div class="row">
 				<div class="col-lg-4 mb-5 mb-lg-0">
 					<h4 class="comment-title" style="color:white;">Contact us</h4>
@@ -115,26 +146,7 @@
 						<a href="#"><i class="fa fa-linkedin"></i></a>
 					</div>
 				</div>
-				<div class="col-lg-8">
-					<div class="contact-form-warp">
-						<h4 class="comment-title" style="color:white;">Leave a Reply</h4>
-						<form class="comment-form">
-							<div class="row">
-								<div class="col-md-6">
-									<input type="text" placeholder="Name">
-								</div>
-								<div class="col-md-6">
-									<input type="email" placeholder="Email">
-								</div>
-								<div class="col-lg-12">
-									<input type="text" placeholder="Subject">
-									<textarea placeholder="Message"></textarea>
-									<button class="site-btn btn-sm">Send</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	</section>
@@ -147,9 +159,9 @@
 	<footer class="footer-section">
 		<div class="container">
 			<ul class="footer-menu">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="review.html">Games</a></li>
-				<li><a href="contact.html">Contact</a></li>
+				<li><a href="@routes.HomeController.home()">Home</a></li>
+					<li><a href="@routes.ProductCtrl.listProducts(0)">Products List</a></li>
+					<li><a href="@routes.HomeController.contact()">Contact</a></li>
 			</ul>
 			<p class="copyright">
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
@@ -167,9 +179,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="/assets/js/main.js"></script>
 
 
-	<!-- load for map -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWTIlluowDL-X4HbYQt3aDw_oi2JP0Krc&sensor=false"></script>
-	<script src="/assets/js/map.js"></script>
+	
 
     </body>
 </html>

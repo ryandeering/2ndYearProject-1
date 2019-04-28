@@ -1,0 +1,282 @@
+
+@import models.users.User
+@import helper._
+
+@(env: play.api.Environment,user: User, pf:Form[models.users.User])
+
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+	<title>CDR Games Home</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="CdrGames">
+	<meta name="keywords" content="warrior, game, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->   
+	<link href="img/favicon.ico" rel="shortcut icon"/>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/assets/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="/assets/css/owl.carousel.css"/>
+	<link rel="stylesheet" href="/assets/css/style.css"/>
+	<link rel="stylesheet" href="/assets/css/animate.css"/>
+
+
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="container">
+			<!-- logo -->
+			<img src="/assets/images/logo.png" width="120px" height="100px" alt="">
+			<div class="user-panel">
+				@if(user != null) {
+
+                        @if(user.isInstanceOf[models.users.Admin]){
+				
+                            <a href="@routes.AdminProductCtrl.adminPanel()"><span class="glyphicon glyphicon-cog"></span> Admin Panel</a></li>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        }
+                        @if(user.isInstanceOf[models.users.Customer]){
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="@routes.ShoppingCtrl.showBasket()"><span class="glyphicon glyphicon-shopping-cart"></span> Basket</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       <a href="@routes.ShoppingCtrl.viewOrders()"><span class="glyphicon glyphicon-log-in"></span> View Orders</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+                            }
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       <a href="@routes.HomeController.profile()">
+                            <i class="fa fa-user-circle-o"></i>
+                            @if(user!=null){
+                                @user.getEmail} </span>
+						   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </a>
+                        <a href="@routes.LoginController.logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    } else {
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="@routes.HomeController.registerUser()"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="@routes.LoginController.login()"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    }
+			</div>
+			<!-- responsive -->
+			<div class="nav-switch">
+				<i class="fa fa-bars"></i>
+			</div>
+			<!-- site menu -->
+			<nav class="main-menu">
+				<ul>
+					<li><a href="@routes.HomeController.home()">Home</a></li>
+					<li><a href="@routes.ProductCtrl.listProducts(0)">Products List</a></li>
+					<li><a href="@routes.HomeController.contact()">Contact</a></li>
+
+
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<!-- Header section end -->
+
+
+	<!-- Hero section -->
+	<section class="hero-section">
+		<div class="hero-slider owl-carousel">
+			<div class="hs-item set-bg" data-setbg="/assets/img/slider-1.jpg">
+				<div class="hs-text">
+					<div class="container">
+						<h2>The Best <span>Games</span> Out There</h2>
+					
+					</div>
+				</div>
+			</div>
+			<div class="hs-item set-bg" data-setbg="/assets/img/slider-2.jpg">
+				<div class="hs-text">
+					<div class="container">
+						<h2>The Best <span>Games</span> Out There</h2>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Hero section end -->
+
+
+	<!-- Latest news section -->
+	<div class="latest-news-section">
+		<div class="ln-title">Latest News</div>
+		<div class="news-ticker">
+			<div class="news-ticker-contant">
+				<div class="nt-item"><span class="new">new</span>Resident Evil 2 out now!</div>
+				<div class="nt-item"><span class="strategy">strategy</span>Civilization 6 out on Switch now. </div>
+				<div class="nt-item"><span class="racing">discount</span> Use BIGSAVINGS for 15% off.</div>
+			</div>
+		</div>
+	</div>
+	<!-- Latest news section end -->
+
+
+
+	<!-- Recent game section  -->
+	<section class="recent-game-section spad set-bg" data-setbg="/assets/img/recent-game-bg.png">
+		<div class="container">
+			<div class="section-title">
+				<div class="cata new">new</div>
+				<h2>Recent Games</h2>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-md-6">
+					<div class="recent-game-item">
+						<div class="rgi-thumb set-bg" data-setbg="/assets/img/recent-game/1.jpg">
+							<div class="cata new">new</div>
+						</div>
+						<div class="rgi-content">
+							<h5>OVERWATCH</h5>
+							<p>Fight in teams of 5 to dominate the competition! </p>
+							<a href="@routes.ProductCtrl.listProducts(0)" class="comment">Check it out in our products list</a>
+							<div class="rgi-extra">
+								<div class="rgi-star"><img src="/assets/img/icons/star.png" alt=""></div>
+								<div class="rgi-heart"><img src="/assets/img/icons/heart.png" alt=""></div>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="recent-game-item">
+						<div class="rgi-thumb set-bg" data-setbg="/assets/img/recent-game/2.jpg">
+							<div class="cata racing">racing</div>
+						</div>
+						<div class="rgi-content">
+							<h5>Destiny 3</h5>
+							<p>Search through space and become the strongest in the all new online FPS. </p>
+							<a href="@routes.ProductCtrl.listProducts(0)" class="comment">Check it out in our products list</a>
+							<div class="rgi-extra">
+								<div class="rgi-star"><img src="/assets/img/icons/star.png" alt=""></div>
+								<div class="rgi-heart"><img src="/assets/img/icons/heart.png" alt=""></div>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="recent-game-item">
+						<div class="rgi-thumb set-bg" data-setbg="/assets/img/recent-game/3.jpg">
+							<div class="cata adventure">Adventure</div>
+						</div>
+						<div class="rgi-content">
+							<h5>Fallout 76</h5>
+							<p>Explore the world after nukes have destroied the earth! </p>
+							<a href="@routes.ProductCtrl.listProducts(0)" class="comment">Check it out in our products list</a>
+							<div class="rgi-extra">
+								<div class="rgi-star"><img src="/assets/img/icons/star.png" alt=""></div>
+								<div class="rgi-heart"><img src="/assets/img/icons/heart.png" alt=""></div>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Recent game section end -->
+
+
+	
+
+
+	<!-- Review section -->
+	<section class="review-section spad set-bg" data-setbg="/assets/img/review-bg.png">
+		<div class="container">
+			<div class="section-title">
+				<div class="cata new">new</div>
+				<h2 style="color:white;">Critic Reviews</h2>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<div class="review-item">
+						<div class="review-cover set-bg" data-setbg="/assets/img/review/1.jpg">
+							<div class="score yellow">9.3</div>
+						</div>
+						<div class="review-text">
+							<h5 style="color:white;">Assasin’’s Creed</h5>
+							<p style="color:white;">I loved this game the open world was amazing!</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="review-item">
+						<div class="review-cover set-bg" data-setbg="/assets/img/review/2.jpg">
+							<div class="score purple">9.5</div>
+						</div>
+						<div class="review-text">
+							<h5 style="color:white;">Doom</h5>
+							<p style="color:white;">If you love blood and killing zombies this game is for you I loved it !</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="review-item">
+						<div class="review-cover set-bg" data-setbg="/assets/img/review/3.jpg">
+							<div class="score green">9.1</div>
+						</div>
+						<div class="review-text">
+							<h5 style="color:white;">Overwatch</h5>
+							<p style="color:white;">Recommend this game to anyone looking for a challenge I really enjoyed it!</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="review-item">
+						<div class="review-cover set-bg" data-setbg="/assets/img/review/4.jpg">
+							<div class="score pink">9.7</div>
+						</div>
+						<div class="review-text">
+							<h5 style="color:white;">GTA</h5>
+							<p style="color:white;">So much fun going around wreaking havok this game is amazing!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Review section end -->
+
+
+	<!-- Footer section -->
+	<footer class="footer-section">
+		<div class="container">
+			<ul class="footer-menu">
+				<li><a href="@routes.HomeController.home()">Home</a></li>
+					<li><a href="@routes.ProductCtrl.listProducts(0)">Products List</a></li>
+					<li><a href="@routes.HomeController.contact()">Contact</a></li>
+			</ul>
+			<p class="copyright">
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
+</p>
+		</div>
+	</footer>
+	<!-- Footer section end -->
+
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="/assets/js/jquery-3.2.1.min.js"></script>
+	<script src="/assets/js/bootstrap.min.js"></script>
+	<script src="/assets/js/owl.carousel.min.js"></script>
+	<script src="/assets/js/jquery.marquee.min.js"></script>
+	<script src="/assets/js/main.js"></script>
+    </body>
+</html>

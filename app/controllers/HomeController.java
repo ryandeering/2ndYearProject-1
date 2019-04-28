@@ -38,6 +38,13 @@ public class HomeController extends Controller {
         this.formFactory = f;
         this.e = env;
     }
+	
+	@Transactional
+	public Result home() {
+		Form<User> pf = formFactory.form(User.class); // hack 
+		return ok(home.render(e, User.getUserById(session().get("email")), pf));
+	}
+
 
     public Result index() {
         return ok(index.render(User.getUserById(session().get("email"))));

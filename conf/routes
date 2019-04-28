@@ -28,6 +28,7 @@ POST	/admin/updateProductSubmit/:id		controllers.AdminProductCtrl.updateProductS
 GET     /admin/delProduct/:id               controllers.AdminProductCtrl.deleteProduct(id:Long)
 GET     /profile                    controllers.HomeController.profile
 GET     /contact                        controllers.HomeController.contact
+GET     /home                        controllers.HomeController.home
 
 
 

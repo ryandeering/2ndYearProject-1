@@ -37,7 +37,7 @@ public class ProductCtrl extends Controller {
     }
 
     public Result index() {
-        return redirect(routes.ProductCtrl.listProducts(0, ""));
+        return redirect(routes.HomeController.home());
     }
 
 

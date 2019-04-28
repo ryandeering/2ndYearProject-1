@@ -36,7 +36,7 @@
 	<header class="header-section">
 		<div class="container">
 			<!-- logo -->
-			 <a href='@routes.ProductCtrl.listProducts(0)'><img src="/assets/images/logo.png" width='60px' height='60px' alt="logo"></a>
+			<img src="/assets/images/logo.png" width="120px" height="100px" alt="">
 			<div class="user-panel">
 				@if(user != null) {
 
@@ -76,8 +76,8 @@
 			<!-- site menu -->
 			<nav class="main-menu">
 				<ul>
-					<li><a href="@routes.ProductCtrl.listProducts(0)">Home</a></li>
-					
+					<li><a href="@routes.HomeController.home()">Home</a></li>
+					<li><a href="@routes.ProductCtrl.listProducts(0)">Products List</a></li>
 					<li><a href="@routes.HomeController.contact()">Contact</a></li>
 
 
@@ -117,14 +117,14 @@
        
         </nav>
 
-
+</div>
 
 <footer class="footer-section">
 	<div class="container">
 		<ul class="footer-menu">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="review.html">Games</a></li>
-			<li><a href="contact.html">Contact</a></li>
+			<li><a href="@routes.HomeController.home()">Home</a></li>
+					<li><a href="@routes.ProductCtrl.listProducts(0)">Products List</a></li>
+					<li><a href="@routes.HomeController.contact()">Contact</a></li>
 		</ul>
 		<p class="copyright">
 			Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
