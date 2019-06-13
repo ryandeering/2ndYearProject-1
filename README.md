@@ -7,6 +7,7 @@ It is an eCommerce application based on an online video game store, hooked up to
 
 Login system + BCrypt implementation, CRUD Admin + Customer, product image upload functionality, Discount system, Review system, Statistics class, logfile, testing, Change Password + Address + Profile Picture functionality in profile page, content filter implementation, Eircode regex method implementation. 
 
+**I recieved an A grade (92% out of 100%) for my contributions to this project.**
 
 To run the application. Type this into your terminal. It will run on localhost:9000.
 
